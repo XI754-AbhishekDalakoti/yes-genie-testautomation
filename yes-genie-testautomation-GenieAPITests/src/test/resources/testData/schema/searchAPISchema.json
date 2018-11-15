@@ -22,7 +22,7 @@
           "mdmId",
           "custId",
           "customerName",
-          "addressCity",
+          "city",
           "addressArea",
           "homeBranch",
           "assetRM",
@@ -62,10 +62,10 @@
             ],
             "pattern": "^(.*)$"
           },
-          "addressCity": {
-            "$id": "#/properties/records/items/properties/addressCity",
+          "city": {
+            "$id": "#/properties/records/items/properties/city",
             "type": "string",
-            "title": "The Addresscity Schema",
+            "title": "The city Schema",
             "default": "",
             "examples": [
               "goa"
