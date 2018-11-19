@@ -26,13 +26,9 @@ Feature: Login
     And I enter "admin" into input field having id "username"
     And I enter "test" into input field having id "password"
     When I click on element having class "buttonRipple"
-#    Then I should get logged-in
+    Then I should get logged-in
     Then I wait for 2 sec
+    And I validate last login format
     And Last Login date and time is displayed with basic info
     And I wait for 2 sec
-#    Then I should get logout
-
-#  @Regression
-#  Scenario: Close browser
-#    Then I close browser
-
+    Then I should get logout

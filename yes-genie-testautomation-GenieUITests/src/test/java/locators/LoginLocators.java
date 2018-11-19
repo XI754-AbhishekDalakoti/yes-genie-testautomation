@@ -34,13 +34,13 @@ public class LoginLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'Manager')]")
     public static WebElement display_Designation;
 
-    @FindBy(how = How.XPATH, using = "//span[@class='_1HWu9-VMmg-bQcnoV5fSo-']")
+    @FindBy(how = How.XPATH, using = "//div[@class=\"_1HWu9-VMmg-bQcnoV5fSo-\"]")
     public static WebElement display_Parameters;
 
     @FindBy(how = How.XPATH, using = "//img[@class='_3fWXu3xqpHxPGTycDx3vir']")
     public static WebElement dropDown;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Logout')]")
+    @FindBy(how = How.XPATH, using = "//span[@class=\"_2O0Ri2JF46aMO3IhgbLFWj\"]")
     public static WebElement Logout_button;
 
 }

@@ -17,7 +17,6 @@ import java.io.*;
 		}
 )
 
-
 public class RunCukeTest {
 	public static void writeExtentReport() {
 		Reporter.loadXMLConfig(new File("config/report.xml"));

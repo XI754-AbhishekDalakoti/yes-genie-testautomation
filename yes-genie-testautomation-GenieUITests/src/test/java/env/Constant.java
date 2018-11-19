@@ -6,7 +6,7 @@ public class Constant {
     public static final String name = "Ravindra Singh";
     public static final String designation = "Manager";
     public static final String role = "Collector";
-    public static final String SearchParameters = "Cust ID, MDM ID, Mobile No., PAN, Passport, Cust Name, Account No., AUS ID, CKYC No., UPI Handle, Twitter ID, Aadhar";
+    public static final String SearchParameters = "Cust IDMDM IDMobile No.PANPassportCust NameAccount No.AUS IDCKYC No.UPI HandleTwitter IdAadharEmail";
     public static final String WelcomeMessage = "Welcome, Abhishek Sharma";
     public static final String MDMID = "MDM ID";
     public static final String CUSTID = "Cust ID";
@@ -26,4 +26,3 @@ public class Constant {
     public static final int threshold =50;
 
 }
-

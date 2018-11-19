@@ -3,6 +3,8 @@ package pageObjects;
 import env.Constant;
 import locators.LoginLocators;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
@@ -38,6 +40,8 @@ public class LoginPage extends LoginLocators {
         System.out.println(UserRole);
         Assert.assertEquals(Constant.designation,UserDesignation);
         Assert.assertEquals(Constant.role,UserRole);
+
+        driver.findElement(By.xpath("//div[@class=\"Ug7OgGNM7EPVYG5js9Amg\"]")).click();
     }
 
     public void staticSearchParameters() {
@@ -57,5 +61,5 @@ public class LoginPage extends LoginLocators {
         SimpleDateFormat sdfrmt = new SimpleDateFormat("MMMM dd, yyyy, hh:mm a");
         sdfrmt.setLenient(false);
         sdfrmt.parse(strDate);
-        }
+    }
 }

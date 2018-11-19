@@ -25,13 +25,13 @@ public class UserStepDefinitions implements BaseTest {
     @Given("^I should get logged-in$")
     public void should_logged_in() throws Throwable {
 
-        By selection = By.id("flash");
+        By selection = By.xpath("//span[@class=\"_2QCs8cFfqH_wnXLIYBu5ro ZU4gfSwYj6EDl657TJqnA\"]");
         (new WebDriverWait(driver, 30)).until(
                 visibilityOfElementLocated(selection));
-        String msg = driver.findElement(By.id("flash")).getText();
+        String msg = driver.findElement(By.xpath("//span[@class=\"_2QCs8cFfqH_wnXLIYBu5ro ZU4gfSwYj6EDl657TJqnA\"]")).getText();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Welcome, Ravindra Singh", msg);
+        Assert.assertEquals("Welcome, Rajat Gupta", msg);
     }
 
     @Then("^I should get logged-in with welcome message$")
@@ -131,15 +131,10 @@ public class UserStepDefinitions implements BaseTest {
         sp.toolTipMessageDisplayCustID();
     }
 
-/*    public void toolTipMessageForCustIdToSearch() {
-        sp.toolTipMessageDisplayCustID();
-    }*/
-
     @And("^I validate last login format$")
     public void iValidateLastLoginFormat() throws Throwable {
         lp.validateFormat();
     }
-
     @And("^Displays search criteria with count$")
     public void displaysSearchCriteriaWithCount() throws Throwable {
         sp.searchCriteria();

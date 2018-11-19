@@ -4,6 +4,7 @@
 
 
 # IntelliJ
+.idea/
 .idea/artifacts
 .idea/compiler.xml
 .idea/misc.xml

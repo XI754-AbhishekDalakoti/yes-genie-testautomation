@@ -51,7 +51,7 @@ public class SearchPage extends SearchLocators {
         String countText = driver.findElement(By.xpath("//span[@class=\"_3EgRXlYvEjwG3mDsFlPzjz\"]")).getText();
         String arrayOfRowCount[] = countText.split("\\(");
         Assert.assertEquals(rowCount.trim(),arrayOfRowCount[1].trim());
-        }
+    }
 
     public void noSearchResultDisplay(){
         String noSearchResult = heading_NoSearchResult.getText();
