@@ -1,5 +1,6 @@
 package info.seleniumcucumber.userStepDefintions;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -29,7 +30,7 @@ public class UserStepDefinitions implements BaseTest {
         String msg = driver.findElement(By.xpath("//span[@class='_2QCs8cFfqH_wnXLIYBu5ro ZU4gfSwYj6EDl657TJqnA']")).getText();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Welcome, Ravindra Singh", msg);
+        Assert.assertEquals("Welcome Panna Das", msg);
     }
 
     @Then("^I should get error message$")
@@ -50,7 +51,7 @@ public class UserStepDefinitions implements BaseTest {
     }
 
     @When("^User enters \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void userEntersAnd(String Username, String Password) throws Throwable {
+    public void userEntersCredentials(String Username, String Password) throws Throwable {
         lp.enterCredentials(Username, Password);
     }
 
@@ -60,25 +61,15 @@ public class UserStepDefinitions implements BaseTest {
         lp.Login_button.click();
     }
 
-    @And("^Last Login date and time is displayed with basic info$")
-    public void lastLoginDateAndTimeIsDisplayedWithBasicInfo() throws Throwable {
-        lp.displayLoginDateTimeBasicInfo();
-    }
-
     @And("^Under search bar contains static search parameters$")
-    public void searchBarContainsStaticSearchParameters() throws Throwable {
+    public void underSearchBarContainsStaticSearchParameters() throws Throwable {
         lp.staticSearchParameters();
 
     }
 
-    @When("^I get the page title and decide the starting page$")
-    public void verifyAndDecideTestCaseFlow() {
-        String title = sp.getpageTitle().trim();
-        if (title.equalsIgnoreCase("Log in to YBL")) {
-            System.out.println("t : " + title);
-        } else {
-            lp.logOut();
-        }
+    @When("^I'm on login page$")
+    public void verifyImOnLoginPage() {
+        lp.verifyLoginPage();
     }
 
     @Then("^I should get logout$")
@@ -107,19 +98,34 @@ public class UserStepDefinitions implements BaseTest {
     }
 
     @And("^Accordingly respective \"([^\"]*)\" gets highlighted$")
-    public void accordinglyParticularParameterGetsHighlighted(String Parameter1) throws Throwable {
+    public void accordinglyRespectiveParameterGetsHighlighted(String Parameter1) throws Throwable {
         sp.bubbleSearch(Parameter1);
     }
 
     @Then("^I enter \"([^\"]*)\" into search field having (.+) \"([^\"]*)\"$")
-    public void enter_text(String text, String type, String accessName) throws Exception {
+    public void enterTextInSearchField(String text, String type, String accessName) throws Exception {
         miscmethodObj.validateLocator(type);
         inputObj.enterText(type, text, accessName);
     }
 
     @Then("^I click on search button having (.+) \"(.*?)\"$")
-    public void click(String type, String accessName) throws Exception {
+    public void clickOnSearchButton(String type, String accessName) throws Exception {
         miscmethodObj.validateLocator(type);
         clickObj.click(type, accessName);
+    }
+
+    @And("^I validate Last Login date and time format displayed on bottom right of the page$")
+    public void iValidateLastLoginDateAndTimeFormat() throws Throwable {
+        lp.lastLoginDateTimeFormat();
+    }
+
+    @Then("^I validate basic information is displayed on top right$")
+    public void iValidateBasicInformationIsDisplayedOnTopRight() throws Throwable {
+        lp.displayBasicInformation();
+    }
+
+    @And("^I click on dropdown on top right of page$")
+    public void iClickOnDropdownOnTopRightOfPage() throws Throwable {
+        lp.clickDropDownOnTopRight();
     }
 }

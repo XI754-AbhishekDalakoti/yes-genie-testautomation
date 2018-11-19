@@ -25,15 +25,26 @@ public class LoginPage extends LoginLocators {
         textBox_Password.sendKeys(Password);
     }
 
-    public void displayLoginDateTimeBasicInfo() throws ParseException {
+    public void verifyLoginPage() {
+        String title = sp.getpageTitle().trim();
+        if (title.equalsIgnoreCase("Log in to YBL")) {
+            System.out.println("t : " + title);
+        } else {
+            lp.logOut();
+        }
+    }
+
+    public void lastLoginDateTimeFormat() throws ParseException {
 
         String strDate = display_LastLogin.getText();
         strDate = strDate.replaceAll("Last Login: ", "");
-        SimpleDateFormat sdfrmt = new SimpleDateFormat("MMMM dd, yyyy, hh:mm a");
+        SimpleDateFormat sdfrmt = new SimpleDateFormat("dd-MMM-yyyy, hh:mm a");
         sdfrmt.setLenient(false);
         sdfrmt.parse(strDate);
+    }
 
-        dropDown.click();
+    public void displayBasicInformation() throws ParseException {
+
         String UserDesignation = display_Designation.getText();
         String UserRole = display_Role.getText();
         String UserName = display_Name.getText();
@@ -42,6 +53,10 @@ public class LoginPage extends LoginLocators {
         Assert.assertEquals(Constant.name,UserName);
 
         driver.findElement(By.xpath("//div[@class=\"Ug7OgGNM7EPVYG5js9Amg\"]")).click();
+    }
+
+    public void clickDropDownOnTopRight() {
+        dropDown.click();
     }
 
     public void staticSearchParameters() {
@@ -53,13 +68,5 @@ public class LoginPage extends LoginLocators {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         dropDown.click();
         Logout_button.click();
-    }
-
-    public void validateFormat() throws ParseException {
-        String strDate = display_LastLogin.getText();
-        strDate = strDate.replaceAll("Last Login: ", "");
-        SimpleDateFormat sdfrmt = new SimpleDateFormat("MMMM dd, yyyy, hh:mm a");
-        sdfrmt.setLenient(false);
-        sdfrmt.parse(strDate);
     }
 }

@@ -8,7 +8,7 @@ public class Constant {
     public static final String MDMID = "MDM ID";
     public static final String CUSTID = "Cust ID";
     public static final String CustomerName = "Customer Name";
-    public static final String DOB ="DOB";
+    public static final String DOB ="DOB/DOI";
     public static final String AdressCity = "Address City";
     public static final String AdressArea = "Address Area";
     public static final String HomeBranch = "Home Branch";
