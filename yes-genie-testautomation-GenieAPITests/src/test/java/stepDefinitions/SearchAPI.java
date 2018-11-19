@@ -26,13 +26,13 @@ public class SearchAPI extends SetupConfiguration {
         uri = value;
     }
 
-    @Then("^As a user i should get the positive response$")
+    @Then("^a user should get the positive response from the system$")
     public void validateAPIisOK() {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_OK);
     }
 
-    @Then("^As a user i should get status code is 400 as response$")
+    @Then("^user should get status code is 400 as response from the system$")
     public void validateAPIis400() {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_BAD_REQUEST);
@@ -44,25 +44,25 @@ public class SearchAPI extends SetupConfiguration {
                 body("searchParams['custId'][0]".toString(), is(value));
     }
 
-    @Then("^As a user i should get the response for \"([^\"]*)\" is \"([^\"]*)\"$")
+    @Then("^user should get the response from the system for first record for \"([^\"]*)\" is \"([^\"]*)\"$")
     public void respose_for_key_and_value_is(String key, String value) throws Throwable {
         response.then().
                 body(("records[0].".concat(key)), is(value));
     }
 
-    @Then("^As a user i should get the response for \"([^\"]*)\" is (\\d+) of numeric type$")
+    @Then("^user should get the response from the system for first record of numeric type for \"([^\"]*)\" is (\\d+)$")
     public void result_for_numeric_is(String key, int value) throws Throwable {
         response.then().
                 body("records[0].".concat(key), is(value));
     }
 
-    @Then("^As a user i will validate that count is greater than (\\d+)$")
+    @Then("^user should get the response from the system and count of records should be more than (\\d+)$")
     public void result_for_count_is(int value) throws Throwable {
         response.then().
                 body("count", greaterThanOrEqualTo(value));
     }
 
-    @Then("^As a user i should get the response true or false \"([^\"]*)\"$")
+    @Then("^user should get the response from the system as \"([^\"]*)\"$")
     public void result_as_response_is(String value) throws Throwable {
         boolean b = Boolean.parseBoolean(value);
         response.then().
@@ -75,7 +75,7 @@ public class SearchAPI extends SetupConfiguration {
                 body(matchesJsonSchema("searchAPISchema.json"));
     }
 
-    @When("^As a user i search with value \"([^\"]*)\" and setting isCustomerId \"([^\"]*)\" and value for threshold \"([^\"]*)\"$")
+    @When("^a user search with value \"([^\"]*)\" and setting value for isCustomerId is \"([^\"]*)\" and value for threshold \"([^\"]*)\"$")
     public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String isCustomerId, String thresholdValue) {
         response = given().accept(ContentType.JSON).
                 param("query", query).

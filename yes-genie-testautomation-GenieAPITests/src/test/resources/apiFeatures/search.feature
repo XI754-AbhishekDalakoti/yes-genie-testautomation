@@ -6,8 +6,8 @@ Feature: Validate Search API
 
   @simple
   Scenario Outline: User search with mdmid, mobile no, pan, adhar,name,account number etc. and validate customerSearchEnabled is true or false
-    When As a user i search with value "<query>" and setting isCustomerId "<custID>" and value for threshold "<threshold>"
-    Then As a user i should get the positive response
+    When a user search with value "<query>" and setting value for isCustomerId is "<custID>" and value for threshold "<threshold>"
+    Then a user should get the positive response from the system
     Examples:
       | query                  | custID | threshold |
       | 838191                 | false  | 50        |
@@ -23,13 +23,13 @@ Feature: Validate Search API
 
   @simple
   Scenario: User search with mdmid and validate customerSearchEnabled is true or false
-     When As a user i search with value "838297" and setting isCustomerId "true" and value for threshold "50"
-     Then As a user i should get the response true or false "true"
+    When a user search with value "838297" and setting value for isCustomerId is "true" and value for threshold "50"
+     Then user should get the response from the system as "true"
 
    @simple
   Scenario Outline: User search with valid custid and validate response for customerName, addressCity, addressArea, homeBranch, assetRM, liabilityRM, groupId, businessSegment, partnerSegment, customerOpenDate and  DOB
-     When As a user i search with value "838297" and setting isCustomerId "true" and value for threshold "50"
-     Then As a user i should get the response for "<key>" is "<value>"
+     When a user search with value "838297" and setting value for isCustomerId is "true" and value for threshold "50"
+     Then user should get the response from the system for first record for "<key>" is "<value>"
     Examples:
       | key              | value         |
       | customerName     | Foo6 foo      |
@@ -46,9 +46,9 @@ Feature: Validate Search API
 
   @simple
   Scenario Outline: User search with valid custid and validate response for custId, mdmId and customerSearchEnabled
-    When As a user i search with value "838297" and setting isCustomerId "true" and value for threshold "50"
-    Then As a user i should get the response true or false "true"
-    Then As a user i should get the response for "<nkey>" is <nvalue> of numeric type
+    When a user search with value "838297" and setting value for isCustomerId is "true" and value for threshold "50"
+    Then user should get the response from the system as "true"
+    Then user should get the response from the system for first record of numeric type for "<nkey>" is <nvalue>
     Examples:
       | nkey   | nvalue |
       | custId | 838297 |
@@ -56,28 +56,28 @@ Feature: Validate Search API
 
   @simple
   Scenario: User search with valid custid and validate schema
-    When As a user i search with value "838297" and setting isCustomerId "true" and value for threshold "50"
+    When a user search with value "838297" and setting value for isCustomerId is "true" and value for threshold "50"
     Then search api response schema is validated successfully
 
   @simple
   Scenario: User search to test threshold validation
-    When As a user i search with value "Vibhu" and setting isCustomerId "false" and value for threshold "50"
-    Then As a user i should get status code is 400 as response
+    When a user search with value "Vibhu" and setting value for isCustomerId is "false" and value for threshold "50"
+    Then user should get status code is 400 as response from the system
 
   @simple
   Scenario: User search with name and validate the count is greater
-    When As a user i search with value "Vibhu" and setting isCustomerId "false" and value for threshold "5000"
-    Then As a user i will validate that count is greater than 50
+    When a user search with value "Vibhu" and setting value for isCustomerId is "false" and value for threshold "5000"
+    Then user should get the response from the system and count of records should be more than 50
 
   @refine
   Scenario: User perform refine search with valid customer name and city and validate status
-    When As a user i search with value "Venkata Bhuvana Santhosh Kumar Rikka swamy+Thiruvananthapuram" and setting isCustomerId "false" and value for threshold "50"
-    Then As a user i should get the positive response
+    When a user search with value "Venkata Bhuvana Santhosh Kumar Rikka swamy+Thiruvananthapuram" and setting value for isCustomerId is "false" and value for threshold "50"
+    Then a user should get the positive response from the system
 
   @refine
   Scenario Outline: User perform refine search with valid customer name and city and validate status and validate response for customerName, addressCity, addressArea, homeBranch, assetRM, liabilityRM, groupId, businessSegment, partnerSegment, customerOpenDate and  DOB
-    When As a user i search with value "Foo6 foo+goa" and setting isCustomerId "false" and value for threshold "50"
-    Then As a user i should get the response for "<key>" is "<value>"
+    When a user search with value "Foo6 foo+goa" and setting value for isCustomerId is "false" and value for threshold "50"
+    Then user should get the response from the system for first record for "<key>" is "<value>"
     Examples:
       | key              | value         |
       | customerName     | Foo6 foo      |
@@ -94,8 +94,8 @@ Feature: Validate Search API
 
   @refine
   Scenario Outline: User perform refine search with valid customer name and city and validate status and validate response for customerName, addressCity, addressArea, homeBranch, assetRM, liabilityRM, groupId, businessSegment, partnerSegment, customerOpenDate and  DOB
-    When As a user i search with value "Foo6 foo+05/05/2007" and setting isCustomerId "false" and value for threshold "50"
-    Then As a user i should get the response for "<key>" is "<value>"
+    When a user search with value "Foo6 foo+05/05/2007" and setting value for isCustomerId is "false" and value for threshold "50"
+    Then user should get the response from the system for first record for "<key>" is "<value>"
     Examples:
       | key              | value         |
       | customerName     | Foo6 foo      |
