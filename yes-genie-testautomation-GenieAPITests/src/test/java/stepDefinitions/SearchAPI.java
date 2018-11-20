@@ -21,26 +21,26 @@ public class SearchAPI extends SetupConfiguration {
     public static Response response;
     public static String uri;
 
-    @Given("^api to test is \"([^\"]*)\"$")
-    public void apiValue(String value) {
-        uri = value;
-    }
-
     @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\"$")
-    public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String thresholdValue) {
+    public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String isCustomerId, String thresholdValue) {
         response = given().accept(ContentType.JSON).
                 param("query", query).
                 param("threshold", thresholdValue).
                 get(uri);
     }
 
-    @Then("^a user should get the positive response from the system$")
+    @Given("^api to test is \"([^\"]*)\"$")
+    public void apiValue(String value) {
+        uri = value;
+    }
+
+    @Then("^a user get the status code 200 as a response from the api$")
     public void validateAPIisOK() {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_OK);
     }
 
-    @Then("^user should get status code is 400 as response from the system$")
+    @Then("^user get status code is 400 as response from the api$")
     public void validateAPIis400() {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_BAD_REQUEST);
@@ -52,35 +52,34 @@ public class SearchAPI extends SetupConfiguration {
                 body("searchParams['custId'][0]".toString(), is(value));
     }
 
-    @Then("^user should get the response from the system for first record for \"([^\"]*)\" is \"([^\"]*)\"$")
+    @Then("^user get the response from the api for the initial record for \"([^\"]*)\" is \"([^\"]*)\"$")
     public void respose_for_key_and_value_is(String key, String value) throws Throwable {
         response.then().
                 body(("records[0].".concat(key)), is(value));
     }
 
-    @Then("^user should get the response from the system for first record of numeric type for \"([^\"]*)\" is (\\d+)$")
+    @Then("^user get the response from the api for initial record of numeric type for \"([^\"]*)\" is (\\d+)$")
     public void result_for_numeric_is(String key, int value) throws Throwable {
         response.then().
                 body("records[0].".concat(key), is(value));
     }
 
-    @Then("^user should get the response from the system and count of records should be more than (\\d+)$")
+    @Then("^user get the response from the api and count of records is more than (\\d+)$")
     public void result_for_count_is(int value) throws Throwable {
         response.then().
                 body("count", greaterThanOrEqualTo(value));
     }
 
-    @Then("^user should get the response from the system as \"([^\"]*)\"$")
+    @Then("^user get the response from the api as \"([^\"]*)\"$")
     public void result_as_response_is(String value) throws Throwable {
         boolean b = Boolean.parseBoolean(value);
         response.then().
                 body("records[0].customerSearchEnabled", is(b));
     }
 
-    @Then("^search api response schema is validated successfully$")
+    @Then("^search api response json schema is validated successfully$")
     public void reponse_schema_is_validated_successfully() throws Throwable {
         response.then().
                 body(matchesJsonSchema("searchAPISchema.json"));
     }
-
 }

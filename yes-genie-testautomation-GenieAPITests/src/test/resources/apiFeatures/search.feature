@@ -4,10 +4,10 @@ Feature: Validate Search API
   Background: User has api to test
     Given api to test is "http://yesgenie.com:30978/api/customer/search"
 
-  @simple
-  Scenario Outline: User search with mdmid, mobile no, pan, adhar,name,account number etc. and validate customerSearchEnabled is true or false
+  @simplesearch @smoke @regression
+  Scenario Outline: User search with mdmid and other parameters mentioned in below Examples: and validate response from tha api
     When a user search with value "<query>" and setting value for threshold "<threshold>"
-    Then a user should get the positive response from the system
+    Then a user get the status code 200 as a response from the api
     Examples:
       | query              | threshold |
       | 838191             | 50        |
@@ -21,15 +21,15 @@ Feature: Validate Search API
       | customer36@yesbank | 5000      |
       | 08/09/2003         | 5000      |
 
-  @simple
+  @simplesearch @regression
   Scenario: User search with mdmid and validate customerSearchEnabled is true or false
-    When a user search with value "838191" and setting value for threshold "50"
-    Then user should get the response from the system as "true"
+    When a user search with value "838297" and setting value for threshold "50"
+    Then user get the response from the api as "true"
 
-  @simple
-  Scenario Outline: User search with valid mdmid and validate response for customerName, addressCity, addressArea, homeBranch, assetRM, liabilityRM, groupId, businessSegment, partnerSegment, customerOpenDate, cust flag and DOB
-    When a user search with value "838191" and setting value for threshold "50"
-    Then user should get the response from the system for first record for "<key>" is "<value>"
+  @simplesearch @regression @smoke
+  Scenario Outline: User search with valid custid and validate response for all the mentioned keys in example
+    When a user search with value "838297" and setting value for threshold "50"
+    Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
       | key              | value         |
       | customerName     | Foo6 foo      |
@@ -45,40 +45,39 @@ Feature: Validate Search API
       | DOB              | 05/05/2007    |
       | custType         | I             |
 
-  @simple
-  Scenario Outline: User search with valid mdmid and validate response for custId, mdmId and customerSearchEnabled
-    When a user search with value "838191" and setting value for threshold "50"
-    Then user should get the response from the system as "true"
-    Then user should get the response from the system for first record of numeric type for "<nkey>" is <nvalue>
+  @simplesearch @smoke @regression
+  Scenario Outline: User search with valid custid and validate response for custId and mdmId
+    When a user search with value "838297" and setting value for threshold "50"
+    Then user get the response from the api for initial record of numeric type for "<nkey>" is <nvalue>
     Examples:
       | nkey   | nvalue |
       | custId | 838297 |
       | mdmId  | 838191 |
 
-  @simple
-  Scenario: User search with valid mdmid and validate schema
-    When a user search with value "838191" and setting value for threshold "50"
-    Then search api response schema is validated successfully
+  @simplesearch @smoke @regression
+  Scenario: User search with valid custid and validate json schema
+    When a user search with value "838297" and setting value for threshold "50"
+    Then search api response json schema is validated successfully
 
-  @simple
-  Scenario: User search to test threshold validation
+  @simplesearch @regression
+  Scenario: User search with name to test threshold validation
     When a user search with value "Vibhu" and setting value for threshold "50"
-    Then user should get status code is 400 as response from the system
+    Then user get status code is 400 as response from the api
 
-  @simple
-  Scenario: User search with name and validate the count is greater
+  @simplesearch @regression
+  Scenario: User search with name and validate the count is greater than threshold value
     When a user search with value "Vibhu" and setting value for threshold "5000"
-    Then user should get the response from the system and count of records should be more than 50
+    Then user get the response from the api and count of records is more than 50
 
-  @refine
+  @refinesearch @regression
   Scenario: User perform refine search with valid customer name and city and validate status
     When a user search with value "Venkata Bhuvana Santhosh Kumar Rikka swamy+Thiruvananthapuram" and setting value for threshold "50"
-    Then a user should get the positive response from the system
+    Then a user get the status code 200 as a response from the api
 
-  @refine
-  Scenario Outline: User perform refine search with valid customer name and city and validate status and validate response for customerName, addressCity, addressArea, homeBranch, assetRM, liabilityRM, groupId, businessSegment, partnerSegment, customerOpenDate and  DOB
+  @refinesearch @regression
+  Scenario Outline: User perform refine search with valid customer name and city and validate response for all the mentioned keys in below Examples:
     When a user search with value "Foo6 foo+goa" and setting value for threshold "50"
-    Then user should get the response from the system for first record for "<key>" is "<value>"
+    Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
       | key              | value         |
       | customerName     | Foo6 foo      |
@@ -92,11 +91,12 @@ Feature: Validate Search API
       | partnerSegment   | brb           |
       | customerOpenDate | 01/05/2011    |
       | DOB              | 05/05/2007    |
+      | custType         | I             |
 
-  @refine
-  Scenario Outline: User perform refine search with valid customer name and city and validate status and validate response for customerName, addressCity, addressArea, homeBranch, assetRM, liabilityRM, groupId, businessSegment, partnerSegment, customerOpenDate and  DOB
+  @refinesearch @regression
+  Scenario Outline: User perform refine search with valid customer name and city and validate response for all the mentioned keys in below Examples:
     When a user search with value "Foo6 foo+05/05/2007" and setting value for threshold "50"
-    Then user should get the response from the system for first record for "<key>" is "<value>"
+    Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
       | key              | value         |
       | customerName     | Foo6 foo      |
@@ -110,3 +110,4 @@ Feature: Validate Search API
       | partnerSegment   | brb           |
       | customerOpenDate | 01/05/2011    |
       | DOB              | 05/05/2007    |
+      | custType         | I             |
