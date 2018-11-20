@@ -26,6 +26,14 @@ public class SearchAPI extends SetupConfiguration {
         uri = value;
     }
 
+    @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\"$")
+    public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String thresholdValue) {
+        response = given().accept(ContentType.JSON).
+                param("query", query).
+                param("threshold", thresholdValue).
+                get(uri);
+    }
+
     @Then("^a user should get the positive response from the system$")
     public void validateAPIisOK() {
         response.
@@ -75,12 +83,4 @@ public class SearchAPI extends SetupConfiguration {
                 body(matchesJsonSchema("searchAPISchema.json"));
     }
 
-    @When("^a user search with value \"([^\"]*)\" and setting value for isCustomerId is \"([^\"]*)\" and value for threshold \"([^\"]*)\"$")
-    public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String isCustomerId, String thresholdValue) {
-        response = given().accept(ContentType.JSON).
-                param("query", query).
-                param("isCustomerId", isCustomerId).
-                param("threshold", thresholdValue).
-                get(uri);
-    }
 }
