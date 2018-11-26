@@ -46,7 +46,7 @@ Feature: Validate Search API
       | custType         | I             |
 
   @simplesearch @smoke @regression
-  Scenario Outline: User search with valid custid and validate response for custId and mdmId
+  Scenario Outline: User search with valid mdmid and validate response for custId and mdmId
     When a user search with value "838297" and setting value for threshold "50"
     Then user get the response from the api for initial record of numeric type for "<nkey>" is <nvalue>
     Examples:
@@ -54,8 +54,8 @@ Feature: Validate Search API
       | custId | 838297 |
       | mdmId  | 838191 |
 
-  @simplesearch @smoke @regression
-  Scenario: User search with valid custid and validate json schema
+  @dev
+  Scenario: User search with valid mdmid and validate json schema
     When a user search with value "838297" and setting value for threshold "50"
     Then search api response json schema is validated successfully
 
