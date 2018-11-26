@@ -62,7 +62,7 @@
         "required": [
           "id",
           "providerState",
-          "templateTag",
+          "contractId",
           "request"
         ],
         "properties": {
@@ -86,15 +86,14 @@
             ],
             "pattern": "^(.*)$"
           },
-          "templateTag": {
-            "$id": "#/properties/interactions/items/properties/templateTag",
-            "type": "string",
-            "title": "The Templatetag Schema",
-            "default": "",
+          "contractId": {
+            "$id": "#/properties/interactions/items/properties/contractId",
+            "type": "integer",
+            "title": "The Contractid Schema",
+            "default": 0,
             "examples": [
-              "yesgenie.com.process.84302"
-            ],
-            "pattern": "^(.*)$"
+              8117
+            ]
           },
           "request": {
             "$id": "#/properties/interactions/items/properties/request",
@@ -105,7 +104,9 @@
               "path",
               "headers",
               "body",
-              "response"
+              "response",
+              "count",
+              "searchParams"
             ],
             "properties": {
               "method": {
@@ -124,7 +125,7 @@
                 "title": "The Path Schema",
                 "default": "",
                 "examples": [
-                  "/api/usermanagement/user"
+                  "/api/user"
                 ],
                 "pattern": "^(.*)$"
               },
@@ -200,9 +201,7 @@
                 "title": "The Response Schema",
                 "required": [
                   "status",
-                  "records",
-                  "count",
-                  "searchParams"
+                  "message"
                 ],
                 "properties": {
                   "status": {
@@ -214,96 +213,48 @@
                       200
                     ]
                   },
-                  "records": {
-                    "$id": "#/properties/interactions/items/properties/request/properties/response/properties/records",
-                    "type": "array",
-                    "title": "The Records Schema",
-                    "items": {
-                      "$id": "#/properties/interactions/items/properties/request/properties/response/properties/records/items",
-                      "type": "object",
-                      "title": "The Items Schema",
-                      "required": [
-                        "userId",
-                        "name",
-                        "email",
-                        "mobileNumber"
-                      ],
-                      "properties": {
-                        "userId": {
-                          "$id": "#/properties/interactions/items/properties/request/properties/response/properties/records/items/properties/userId",
-                          "type": "string",
-                          "title": "The Userid Schema",
-                          "default": "",
-                          "examples": [
-                            "ABCDE12345"
-                          ],
-                          "pattern": "^(.*)$"
-                        },
-                        "name": {
-                          "$id": "#/properties/interactions/items/properties/request/properties/response/properties/records/items/properties/name",
-                          "type": "string",
-                          "title": "The Name Schema",
-                          "default": "",
-                          "examples": [
-                            "Ravi Saxena"
-                          ],
-                          "pattern": "^(.*)$"
-                        },
-                        "email": {
-                          "$id": "#/properties/interactions/items/properties/request/properties/response/properties/records/items/properties/email",
-                          "type": "string",
-                          "title": "The Email Schema",
-                          "default": "",
-                          "examples": [
-                            "ravi.saxena@yesbank.in"
-                          ],
-                          "pattern": "^(.*)$"
-                        },
-                        "mobileNumber": {
-                          "$id": "#/properties/interactions/items/properties/request/properties/response/properties/records/items/properties/mobileNumber",
-                          "type": "string",
-                          "title": "The Mobilenumber Schema",
-                          "default": "",
-                          "examples": [
-                            "9876543210"
-                          ],
-                          "pattern": "^(.*)$"
-                        }
-                      }
-                    }
-                  },
-                  "count": {
-                    "$id": "#/properties/interactions/items/properties/request/properties/response/properties/count",
-                    "type": "integer",
-                    "title": "The Count Schema",
-                    "default": 0,
+                  "message": {
+                    "$id": "#/properties/interactions/items/properties/request/properties/response/properties/message",
+                    "type": "string",
+                    "title": "The Message Schema",
+                    "default": "",
                     "examples": [
-                      1
-                    ]
-                  },
-                  "searchParams": {
-                    "$id": "#/properties/interactions/items/properties/request/properties/response/properties/searchParams",
-                    "type": "array",
-                    "title": "The Searchparams Schema",
-                    "items": {
-                      "$id": "#/properties/interactions/items/properties/request/properties/response/properties/searchParams/items",
-                      "type": "object",
-                      "title": "The Items Schema",
-                      "required": [
-                        "userId"
+                      "Request  sent for approval"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              },
+              "count": {
+                "$id": "#/properties/interactions/items/properties/request/properties/count",
+                "type": "integer",
+                "title": "The Count Schema",
+                "default": 0,
+                "examples": [
+                  1
+                ]
+              },
+              "searchParams": {
+                "$id": "#/properties/interactions/items/properties/request/properties/searchParams",
+                "type": "array",
+                "title": "The Searchparams Schema",
+                "items": {
+                  "$id": "#/properties/interactions/items/properties/request/properties/searchParams/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "userId"
+                  ],
+                  "properties": {
+                    "userId": {
+                      "$id": "#/properties/interactions/items/properties/request/properties/searchParams/items/properties/userId",
+                      "type": "string",
+                      "title": "The Userid Schema",
+                      "default": "",
+                      "examples": [
+                        "ABCDE12345"
                       ],
-                      "properties": {
-                        "userId": {
-                          "$id": "#/properties/interactions/items/properties/request/properties/response/properties/searchParams/items/properties/userId",
-                          "type": "string",
-                          "title": "The Userid Schema",
-                          "default": "",
-                          "examples": [
-                            "ABCDE12345"
-                          ],
-                          "pattern": "^(.*)$"
-                        }
-                      }
+                      "pattern": "^(.*)$"
                     }
                   }
                 }

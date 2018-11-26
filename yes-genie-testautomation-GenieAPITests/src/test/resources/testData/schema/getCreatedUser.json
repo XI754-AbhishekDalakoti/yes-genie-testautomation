@@ -1,0 +1,284 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "consumer",
+    "provider",
+    "interactions"
+  ],
+  "properties": {
+    "consumer": {
+      "$id": "#/properties/consumer",
+      "type": "object",
+      "title": "The Consumer Schema",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/consumer/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "Abc"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "provider": {
+      "$id": "#/properties/provider",
+      "type": "object",
+      "title": "The Provider Schema",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/provider/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "def"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "interactions": {
+      "$id": "#/properties/interactions",
+      "type": "array",
+      "title": "The Interactions Schema",
+      "items": {
+        "$id": "#/properties/interactions/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "description",
+          "providerState",
+          "contractId",
+          "request",
+          "metadata"
+        ],
+        "properties": {
+          "description": {
+            "$id": "#/properties/interactions/items/properties/description",
+            "type": "string",
+            "title": "The Description Schema",
+            "default": "",
+            "examples": [
+              "Contract for getting  user based on user id"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "providerState": {
+            "$id": "#/properties/interactions/items/properties/providerState",
+            "type": "string",
+            "title": "The Providerstate Schema",
+            "default": "",
+            "examples": [
+              "Getting users"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "contractId": {
+            "$id": "#/properties/interactions/items/properties/contractId",
+            "type": "integer",
+            "title": "The Contractid Schema",
+            "default": 0,
+            "examples": [
+              8112
+            ]
+          },
+          "request": {
+            "$id": "#/properties/interactions/items/properties/request",
+            "type": "object",
+            "title": "The Request Schema",
+            "required": [
+              "method",
+              "path",
+              "pathParams",
+              "headers",
+              "response",
+              "records"
+            ],
+            "properties": {
+              "method": {
+                "$id": "#/properties/interactions/items/properties/request/properties/method",
+                "type": "string",
+                "title": "The Method Schema",
+                "default": "",
+                "examples": [
+                  "GET"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "path": {
+                "$id": "#/properties/interactions/items/properties/request/properties/path",
+                "type": "string",
+                "title": "The Path Schema",
+                "default": "",
+                "examples": [
+                  "users/role"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "pathParams": {
+                "$id": "#/properties/interactions/items/properties/request/properties/pathParams",
+                "type": "string",
+                "title": "The Pathparams Schema",
+                "default": "",
+                "examples": [
+                  "1234"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "headers": {
+                "$id": "#/properties/interactions/items/properties/request/properties/headers",
+                "type": "object",
+                "title": "The Headers Schema",
+                "required": [
+                  "Content-Type"
+                ],
+                "properties": {
+                  "Content-Type": {
+                    "$id": "#/properties/interactions/items/properties/request/properties/headers/properties/Content-Type",
+                    "type": "string",
+                    "title": "The Content-type Schema",
+                    "default": "",
+                    "examples": [
+                      "application/json"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              },
+              "response": {
+                "$id": "#/properties/interactions/items/properties/request/properties/response",
+                "type": "object",
+                "title": "The Response Schema",
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "status": {
+                    "$id": "#/properties/interactions/items/properties/request/properties/response/properties/status",
+                    "type": "integer",
+                    "title": "The Status Schema",
+                    "default": 0,
+                    "examples": [
+                      200
+                    ]
+                  }
+                }
+              },
+              "records": {
+                "$id": "#/properties/interactions/items/properties/request/properties/records",
+                "type": "object",
+                "title": "The Records Schema",
+                "required": [
+                  "users"
+                ],
+                "properties": {
+                  "users": {
+                    "$id": "#/properties/interactions/items/properties/request/properties/records/properties/users",
+                    "type": "array",
+                    "title": "The Users Schema",
+                    "items": {
+                      "$id": "#/properties/interactions/items/properties/request/properties/records/properties/users/items",
+                      "type": "object",
+                      "title": "The Items Schema",
+                      "required": [
+                        "userId",
+                        "name",
+                        "email",
+                        "mobileNumber"
+                      ],
+                      "properties": {
+                        "userId": {
+                          "$id": "#/properties/interactions/items/properties/request/properties/records/properties/users/items/properties/userId",
+                          "type": "string",
+                          "title": "The Userid Schema",
+                          "default": "",
+                          "examples": [
+                            "ABCDE12345"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "name": {
+                          "$id": "#/properties/interactions/items/properties/request/properties/records/properties/users/items/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "Ravi Saxena"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "email": {
+                          "$id": "#/properties/interactions/items/properties/request/properties/records/properties/users/items/properties/email",
+                          "type": "string",
+                          "title": "The Email Schema",
+                          "default": "",
+                          "examples": [
+                            "ravi.saxena@co..in"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "mobileNumber": {
+                          "$id": "#/properties/interactions/items/properties/request/properties/records/properties/users/items/properties/mobileNumber",
+                          "type": "string",
+                          "title": "The Mobilenumber Schema",
+                          "default": "",
+                          "examples": [
+                            "23232"
+                          ],
+                          "pattern": "^(.*)$"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "metadata": {
+            "$id": "#/properties/interactions/items/properties/metadata",
+            "type": "object",
+            "title": "The Metadata Schema",
+            "required": [
+              "pactSpecification"
+            ],
+            "properties": {
+              "pactSpecification": {
+                "$id": "#/properties/interactions/items/properties/metadata/properties/pactSpecification",
+                "type": "object",
+                "title": "The Pactspecification Schema",
+                "required": [
+                  "version"
+                ],
+                "properties": {
+                  "version": {
+                    "$id": "#/properties/interactions/items/properties/metadata/properties/pactSpecification/properties/version",
+                    "type": "string",
+                    "title": "The Version Schema",
+                    "default": "",
+                    "examples": [
+                      "2.0.0"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

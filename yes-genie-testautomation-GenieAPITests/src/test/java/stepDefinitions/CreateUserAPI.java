@@ -32,6 +32,6 @@ public class CreateUserAPI {
     @Then("^json schema response of search user api is validated successfully$")
     public void reponse_schema_search_user_is_validated_successfully() throws Throwable {
         response.then().
-                body(matchesJsonSchema("searchAPISchema.json"));
+                body(matchesJsonSchema("searchUserApiOnCreateUserSchema.json"));
     }
     }
