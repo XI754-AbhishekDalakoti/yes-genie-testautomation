@@ -1,0 +1,289 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "consumer",
+    "provider",
+    "interactions"
+  ],
+  "properties": {
+    "consumer": {
+      "$id": "#/properties/consumer",
+      "type": "object",
+      "title": "The Consumer Schema",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/consumer/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "Abhishek"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "provider": {
+      "$id": "#/properties/provider",
+      "type": "object",
+      "title": "The Provider Schema",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/provider/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "Akshay"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "interactions": {
+      "$id": "#/properties/interactions",
+      "type": "array",
+      "title": "The Interactions Schema",
+      "items": {
+        "$id": "#/properties/interactions/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "description",
+          "providerState",
+          "contractId",
+          "request",
+          "metadata"
+        ],
+        "properties": {
+          "description": {
+            "$id": "#/properties/interactions/items/properties/description",
+            "type": "string",
+            "title": "The Description Schema",
+            "default": "",
+            "examples": [
+              "My test"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "providerState": {
+            "$id": "#/properties/interactions/items/properties/providerState",
+            "type": "string",
+            "title": "The Providerstate Schema",
+            "default": "",
+            "examples": [
+              "User with various roles exists"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "contractId": {
+            "$id": "#/properties/interactions/items/properties/contractId",
+            "type": "integer",
+            "title": "The Contractid Schema",
+            "default": 0,
+            "examples": [
+              8117
+            ]
+          },
+          "request": {
+            "$id": "#/properties/interactions/items/properties/request",
+            "type": "object",
+            "title": "The Request Schema",
+            "required": [
+              "method",
+              "path",
+              "headers",
+              "response",
+              "roles",
+              "count"
+            ],
+            "properties": {
+              "method": {
+                "$id": "#/properties/interactions/items/properties/request/properties/method",
+                "type": "string",
+                "title": "The Method Schema",
+                "default": "",
+                "examples": [
+                  "GET"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "path": {
+                "$id": "#/properties/interactions/items/properties/request/properties/path",
+                "type": "string",
+                "title": "The Path Schema",
+                "default": "",
+                "examples": [
+                  "/users"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "headers": {
+                "$id": "#/properties/interactions/items/properties/request/properties/headers",
+                "type": "object",
+                "title": "The Headers Schema",
+                "required": [
+                  "Content-Type"
+                ],
+                "properties": {
+                  "Content-Type": {
+                    "$id": "#/properties/interactions/items/properties/request/properties/headers/properties/Content-Type",
+                    "type": "string",
+                    "title": "The Content-type Schema",
+                    "default": "",
+                    "examples": [
+                      "application/json"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              },
+              "response": {
+                "$id": "#/properties/interactions/items/properties/request/properties/response",
+                "type": "object",
+                "title": "The Response Schema",
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "status": {
+                    "$id": "#/properties/interactions/items/properties/request/properties/response/properties/status",
+                    "type": "integer",
+                    "title": "The Status Schema",
+                    "default": 0,
+                    "examples": [
+                      200
+                    ]
+                  }
+                }
+              },
+              "roles": {
+                "$id": "#/properties/interactions/items/properties/request/properties/roles",
+                "type": "array",
+                "title": "The Roles Schema",
+                "items": {
+                  "$id": "#/properties/interactions/items/properties/request/properties/roles/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "sales",
+                    "RM"
+                  ],
+                  "properties": {
+                    "sales": {
+                      "$id": "#/properties/interactions/items/properties/request/properties/roles/items/properties/sales",
+                      "type": "object",
+                      "title": "The Sales Schema",
+                      "required": [
+                        "userCount",
+                        "activityRequired"
+                      ],
+                      "properties": {
+                        "userCount": {
+                          "$id": "#/properties/interactions/items/properties/request/properties/roles/items/properties/sales/properties/userCount",
+                          "type": "integer",
+                          "title": "The Usercount Schema",
+                          "default": 0,
+                          "examples": [
+                            2
+                          ]
+                        },
+                        "activityRequired": {
+                          "$id": "#/properties/interactions/items/properties/request/properties/roles/items/properties/sales/properties/activityRequired",
+                          "type": "boolean",
+                          "title": "The Activityrequired Schema",
+                          "default": false,
+                          "examples": [
+                            true
+                          ]
+                        }
+                      }
+                    },
+                    "RM": {
+                      "$id": "#/properties/interactions/items/properties/request/properties/roles/items/properties/RM",
+                      "type": "object",
+                      "title": "The Rm Schema",
+                      "required": [
+                        "userCount",
+                        "activityRequired"
+                      ],
+                      "properties": {
+                        "userCount": {
+                          "$id": "#/properties/interactions/items/properties/request/properties/roles/items/properties/RM/properties/userCount",
+                          "type": "integer",
+                          "title": "The Usercount Schema",
+                          "default": 0,
+                          "examples": [
+                            3
+                          ]
+                        },
+                        "activityRequired": {
+                          "$id": "#/properties/interactions/items/properties/request/properties/roles/items/properties/RM/properties/activityRequired",
+                          "type": "boolean",
+                          "title": "The Activityrequired Schema",
+                          "default": false,
+                          "examples": [
+                            false
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "count": {
+                "$id": "#/properties/interactions/items/properties/request/properties/count",
+                "type": "integer",
+                "title": "The Count Schema",
+                "default": 0,
+                "examples": [
+                  2
+                ]
+              }
+            }
+          },
+          "metadata": {
+            "$id": "#/properties/interactions/items/properties/metadata",
+            "type": "object",
+            "title": "The Metadata Schema",
+            "required": [
+              "pactSpecification"
+            ],
+            "properties": {
+              "pactSpecification": {
+                "$id": "#/properties/interactions/items/properties/metadata/properties/pactSpecification",
+                "type": "object",
+                "title": "The Pactspecification Schema",
+                "required": [
+                  "version"
+                ],
+                "properties": {
+                  "version": {
+                    "$id": "#/properties/interactions/items/properties/metadata/properties/pactSpecification/properties/version",
+                    "type": "string",
+                    "title": "The Version Schema",
+                    "default": "",
+                    "examples": [
+                      "2.0.0"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

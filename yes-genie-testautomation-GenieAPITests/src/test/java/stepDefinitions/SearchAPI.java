@@ -7,7 +7,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import utils.SetupConfiguration;
-
 import static net.serenitybdd.rest.SerenityRest.given;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
@@ -21,11 +20,10 @@ public class SearchAPI extends SetupConfiguration {
     public static Response response;
     public static String uri;
 
-    @When("^a user search with value \"([^\"]*)\" and setting value for isCustomerId is \"([^\"]*)\" and value for threshold \"([^\"]*)\"$")
-    public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String isCustomerId, String thresholdValue) {
+    @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\"$")
+    public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String thresholdValue) {
         response = given().accept(ContentType.JSON).
                 param("query", query).
-                param("isCustomerId", isCustomerId).
                 param("threshold", thresholdValue).
                 get(uri);
     }
