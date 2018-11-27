@@ -14,7 +14,6 @@ import java.util.Base64;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.SessionNotCreatedException;
@@ -27,12 +26,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.ErrorHandler;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class DriverUtil {
@@ -180,7 +176,6 @@ public class DriverUtil {
                 capabilities = DesiredCapabilities.chrome();
                 capabilities.setJavascriptEnabled(true);
                 capabilities.setCapability("takesScreenshot", true);
-//				driver = chooseDriver(capabilities);
                 driver = chooseDriver(capabilities);
                 driver.manage().timeouts().setScriptTimeout(DEFAULT_WAIT, TimeUnit.SECONDS);
                 driver.manage().window().maximize();
@@ -294,9 +289,9 @@ public class DriverUtil {
     }
 
     /**
-     * By default to web driver will be firefox
+     * By default to web driver will be chrome
      *
-     * Override it by passing -Dbrowser=Chrome to the command line arguments
+     * Override it by passing -Dbrowser=ie to the command line arguments
      * @param capabilities
      * @return webdriver
      */
@@ -338,20 +333,6 @@ public class DriverUtil {
                     System.exit(0);
                 }
                 return driver;
-
-//				FirefoxOptions options = new FirefoxOptions();
-//				if (headless) {
-//					options.addArguments("-headless", "-safe-mode");
-//				}
-//				capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
-//				try {
-//					driver = new FirefoxDriver(capabilities);
-//				}
-//				catch(Exception e) {
-//					System.out.println(e.getMessage());
-//					System.exit(0);
-//				}
-//				return driver;
         }
     }
 

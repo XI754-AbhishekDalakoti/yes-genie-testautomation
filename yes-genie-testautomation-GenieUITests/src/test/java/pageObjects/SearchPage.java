@@ -58,20 +58,10 @@ public class SearchPage extends SearchLocators {
         Assert.assertEquals("No result found",noSearchResult);
     }
 
-    public void toolTipMessageDisplayCustID(){
-        String toolTipResult = heading_ToolTipCustID.getText();
-        Assert.assertEquals(Constant.CustIDToolTip,toolTipResult);
-    }
-
     public String getpageTitle(){
         String title = driver.getTitle();
         System.out.println("Title is : "+title);
         return title;
-    }
-
-    public void searchCriteria() {
-        String searchText = SearchResultsFor.getText();
-        Assert.assertEquals(Constant.SearchParameters,searchText);
     }
 
     public void refineMessage() {

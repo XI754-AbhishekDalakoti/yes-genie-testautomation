@@ -36,17 +36,17 @@ public class LoginPage extends LoginLocators {
         dropDown.click();
         String UserDesignation = display_Designation.getText();
         String UserRole = display_Role.getText();
-        System.out.println(UserDesignation);
-        System.out.println(UserRole);
+        String UserName = display_Name.getText();
         Assert.assertEquals(Constant.designation,UserDesignation);
         Assert.assertEquals(Constant.role,UserRole);
+        Assert.assertEquals(Constant.name,UserName);
 
         driver.findElement(By.xpath("//div[@class=\"Ug7OgGNM7EPVYG5js9Amg\"]")).click();
     }
 
     public void staticSearchParameters() {
         String parameters = display_Parameters.getText();
-        Assert.assertEquals(parameters, Constant.SearchParameters);
+        Assert.assertEquals("Cust IDMDM IDMobile No.PANPassportCust NameAccount No.AUS IDCKYC No.UPI HandleTwitter IdAadharEmail",parameters);
     }
 
     public void logOut() {

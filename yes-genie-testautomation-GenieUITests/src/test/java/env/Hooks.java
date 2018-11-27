@@ -7,10 +7,9 @@ import info.seleniumcucumber.userStepDefintions.UserStepDefinitions;
 
 public class Hooks extends DriverUtil {
 
-
-	@After
+/*	@After
 	public void afterScenario() {
 		System.out.println("Close browser");
 		driver.quit();
-	}
+	}*/
 }
