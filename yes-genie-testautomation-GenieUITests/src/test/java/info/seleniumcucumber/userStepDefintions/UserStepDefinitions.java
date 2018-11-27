@@ -128,4 +128,9 @@ public class UserStepDefinitions implements BaseTest {
     public void iClickOnDropdownOnTopRightOfPage() throws Throwable {
         lp.clickDropDownOnTopRight();
     }
+
+    @And("^I verify search label display like 'Search result for \"([^\"]*)\": \"([^\"]*)\" \"([^\"]*)\": \"([^\"]*)\" Results'$")
+    public void iVerifyLabelDisplaysLikeSearchResultForResults(String Parameter1, String Parameter2, String Parameter3, String Parameter4) throws Throwable {
+        sp.formatOfSearchLabel(Parameter1, Parameter2, Parameter3, Parameter4);
+    }
 }
