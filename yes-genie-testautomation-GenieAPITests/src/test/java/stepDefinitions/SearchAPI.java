@@ -23,6 +23,7 @@ public class SearchAPI extends ResponseValidation {
     public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String thresholdValue) {
         response = given().accept(ContentType.JSON).
                 param("query", query).
+                param("isCustomerId", "false").
                 param("threshold", thresholdValue).
                 get(uri);
     }
@@ -43,26 +44,26 @@ public class SearchAPI extends ResponseValidation {
     }
 
     @Then("^user get the response from the api for the initial record for \"([^\"]*)\" is \"([^\"]*)\"$")
-    public void respose_for_key_and_value_is(String param, String key, String value) throws Throwable {
-        param = "records[0].";
+    public void respose_for_key_and_value_is(String key, String value) throws Throwable {
+        String param = "records[0].";
         responseValidation.responseStringValueCompare(param, response, key, value);
     }
 
     @Then("^user get the response from the api for initial record of numeric type for \"([^\"]*)\" is (\\d+)$")
-    public void result_for_numeric_is(String param, String key, int value) throws Throwable {
-        param = "records[0].";
+    public void result_for_numeric_is( String key, int value) throws Throwable {
+        String param = "records[0].";
         responseValidation.responseIntValueCompare(param, response, key, value);
     }
 
     @Then("^user get the response from the api and count of records is more than (\\d+)$")
-    public void result_for_count_is(String param, int value) throws Throwable {
-        param = "count";
+    public void result_for_count_is( int value) throws Throwable {
+        String param = "count";
         responseValidation.compareCount(param, response, value);
     }
 
     @Then("^user get the response from the api as \"([^\"]*)\"$")
-    public void result_as_response_is(String param, String value) throws Throwable {
-        param = "records[0].customerSearchEnabled";
+    public void result_as_response_is(String value) throws Throwable {
+       String param = "records[0].customerSearchEnabled";
         responseValidation.responseBooleanValueCompare(param, response, value);
     }
 

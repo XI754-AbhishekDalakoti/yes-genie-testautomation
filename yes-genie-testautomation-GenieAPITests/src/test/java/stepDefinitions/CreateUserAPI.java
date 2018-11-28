@@ -28,7 +28,7 @@ public class CreateUserAPI extends ResponseValidation {
                 get(uri);
     }
 
-    @Given("^api to test create user is \"([^\"]*)\"$")
+    @Given("^a genie user has an api to test is \"([^\"]*)\"$")
     public void apiValue(String value) {
         uri = value;
     }
