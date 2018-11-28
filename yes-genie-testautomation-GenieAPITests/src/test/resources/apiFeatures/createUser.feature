@@ -22,11 +22,11 @@ Feature: Validate Create User API
   @regression
   Scenario Outline: user validates the response from the API
     When a genie user searches the role on user management tab
-    Then a genie user get the response from the user management api for the initial record for "<key>" is "<value>"
+    Then a genie user get the "<role>" as a response from the user management api for the initial record
     Examples:
-      | key          | value    |
-      | customerName | Foo6 foo |
-      | city         | goa      |
+      | role  |
+      | sales |
+
 
   @smoke @regression
   Scenario Outline: user validates the response code from the search user API

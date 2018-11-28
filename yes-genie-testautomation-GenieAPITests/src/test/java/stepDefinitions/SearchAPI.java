@@ -5,20 +5,19 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.apache.http.HttpStatus;
-import utils.SetupConfiguration;
+import pages.ResponseValidation;
 import static net.serenitybdd.rest.SerenityRest.given;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
 import static utils.Utilities.matchesJsonSchema;
 
 /**
  * Created by vibhu on 11/13/2018.
  */
-public class SearchAPI extends SetupConfiguration {
+public class SearchAPI extends ResponseValidation {
 
     public static Response response;
     public static String uri;
+    ResponseValidation responseValidation = new ResponseValidation();
 
     @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\"$")
     public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String thresholdValue) {
@@ -27,45 +26,44 @@ public class SearchAPI extends SetupConfiguration {
                 param("threshold", thresholdValue).
                 get(uri);
     }
+
     @Given("^api to test is \"([^\"]*)\"$")
     public void apiValue(String value) {
         uri = value;
     }
+
     @Then("^a user get the status code 200 as a response from the api$")
     public void validateAPIisOK() {
-        response.
-                then().assertThat().statusCode(HttpStatus.SC_OK);
+        responseValidation.validateResponseOk(response);
     }
+
     @Then("^user get status code is 400 as response from the api$")
     public void validateAPIis400() {
-        response.
-                then().assertThat().statusCode(HttpStatus.SC_BAD_REQUEST);
+        responseValidation.validateBadRequest(response);
     }
-    @Then("^result for custid in search parameter is \"([^\"]*)\"$")
-    public void result_for_custid_in_search_parameter_is(String value) throws Throwable {
-        response.then().
-                body("searchParams['custId'][0]".toString(), is(value));
-    }
+
     @Then("^user get the response from the api for the initial record for \"([^\"]*)\" is \"([^\"]*)\"$")
-    public void respose_for_key_and_value_is(String key, String value) throws Throwable {
-        response.then().
-                body(("records[0].".concat(key)), is(value));
+    public void respose_for_key_and_value_is(String param, String key, String value) throws Throwable {
+        param = "records[0].";
+        responseValidation.responseStringValueCompare(param, response, key, value);
     }
+
     @Then("^user get the response from the api for initial record of numeric type for \"([^\"]*)\" is (\\d+)$")
-    public void result_for_numeric_is(String key, int value) throws Throwable {
-        response.then().
-                body("records[0].".concat(key), is(value));
+    public void result_for_numeric_is(String param, String key, int value) throws Throwable {
+        param = "records[0].";
+        responseValidation.responseIntValueCompare(param, response, key, value);
     }
+
     @Then("^user get the response from the api and count of records is more than (\\d+)$")
-    public void result_for_count_is(int value) throws Throwable {
-        response.then().
-                body("count", greaterThanOrEqualTo(value));
+    public void result_for_count_is(String param, int value) throws Throwable {
+        param = "count";
+        responseValidation.compareCount(param, response, value);
     }
-   @Then("^user get the response from the api as \"([^\"]*)\"$")
-    public void result_as_response_is(String value) throws Throwable {
-        boolean b = Boolean.parseBoolean(value);
-        response.then().
-                body("records[0].customerSearchEnabled", is(b));
+
+    @Then("^user get the response from the api as \"([^\"]*)\"$")
+    public void result_as_response_is(String param, String value) throws Throwable {
+        param = "records[0].customerSearchEnabled";
+        responseValidation.responseBooleanValueCompare(param, response, value);
     }
 
     @Then("^search api response json schema is validated successfully$")

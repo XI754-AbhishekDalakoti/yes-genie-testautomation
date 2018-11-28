@@ -19,7 +19,7 @@ Feature: Validate Search API
       | 12355612355636     | 5000      |
       | 223355567736       | 5000      |
       | customer36@yesbank | 5000      |
-      | 08/09/2003         | 5000      |
+      | 08-Sep-2003        | 5000      |
 
   @simplesearch @regression
   Scenario: User search with mdmid and validate customerSearchEnabled is true or false
@@ -28,8 +28,8 @@ Feature: Validate Search API
 
   @simplesearch @regression @smoke
   Scenario Outline: User search with valid custid and validate response for all the mentioned keys in example
-   When a user search with value "838297" and setting value for threshold "50"
-   Then user get the response from the api for the initial record for "<key>" is "<value>"
+    When a user search with value "838297" and setting value for threshold "50"
+    Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
       | key              | value         |
       | customerName     | Foo6 foo      |
@@ -42,7 +42,7 @@ Feature: Validate Search API
       | businessSegment  | brb           |
       | partnerSegment   | brb           |
       | customerOpenDate | 01/05/2011    |
-      | DOB              | 05/05/2007    |
+      | DOB              | 05-may-2007   |
       | custType         | I             |
 
   @simplesearch @smoke @regression
@@ -90,7 +90,7 @@ Feature: Validate Search API
       | businessSegment  | brb           |
       | partnerSegment   | brb           |
       | customerOpenDate | 01/05/2011    |
-      | DOB              | 05/05/2007    |
+      | DOB              | 05-may-2007   |
       | custType         | I             |
 
   @refinesearch @regression
@@ -109,5 +109,5 @@ Feature: Validate Search API
       | businessSegment  | brb           |
       | partnerSegment   | brb           |
       | customerOpenDate | 01/05/2011    |
-      | DOB              | 05/05/2007    |
+      | DOB              | 05-may-2007   |
       | custType         | I             |
