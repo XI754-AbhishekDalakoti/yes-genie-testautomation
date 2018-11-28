@@ -5,7 +5,6 @@ import locators.SearchLocators;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 public class SearchPage extends SearchLocators {
@@ -80,5 +79,20 @@ public class SearchPage extends SearchLocators {
         else if (Parameter1 == "Cust Name") {
             Assert.assertEquals(text,Parameter1);
         }
+    }
+
+    public void formatOfSearchLabel(String Parameter1, String Parameter2, String Parameter3, String Parameter4) {
+
+        String searchText = driver.findElement(By.xpath("//span[@class=\"_3EgRXlYvEjwG3mDsFlPzjz\"]")).getText();
+        String arrayOfSearchText[] = searchText.split("\\+");
+
+        boolean res = arrayOfSearchText[0].contains(Parameter1);
+        Assert.assertTrue(res);
+        boolean res1 = arrayOfSearchText[1].contains(Parameter2);
+        Assert.assertTrue(res1);
+        boolean res2 = arrayOfSearchText[0].contains(Parameter3);
+        Assert.assertTrue(res2);
+        boolean res3 = arrayOfSearchText[1].contains(Parameter4);
+        Assert.assertTrue(res3);
     }
 }
