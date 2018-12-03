@@ -47,14 +47,14 @@ public class SearchPage extends SearchLocators {
         Assert.assertTrue(countOfRows <= Constant.threshold);
         String rowCount = countOfRows + " Results)";
 
-        String countText = driver.findElement(By.xpath("//span[@class=\"_3EgRXlYvEjwG3mDsFlPzjz\"]")).getText();
+        String countText = driver.findElement(By.xpath("//span[@class='_6AKfPTdqch8YuuArGQ4Dc']")).getText();
         String arrayOfRowCount[] = countText.split("\\(");
         Assert.assertEquals(rowCount.trim(),arrayOfRowCount[1].trim());
     }
 
     public void noSearchResultDisplay(){
         String noSearchResult = heading_NoSearchResult.getText();
-        Assert.assertEquals("No result found",noSearchResult);
+        Assert.assertEquals("No Results Found. Please refine",noSearchResult);
     }
 
     public String getpageTitle(){
