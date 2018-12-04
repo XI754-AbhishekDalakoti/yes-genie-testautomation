@@ -23,7 +23,6 @@ public class SearchAPI extends ResponseValidation {
     public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String thresholdValue) {
         response = given().accept(ContentType.JSON).
                 param("query", query).
-                param("isCustomerId", "false").
                 param("threshold", thresholdValue).
                 get(uri);
     }
