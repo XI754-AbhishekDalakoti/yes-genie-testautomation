@@ -5,109 +5,72 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.apache.http.HttpStatus;
-import utils.SetupConfiguration;
-
+import pages.ResponseValidation;
 import static net.serenitybdd.rest.SerenityRest.given;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
 import static utils.Utilities.matchesJsonSchema;
 
 /**
  * Created by vibhu on 11/13/2018.
  */
-public class SearchAPI extends SetupConfiguration {
+public class SearchAPI extends ResponseValidation {
 
     public static Response response;
     public static String uri;
+    ResponseValidation responseValidation = new ResponseValidation();
+
+    @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\"$")
+    public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String thresholdValue) {
+        response = given().accept(ContentType.JSON).
+                param("query", query).
+                param("threshold", thresholdValue).
+                get(uri);
+    }
 
     @Given("^api to test is \"([^\"]*)\"$")
     public void apiValue(String value) {
         uri = value;
-
     }
 
-    @When("^I set the base URL with query \"([^\"]*)\" and isCustomerId \"([^\"]*)\" and threshold \"([^\"]*)\"$")
-    public void getTheResponseOfTheApi(String query, String isCustomerId, String thresholdValue) {
-        response = given().accept(ContentType.JSON).
-                param("query", query).
-                param("isCustomerId", isCustomerId).
-                param("threshold", thresholdValue).
-                get(uri);
-
-    }
-
-    @Then("^I validate the status is OK$")
+    @Then("^a user get the status code 200 as a response from the api$")
     public void validateAPIisOK() {
-
-
-        response.
-                then().assertThat().statusCode(HttpStatus.SC_OK);
-
+        responseValidation.validateResponseOk(response);
     }
 
-    @Then("^I validate the status code is 400$")
+    @Then("^user get status code is 400 as response from the api$")
     public void validateAPIis400() {
-
-
-        response.
-                then().assertThat().statusCode(HttpStatus.SC_BAD_REQUEST);
-
+        responseValidation.validateBadRequest(response);
     }
 
-    @Then("^result for custid in search parameter is \"([^\"]*)\"$")
-    public void result_for_custid_in_search_parameter_is(String value) throws Throwable {
-
-        response.then().
-                body("searchParams['custId'][0]".toString(), is(value));
+    @Then("^user get the response from the api for the initial record for \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void respose_for_key_and_value_is(String key, String value) throws Throwable {
+        String param = "records[0].";
+        responseValidation.responseStringValueCompare(param, response, key, value);
     }
 
-    @Then("^the result for \"([^\"]*)\" is \"([^\"]*)\"$")
-    public void result_for_is(String key, String value) throws Throwable {
-
-        response.then().
-                body(("records[0].".concat(key)), is(value));
-
+    @Then("^user get the response from the api for initial record of numeric type for \"([^\"]*)\" is (\\d+)$")
+    public void result_for_numeric_is( String key, int value) throws Throwable {
+        String param = "records[0].";
+        responseValidation.responseIntValueCompare(param, response, key, value);
     }
 
-
-    @Then("^the result for numeric \"([^\"]*)\" is (\\d+)$")
-    public void result_for_numeric_is(String key, int value) throws Throwable {
-
-        response.then().
-                body("records[0].".concat(key), is(value));
-    }
-    @Then("^validate count is greater than (\\d+)$")
-    public void result_for_count_is(int value) throws Throwable {
-
-        response.then().
-                body("count",greaterThanOrEqualTo(value));
-
+    @Then("^user get the response from the api and count of records is more than (\\d+)$")
+    public void result_for_count_is( int value) throws Throwable {
+        String param = "count";
+        responseValidation.compareCount(param, response, value);
     }
 
-    @Then("^the result for boolean custId is \"([^\"]*)\"$")
-    public void result_for_boolean_is(String value) throws Throwable {
-
-        boolean b = Boolean.parseBoolean(value);
-        response.then().
-                body("records[0].customerSearchEnabled", is(b));
+    @Then("^user get the response from the api as \"([^\"]*)\"$")
+    public void result_as_response_is(String value) throws Throwable {
+       String param = "records[0].customerSearchEnabled";
+        responseValidation.responseBooleanValueCompare(param, response, value);
     }
 
-
-    @Then("^the result for boolean customerSearchEnabled is \"([^\"]*)\"$")
-    public void result_for_boolean_customerSearchEnabled_is(String value) throws Throwable {
-
-        boolean b = Boolean.parseBoolean(value);
-        response.then().
-                body("records[0].customerSearchEnabled", is(b));
-    }
-
-
-    @Then("^search api response schema is validated successfully$")
+    @Then("^search api response json schema is validated successfully$")
     public void reponse_schema_is_validated_successfully() throws Throwable {
-
         response.then().
                 body(matchesJsonSchema("searchAPISchema.json"));
     }
-
 }
+
+

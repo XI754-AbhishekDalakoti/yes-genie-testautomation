@@ -30,7 +30,10 @@
           "groupId",
           "businessSegment",
           "partnerSegment",
+          "customerOpenDate",
           "customerSearchEnabled",
+          "custType",
+          "created",
           "DOB"
         ],
         "properties": {
@@ -40,7 +43,7 @@
             "title": "The Mdmid Schema",
             "default": 0,
             "examples": [
-              838191
+              838240
             ]
           },
           "custId": {
@@ -49,7 +52,7 @@
             "title": "The Custid Schema",
             "default": 0,
             "examples": [
-              838297
+              838230
             ]
           },
           "customerName": {
@@ -58,17 +61,17 @@
             "title": "The Customername Schema",
             "default": "",
             "examples": [
-              "foo6"
+              "AJAY KUMAR"
             ],
             "pattern": "^(.*)$"
           },
           "city": {
             "$id": "#/properties/records/items/properties/city",
             "type": "string",
-            "title": "The city Schema",
+            "title": "The City Schema",
             "default": "",
             "examples": [
-              "goa"
+              "Pune"
             ],
             "pattern": "^(.*)$"
           },
@@ -78,7 +81,7 @@
             "title": "The Addressarea Schema",
             "default": "",
             "examples": [
-              "mmm road"
+              "Fort, Mumbai"
             ],
             "pattern": "^(.*)$"
           },
@@ -88,7 +91,7 @@
             "title": "The Homebranch Schema",
             "default": "",
             "examples": [
-              "fort goa"
+              "09899"
             ],
             "pattern": "^(.*)$"
           },
@@ -98,7 +101,7 @@
             "title": "The Assetrm Schema",
             "default": "",
             "examples": [
-              "sandeep kumar"
+              "customer25"
             ],
             "pattern": "^(.*)$"
           },
@@ -108,7 +111,7 @@
             "title": "The Liabilityrm Schema",
             "default": "",
             "examples": [
-              "rahul rawel"
+              "rahul customer35"
             ],
             "pattern": "^(.*)$"
           },
@@ -118,7 +121,7 @@
             "title": "The Groupid Schema",
             "default": "",
             "examples": [
-              "274369"
+              "274337"
             ],
             "pattern": "^(.*)$"
           },
@@ -128,7 +131,7 @@
             "title": "The Businesssegment Schema",
             "default": "",
             "examples": [
-              "brb"
+              "BRB"
             ],
             "pattern": "^(.*)$"
           },
@@ -138,17 +141,17 @@
             "title": "The Partnersegment Schema",
             "default": "",
             "examples": [
-              "brb"
+              "RB"
             ],
             "pattern": "^(.*)$"
           },
-          "DOB": {
-            "$id": "#/properties/records/items/properties/DOB",
+          "customerOpenDate": {
+            "$id": "#/properties/records/items/properties/customerOpenDate",
             "type": "string",
-            "title": "The Dob Schema",
+            "title": "The Customeropendate Schema",
             "default": "",
             "examples": [
-              "05/05/2007"
+              "03-May-2011"
             ],
             "pattern": "^(.*)$"
           },
@@ -161,13 +164,33 @@
               true
             ]
           },
+          "custType": {
+            "$id": "#/properties/records/items/properties/custType",
+            "type": "string",
+            "title": "The Custtype Schema",
+            "default": "",
+            "examples": [
+              "C"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "created": {
+            "$id": "#/properties/records/items/properties/created",
+            "type": "string",
+            "title": "The Created Schema",
+            "default": "",
+            "examples": [
+              "03-May-2011"
+            ],
+            "pattern": "^(.*)$"
+          },
           "DOB": {
             "$id": "#/properties/records/items/properties/DOB",
             "type": "string",
             "title": "The Dob Schema",
             "default": "",
             "examples": [
-              "05/05/2007"
+              "01-Jan-1990"
             ],
             "pattern": "^(.*)$"
           }
@@ -180,13 +203,33 @@
       "title": "The Count Schema",
       "default": 0,
       "examples": [
-        1
+        10
       ]
     },
     "searchParams": {
       "$id": "#/properties/searchParams",
       "type": "object",
-      "title": "The Searchparams Schema"
+      "title": "The Searchparams Schema",
+      "required": [
+        "mdmId"
+      ],
+      "properties": {
+        "mdmId": {
+          "$id": "#/properties/searchParams/properties/mdmId",
+          "type": "array",
+          "title": "The Mdmid Schema",
+          "items": {
+            "$id": "#/properties/searchParams/properties/mdmId/items",
+            "type": "string",
+            "title": "The Items Schema",
+            "default": "",
+            "examples": [
+              "838240"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
     }
   }
 }
