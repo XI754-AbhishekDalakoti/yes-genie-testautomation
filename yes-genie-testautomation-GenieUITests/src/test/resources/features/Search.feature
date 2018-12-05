@@ -62,6 +62,7 @@ Feature: Search or Landing Page
     Examples:
       | Parameter           |
       | Ayush               |
+      | anupamgupta@yesbank |
 
   Scenario Outline: Search data with refine parameter
     Then I wait for 2 sec
