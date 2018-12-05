@@ -48,4 +48,5 @@ public class ResponseValidation {
         response.then().
                 body((param), is(vlaue));
     }
+
 }
