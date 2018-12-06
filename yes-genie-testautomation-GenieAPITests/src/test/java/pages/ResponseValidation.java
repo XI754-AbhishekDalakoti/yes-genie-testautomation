@@ -43,4 +43,10 @@ public class ResponseValidation {
         response.
                 then().assertThat().statusCode(vlaue);
     }
+
+    public void responseStringValueCompare(String param,Response response, String vlaue){
+        response.then().
+                body((param), is(vlaue));
+    }
+
 }
