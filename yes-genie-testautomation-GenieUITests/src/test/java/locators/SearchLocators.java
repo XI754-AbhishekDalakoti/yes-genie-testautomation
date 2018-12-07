@@ -51,14 +51,8 @@ public class SearchLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[13]")
     public static WebElement heading_CustOpenDate;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='_3EDtrwq_7VF1ryjpZ5V5pi']")
+    @FindBy(how = How.XPATH, using = "//div[@class='_1yZKqTlSrXNSB_Zl_9scaj']")
     public static WebElement heading_NoSearchResult;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='_2Z0W6Iozj-mZSQZGQiNQRg']")
-    public static WebElement heading_ToolTipCustID;
-
-    @FindBy(how = How.XPATH, using = "")
-    public static WebElement SearchResultsFor;
 
     @FindBy(how = How.XPATH, using = "//div[@class=\"_1yZKqTlSrXNSB_Zl_9scaj\"]")
     public static WebElement refinementMessage;

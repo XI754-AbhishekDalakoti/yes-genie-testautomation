@@ -4,6 +4,7 @@
 
 
 # IntelliJ
+.idea/
 .idea/artifacts
 .idea/compiler.xml
 .idea/misc.xml
@@ -54,4 +55,3 @@ selenium-cucumber-java-0.0.1.pom
 
 #Configuration
 Configuration.properties
-

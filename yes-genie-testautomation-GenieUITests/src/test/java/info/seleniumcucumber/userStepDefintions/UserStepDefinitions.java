@@ -1,7 +1,7 @@
 package info.seleniumcucumber.userStepDefintions;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import env.DriverUtil;
@@ -12,7 +12,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.LoginPage;
 import pageObjects.SearchPage;
-
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 
@@ -21,18 +20,6 @@ public class UserStepDefinitions implements BaseTest {
     public static LoginPage lp = new LoginPage();
     public static SearchPage sp = new SearchPage();
     protected WebDriver driver = DriverUtil.getDefaultDriver();
-
-    @Given("^I should get logged-in$")
-    public void should_logged_in() throws Throwable {
-
-        By selection = By.id("flash");
-        (new WebDriverWait(driver, 30)).until(
-                visibilityOfElementLocated(selection));
-        String msg = driver.findElement(By.id("flash")).getText();
-        if (!msg.isEmpty())
-            msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Welcome, Ravindra Singh", msg);
-    }
 
     @Then("^I should get logged-in with welcome message$")
     public void should_logged_in_with_welcome_message() throws Throwable {
@@ -43,7 +30,7 @@ public class UserStepDefinitions implements BaseTest {
         String msg = driver.findElement(By.xpath("//span[@class='_2QCs8cFfqH_wnXLIYBu5ro ZU4gfSwYj6EDl657TJqnA']")).getText();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Welcome, Ravindra Singh", msg);
+        Assert.assertEquals("Welcome Panna Das", msg);
     }
 
     @Then("^I should get error message$")
@@ -64,36 +51,25 @@ public class UserStepDefinitions implements BaseTest {
     }
 
     @When("^User enters \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void userEntersAnd(String Username, String Password) throws Throwable {
-
+    public void userEntersCredentials(String Username, String Password) throws Throwable {
         lp.enterCredentials(Username, Password);
     }
 
 
-    @When("^I click on Login$")
+    @And("^I click on Login$")
     public void iClickOnLogin() throws Throwable {
-        driver.findElement(By.id("submit")).click();
+        lp.Login_button.click();
     }
 
-    @And("^Last Login date and time is displayed with basic info$")
-    public void lastLoginDateAndTimeIsDisplayedWithBasicInfo() throws Throwable {
-        lp.displayLoginDateTimeBasicInfo();
-    }
-
-    @And("^Search bar contains static search parameters$")
-    public void searchBarContainsStaticSearchParameters() throws Throwable {
+    @And("^Under search bar, it contains static search parameters$")
+    public void underSearchBarContainsStaticSearchParameters() throws Throwable {
         lp.staticSearchParameters();
 
     }
 
-    @When("^I get the page title and decide the starting page$")
-    public void verifyAndDecideTestCaseFlow() {
-        String title = sp.getpageTitle().trim();
-        if (title.equalsIgnoreCase("Log in to YBL")) {
-            System.out.println("t : " + title);
-        } else {
-            lp.logOut();
-        }
+    @When("^I'm on login page$")
+    public void verifyImOnLoginPage() {
+        lp.verifyLoginPage();
     }
 
     @Then("^I should get logout$")
@@ -101,24 +77,14 @@ public class UserStepDefinitions implements BaseTest {
         lp.logOut();
     }
 
-    @And("^Basic information$")
-    public void basicInformation() throws Throwable {
-        lp.displayLoginDateTimeBasicInfo();
-    }
-
-    @Then("^I get Search result in tabular format with all details$")
-    public void iGetSearchResultInTabularFormatWithAllDetails() throws Throwable {
+    @Then("^Search result is displayed with all fields in search UI screen$")
+    public void searchResultIsDisplayedWithAllFields() throws Throwable {
         sp.searchParameters();
     }
 
-    @Then("^No search result should be displayed$")
+    @Then("^'No Results Found, Please refine' message is displayed$")
     public void noSearchResultDisplay() throws Throwable {
         sp.noSearchResultDisplay();
-    }
-
-    @And("^Has option to search by Cust ID$")
-    public void hasOptionToSearchByCustID() throws Throwable {
-        driver.findElement(By.id("CustID")).click();
     }
 
     @Then("^I quit browser$")
@@ -126,34 +92,54 @@ public class UserStepDefinitions implements BaseTest {
         driver.quit();
     }
 
-    @Then("^I should get the tool tip with message$")
-    public void toolTipMessageForCustIdToSearch() {
-        sp.toolTipMessageDisplayCustID();
-    }
-
-/*    public void toolTipMessageForCustIdToSearch() {
-        sp.toolTipMessageDisplayCustID();
-    }*/
-
-    @And("^I validate last login format$")
-    public void iValidateLastLoginFormat() throws Throwable {
-        lp.validateFormat();
-    }
-
-    @And("^Displays search criteria with count$")
-    public void displaysSearchCriteriaWithCount() throws Throwable {
-        sp.searchCriteria();
-
-    }
-
-    @Then("^Message should come for search refinement due to threshold exceeded$")
+    @Then("^'Search returned too many results, Please refine' message is displayed due to threshold exceeded$")
     public void messageShouldComeForSearchRefinementDueToThresholdExceeded() throws Throwable {
         sp.refineMessage();
     }
 
-    @And("^Accordingly particular \"([^\"]*)\" gets highlighted$")
-    public void accordinglyParticularParameterGetsHighlighted(String Parameter1) throws Throwable {
-        sp.bubbleSearch(Parameter1);
+    @And("^Accordingly respective \"([^\"]*)\" gets highlighted$")
+    public void accordinglyRespectiveParameterGetsHighlighted(String Result) throws Throwable {
+        sp.bubbleSearch(Result);
     }
 
+    @Then("^I enter \"([^\"]*)\" into search field having (.+) \"([^\"]*)\"$")
+    public void enterTextInSearchField(String text, String type, String accessName) throws Exception {
+        miscmethodObj.validateLocator(type);
+        inputObj.enterText(type, text, accessName);
+    }
+
+    @Then("^I click on search button having (.+) \"(.*?)\"$")
+    public void clickOnSearchButton(String type, String accessName) throws Exception {
+        miscmethodObj.validateLocator(type);
+        clickObj.click(type, accessName);
+    }
+
+    @And("^I validate Last Login date and time format displayed on bottom right of the page$")
+    public void iValidateLastLoginDateAndTimeFormat() throws Throwable {
+        lp.lastLoginDateTimeFormat();
+    }
+
+    @Then("^I validate basic information is displayed on top right$")
+    public void iValidateBasicInformationIsDisplayedOnTopRight() throws Throwable {
+        lp.displayBasicInformation();
+    }
+
+    @And("^I click on dropdown on top right of page$")
+    public void iClickOnDropdownOnTopRightOfPage() throws Throwable {
+        lp.clickDropDownOnTopRight();
+    }
+
+    @And("^I verify search label display like 'Search result for \"([^\"]*)\": \"([^\"]*)\" \"([^\"]*)\": \"([^\"]*)\" Results'$")
+    public void iVerifyLabelDisplaysLikeSearchResultForResults(String Result1, String Result2, String Result3, String Result4) throws Throwable {
+        sp.formatOfSearchLabel(Result1, Result2, Result3, Result4);
+    }
+
+
+    @And("^I can see individual and corporate icon$")
+    public void iCanSeeIndividualAndCorporateIcon() throws Throwable {
+
+            String text = driver.findElement(By.xpath("//img[@class='CqqbeIJHz7FmpKhQJmJOY']")).getAttribute("src");
+            System.out.println(text);
+            text.endsWith("Individual.23f30a4e.svg");
+    }
 }
