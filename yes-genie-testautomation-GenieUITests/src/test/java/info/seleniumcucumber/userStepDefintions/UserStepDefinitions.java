@@ -61,7 +61,7 @@ public class UserStepDefinitions implements BaseTest {
         lp.Login_button.click();
     }
 
-    @And("^Under search bar contains static search parameters$")
+    @And("^Under search bar, it contains static search parameters$")
     public void underSearchBarContainsStaticSearchParameters() throws Throwable {
         lp.staticSearchParameters();
 
@@ -77,12 +77,12 @@ public class UserStepDefinitions implements BaseTest {
         lp.logOut();
     }
 
-    @Then("^I get Search result in tabular format with all details$")
-    public void iGetSearchResultInTabularFormatWithAllDetails() throws Throwable {
+    @Then("^Search result is displayed with all fields$")
+    public void searchResultIsDisplayedWithAllFields() throws Throwable {
         sp.searchParameters();
     }
 
-    @Then("^No search result should be displayed$")
+    @Then("^No search result is displayed$")
     public void noSearchResultDisplay() throws Throwable {
         sp.noSearchResultDisplay();
     }
@@ -92,14 +92,14 @@ public class UserStepDefinitions implements BaseTest {
         driver.quit();
     }
 
-    @Then("^Message should come for search refinement due to threshold exceeded$")
+    @Then("^Message comes for search refinement due to threshold exceeded$")
     public void messageShouldComeForSearchRefinementDueToThresholdExceeded() throws Throwable {
         sp.refineMessage();
     }
 
     @And("^Accordingly respective \"([^\"]*)\" gets highlighted$")
-    public void accordinglyRespectiveParameterGetsHighlighted(String Parameter1) throws Throwable {
-        sp.bubbleSearch(Parameter1);
+    public void accordinglyRespectiveParameterGetsHighlighted(String Result) throws Throwable {
+        sp.bubbleSearch(Result);
     }
 
     @Then("^I enter \"([^\"]*)\" into search field having (.+) \"([^\"]*)\"$")
@@ -130,7 +130,7 @@ public class UserStepDefinitions implements BaseTest {
     }
 
     @And("^I verify search label display like 'Search result for \"([^\"]*)\": \"([^\"]*)\" \"([^\"]*)\": \"([^\"]*)\" Results'$")
-    public void iVerifyLabelDisplaysLikeSearchResultForResults(String Parameter1, String Parameter2, String Parameter3, String Parameter4) throws Throwable {
-        sp.formatOfSearchLabel(Parameter1, Parameter2, Parameter3, Parameter4);
+    public void iVerifyLabelDisplaysLikeSearchResultForResults(String Result1, String Result2, String Result3, String Result4) throws Throwable {
+        sp.formatOfSearchLabel(Result1, Result2, Result3, Result4);
     }
 }

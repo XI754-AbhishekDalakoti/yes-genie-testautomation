@@ -68,31 +68,31 @@ public class SearchPage extends SearchLocators {
         Assert.assertEquals("Search returned too many results. Please refine", msg);
     }
 
-    public void bubbleSearch(String Parameter1) {
+    public void bubbleSearch(String Result) {
         String text = sp.bubbleHighlight.getText();
-        if (Parameter1 == "PAN") {
-            Assert.assertEquals(text,Parameter1);
+        if (Result == "PAN") {
+            Assert.assertEquals(text,Result);
         }
-        else if (Parameter1 == "Passport") {
-            Assert.assertEquals(text,Parameter1);
+        else if (Result == "Passport") {
+            Assert.assertEquals(text,Result);
         }
-        else if (Parameter1 == "Cust Name") {
-            Assert.assertEquals(text,Parameter1);
+        else if (Result == "Cust Name") {
+            Assert.assertEquals(text,Result);
         }
     }
 
-    public void formatOfSearchLabel(String Parameter1, String Parameter2, String Parameter3, String Parameter4) {
+    public void formatOfSearchLabel(String Result1, String Result2, String Result3, String Result4) {
 
         String searchText = driver.findElement(By.xpath("//span[@class=\"_3EgRXlYvEjwG3mDsFlPzjz\"]")).getText();
         String arrayOfSearchText[] = searchText.split("\\+");
 
-        boolean res = arrayOfSearchText[0].contains(Parameter1);
+        boolean res = arrayOfSearchText[0].contains(Result1);
         Assert.assertTrue(res);
-        boolean res1 = arrayOfSearchText[1].contains(Parameter2);
+        boolean res1 = arrayOfSearchText[1].contains(Result2);
         Assert.assertTrue(res1);
-        boolean res2 = arrayOfSearchText[0].contains(Parameter3);
+        boolean res2 = arrayOfSearchText[0].contains(Result3);
         Assert.assertTrue(res2);
-        boolean res3 = arrayOfSearchText[1].contains(Parameter4);
+        boolean res3 = arrayOfSearchText[1].contains(Result4);
         Assert.assertTrue(res3);
     }
 }

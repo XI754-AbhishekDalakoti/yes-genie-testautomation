@@ -16,12 +16,12 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     And I wait for 2 sec
-    Then I get Search result in tabular format with all details
+    Then Search result is displayed with all fields
 
   @Smoke
-  Scenario: Ensure static parameter under search bar is there
+  Scenario: Ensure static parameter under search bar is displayed
     And I wait for 2 sec
-    Then Under search bar contains static search parameters
+    Then Under search bar, it contains static search parameters
 
   @Regression
   Scenario: Search with wrong MDM ID
@@ -29,7 +29,7 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then No search result should be displayed
+    Then No search result is displayed
 
   Scenario Outline: Search with different parameters with MDMID
     Then I wait for 2 sec
@@ -37,7 +37,7 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then I get Search result in tabular format with all details
+    Then Search result is displayed with all fields
     Examples:
       | Parameter               |
       | 838285                  |
@@ -52,13 +52,13 @@ Feature: Search or Landing Page
       | 12-Sep-2000             |
       | Indore                  |
 
-  Scenario Outline: Refine search message option when threshold exceeded
+  Scenario Outline: Refine search message option when threshold 50 exceeded
     Then I wait for 2 sec
     And I enter "<Parameter>" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then Message should come for search refinement due to threshold exceeded
+    Then Message comes for search refinement due to threshold exceeded
     Examples:
       | Parameter           |
       | Ayush               |
@@ -70,7 +70,7 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then I get Search result in tabular format with all details
+    Then Search result is displayed with all fields
     Examples:
       | Parameter        |
       | Ayush + Jabalpur |
@@ -78,12 +78,12 @@ Feature: Search or Landing Page
   Scenario Outline: When user enters parameter in search field it should intelligently highlight the label with bubble
     Then I wait for 2 sec
     And I enter "<Parameter>" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
-    Then Accordingly respective "<Parameter1>" gets highlighted
+    Then Accordingly respective "<Result>" gets highlighted
     Examples:
-      | Parameter  | Parameter1 |
-      | AUGXX7978X | PAN        |
-      | H7890987   | Passport   |
-      | Bhuvana    | Cust Name  |
+      | Parameter  | Result    |
+      | AUGXX7978X | PAN       |
+      | H7890987   | Passport  |
+      | Bhuvana    | Cust Name |
 
   Scenario Outline: Format of Search label below search bar
     Then I wait for 2 sec
@@ -91,10 +91,11 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    And I verify search label display like 'Search result for "<Parameter1>": "<Parameter2>" "<Parameter3>": "<Parameter4>" Results'
+    And I verify search label display like 'Search result for "<Result1>": "<Result2>" "<Result3>": "<Result4>" Results'
+    Then I should get logout
     Examples:
-      | Parameter        | Parameter1 | Parameter2 | Parameter3 | Parameter4 |
-      | Ayush + Jabalpur | Ayush      | 02-01-2003 | Cust Name: | DOB:       |
+      | Parameter           | Result1 | Result2     | Result3    | Result4 |
+      | Ayush + 15-May-1990 | Ayush   | 15-May-1990 | Cust Name: | DOB:    |
 
   @Regression
   Scenario: Close browser
