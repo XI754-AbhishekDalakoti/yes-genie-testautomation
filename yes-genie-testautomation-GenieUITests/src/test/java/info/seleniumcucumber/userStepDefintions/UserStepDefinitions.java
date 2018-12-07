@@ -77,12 +77,12 @@ public class UserStepDefinitions implements BaseTest {
         lp.logOut();
     }
 
-    @Then("^Search result is displayed with all fields$")
+    @Then("^Search result is displayed with all fields in search UI screen$")
     public void searchResultIsDisplayedWithAllFields() throws Throwable {
         sp.searchParameters();
     }
 
-    @Then("^No search result is displayed$")
+    @Then("^'No Results Found, Please refine' message is displayed$")
     public void noSearchResultDisplay() throws Throwable {
         sp.noSearchResultDisplay();
     }
@@ -92,7 +92,7 @@ public class UserStepDefinitions implements BaseTest {
         driver.quit();
     }
 
-    @Then("^Message comes for search refinement due to threshold exceeded$")
+    @Then("^'Search returned too many results, Please refine' message is displayed due to threshold exceeded$")
     public void messageShouldComeForSearchRefinementDueToThresholdExceeded() throws Throwable {
         sp.refineMessage();
     }
@@ -132,5 +132,14 @@ public class UserStepDefinitions implements BaseTest {
     @And("^I verify search label display like 'Search result for \"([^\"]*)\": \"([^\"]*)\" \"([^\"]*)\": \"([^\"]*)\" Results'$")
     public void iVerifyLabelDisplaysLikeSearchResultForResults(String Result1, String Result2, String Result3, String Result4) throws Throwable {
         sp.formatOfSearchLabel(Result1, Result2, Result3, Result4);
+    }
+
+
+    @And("^I can see individual and corporate icon$")
+    public void iCanSeeIndividualAndCorporateIcon() throws Throwable {
+
+            String text = driver.findElement(By.xpath("//img[@class='CqqbeIJHz7FmpKhQJmJOY']")).getAttribute("src");
+            System.out.println(text);
+            text.endsWith("Individual.23f30a4e.svg");
     }
 }
