@@ -20,7 +20,6 @@ Feature: Validate Search API
       | 12355612355006      | 50        |
       | 123456789123        | 50        |
       | anupamgupta@yesbank | 50        |
-      | 15-May-1990         | 50        |
       | @tomer31twitter     | 50        |
 
   @simplesearch @regression
@@ -80,7 +79,6 @@ Feature: Validate Search API
       | query               | threshold |
       | AyUsh               | 5000      |
       | AnupamGupta@yesbank | 5000      |
-      | 15-MAy-1990         | 5000      |
       | @toMEr31twitter     | 5000      |
       | AxepD7154N          | 50        |
       | y7654537            | 50        |
