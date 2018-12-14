@@ -11,11 +11,11 @@ Feature: Validate Search API
     Then user get the response from the api and count of records is more than 1
     Examples:
       | query               | threshold |
-      | 210010              | 50        |
+      | 996264849           | 50        |
       | 9184820250          | 50        |
       | AXEPD7154N          | 50        |
       | Y7654537            | 50        |
-      | Ayush               | 500       |
+      | CHARU SADANA        | 50        |
       | 181400001300037     | 50        |
       | 12355612355006      | 50        |
       | 123456789123        | 50        |
@@ -24,40 +24,40 @@ Feature: Validate Search API
 
   @simplesearch @regression
   Scenario: User search with custId and validate customerSearchEnabled is true or false
-    When a user search with value "210010" and setting value for threshold "50"
+    When a user search with value "996264849" and setting value for threshold "50"
     Then user get the response from the api as "true"
 
   @simplesearch @regression @smoke
   Scenario Outline: User search with valid custid and validate response for all the mentioned keys in example
-    When a user search with value "210010" and setting value for threshold "50"
+    When a user search with value "996264849" and setting value for threshold "50"
     Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
-      | key              | value            |
-      | customerName     | Ayush            |
-      | city             | Delhi            |
-      | addressArea      | Fort, karnal     |
-      | homeBranch       | 9899             |
-      | assetRM          | customer25       |
-      | liabilityRM      | rahul customer35 |
-      | groupId          | 274337           |
-      | businessSegment  | BRB              |
-      | partnerSegment   | RB               |
-      | customerOpenDate | 03-May-2011      |
-      | DOB              | 15-May-1990      |
-      | custType         | I                |
+      | key              | value                    |
+      | customerName     | CHARU SADANA             |
+      | city             | SAHARANPUR               |
+      | addressArea      | W/O RAHUL SADANA 25-B    |
+      | homeBranch       | SAHARANPUR,UTTAR PRADESH |
+      | assetRM          | NULL                     |
+      | liabilityRM      | 4188029                  |
+      | groupId          | 274937                   |
+      | businessSegment  | BRB                      |
+      | partnerSegment   | NULL                     |
+      | customerOpenDate | 13-May-2011              |
+      | DOB              | 15-Mar-1994              |
+      | custType         | I                        |
 
   @simplesearch @smoke @regression
   Scenario Outline: User search with valid custId and validate response for custId and mdmId
-    When a user search with value "210010" and setting value for threshold "50"
+    When a user search with value "996264849" and setting value for threshold "50"
     Then user get the response from the api for initial record of numeric type for "<nkey>" is <nvalue>
     Examples:
-      | nkey   | nvalue |
-      | custId | 210010 |
-      | mdmId  | 810110 |
+      | nkey   | nvalue    |
+      | custId | 996264849 |
+      | mdmId  | 101       |
 
   @dev
   Scenario: User search with valid custId and validate json schema
-    When a user search with value "210010" and setting value for threshold "50"
+    When a user search with value "996264849" and setting value for threshold "50"
     Then search api response json schema is validated successfully
 
   @simplesearch @regression
@@ -129,7 +129,7 @@ Feature: Validate Search API
 
   @refinesearch @regression
   Scenario Outline: User perform refine search with valid customer name and Branch Code and validate response for all the mentioned keys in below Examples:
-    When a user search with value "Ayush+181" and setting value for threshold "5000"
+    When a user search with value "Ayush+181" and setting value for threshold "50"
     Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
       | key              | value            |
@@ -148,6 +148,6 @@ Feature: Validate Search API
 
   @simplesearch
   Scenario: User perform refine search with valid email id and validate response from the api
-    When a user search with value "anupamgupta@yahoo.co.in" and setting value for threshold "5000"
+    When a user search with value "anupamgupta@yahoo.co.in" and setting value for threshold "50"
     Then a user get the status code 200 as a response from the api
     Then user get the response from the api and count of records is more than 1
