@@ -1,113 +1,104 @@
 @demographics
 Feature: Validate demographics APIs
 
-  @dev
-  Scenario Outline: User validates the json schema of demographic api where customer type is individual to validate that API is per contract
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is individual
-    Then a genie user validates that in the response for demographic api for individual has all the required fields of required types as mentioned in "<filename>"
-    Examples:
-      | filename                          |
-      | demographicsIndividualSchema.json |
-
-  @Smoke @Regression
-  Scenario: User validates the response code and count of records of demographic api where customer type is individual
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is individual
+  @smoke @regression
+  Scenario: User validates the response code of demographic api and mdmId as response where customer type is individual
+    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+    When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api where customer type is individual
-    Then user get the response from the demographic api where customer type is individual and count of records in response is more than 1
+    Then user get the response for "mdmId" is "996264849" from the demographic api where customer type is individual
 
-  @Regression
+  @regression
+  Scenario: User validates message of demographic api where customer type is individual and mdmId is not available in DB
+    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+    When a genie user passes the "24" as a parameter to get the response from demographic api where customer type is individual
+    Then a genie user get the "message" as "No value present" from the api as a response
+    Then a user get the status code 404 as a response from the demographic api where customer type is individual
+
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is individual for all the mentioned keys in examples
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is individual
+    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+    When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then user get the response for "<key>" is "<value>" from the demographic api where customer type is individual
     Examples:
-      | key                 | value            |
-      | mobileNumber        | AJAY KUMAR       |
-      | custSegment         | Pune             |
-      | customerType        | 9899             |
-      | vintage             | customer25       |
-      | CKYC No.            | rahul customer35 |
-      | BS/PS               | 274337           |
-      | profitablilityBand  | BRB              |
-      | contactibilityIndex | RB               |
-      | gender              | C                |
-      | custType            | C                |
+      | key                    | value                      |
+      | name                   | CHARU SADANA               |
+      | mdmId                  | 996264849                  |
+      | vintage                | 3.3                        |
+      | custType               | FEMALE RESIDENT INDIVIDUAL |
+      | emailId                | rahul_sadana@yahoo.co.in   |
+      | emailStatus            | VERIFIED                   |
+      | currentCityState       | SAHARANPUR,UTTAR PRADESH   |
+      | currentCityStateStatus | VERIFIED                   |
+      | mobileNumber           | 918482095250               |
+      | mobileNumberStatus     | VERIFIED                   |
+      | incomeBand             | -                          |
+      | custCategory           | I                          |
+      | dataSetFlag            | M                          |
+      | sentimentBand          | -                          |
+      | contactibilityIndex    | 33%                        |
+      | homeBranchName         | SAHARANPUR,UTTAR PRADESH   |
+      | cKyc                   | -                          |
+      | profession             | -                          |
+      | currentCityState       | SAHARANPUR,UTTAR PRADESH   |
+      | customerSegment        | YES FIRST PRIMARY OPDT     |
+      | aadharNo               | NOTVERIFIED                |
+      | passportNo             | VERIFIED                   |
+      | gender                 | F                          |
+      | PS                     | -                          |
+      | BS                     | BRB                        |
+      | PAN                    | VERIFIED                   |
+      | DOB                    | 15-Mar-1994                |
 
-  @Regression
-  Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is individual for all the mentioned keys in examples
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is individual
-    Then user get the response for the initial record for mdmid is "<value>" from the demographic api where customer type is individual
-    Examples:
-      | value  |
-      | 809725 |
 
-  @Regression
-  Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is individual for all the mentioned keys in examples
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is individual
-    Then user get the response for "<parameter>" like pan is "<value>" from the demographic api where customer type is individual
-    Examples:
-      | parameter  |value|
-      | PAN        |     |
-      | aadharNo   |     |
-      | passportNo |     |
-
-  @dev
-  Scenario Outline: User validates the json schema of demographic api where customer type is corporate to validate that API is per contract
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is corporate
-    Then a genie user validates that in the response for demographic api for corporate has all the required fields of required types as mentioned in "<filename>"
-    Examples:
-      | filename                         |
-      | demographicsCorporateSchema.json |
-
-  @Smoke @Regression
+  @smoke @regression
   Scenario: User validates the response code and count of records of demographic api where customer type is corporate
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is corporate
+    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+    When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then a user get the status code 200 as a response from the demographic api where customer type is corporate
-    Then user get the response from the demographic api where customer type is corporate and count of records in response is more than 1
+    Then user get the response for "mdmId" is "998003452" from the demographic api where customer type is corporate
 
-
-  @Regression
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is corporate for all the mentioned keys in examples
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is corporate
+    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+    When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then user get the response for "<key>" is "<value>" from the demographic api where customer type is corporate
     Examples:
-      | key                | value            |
-      | mobileNumber       | AJAY KUMAR       |
-      | landlineNumber     | Pune             |
-      | email              | Fort, Mumbai     |
-      | customerType       | 9899             |
-      | vintage            | customer25       |
-      | CKYC No.           | rahul customer35 |
-      | BS/PS              | 274337           |
-      | profitablilityBand | BRB              |
-      | annualTurnover     | RB               |
-      | DOI                | 03-May-2011      |
-      | business           | 01-Jan-1990      |
-      | industry           | C                |
-      | gender             | C                |
-      | custType           | C                |
+      | key                    | value                           |
+      | name                   | SURINDRA RADIOS PRIVATE LIMITED |
+      | mdmId                  | 998003452                       |
+      | vintage                | 4.1                             |
+      | custType               | COMPANY                         |
+      | emailId                | amarjeets555@gmail.com          |
+      | emailStatus            | VERIFIED                        |
+      | currentCityState       | CHANDIGARH,CHANDIGARH           |
+      | currentCityStateStatus | NOTVERIFIED                     |
+      | mobileNumber           | 918080112225                    |
+      | mobileNumberStatus     | VERIFIED                        |
+      | incomeBand             | -                               |
+      | custCategory           | C                               |
+      | dataSetFlag            | M                               |
+      | constitution           | PVTLTD                          |
+      | business               | Retail Trading/Merchants        |
+      | industry               | Architecture Firm               |
+      | annualTurnover         | 1 CRORE TO 5 CRORE              |
+      | landlineNumberStatus   | NOTAVAILABLE                    |
+      | PS                     | -                               |
+      | BS                     | BRB                             |
+      | PAN                    | NOTVERIFIED                     |
 
-  @Regression
-  Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is corporate for all the mentioned keys in examples
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is corporate
-    Then user get the response for the initial record for mdmid is "<value>" from the demographic api where customer type is corporate
-    Examples:
-      | value  |
-      | 809725 |
 
-  @Regression
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is corporate for all the mentioned keys in examples
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/customer/search"
-    When a genie user passes the "mdmid" as a parameter to get the response from demographic api where customer type is corporate
-    Then user get the response for "<parameter>" like pan is "<value>" from the demographic api where customer type is corporate
+    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+    When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
+    Then user get the response for "<key>" is null from the demographic api where customer type is corporate
     Examples:
-      | parameter |value|
-      | PAN       |     |
+      | key            |
+      | landlineNumber |
+      | webSite        |
+
+
+
+
+

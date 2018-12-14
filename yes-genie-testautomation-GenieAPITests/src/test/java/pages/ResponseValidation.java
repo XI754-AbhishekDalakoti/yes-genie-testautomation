@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 /**
  * Created by vibhu on 11/27/2018.
@@ -33,6 +34,10 @@ public class ResponseValidation {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_BAD_REQUEST);
     }
+    public void validateResultNotRequest(Response response){
+        response.
+                then().assertThat().statusCode(HttpStatus.SC_NOT_FOUND);
+    }
 
     public void compareCount(String param,Response response,int vlaue){
         response.then().
@@ -49,4 +54,8 @@ public class ResponseValidation {
                 body((param), is(vlaue));
     }
 
+    public void responseNullValueCompare(String param,Response response,String key){
+        response.then().
+                body((param.concat(key)), is(nullValue()));
+    }
 }
