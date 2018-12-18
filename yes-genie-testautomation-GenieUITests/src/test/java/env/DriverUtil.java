@@ -1,19 +1,11 @@
 package env;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.ErrorHandler;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -22,8 +14,22 @@ import java.util.Base64;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchSessionException;
+import org.openqa.selenium.SessionNotCreatedException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.ErrorHandler;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class DriverUtil {
     public static long DEFAULT_WAIT = 20;
@@ -170,7 +176,6 @@ public class DriverUtil {
                 capabilities = DesiredCapabilities.chrome();
                 capabilities.setJavascriptEnabled(true);
                 capabilities.setCapability("takesScreenshot", true);
-//				driver = chooseDriver(capabilities);
                 driver = chooseDriver(capabilities);
                 driver.manage().timeouts().setScriptTimeout(DEFAULT_WAIT, TimeUnit.SECONDS);
                 driver.manage().window().maximize();
@@ -284,9 +289,6 @@ public class DriverUtil {
     }
 
     /**
-     * By default to web driver will be firefox
-     *
-     * Override it by passing -Dbrowser=Chrome to the command line arguments
      * By default to web driver will be chrome
      *
      * Override it by passing -Dbrowser=ie to the command line arguments
@@ -314,32 +316,6 @@ public class DriverUtil {
                     System.exit(0);
                 }
                 return driver;
-//			case "chrome":
-//				final ChromeOptions chromeOptions = new ChromeOptions();
-//				if (headless) {
-//					chromeOptions.addArguments("--headless");
-//				}
-//				capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-//				try
-//				{
-//					driver = new ChromeDriver(capabilities);
-//					ErrorHandler handler = new ErrorHandler();
-//					handler.setIncludeServerErrors(false);
-//					//driver.setErrorHandler(handler);
-//				}catch(Exception e) {
-//					System.out.println(e.getMessage());
-//					System.exit(0);
-//				}
-//				return driver;
-            case "ie":
-                try {
-
-                    driver = new InternetExplorerDriver();
-                }catch(Exception e) {
-                    System.out.println(e.getMessage());
-                    System.exit(0);
-                }
-                return driver;
             default:
                 ChromeOptions chromeOptions = new ChromeOptions();
                 if (headless) {
@@ -357,20 +333,6 @@ public class DriverUtil {
                     System.exit(0);
                 }
                 return driver;
-
-//				FirefoxOptions options = new FirefoxOptions();
-//				if (headless) {
-//					options.addArguments("-headless", "-safe-mode");
-//				}
-//				capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
-//				try {
-//					driver = new FirefoxDriver(capabilities);
-//				}
-//				catch(Exception e) {
-//					System.out.println(e.getMessage());
-//					System.exit(0);
-//				}
-//				return driver;
         }
     }
 

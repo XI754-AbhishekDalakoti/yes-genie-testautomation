@@ -98,7 +98,3 @@ Feature: Validate demographics APIs
       | landlineNumber |
       | webSite        |
 
-
-
-
-

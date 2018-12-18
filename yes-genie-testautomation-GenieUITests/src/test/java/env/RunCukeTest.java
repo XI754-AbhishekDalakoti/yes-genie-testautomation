@@ -1,6 +1,6 @@
 package env;
+
 import org.junit.runner.RunWith;
-import org.junit.*;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import com.cucumber.listener.Reporter;
@@ -17,11 +17,9 @@ import java.io.*;
 		}
 )
 
-
 public class RunCukeTest {
 	public static void writeExtentReport() {
 		Reporter.loadXMLConfig(new File("config/report.xml"));
 
 	}
-
 }

@@ -87,6 +87,7 @@ public class demographicsAPI extends ResponseValidation {
     public void validateResultNotFoundInResponse(){
         responseValidation.validateResultNotRequest(responseIndividual);
     }
+
     @Then("^a user get the status code 200 as a response from the demographic api where customer type is corporate")
     public void validateDemographicCorporateAPIResponseisOK() {
         responseValidation.validateResponseOk(responseCorporate);
@@ -121,5 +122,4 @@ public class demographicsAPI extends ResponseValidation {
         String param = "";
         responseValidation.responseNullValueCompare(param, responseCorporate, key);
     }
-
 }

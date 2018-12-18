@@ -5,7 +5,6 @@ import locators.SearchLocators;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 public class SearchPage extends SearchLocators {
@@ -48,19 +47,14 @@ public class SearchPage extends SearchLocators {
         Assert.assertTrue(countOfRows <= Constant.threshold);
         String rowCount = countOfRows + " Results)";
 
-        String countText = driver.findElement(By.xpath("//span[@class=\"_3EgRXlYvEjwG3mDsFlPzjz\"]")).getText();
+        String countText = driver.findElement(By.xpath("//span[@class='_6AKfPTdqch8YuuArGQ4Dc']")).getText();
         String arrayOfRowCount[] = countText.split("\\(");
         Assert.assertEquals(rowCount.trim(),arrayOfRowCount[1].trim());
-        }
+    }
 
     public void noSearchResultDisplay(){
         String noSearchResult = heading_NoSearchResult.getText();
-        Assert.assertEquals("No result found",noSearchResult);
-    }
-
-    public void toolTipMessageDisplayCustID(){
-        String toolTipResult = heading_ToolTipCustID.getText();
-        Assert.assertEquals(Constant.CustIDToolTip,toolTipResult);
+        Assert.assertEquals("No Results Found. Please refine",noSearchResult);
     }
 
     public String getpageTitle(){
@@ -69,26 +63,36 @@ public class SearchPage extends SearchLocators {
         return title;
     }
 
-    public void searchCriteria() {
-        String searchText = SearchResultsFor.getText();
-        Assert.assertEquals(Constant.SearchParameters,searchText);
-    }
-
     public void refineMessage() {
         String msg = refinementMessage.getText();
         Assert.assertEquals("Search returned too many results. Please refine", msg);
     }
 
-    public void bubbleSearch(String Parameter1) {
+    public void bubbleSearch(String Result) {
         String text = sp.bubbleHighlight.getText();
-        if (Parameter1 == "PAN") {
-            Assert.assertEquals(text,Parameter1);
+        if (Result == "PAN") {
+            Assert.assertEquals(text,Result);
         }
-        else if (Parameter1 == "Passport") {
-            Assert.assertEquals(text,Parameter1);
+        else if (Result == "Passport") {
+            Assert.assertEquals(text,Result);
         }
-        else if (Parameter1 == "Cust Name") {
-            Assert.assertEquals(text,Parameter1);
+        else if (Result == "Cust Name") {
+            Assert.assertEquals(text,Result);
         }
+    }
+
+    public void formatOfSearchLabel(String Result1, String Result2, String Result3, String Result4) {
+
+        String searchText = driver.findElement(By.xpath("//span[@class=\"_3EgRXlYvEjwG3mDsFlPzjz\"]")).getText();
+        String arrayOfSearchText[] = searchText.split("\\+");
+
+        boolean res = arrayOfSearchText[0].contains(Result1);
+        Assert.assertTrue(res);
+        boolean res1 = arrayOfSearchText[1].contains(Result2);
+        Assert.assertTrue(res1);
+        boolean res2 = arrayOfSearchText[0].contains(Result3);
+        Assert.assertTrue(res2);
+        boolean res3 = arrayOfSearchText[1].contains(Result4);
+        Assert.assertTrue(res3);
     }
 }
