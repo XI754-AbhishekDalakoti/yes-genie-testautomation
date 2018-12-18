@@ -5,7 +5,7 @@ Feature: Login
     Given I navigate to "http://yesgenie.com:30978/"
 
   @Regression @Smoke
-  Scenario Outline: Login button is disabled if both credentials are not entered
+  Scenario Outline: Login button should be disabled if both credentials are not entered
     When User enters "<Username>" and "<Password>"
     And I click on Login
     Then The button should be disabled
@@ -15,7 +15,7 @@ Feature: Login
       | panna    |          |
       |          | 123      |
 
-  Scenario: User is not able to login with invalid credentails
+  Scenario: User should not be able to login with invalid credentails
     Then I wait for 2 sec
     And I enter "panna" into input field having id "username"
     And I enter "secretpassword" into input field having id "password"
