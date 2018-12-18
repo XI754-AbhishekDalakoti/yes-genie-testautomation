@@ -83,7 +83,7 @@ public class SearchPage extends SearchLocators {
 
     public void formatOfSearchLabel(String Result1, String Result2, String Result3, String Result4) {
 
-        String searchText = driver.findElement(By.xpath("//span[@class=\"_3EgRXlYvEjwG3mDsFlPzjz\"]")).getText();
+        String searchText = driver.findElement(By.xpath("//span[@class=\"_6AKfPTdqch8YuuArGQ4Dc\"]")).getText();
         String arrayOfSearchText[] = searchText.split("\\+");
 
         boolean res = arrayOfSearchText[0].contains(Result1);
@@ -94,5 +94,16 @@ public class SearchPage extends SearchLocators {
         Assert.assertTrue(res2);
         boolean res3 = arrayOfSearchText[1].contains(Result4);
         Assert.assertTrue(res3);
+    }
+
+    public void landsIntoSnapPage(){
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals("http://yesgenie.com:30978/snap", currentUrl);
+    }
+
+    public void singleRecordDisplayed() {
+        List<WebElement> elements = driver.findElements(By.xpath("//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/tbody/tr"));
+        int countOfRows = elements.size();
+        Assert.assertEquals("1",countOfRows);
     }
 }

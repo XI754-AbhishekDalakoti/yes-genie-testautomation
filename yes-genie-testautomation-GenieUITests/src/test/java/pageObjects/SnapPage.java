@@ -1,9 +1,7 @@
 package pageObjects;
 
 import locators.SnapLocators;
-import org.eclipse.jetty.client.Origin;
 import org.junit.Assert;
-import org.openqa.selenium.interactions.Actions;
 
 public class SnapPage extends SnapLocators {
 

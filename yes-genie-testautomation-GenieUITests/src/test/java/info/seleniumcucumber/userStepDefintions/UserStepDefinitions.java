@@ -12,6 +12,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.LoginPage;
 import pageObjects.SearchPage;
+import pageObjects.SnapPage;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 
@@ -19,6 +21,7 @@ public class UserStepDefinitions implements BaseTest {
 
     public static LoginPage lp = new LoginPage();
     public static SearchPage sp = new SearchPage();
+    public static SnapPage snap = new SnapPage();
     protected WebDriver driver = DriverUtil.getDefaultDriver();
 
     @Then("^I should get logged-in with welcome message$")
@@ -30,7 +33,7 @@ public class UserStepDefinitions implements BaseTest {
         String msg = driver.findElement(By.xpath("//span[@class='_2QCs8cFfqH_wnXLIYBu5ro ZU4gfSwYj6EDl657TJqnA']")).getText();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Welcome Panna Das", msg);
+        Assert.assertEquals("Welcome, Panna Das", msg);
     }
 
     @Then("^I should get error message$")
@@ -134,12 +137,35 @@ public class UserStepDefinitions implements BaseTest {
         sp.formatOfSearchLabel(Result1, Result2, Result3, Result4);
     }
 
+    @When("^I click on authorized to view record$")
+    public void iClickOnAuthorizedToViewRecord() throws Throwable {
+        driver.findElement(By.id("record")).click();
+    }
 
-    @And("^I can see individual and corporate icon$")
-    public void iCanSeeIndividualAndCorporateIcon() throws Throwable {
+    @Then("^I verify all the attributes of Individual demogs$")
+    public void snapPageofIndividual() throws Throwable {
+        snap.demographicsAttributesOfIndividual();
+    }
 
-            String text = driver.findElement(By.xpath("//img[@class='CqqbeIJHz7FmpKhQJmJOY']")).getAttribute("src");
-            System.out.println(text);
-            text.endsWith("Individual.23f30a4e.svg");
+    @Then("^I verify all the attributes of Corporate demogs$")
+    public void snapPageofCorporate() throws Throwable {
+        snap.demographicsAttributesOfCorporate();
+    }
+
+    @Then("^I lands to SNAP page directly$")
+    public void snapPageIsOpenedDirectly() throws Throwable {
+        sp.landsIntoSnapPage();
+    }
+
+    @Then("^Record is displayed in result$")
+    public void recordIsDisplayedInResult() throws Throwable {
+        sp.singleRecordDisplayed();
+    }
+
+    @Then("^Error page is displayed$")
+    public void errorPageIsDisplayed() throws Throwable {
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals("", currentUrl);
+
     }
 }
