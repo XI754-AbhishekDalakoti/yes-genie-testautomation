@@ -87,8 +87,8 @@ public class SnapPage extends SnapLocators {
         String getDobDoi = DobDoi.getText();
         getDobDoi = getDobDoi.replaceAll("©", "").trim();
         System.out.println(getDobDoi);
-/*        String getDobDoiTooltipTxt = DobTooltipText.getAttribute("title");
-        System.out.println(getDobDoiTooltipTxt);*/
+        String getDobDoiTooltipTxt = DobDoiTooltipText.getAttribute("title");
+        System.out.println(getDobDoiTooltipTxt);
         String getConstitutionTooltipText = Constitution.getAttribute("title");
         System.out.println(getConstitutionTooltipText);
         String getWebsiteTooltipText = Website.getAttribute("title");
@@ -121,10 +121,10 @@ public class SnapPage extends SnapLocators {
         String getCorporateAddressTooltipText = CorporateAddress.getAttribute("title");
         System.out.println(getCorporateAddressTooltipText);
 
-//        Assert.assertEquals("Corporate", getIndividualIconTooltipText);
+        Assert.assertEquals("Corporate", getIndividualIconTooltipText);
         Assert.assertEquals("SURINDRA RADIOS PRIVATE LIMITED",getCustName);
         Assert.assertEquals("09-Apr-1986", getDobDoi);
-//        Assert.assertEquals("DOI",getDobDoiTooltipTxt);
+        Assert.assertEquals("DOI",getDobDoiTooltipTxt);
         Assert.assertEquals("Constitution", getConstitutionTooltipText);
         Assert.assertEquals("Website", getWebsiteTooltipText);
         Assert.assertEquals("Connections", getCorporateConnectionsTooltipText);

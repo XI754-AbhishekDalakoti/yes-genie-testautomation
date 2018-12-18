@@ -107,6 +107,7 @@ public class SnapLocators extends UserStepDefinitions {
 
     @FindBy(how = How.XPATH, using = "//div[@class='_3m_4iuI8kZwQ-JiXRTUfzX']/div[6]/div/div/img")
     public static WebElement CorporateAddress;
+
 }
 
 
