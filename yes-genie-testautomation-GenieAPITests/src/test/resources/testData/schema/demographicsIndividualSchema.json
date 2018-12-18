@@ -1,0 +1,460 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "consumer",
+    "provider",
+    "interactions"
+  ],
+  "properties": {
+    "consumer": {
+      "$id": "#/properties/consumer",
+      "type": "object",
+      "title": "The Consumer Schema",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/consumer/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "Abhishek"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "provider": {
+      "$id": "#/properties/provider",
+      "type": "object",
+      "title": "The Provider Schema",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/provider/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "Akshay"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "interactions": {
+      "$id": "#/properties/interactions",
+      "type": "array",
+      "title": "The Interactions Schema",
+      "items": {
+        "$id": "#/properties/interactions/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "description",
+          "providerState",
+          "contractId",
+          "request",
+          "metadata"
+        ],
+        "properties": {
+          "description": {
+            "$id": "#/properties/interactions/items/properties/description",
+            "type": "string",
+            "title": "The Description Schema",
+            "default": "",
+            "examples": [
+              "Contract for demogs display"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "providerState": {
+            "$id": "#/properties/interactions/items/properties/providerState",
+            "type": "string",
+            "title": "The Providerstate Schema",
+            "default": "",
+            "examples": [
+              "Getting demog data to display"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "contractId": {
+            "$id": "#/properties/interactions/items/properties/contractId",
+            "type": "integer",
+            "title": "The Contractid Schema",
+            "default": 0,
+            "examples": [
+              8051
+            ]
+          },
+          "request": {
+            "$id": "#/properties/interactions/items/properties/request",
+            "type": "object",
+            "title": "The Request Schema",
+            "required": [
+              "method",
+              "path",
+              "headers",
+              "response",
+              "records"
+            ],
+            "properties": {
+              "method": {
+                "$id": "#/properties/interactions/items/properties/request/properties/method",
+                "type": "string",
+                "title": "The Method Schema",
+                "default": "",
+                "examples": [
+                  "GET"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "path": {
+                "$id": "#/properties/interactions/items/properties/request/properties/path",
+                "type": "string",
+                "title": "The Path Schema",
+                "default": "",
+                "examples": [
+                  "/demographics/{MDMId}"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "headers": {
+                "$id": "#/properties/interactions/items/properties/request/properties/headers",
+                "type": "object",
+                "title": "The Headers Schema",
+                "required": [
+                  "Content-Type"
+                ],
+                "properties": {
+                  "Content-Type": {
+                    "$id": "#/properties/interactions/items/properties/request/properties/headers/properties/Content-Type",
+                    "type": "string",
+                    "title": "The Content-type Schema",
+                    "default": "",
+                    "examples": [
+                      "application/json"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              },
+              "response": {
+                "$id": "#/properties/interactions/items/properties/request/properties/response",
+                "type": "object",
+                "title": "The Response Schema",
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "status": {
+                    "$id": "#/properties/interactions/items/properties/request/properties/response/properties/status",
+                    "type": "integer",
+                    "title": "The Status Schema",
+                    "default": 0,
+                    "examples": [
+                      200
+                    ]
+                  }
+                }
+              },
+              "records": {
+                "$id": "#/properties/interactions/items/properties/request/properties/records",
+                "type": "object",
+                "title": "The Records Schema",
+                "required": [
+                  "demogData"
+                ],
+                "properties": {
+                  "demogData": {
+                    "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData",
+                    "type": "object",
+                    "title": "The Demogdata Schema",
+                    "required": [
+                      "name",
+                      "constitution",
+                      "website",
+                      "relationship",
+                      "mdmID",
+                      "mobileNumber",
+                      "landlineNumber",
+                      "email",
+                      "customerType",
+                      "vintage",
+                      "CKYC No.",
+                      "BS/PS",
+                      "profitablilityBand",
+                      "annualTurnover",
+                      "DOI",
+                      "business",
+                      "industry",
+                      "gender",
+                      "custType",
+                      "PAN"
+                    ],
+                    "properties": {
+                      "name": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema",
+                        "default": "",
+                        "examples": [
+                          "stronghold cements"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "constitution": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/constitution",
+                        "type": "string",
+                        "title": "The Constitution Schema",
+                        "default": "",
+                        "examples": [
+                          "Proprietary"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "website": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/website",
+                        "type": "string",
+                        "title": "The Website Schema",
+                        "default": "",
+                        "examples": [
+                          "http://srcc.com"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "relationship": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/relationship",
+                        "type": "string",
+                        "title": "The Relationship Schema",
+                        "default": "",
+                        "examples": [
+                          "null"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "mdmID": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/mdmID",
+                        "type": "array",
+                        "title": "The Mdmid Schema",
+                        "items": {
+                          "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/mdmID/items",
+                          "type": "string",
+                          "title": "The Items Schema",
+                          "default": "",
+                          "examples": [
+                            "809725",
+                            "809726",
+                            "809728"
+                          ],
+                          "pattern": "^(.*)$"
+                        }
+                      },
+                      "mobileNumber": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/mobileNumber",
+                        "type": "string",
+                        "title": "The Mobilenumber Schema",
+                        "default": "",
+                        "examples": [
+                          "23232"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "landlineNumber": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/landlineNumber",
+                        "type": "string",
+                        "title": "The Landlinenumber Schema",
+                        "default": "",
+                        "examples": [
+                          "0124-412020"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "email": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/email",
+                        "type": "string",
+                        "title": "The Email Schema",
+                        "default": "",
+                        "examples": [
+                          "communications@srcc.com"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "customerType": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/customerType",
+                        "type": "string",
+                        "title": "The Customertype Schema",
+                        "default": "",
+                        "examples": [
+                          "YesPrivate"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "vintage": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/vintage",
+                        "type": "string",
+                        "title": "The Vintage Schema",
+                        "default": "",
+                        "examples": [
+                          "6.2 yrs"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "CKYC No.": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/CKYC No.",
+                        "type": "string",
+                        "title": "The Ckyc no. Schema",
+                        "default": "",
+                        "examples": [
+                          "87685642790876"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "BS/PS": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/BS/PS",
+                        "type": "string",
+                        "title": "The Bs/ps Schema",
+                        "default": "",
+                        "examples": [
+                          "YF/IFIB"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "profitablilityBand": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/profitablilityBand",
+                        "type": "string",
+                        "title": "The Profitablilityband Schema",
+                        "default": "",
+                        "examples": [
+                          "NA"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "annualTurnover": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/annualTurnover",
+                        "type": "string",
+                        "title": "The Annualturnover Schema",
+                        "default": "",
+                        "examples": [
+                          "8 cr"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "DOI": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/DOI",
+                        "type": "string",
+                        "title": "The Doi Schema",
+                        "default": "",
+                        "examples": [
+                          "06-Aug-2007"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "business": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/business",
+                        "type": "string",
+                        "title": "The Business Schema",
+                        "default": "",
+                        "examples": [
+                          "building material"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "industry": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/industry",
+                        "type": "string",
+                        "title": "The Industry Schema",
+                        "default": "",
+                        "examples": [
+                          "construction"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "gender": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/gender",
+                        "type": "string",
+                        "title": "The Gender Schema",
+                        "default": "",
+                        "examples": [
+                          "male"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "custType": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/custType",
+                        "type": "string",
+                        "title": "The Custtype Schema",
+                        "default": "",
+                        "examples": [
+                          "C"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "PAN": {
+                        "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/PAN",
+                        "type": "object",
+                        "title": "The Pan Schema",
+                        "required": [
+                          "verified"
+                        ],
+                        "properties": {
+                          "verified": {
+                            "$id": "#/properties/interactions/items/properties/request/properties/records/properties/demogData/properties/PAN/properties/verified",
+                            "type": "boolean",
+                            "title": "The Verified Schema",
+                            "default": false,
+                            "examples": [
+                              true
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "metadata": {
+            "$id": "#/properties/interactions/items/properties/metadata",
+            "type": "object",
+            "title": "The Metadata Schema",
+            "required": [
+              "pactSpecification"
+            ],
+            "properties": {
+              "pactSpecification": {
+                "$id": "#/properties/interactions/items/properties/metadata/properties/pactSpecification",
+                "type": "object",
+                "title": "The Pactspecification Schema",
+                "required": [
+                  "version"
+                ],
+                "properties": {
+                  "version": {
+                    "$id": "#/properties/interactions/items/properties/metadata/properties/pactSpecification/properties/version",
+                    "type": "string",
+                    "title": "The Version Schema",
+                    "default": "",
+                    "examples": [
+                      "2.0.0"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
