@@ -3,10 +3,10 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
-//@CucumberOptions(features="src/test/resources/apiFeatures/")
 
 @CucumberOptions(
-        features =  "src/test/resources/apiFeatures/search.feature"
+        features = "src/test/resources/apiFeatures/"
+        , tags = "~@updatedrole"
 )
 
 public class APIRunnerTest {
