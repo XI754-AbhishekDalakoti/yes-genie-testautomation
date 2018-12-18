@@ -99,7 +99,7 @@ public class UserStepDefinitions implements BaseTest {
         sp.refineMessage();
     }
 
-    @And("^Accordingly respective \"([^\"]*)\" gets highlighted$")
+    @And("^Accordingly respective \"([^\"]*)\" gets highlighted in static search parameter under search bar$")
     public void accordinglyRespectiveParameterGetsHighlighted(String Result) throws Throwable {
         sp.bubbleSearch(Result);
     }
@@ -141,12 +141,12 @@ public class UserStepDefinitions implements BaseTest {
         driver.findElement(By.id("record")).click();
     }
 
-    @Then("^I verify all the attributes of Individual demogs$")
+    @Then("^I verify all the attributes of demographics having customer type individual$")
     public void snapPageofIndividual() throws Throwable {
         snap.demographicsAttributesOfIndividual();
     }
 
-    @Then("^I verify all the attributes of Corporate demogs$")
+    @Then("^I verify all the attributes of demographics having customer type corporate$")
     public void snapPageofCorporate() throws Throwable {
         snap.demographicsAttributesOfCorporate();
     }
@@ -154,17 +154,5 @@ public class UserStepDefinitions implements BaseTest {
     @Then("^I lands to SNAP page directly$")
     public void snapPageIsOpenedDirectly() throws Throwable {
         sp.landsIntoSnapPage();
-    }
-
-    @Then("^Record is displayed in result$")
-    public void recordIsDisplayedInResult() throws Throwable {
-        sp.singleRecordDisplayed();
-    }
-
-    @Then("^Error page is displayed$")
-    public void errorPageIsDisplayed() throws Throwable {
-        String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals("", currentUrl);
-
     }
 }

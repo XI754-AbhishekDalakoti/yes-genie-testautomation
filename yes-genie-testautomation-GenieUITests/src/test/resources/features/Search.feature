@@ -86,7 +86,7 @@ Feature: Search or Landing Page
   Scenario Outline: When user enters parameter in search field it should intelligently highlight the label with bubble
     Then I wait for 2 sec
     And I enter "<Parameter>" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
-    Then Accordingly respective "<Result>" gets highlighted
+    Then Accordingly respective "<Result>" gets highlighted in static search parameter under search bar
     Examples:
       | Parameter           | Result      |
       | AUGXX7978X          | PAN         |
@@ -126,5 +126,5 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     And I wait for 2 sec
-    Then Record is displayed in result
+    Then Search result is displayed with all fields in search UI screen
     Then I should get logout

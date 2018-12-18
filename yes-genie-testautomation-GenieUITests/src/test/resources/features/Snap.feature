@@ -4,7 +4,7 @@ Feature: Snap Page
   Background: User has logged in to Genie
     Given I navigate to "http://yesgenie.com:30978/"
 
-  Scenario: Verify demographics attributes in SNAP page of Individual customer
+  Scenario: Verify demographics attributes in SNAP page of customer type Individual
     Given I'm on login page
     Then I wait for 2 sec
     And I enter "panna" into input field having id "username"
@@ -17,9 +17,9 @@ Feature: Snap Page
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
-    And I verify all the attributes of Individual demogs
+    And I verify all the attributes of demographics having customer type individual
 
-  Scenario: Verify demographics attributes in SNAP page of Corporate customer
+  Scenario: Verify demographics attributes in SNAP page of customer type Corporate
     Then I wait for 2 sec
     Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
@@ -27,7 +27,7 @@ Feature: Snap Page
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
-    And I verify all the attributes of Corporate demogs
+    And I verify all the attributes of demographics having customer type corporate
     Then I should get logout
 
   @Regression

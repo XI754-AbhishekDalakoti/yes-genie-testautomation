@@ -13,22 +13,25 @@ Feature: Login
       | Username | Password |
       |          |          |
       | panna    |          |
-      |          | 123     |
+      |          | 123      |
 
-  Scenario Outline: I login with invalid credential and also check case sensitivity of username and password
-    Given I'm on login page
-    When User enters "<Username>" and "<Password>"
+  Scenario: User is not able to login with invalid credentails
+    Then I wait for 2 sec
+    And I enter "panna" into input field having id "username"
+    And I enter "secretpassword" into input field having id "password"
     When I click on Login
     Then I should get error message
-    Examples:
-      | Username | Password |
-      | admin    | secretpassword |
-      | Panna    | 123           |
-      | PANNA    | 123           |
-      | panna    | test           |
+
+  Scenario: User ID field is case sensitive
+    Then I wait for 2 sec
+    And I enter "PANNA" into input field having id "username"
+    And I enter "123" into input field having id "password"
+    When I click on Login
+    Then I should get error message
 
   @Regression
   Scenario: I login with valid credential with welcome message
+    Given I'm on login page
     Then I wait for 2 sec
     And I enter "panna" into input field having id "username"
     And I enter "123" into input field having id "password"

@@ -100,10 +100,4 @@ public class SearchPage extends SearchLocators {
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals("http://yesgenie.com:30978/snap", currentUrl);
     }
-
-    public void singleRecordDisplayed() {
-        List<WebElement> elements = driver.findElements(By.xpath("//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/tbody/tr"));
-        int countOfRows = elements.size();
-        Assert.assertEquals("1",countOfRows);
-    }
 }
