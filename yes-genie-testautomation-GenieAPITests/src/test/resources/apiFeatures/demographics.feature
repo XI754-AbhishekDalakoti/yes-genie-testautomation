@@ -6,14 +6,14 @@ Feature: Validate demographics APIs
     Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api where customer type is individual
-    Then user get the response for "mdmId" is "996264849" from the demographic api where customer type is individual
+    And user get the response for "mdmId" is "996264849" from the demographic api where customer type is individual
 
   @regression
   Scenario: User validates message of demographic api where customer type is individual and mdmId is not available in DB
     Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     When a genie user passes the "24" as a parameter to get the response from demographic api where customer type is individual
     Then a genie user get the "message" as "No value present" from the api as a response
-    Then a user get the status code 404 as a response from the demographic api where customer type is individual
+    But a user get the status code 404 as a response from the demographic api where customer type is individual
 
   @regression
   Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is individual for all the mentioned keys in examples
@@ -56,7 +56,7 @@ Feature: Validate demographics APIs
     Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then a user get the status code 200 as a response from the demographic api where customer type is corporate
-    Then user get the response for "mdmId" is "998003452" from the demographic api where customer type is corporate
+    And user get the response for "mdmId" is "998003452" from the demographic api where customer type is corporate
 
   @regression
   Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is corporate for all the mentioned keys in examples
@@ -98,3 +98,4 @@ Feature: Validate demographics APIs
       | landlineNumber |
       | webSite        |
 
+ 
