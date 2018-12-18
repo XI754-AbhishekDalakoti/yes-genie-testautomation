@@ -25,13 +25,13 @@ public class LoginLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[@class='_3BIeaRQGSZXeruo1s-1Pa6']")
     public static WebElement display_LastLogin;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Sunny1 Gupta')]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Panna Das')]")
     public static WebElement display_Name;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Collector')]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'IDAM')]")
     public static WebElement display_Role;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Manager')]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Sr. Developer')]")
     public static WebElement display_Designation;
 
     @FindBy(how = How.XPATH, using = "//div[@class=\"_1HWu9-VMmg-bQcnoV5fSo-\"]")
