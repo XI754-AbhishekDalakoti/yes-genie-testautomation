@@ -122,4 +122,26 @@ public class demographicsAPI extends ResponseValidation {
         String param = "";
         responseValidation.responseNullValueCompare(param, responseCorporate, key);
     }
+
+    @Then("^a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is individual$")
+    public void validateDemographicAPIResponseForInitialCFlagisOK() {
+        responseValidation.validateResponseOk(responseIndividual);
+    }
+
+    @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" from the demographic api for initial c flag record where customer type is individual$")
+    public void respose_for_key_and_value_for_initial_cust_record_is(String key, String value) throws Throwable {
+        String param = "custData[0].";
+        responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
+    }
+
+    @Then("^a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is corporate")
+    public void validateDemographicCorporateAPIResponseForInitialCFlagisOK() {
+        responseValidation.validateResponseOk(responseCorporate);
+    }
+
+    @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" from the demographic api for initial c flag record where customer type is corporate$")
+    public void resposecorporate_for_key_and_value_for_initial_cust_record_is(String key, String value) throws Throwable {
+        String param = "custData[0].";
+        responseValidation.responseStringValueCompare(param, responseCorporate, key, value);
+    }
 }
