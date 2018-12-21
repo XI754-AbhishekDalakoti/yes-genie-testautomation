@@ -49,7 +49,7 @@ public class UserStepDefinitions implements BaseTest {
 
     @Then("^The button should be disabled$")
     public void theButtonShouldBeDisabled() throws Throwable {
-        lp.checkDisableButton();
+        lp.checkButtonIsDisbale();
     }
 
     @When("^User enters \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -60,7 +60,7 @@ public class UserStepDefinitions implements BaseTest {
 
     @And("^I click on Login$")
     public void iClickOnLogin() throws Throwable {
-        lp.Login_button.click();
+        lp.clickOnLogin();
     }
 
     @And("^Under search bar, it contains static search parameters$")

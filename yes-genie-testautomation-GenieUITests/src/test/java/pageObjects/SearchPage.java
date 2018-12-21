@@ -15,33 +15,32 @@ public class SearchPage extends SearchLocators {
 
     public void searchParameters() {
 
-        String ID = heading_MDMID.getText();
-        String Cust = heading_CUSTID.getText();
-        String CustName = heading_CustomerName.getText();
-        String DateOfBirth = heading_DOB.getText();
-        String City = heading_AddressCity.getText();
-        String Area = heading_AddressArea.getText();
-        String HBranch = heading_HomeBranch.getText();
-        String ARM = heading_AssetRM.getText();
-        String LRM = heading_LiabilityRM.getText();
-        String GID = heading_GroupID.getText();
-        String BusinessSeg = heading_BusinessSegment.getText();
-        String PartnerSeg = heading_PartnerSegment.getText();
-        String OpenDate = heading_CustOpenDate.getText();
-        Assert.assertEquals(Constant.MDMID,ID);
-        Assert.assertEquals(Constant.CUSTID,Cust);
-        Assert.assertEquals(Constant.CustomerName,CustName);
-        Assert.assertEquals(Constant.DOB,DateOfBirth);
-        Assert.assertEquals(Constant.AdressCity,City);
-        Assert.assertEquals(Constant.AdressArea,Area);
-        Assert.assertEquals(Constant.HomeBranch,HBranch);
-        Assert.assertEquals(Constant.AssetRM,ARM);
-        Assert.assertEquals(Constant.LiabilityRM,LRM);
-        Assert.assertEquals(Constant.GroupID,GID);
-        Assert.assertEquals(Constant.BusinessSegment,BusinessSeg);
-        Assert.assertEquals(Constant.PartnerSegment,PartnerSeg);
-        Assert.assertEquals(Constant.CustOpenDate,OpenDate);
-        Assert.assertEquals(Constant.CustOpenDate,OpenDate);
+        String id = heading_mdmId.getText();
+        String cust = heading_custId.getText();
+        String custName = heading_customerName.getText();
+        String dateOfBirth = heading_dob.getText();
+        String city = heading_addressCity.getText();
+        String area = heading_addressArea.getText();
+        String Hbranch = heading_homeBranch.getText();
+        String arm = heading_assetRM.getText();
+        String lrm = heading_liabilityRM.getText();
+        String GrpId = heading_groupId.getText();
+        String businessSeg = heading_businessSegment.getText();
+        String partnerSeg = heading_partnerSegment.getText();
+        String openDate = heading_custOpenDate.getText();
+        Assert.assertEquals(Constant.MDMID,id);
+        Assert.assertEquals(Constant.CUSTID,cust);
+        Assert.assertEquals(Constant.CustomerName,custName);
+        Assert.assertEquals(Constant.DOB,dateOfBirth);
+        Assert.assertEquals(Constant.AdressCity,city);
+        Assert.assertEquals(Constant.AdressArea,area);
+        Assert.assertEquals(Constant.HomeBranch,Hbranch);
+        Assert.assertEquals(Constant.AssetRM,arm);
+        Assert.assertEquals(Constant.LiabilityRM,lrm);
+        Assert.assertEquals(Constant.GroupID,GrpId);
+        Assert.assertEquals(Constant.BusinessSegment,businessSeg);
+        Assert.assertEquals(Constant.PartnerSegment,partnerSeg);
+        Assert.assertEquals(Constant.CustOpenDate,openDate);
         List<WebElement> elements = driver.findElements(By.xpath("//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/tbody/tr"));
         int countOfRows = elements.size();
         Assert.assertTrue(countOfRows <= Constant.threshold);
@@ -53,8 +52,8 @@ public class SearchPage extends SearchLocators {
     }
 
     public void noSearchResultDisplay(){
-        String noSearchResult = heading_NoSearchResult.getText();
-        Assert.assertEquals("No Results Found. Please refine",noSearchResult);
+        String noSearchResultMessage = heading_noSearchResult.getText();
+        Assert.assertEquals("No Results Found. Please refine",noSearchResultMessage);
     }
 
     public String getpageTitle(){
@@ -64,12 +63,12 @@ public class SearchPage extends SearchLocators {
     }
 
     public void refineMessage() {
-        String msg = refinementMessage.getText();
+        String msg = refinement_message.getText();
         Assert.assertEquals("Search returned too many results. Please refine", msg);
     }
 
     public void bubbleSearch(String Result) {
-        String text = sp.bubbleHighlight.getText();
+        String text = sp.bubble_highlight.getText();
         if (Result == "PAN") {
             Assert.assertEquals(text,Result);
         }

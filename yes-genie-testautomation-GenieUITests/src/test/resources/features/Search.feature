@@ -110,15 +110,6 @@ Feature: Search or Landing Page
       | Parameter           | Result1 | Result2     | Result3    | Result4 |
       | Ayush + 15-May-1990 | Ayush   | 15-May-1990 | Cust Name: | DOB:    |
 
-  Scenario: For single record after search & user is authorized to view, SNAP page is opened directly
-    Then I wait for 2 sec
-    And I wait for 2 sec
-    Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
-    Then I wait for 2 sec
-    When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
-    And I wait for 2 sec
-    Then I lands to SNAP page directly
-
   Scenario: For single record after search & user is not authorized to view, record is displayed in results
     Then I wait for 2 sec
     And I wait for 2 sec
@@ -127,4 +118,13 @@ Feature: Search or Landing Page
     When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     And I wait for 2 sec
     Then Search result is displayed with all fields in search UI screen
+
+  Scenario: For single record after search & user is authorized to view, SNAP page is opened directly
+    Then I wait for 2 sec
+    And I wait for 2 sec
+    Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
+    Then I wait for 2 sec
+    When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
+    And I wait for 2 sec
+    Then I lands to SNAP page directly
     Then I should get logout
