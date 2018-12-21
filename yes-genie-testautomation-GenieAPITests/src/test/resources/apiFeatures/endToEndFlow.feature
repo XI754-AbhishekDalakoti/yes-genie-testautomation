@@ -1,24 +1,17 @@
-@demographics
-Feature: Validate demographics APIs
+@e2e
 
-  Background: User has api to test
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+Feature: Validate end to end response from search and demographics API
 
-  @smoke @regression
-  Scenario: User validates the response code of demographic api and mdmId as response where customer type is individual
-    When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
+  Scenario Outline: This is the test to validate all API is sending 200 as a response where customer type is individual
+    Given api to test is "http://yesgenie.com:30978/api/customer/search"
+    When a user search with value "996264849" and setting value for threshold "50"
+    Then a user get the status code 200 as a response from the api
+    And user get the response from the api and count of records is more than 1
+    Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+    And a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api where customer type is individual
     And user get the response for "mdmId" is "996264849" from the demographic api where customer type is individual
-
-  @regression
-  Scenario: User validates message of demographic api where customer type is individual and mdmId is not available in DB
-    When a genie user passes the "24" as a parameter to get the response from demographic api where customer type is individual
-    Then a genie user get the "message" as "Record not found." from the api as a response
-
-  @regression
-  Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is individual for all the mentioned keys in examples
-    When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
-    Then user get the response for "emailId" is "rahul_sadana@yahoo.co.in" from the demographic api where customer type is individual
+    And user get the response for "emailId" is "rahul_sadana@yahoo.co.in" from the demographic api where customer type is individual
     And user get the response for "vintage" is "3.3" from the demographic api where customer type is individual
     And user get the response for "<key>" is "<value>" from the demographic api where customer type is individual
     Examples:
@@ -49,16 +42,16 @@ Feature: Validate demographics APIs
       | DOB                    | 15-Mar-1994                |
 
 
-  @smoke @regression
-  Scenario: User validates the response code and mdmid of records of demographic api where customer type is corporate
-    When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
+  Scenario Outline: This is the test to validate all API is sending 200 as a response where customer type is corporate
+    Given api to test is "http://yesgenie.com:30978/api/customer/search"
+    When a user search with value "998003452" and setting value for threshold "50"
+    Then a user get the status code 200 as a response from the api
+    And user get the response from the api and count of records is more than 1
+    Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+    And a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then a user get the status code 200 as a response from the demographic api where customer type is corporate
     And user get the response for "mdmId" is "998003452" from the demographic api where customer type is corporate
-
-  @regression
-  Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is corporate for all the mentioned keys in examples
-    When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
-    Then user get the response for "emailId" is "amarjeets555@gmail.com" from the demographic api where customer type is corporate
+    And user get the response for "emailId" is "amarjeets555@gmail.com" from the demographic api where customer type is corporate
     And user get the response for "vintage" is "4.1" from the demographic api where customer type is corporate
     And user get the response for "<key>" is "<value>" from the demographic api where customer type is corporate
     Examples:
@@ -86,23 +79,14 @@ Feature: Validate demographics APIs
       | landlineNumber         | null                            |
       | webSite                | null                            |
 
-#  @regression
-#  Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is corporate for all the mentioned keys in examples
-#    When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
-#    Then user get the response for "<key>" is null from the demographic api where customer type is corporate
-#    Examples:
-#      | key            |
-#      | landlineNumber |
-#      | webSite        |
-
-  @smoke @regression @sprint5
-  Scenario: User validates the response code of demographic api and custID as response where customer type is individual
+  Scenario Outline: This is the test to validate all API is sending 200 as a response where customer type is individual and validate the response of initial c flag record
+    Given api to test is "http://yesgenie.com:30978/api/customer/search"
+    When a user search with value "996264849" and setting value for threshold "50"
+    Then a user get the status code 200 as a response from the api
+    And user get the response from the api and count of records is more than 1
     When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is individual
     And user get the response for "custId" is "996264849" from the demographic api for initial c flag record where customer type is individual
-
-  @regression @sprint5
-  Scenario Outline: User search with valid mdmId and validate response of demographic api for initial c flag record where customer type is individual for all the mentioned keys in examples
     When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then user get the response for "<key>" is "<value>" from the demographic api for initial c flag record where customer type is individual
     Examples:
@@ -132,15 +116,15 @@ Feature: Validate demographics APIs
       | ckycStatus       | FCKYC-F to F Complete KYC |
       | riskCategory     | HIGH RISK                 |
 
-  @smoke @regression @sprint5
-  Scenario: User validates the response code and custID of demographic api where customer type is corporate
+  Scenario Outline: This is the test to validate all API is sending 200 as a response where customer type is corporate and validate the response of initial c flag record
+    Given api to test is "http://yesgenie.com:30978/api/customer/search"
+    When a user search with value "998003452" and setting value for threshold "50"
+    Then a user get the status code 200 as a response from the api
+    And user get the response from the api and count of records is more than 1
     When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is corporate
     And user get the response for "custId" is "998003452" from the demographic api for initial c flag record where customer type is corporate
-
-  @regression @sprint5
-  Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is corporate for all the mentioned keys in examples
-    When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
+    When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is corporate
     Then user get the response for "<key>" is "<value>" from the demographic api for initial c flag record where customer type is corporate
     Examples:
       | key              | value                           |
@@ -167,4 +151,3 @@ Feature: Validate demographics APIs
       | riskCategory     | LOW RISK                        |
       | website          | null                            |
       | ecommSite        | null                            |
-
