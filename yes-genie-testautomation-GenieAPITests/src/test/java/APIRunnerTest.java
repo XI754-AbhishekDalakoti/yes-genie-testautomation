@@ -6,7 +6,8 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         features = "src/test/resources/apiFeatures/"
-        , tags = "~@updatedrole,~@nba,~@relationship"
+       // , tags = "~@updatedrole,~@nba,~@relationship"
+        , tags = "@search,@demographics,@e2e"
 )
 
 public class APIRunnerTest {
