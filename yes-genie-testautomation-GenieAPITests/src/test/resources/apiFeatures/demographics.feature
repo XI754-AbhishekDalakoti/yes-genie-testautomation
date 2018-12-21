@@ -8,13 +8,12 @@ Feature: Validate demographics APIs
   Scenario: User validates the response code of demographic api and mdmId as response where customer type is individual
     When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api where customer type is individual
-    And user get the response for "mdmID" is "996264849" from the demographic api where customer type is individual
+    And user get the response for "mdmId" is "996264849" from the demographic api where customer type is individual
 
   @regression
   Scenario: User validates message of demographic api where customer type is individual and mdmId is not available in DB
     When a genie user passes the "24" as a parameter to get the response from demographic api where customer type is individual
-    Then a genie user get the "message" as "Record not found" from the api as a response
- #   But a user get the status code 404 as a response from the demographic api where customer type is individual
+    Then a genie user get the "message" as "Record not found." from the api as a response
 
   @regression
   Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is individual for all the mentioned keys in examples
@@ -25,26 +24,26 @@ Feature: Validate demographics APIs
     Examples:
       | key                    | value                      |
       | name                   | CHARU SADANA               |
-      | mdmID                  | 996264849                  |
-      | customerType           | FEMALE RESIDENT INDIVIDUAL |
+      | mdmId                  | 996264849                  |
+      | custType               | FEMALE RESIDENT INDIVIDUAL |
       | emailStatus            | VERIFIED                   |
       | currentCityState       | SAHARANPUR,UTTAR PRADESH   |
       | currentCityStateStatus | VERIFIED                   |
       | mobileNumber           | 918482095250               |
       | mobileNumberStatus     | VERIFIED                   |
-      | profitablilityBand     | NA                         |
+      | profitablilityBand     | null                       |
       | custCategory           | I                          |
-      | dataSetFlag            | M                          |
-      | sentimentBand          | NA                         |
+      | indexType              | M                          |
+      | sentimentBand          | null                       |
       | contactibilityIndex    | 33%                        |
       | homeBranchName         | SAHARANPUR,UTTAR PRADESH   |
-      | cKyc                   | NA                         |
-      | profession             | NA                         |
+      | cKyc                   | null                       |
+      | profession             | BUSINESS                   |
       | customerSegment        | YES FIRST PRIMARY OPDT     |
       | aadharNo               | NOTVERIFIED                |
       | passportNo             | VERIFIED                   |
       | gender                 | F                          |
-      | PS                     | NA                         |
+      | PS                     | null                       |
       | BS                     | BRB                        |
       | PAN                    | VERIFIED                   |
       | DOB                    | 15-Mar-1994                |
@@ -54,7 +53,7 @@ Feature: Validate demographics APIs
   Scenario: User validates the response code and mdmid of records of demographic api where customer type is corporate
     When a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then a user get the status code 200 as a response from the demographic api where customer type is corporate
-    And user get the response for "mdmID" is "998003452" from the demographic api where customer type is corporate
+    And user get the response for "mdmId" is "998003452" from the demographic api where customer type is corporate
 
   @regression
   Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is corporate for all the mentioned keys in examples
@@ -65,27 +64,27 @@ Feature: Validate demographics APIs
     Examples:
       | key                    | value                           |
       | name                   | SURINDRA RADIOS PRIVATE LIMITED |
-      | mdmID                  | 998003452                       |
-      | customerType           | COMPANY                         |
+      | mdmId                  | 998003452                       |
+      | custType               | COMPANY                         |
       | emailStatus            | VERIFIED                        |
       | currentCityState       | CHANDIGARH,CHANDIGARH           |
       | currentCityStateStatus | NOTVERIFIED                     |
       | mobileNumber           | 918080112225                    |
       | mobileNumberStatus     | VERIFIED                        |
-      | profitablilityBand     | NA                              |
+      | profitablilityBand     | null                            |
       | custCategory           | C                               |
-      | dataSetFlag            | M                               |
+      | indexType              | M                               |
       | constitution           | PVTLTD                          |
-      | business               | Retail Trading/Merchants        |
-      | industry               | Architecture Firm               |
+      | natureofBusiness       | Retail Trading/Merchants        |
+      | natureofIndustry       | Architecture Firm               |
       | annualTurnover         | 1 CRORE TO 5 CRORE              |
       | landlineNumberStatus   | NOTAVAILABLE                    |
-      | PS                     | NA                              |
+      | PS                     | null                            |
       | BS                     | BRB                             |
       | PAN                    | NOTVERIFIED                     |
       | DOI                    | 09-Apr-1986                     |
-      | landlineNumber         | NA                              |
-      | webSite                | NA                              |
+      | landlineNumber         | null                            |
+      | webSite                | null                            |
 
 #  @regression
 #  Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is corporate for all the mentioned keys in examples
@@ -111,26 +110,26 @@ Feature: Validate demographics APIs
       | name             | CHARU SADANA                                                    |
       | custId           | 996264849                                                       |
       | DOB              | 15-Mar-1994                                                     |
-      | profession       | NA                                                              |
-      | custOpenDate     | 22-Jan-2015                                                     |
-      | income           | NA                                                              |
+      | profession       | null                                                            |
+      | custOpenDate     | 22-Aug-2015                                                     |
+      | income           | null                                                            |
       | emailId          | rahul_sadana@yahoo.co.in                                        |
       | mobileNumber     | 918482095250                                                    |
       | alternateNumber  | 918482095250                                                    |
       | currentAddress   | W/O RAHUL SADANA 25-B KULTAR SINGH NAGAR NEAR DAV PUBLIC SCHOOL |
       | permanentAddress | W/O RAHUL SADANA 25-B KULTAR SINGH NAGAR NEAR DAV PUBLIC SCHOOL |
       | homeBranch       | SAHARANPUR,UTTAR PRADESH                                        |
-      | cluster          | NA                                                              |
-      | region           | NA                                                              |
-      | assetRM          | NA                                                              |
+      | cluster          | null                                                            |
+      | region           | null                                                            |
+      | assetRM          | null                                                            |
       | liabilityRM      | 4188029                                                         |
       | serviceRM        | 2985009                                                         |
-      | groupCode        | NA                                                              |
-      | PSM              | NA                                                              |
+      | groupCode        | null                                                            |
+      | PSM              | null                                                            |
       | nationality      | IN                                                              |
-      | fatca            | NA                                                              |
+      | fatca            | null                                                            |
       | bagic            | 0                                                               |
-      | ckycStatus       | NA                                                              |
+      | ckycStatus       | N                                                               |
       | riskCategory     | HIGH RISK                                                       |
 
   @smoke @regression @sprint5
@@ -149,23 +148,23 @@ Feature: Validate demographics APIs
       | custId           | 998003452                       |
       | DOI              | 09-Apr-1986                     |
       | constitution     | PVTLTD                          |
-      | custOpenDate     | 29-Jan-2014                     |
+      | custOpenDate     | 29-Oct-2014                     |
       | annualTurnover   | 1 CRORE TO 5 CRORE              |
       | emailId          | amarjeets555@gmail.com          |
       | mobileNumber     | 918080112225                    |
       | alternateNumber  | 918080112225                    |
       | homeBranch       | CHANDIGARH                      |
-      | cluster          | NA                              |
-      | region           | NA                              |
-      | IEC              | NA                              |
-      | assetRM          | NA                              |
+      | cluster          | null                            |
+      | region           | null                            |
+      | IEC              | null                            |
+      | assetRM          | null                            |
       | liabilityRM      | NO RM                           |
       | serviceRM        | 3719003                         |
       | groupCode        | 1466888                         |
-      | PSM              | NA                              |
+      | PSM              | null                            |
       | natureofBusiness | Retail Trading/Merchants        |
       | natureofIndustry | Architecture Firm               |
       | riskCategory     | LOW RISK                        |
-      | website          | NA                              |
-      | ecommSite        | NA                              |
+      | website          | null                            |
+      | ecommSite        | null                            |
 

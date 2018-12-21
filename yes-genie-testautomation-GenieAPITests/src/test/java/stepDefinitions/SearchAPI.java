@@ -45,7 +45,7 @@ public class SearchAPI extends ResponseValidation {
     @Then("^user get the response from the api for the initial record for \"([^\"]*)\" is \"([^\"]*)\"$")
     public void respose_for_key_and_value_is(String key, String value) throws Throwable {
         String param = "records[0].";
-        responseValidation.responseStringValueCompare(param, response, key, value);
+        responseValidation.responseCompareForStringValue(param, response, key, value);
     }
 
     @Then("^user get the response from the api for initial record of numeric type for \"([^\"]*)\" is (\\d+)$")

@@ -12,18 +12,33 @@ import static org.hamcrest.Matchers.nullValue;
 public class ResponseValidation {
 
     public void responseStringValueCompare(String param,Response response,String key, String vlaue){
-        response.then().
-                body((param.concat(key)), is(vlaue));
+        if(vlaue.equalsIgnoreCase("null")){
+            response.then().
+                    body((param.concat(key)), is(nullValue()));
+        } else{
+            response.then().
+                    body((param.concat(key)), is(vlaue));
+        }
+
     }
 
+    public void responseCompareForStringValue(String param,Response response,String key, String vlaue){
+            response.then().
+                    body((param.concat(key)), is(vlaue));
+    }
     public void responseIntValueCompare(String param,Response response,String key, int vlaue){
         response.then().
                 body((param.concat(key)), is(vlaue));
     }
     public void responseBooleanValueCompare(String param,Response response,String value){
-        boolean b = Boolean.parseBoolean(value);
-        response.then().
-                body(param, is(b));
+        if(value.equalsIgnoreCase("null")){
+            response.then().
+                    body((param), is(nullValue()));
+        } else {
+            boolean b = Boolean.parseBoolean(value);
+            response.then().
+                    body(param, is(b));
+        }
     }
 
     public void validateResponseOk(Response response){
@@ -50,8 +65,13 @@ public class ResponseValidation {
     }
 
     public void responseStringValueCompare(String param,Response response, String vlaue){
-        response.then().
-                body((param), is(vlaue));
+        if(vlaue.equalsIgnoreCase("null")){
+            response.then().
+                    body((param), is(nullValue()));
+        } else {
+            response.then().
+                    body((param), is(vlaue));
+        }
     }
 
     public void responseNullValueCompare(String param,Response response,String key){
