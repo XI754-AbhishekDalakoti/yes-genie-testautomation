@@ -135,3 +135,4 @@ Feature: Search or Landing Page
     When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     And I wait for 2 sec
     Then I lands to SNAP page directly
+
