@@ -6,16 +6,16 @@
     <groups>
     </groups>
     <test name="Surefire test" duration-ms="4470" started-at="2019-01-03T07:53:51Z" finished-at="2019-01-03T07:53:55Z">
-      <class name="hooksTest">
-        <test-method status="PASS" signature="dataCreation()[pri:0, instance:hooksTest@3c5a99da]" name="dataCreation" duration-ms="4439" started-at="2019-01-03T07:53:51Z" finished-at="2019-01-03T07:53:55Z">
+      <class name="CreateElasticData">
+        <test-method status="PASS" signature="dataCreation()[pri:0, instance:CreateElasticData@3c5a99da]" name="dataCreation" duration-ms="4439" started-at="2019-01-03T07:53:51Z" finished-at="2019-01-03T07:53:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCreation -->
-        <test-method status="PASS" signature="afterScenario()[pri:1, instance:hooksTest@3c5a99da]" name="afterScenario" duration-ms="16" started-at="2019-01-03T07:53:55Z" finished-at="2019-01-03T07:53:55Z">
+        <test-method status="PASS" signature="afterScenario()[pri:1, instance:CreateElasticData@3c5a99da]" name="afterScenario" duration-ms="16" started-at="2019-01-03T07:53:55Z" finished-at="2019-01-03T07:53:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterScenario -->
-      </class> <!-- hooksTest -->
+      </class> <!-- CreateElasticData -->
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->
 </testng-results>

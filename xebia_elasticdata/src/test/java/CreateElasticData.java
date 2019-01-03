@@ -1,6 +1,8 @@
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -8,11 +10,11 @@ import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
 
-public class hooksTest {
+public class CreateElasticData {
 
     ResponseValidation responseValidation = new ResponseValidation();
 
-    @Test(priority = 0)
+    @BeforeSuite
     public void dataCreation() {
         deleteYesBankIndex();
         createIndexYesBank();
@@ -25,10 +27,10 @@ public class hooksTest {
 
     }
 
-    @Test(priority = 1)
+    @AfterSuite
     public void afterScenario() {
         searchData();
-
+        deleteYesBankIndex();
 
     }
 
