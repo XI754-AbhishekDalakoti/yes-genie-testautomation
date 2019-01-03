@@ -39,6 +39,9 @@ dependencies {
     testCompile "net.serenity-bdd:serenity-rest-assured:${serenityVersion}"
 	testCompile "org.yaml:snakeyaml:1.8"
 	testCompile "com.github.fge:json-schema-core:1.2.5"
+    // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+
 }
 
 test{

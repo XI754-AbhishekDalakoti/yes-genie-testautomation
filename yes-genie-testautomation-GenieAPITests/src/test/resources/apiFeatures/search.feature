@@ -1,18 +1,20 @@
 @search
 Feature: Validate Search API
 
-  Background: User has api to test
-    Given api to test is "http://yesgenie.com:30978/api/customer/search"
+  Background: User get the access token
+    Given user wants a valid access token from "http://yesgenie.com:30978/auth/realms/YBL/protocol/openid-connect/token" URI
+    And to get valid access token user passes "yes-genie-frontend" as "client_id" and "password" as "grant_type" and "chandan" as "username" and "chandan" as "password" and "f2b07a8f-ce69-41c6-9d28-f056bc9713fe" as "client_secret"
+    And api to test is "http://yesgenie.com:30978/api/genie/customer/search"
 
   @simplesearch @smoke @regression
   Scenario Outline: User search with custId and other parameters mentioned in below Examples: and validate response from tha api
     When a user search with value "<query>" and setting value for threshold "<threshold>"
     Then a user get the status code 200 as a response from the api
-    Then user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than 1
     Examples:
       | query               | threshold |
       | 996264849           | 50        |
-      | 9184820250          | 50        |
+      | 7123456789          | 50        |
       | AXEPD7154N          | 50        |
       | Y7654537            | 50        |
       | CHARU SADANA        | 50        |
@@ -23,11 +25,17 @@ Feature: Validate Search API
       | @tomer31twitter     | 50        |
 
   @simplesearch @regression
-  Scenario: User search with custId and validate customerSearchEnabled is true or false
+  Scenario: User search with custId and validate accessiblity is true or false
     When a user search with value "996264849" and setting value for threshold "50"
     Then user get the response from the api as "true"
 
-  @simplesearch @regression @smoke
+  @simplesearch
+  Scenario: User perform refine search with valid email id and validate response from the api
+    When a user search with value "csadana@yahoo.co.in" and setting value for threshold "50"
+    Then a user get the status code 200 as a response from the api
+    Then user get the response from the api and count of records is more than 1
+
+  @simplesearch @regression
   Scenario Outline: User search with valid custid and validate response for all the mentioned keys in example
     When a user search with value "996264849" and setting value for threshold "50"
     Then user get the response from the api for the initial record for "<key>" is "<value>"
@@ -38,12 +46,11 @@ Feature: Validate Search API
       | addressArea      | W/O RAHUL SADANA 25-B    |
       | homeBranch       | SAHARANPUR,UTTAR PRADESH |
       | assetRM          | NULL                     |
-      | liabilityRM      | 4188029                  |
       | groupId          | 274937                   |
       | businessSegment  | BRB                      |
       | partnerSegment   | NULL                     |
       | customerOpenDate | 13-May-2011              |
-      | DOB              | 15-Mar-1994              |
+      | DOB              | 15-May-1990              |
       | custType         | I                        |
 
   @simplesearch @smoke @regression
@@ -54,11 +61,6 @@ Feature: Validate Search API
       | nkey   | nvalue    |
       | custId | 996264849 |
       | mdmId  | 101       |
-
-  @dev
-  Scenario: User search with valid custId and validate json schema
-    When a user search with value "996264849" and setting value for threshold "50"
-    Then search api response json schema is validated successfully
 
   @simplesearch @regression
   Scenario: User search with name to test threshold validation
@@ -77,77 +79,64 @@ Feature: Validate Search API
     Then user get the response from the api and count of records is more than 1
     Examples:
       | query               | threshold |
-      | AyUsh               | 5000      |
+      | ChaRu               | 50        |
       | AnupamGupta@yesbank | 5000      |
       | @toMEr31twitter     | 5000      |
       | AxepD7154N          | 50        |
       | y7654537            | 50        |
 
   @refinesearch @regression
-  Scenario: User perform refine search with valid customer name and city and validate status
-    When a user search with value "HUSSEIN ABDULKARIM  BALWA POA+Bangalore" and setting value for threshold "50"
-    Then a user get the status code 200 as a response from the api
-    Then user get the response from the api and count of records is more than 1
-
-  @refinesearch @regression
   Scenario Outline: User perform refine search with valid customer name and city and validate response for all the mentioned keys in below Examples:
     When a user search with value "Ayush+Delhi" and setting value for threshold "50"
     Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
-      | key              | value            |
-      | customerName     | Ayush            |
-      | city             | Delhi            |
-      | addressArea      | Fort, karnal     |
-      | homeBranch       | 9899             |
-      | assetRM          | customer25       |
-      | liabilityRM      | rahul customer35 |
-      | groupId          | 274337           |
-      | businessSegment  | BRB              |
-      | partnerSegment   | RB               |
-      | customerOpenDate | 03-May-2011      |
-      | DOB              | 15-May-1990      |
-      | custType         | I                |
+      | key              | value                 |
+      | customerName     | Ayush                 |
+      | city             | Delhi                 |
+      | addressArea      | W/O RAHUL SADANA 25-B |
+      | homeBranch       | Panipat,Haryana       |
+      | assetRM          | NULL                  |
+      | groupId          | 274937                |
+      | businessSegment  | BRB                   |
+      | partnerSegment   | RB                    |
+      | customerOpenDate | 15-May-2011           |
+      | DOB              | 15-May-1990           |
+      | custType         | I                     |
 
   @refinesearch @regression
   Scenario Outline: User perform refine search with valid customer name and DOB and validate response for all the mentioned keys in below Examples:
     When a user search with value "Ayush+15-May-1990" and setting value for threshold "50"
     Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
-      | key              | value            |
-      | customerName     | Ayush            |
-      | city             | Delhi            |
-      | addressArea      | Fort, karnal     |
-      | homeBranch       | 9899             |
-      | assetRM          | customer25       |
-      | liabilityRM      | rahul customer35 |
-      | groupId          | 274337           |
-      | businessSegment  | BRB              |
-      | partnerSegment   | RB               |
-      | customerOpenDate | 03-May-2011      |
-      | DOB              | 15-May-1990      |
-      | custType         | I                |
+      | key              | value                 |
+      | customerName     | Ayush                 |
+      | city             | Delhi                 |
+      | addressArea      | W/O RAHUL SADANA 25-B |
+      | homeBranch       | Panipat,Haryana       |
+      | assetRM          | NULL                  |
+      | groupId          | 274937                |
+      | businessSegment  | BRB                   |
+      | partnerSegment   | RB                    |
+      | customerOpenDate | 15-May-2011           |
+      | DOB              | 15-May-1990           |
+      | custType         | I                     |
 
   @refinesearch @regression
   Scenario Outline: User perform refine search with valid customer name and Branch Code and validate response for all the mentioned keys in below Examples:
-    When a user search with value "Ayush+181" and setting value for threshold "50"
+    When a user search with value "Ayush+2019" and setting value for threshold "50"
     Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
-      | key              | value            |
-      | customerName     | Ayush            |
-      | city             | Delhi            |
-      | addressArea      | Fort, karnal     |
-      | homeBranch       | 9899             |
-      | assetRM          | customer25       |
-      | liabilityRM      | rahul customer35 |
-      | groupId          | 274337           |
-      | businessSegment  | BRB              |
-      | partnerSegment   | RB               |
-      | customerOpenDate | 03-May-2011      |
-      | DOB              | 15-May-1990      |
-      | custType         | I                |
+      | key              | value                 |
+      | customerName     | Ayush                 |
+      | city             | Delhi                 |
+      | addressArea      | W/O RAHUL SADANA 25-B |
+      | homeBranch       | Panipat,Haryana       |
+      | assetRM          | NULL                  |
+      | groupId          | 274937                |
+      | businessSegment  | BRB                   |
+      | partnerSegment   | RB                    |
+      | customerOpenDate | 15-May-2011           |
+      | DOB              | 15-May-1990           |
+      | custType         | I                     |
 
-  @simplesearch
-  Scenario: User perform refine search with valid email id and validate response from the api
-    When a user search with value "anupamgupta@yahoo.co.in" and setting value for threshold "50"
-    Then a user get the status code 200 as a response from the api
-    Then user get the response from the api and count of records is more than 1
+
