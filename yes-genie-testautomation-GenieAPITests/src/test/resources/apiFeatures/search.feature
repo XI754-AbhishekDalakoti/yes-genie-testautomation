@@ -76,7 +76,7 @@ Feature: Validate Search API
   Scenario Outline: User search with different parameters mentioned in below examples to validate search is not restrict to case sensitive
     When a user search with value "<query>" and setting value for threshold "<threshold>"
     Then a user get the status code 200 as a response from the api
-    Then user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than 1
     Examples:
       | query               | threshold |
       | ChaRu               | 50        |
@@ -138,5 +138,3 @@ Feature: Validate Search API
       | customerOpenDate | 15-May-2011           |
       | DOB              | 15-May-1990           |
       | custType         | I                     |
-
-

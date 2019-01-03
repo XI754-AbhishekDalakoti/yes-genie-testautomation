@@ -77,15 +77,14 @@ public class demographicsAPI extends ResponseValidation {
         responseCorporate.then().
                 body(matchesJsonSchema(fileName));
     }
-
     @Then("^a genie user get the \"([^\"]*)\" as \"([^\"]*)\" from the api as a response$")
-    public void messsageAsaResponse(String key, String value) {
+    public void messsageAsaResponse(String key,String value){
         String param = "";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 
     @Then("^a user get the status code 404 as a response from the demographic api where customer type is individual$")
-    public void validateResultNotFoundInResponse() {
+    public void validateResultNotFoundInResponse(){
         responseValidation.validateResultNotRequest(responseIndividual);
     }
 

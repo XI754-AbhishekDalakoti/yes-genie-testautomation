@@ -7,9 +7,11 @@ import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
-
 import static io.restassured.RestAssured.expect;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 /**
  * Created by vibhu on 11/27/2018.
