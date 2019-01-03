@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
 
-public class CreateElasticData {
+public class CreateElasticDataTest {
 
     ResponseValidation responseValidation = new ResponseValidation();
 
