@@ -50,12 +50,14 @@ public class ReadExcelDataWithDynamicColumn {
                     // Generate JSON format of above sheet data and write to a JSON file.
                     String jsonString = getJSONStringFromList(sheetDataTable);
 
-                    String jsonFileName = sheet.getSheetName() + ".json";
+//                    String jsonFileName = sheet.getSheetName() + ".json";
+                    String jsonFileName = "JsonFile.json";
                     writeStringToFile(jsonString, jsonFileName);
 
                     // Generate text table format of above sheet data and write to a text file.
                     String textTableString = getTextTableStringFromList(sheetDataTable);
-                    String textTableFileName = sheet.getSheetName() + ".txt";
+//                    String textTableFileName = sheet.getSheetName() + ".txt";
+                    String textTableFileName =  "JsonFile.txt";
                     writeStringToFile(textTableString, textTableFileName);
 
                 }
