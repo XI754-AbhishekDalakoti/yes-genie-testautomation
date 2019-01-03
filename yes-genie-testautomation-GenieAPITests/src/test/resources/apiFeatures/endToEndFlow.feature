@@ -177,3 +177,49 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | key            | value |
       | dismissable    | false |
       | cumulationFlag | true  |
+
+  @regression
+  Scenario Outline: User search with valid mdmId and validate response of nba api where customer type is individual for all the mentioned keys in examples
+    Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
+    When a genie user passes the "996264849" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is individual
+    Then a user get the status code 200 as a response from the nba lead api where customer type is individual
+    And user get the response for "<key>" is "<value>" from the nba lead api where customer type is individual
+    Examples:
+      | key         | value      |
+      | mdmId       | 996264849  |
+      | referenceNo | 123        |
+      | custId      | 996264849  |
+      | productName | FD628      |
+      | bu          | YES BANK   |
+      | sourceRefId | FDYES BANK |
+      | branchCode  | 416        |
+      | remarks     | null       |
+
+  Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is individual
+    Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
+    When a genie user passes the "996264849" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is individual
+    And a genie user edits the "remarks" field by the "test data"
+    Then user validates remarks modify successfully
+
+  Scenario Outline: User search with valid mdmId and validate response of nba create lead api where customer type is corporate for all the mentioned keys in examples
+    Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
+    When a genie user passes the "998003452" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is corporate
+    Then a user get the status code 200 as a response from the nba lead api where customer type is corporate
+     And user get the response for "<key>" is "<value>" from the nba lead api where customer type is corporate
+    Examples:
+      | key         | value      |
+      | mdmId       | 998003452  |
+      | referenceNo | 123        |
+      | custId      | 998003452  |
+      | productName | FD628      |
+      | bu          | YES BANK   |
+      | sourceRefId | FDYES BANK |
+      | branchCode  | 416        |
+      | remarks     | null       |
+
+  Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is corporate
+    Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
+    When a genie user passes the "998003452" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is corporate
+    And a genie user edits the "remarks" field by the "test data"
+    Then user validates remarks modify successfully
+

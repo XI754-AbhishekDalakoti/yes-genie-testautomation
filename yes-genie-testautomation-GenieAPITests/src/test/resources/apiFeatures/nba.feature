@@ -167,19 +167,30 @@ Feature: Validate nba APIs
       | remarks     | null       |
 
 
-  @smoke @regression
+  @regression
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is individual
     Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
     When a genie user passes the "996264849" as a mdmid and "133" as a refrence id to get the response from nba api where customer type is individual
     And a genie user edits the "remarks" field by the "test data"
     Then user validates remarks modify successfully
 
-  @smoke @regression
+  @regression
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is corporate
     Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
     When a genie user passes the "998003452" as a mdmid and "133" as a refrence id to get the response from nba api where customer type is corporate
     And a genie user edits the "remarks" field by the "test data"
     Then user validates remarks modify successfully
 
+  @regression 
+  Scenario: User validates the response code of nba api and actionCode as response where customer type is individual
+    Given a genie user has a nba api to test is "http://192.168.3.241:31175/api/recommendation/configurations/mappings"
+    When a genie user passes the "FD0123" as action codes to get the response from nba api where customer type is individual
+    Then a user get the status code 200 as a response from the nba api where customer type is individual
+    And a user get empty List as response
 
-
+  @regression
+  Scenario: User validates the response code of nba create lead api and mdmId as response where customer type is individual
+    Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
+    When a genie user passes the "1" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is individual
+    Then a user get the status code 200 as a response from the nba lead api where customer type is individual
+    And a user get empty List as response
