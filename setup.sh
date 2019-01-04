@@ -1,6 +1,7 @@
 #!/bin/bash
 source /etc/profile
 cd xebia_elasticdata
+pwd
 gradle clean test
 echo -e "xebia_elasticdata completed successfully"
 cd ..
