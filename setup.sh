@@ -1,5 +1,4 @@
 #!/bin/bash
-source /etc/profile
 cd xebia_elasticdata
 pwd
 gradle clean test
