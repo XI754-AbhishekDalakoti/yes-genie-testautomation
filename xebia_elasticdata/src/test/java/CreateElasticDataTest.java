@@ -30,7 +30,8 @@ public class CreateElasticDataTest {
     @AfterSuite
     public void afterScenario() {
         searchData();
-//        deleteYesBankIndex();
+        //deleteYesBankIndex();
+
 
     }
 
