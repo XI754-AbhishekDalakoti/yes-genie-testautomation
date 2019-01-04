@@ -6,11 +6,17 @@
  */
 apply plugin: 'java'
 
-task complete(type:Exec){
-    commandLine 'sh', './runner.sh'
+task setup(type:Exec){
+    commandLine 'sh', './setup.sh'
 }
 
 
 
-//build.dependsOn demo
-//demo.dependsOn demo2
+task teardown(type:Exec){
+    commandLine 'sh', './teardown.sh'
+}
+
+
+
+//build.dependsOn setup
+//teardown.dependsOn build
