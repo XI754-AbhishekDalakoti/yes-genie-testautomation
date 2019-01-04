@@ -36,7 +36,7 @@ public class CreateElasticDataTest {
 
 
     public void createIndexYesBank() {
-//        RestAssured.baseURI="http://192.168.7.51";
+        RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
@@ -49,7 +49,7 @@ public class CreateElasticDataTest {
 
 
     public void createIndexHierachy() {
-//        RestAssured.baseURI="http://192.168.7.51";
+        RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
         requestSpecification.contentType("application/json");
@@ -62,7 +62,7 @@ public class CreateElasticDataTest {
 
 
     public void createMappingCustomer() {
-//        RestAssured.baseURI="http://192.168.7.51";
+        RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         String body = "{\"customer\":{\"properties\":{ \"DOB\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"aadharNo\":{\"type\":\"keyword\",\"index\":\"true\"}, \"accountNo\":{\"type\":\"long\"}, \"addressArea\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"city\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"assetRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"serviceRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"salesRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"businessSegment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"cKyc\":{\"type\":\"keyword\",\"index\":\"true\", \"normalizer\":\"lowercase_normalizer\"}, \"custId\":{\"type\":\"long\"}, \"custType\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"indexType\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"customerName\":{\"type\":\"text\",\"index\":\"true\", \"analyzer\":\"tokenized_lowercase_analyzer\"}, \"customerOpenDate\":{\"type\":\"keyword\",\"index\":\"true\"},\"customerSearchEnabled\":{\"type\":\"boolean\"}, \"email\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"groupId\":{\"type\":\"long\"},\"homeBranch\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"liabilityRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"},\"mdmId\":{\"type\":\"long\"}, \"linkedMdmId\":{\"type\":\"long\"},\"mobileNumber\":{\"type\":\"long\"}, \"PAN\":{\"type\":\"keyword\",\"index\":\"true\"}, \"partnerSegment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"passportNo\":{\"type\":\"keyword\",\"index\":\"true\"}, \"twitter\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"upiId\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"branchCode\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"} }}}    ";
         RequestSpecification requestSpecification = given();
@@ -76,7 +76,7 @@ public class CreateElasticDataTest {
 
 
     public void createMappingHirechy() {
-//        RestAssured.baseURI="http://192.168.7.51";
+        RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         String body ="{\"gny_hris_doc\":{\"properties\":{ \"emp_no\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"emp_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"emp_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"emp_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra1\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra1_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra1_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra1_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra2\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra2_name\":{\"type\":\"keyword\",\"index\":\"true\", \"normalizer\":\"lowercase_normalizer\"}, \"ra2_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra2_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra3\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra3_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra3_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra3_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra4\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra4_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra4_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra4_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra5\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra5_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra5_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra5_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra6\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra6_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra6_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra6_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"data_dt\":{\"type\":\"keyword\",\"index\":\"true\"} }}}";
         RequestSpecification requestSpecification = given();
@@ -90,7 +90,7 @@ public class CreateElasticDataTest {
 
 
     public void bulkIndexing(){
-//        RestAssured.baseURI="http://192.168.7.51";
+        RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
         requestSpecification.contentType("application/json");
@@ -106,7 +106,7 @@ public class CreateElasticDataTest {
 
 
     public void bulkIndexingInYesBankAccount(){
-//        RestAssured.baseURI="http://192.168.7.51";
+        RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
         requestSpecification.contentType("application/json");
@@ -118,7 +118,7 @@ public class CreateElasticDataTest {
 
 
     public void searchData(){
-//        RestAssured.baseURI="http://192.168.7.51";
+        RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
         requestSpecification.contentType("application/json");
@@ -130,7 +130,7 @@ public class CreateElasticDataTest {
 
 
     public void deleteAll(){
-//        RestAssured.baseURI="http://192.168.7.51";
+        RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
         Response response = requestSpecification.delete("_all");
@@ -139,7 +139,7 @@ public class CreateElasticDataTest {
     }
 
     public void deleteYesBankIndex(){
-//        RestAssured.baseURI="http://192.168.7.51";
+        RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
         Response response = requestSpecification.delete("yesbank");
