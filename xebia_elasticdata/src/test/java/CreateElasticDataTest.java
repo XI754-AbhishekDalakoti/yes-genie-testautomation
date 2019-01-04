@@ -135,6 +135,7 @@ public class CreateElasticDataTest {
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
         Response response = requestSpecification.delete("_all");
+        responseValidation.compareResponseCode(response, 200);
 
 
     }
@@ -144,6 +145,7 @@ public class CreateElasticDataTest {
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
         Response response = requestSpecification.delete("yesbank");
+        responseValidation.compareResponseCode(response, 200);
 
 
     }
