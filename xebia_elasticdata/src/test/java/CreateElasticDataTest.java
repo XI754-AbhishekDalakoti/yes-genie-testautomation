@@ -16,33 +16,30 @@ public class CreateElasticDataTest {
 
     @BeforeSuite
     public void dataCreation() {
-        deleteYesBankIndex();
-        createIndexYesBank();
-//        createIndexHierachy();
-        createMappingCustomer();
-//        createMappingHirechy();
+        deleteGnyCustSearchIndex();
+        createIndexGnyCustSearch();
+        createMappingGnyCustDoc();
         bulkIndexing();
-        bulkIndexingInYesBankAccount();
+//      bulkIndexingInYesBankAccount();
 
 
     }
 
-    @AfterSuite
+    @Test
     public void afterScenario() {
         searchData();
-        //deleteYesBankIndex();
 
 
     }
 
 
-    public void createIndexYesBank() {
+    public void createIndexGnyCustSearch() {
         RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
         requestSpecification.body("{ \"number_of_shards\":1,\"number_of_replicas\":1, \"analysis\": { \"normalizer\": { \"lowercase_normalizer\": { \"type\": \"custom\", \"filter\": [ \"lowercase\",\"asciifolding\" ] } }, \"analyzer\": { \"tokenized_lowercase_analyzer\": { \"type\":\"custom\", \"tokenizer\": \"whitespace\", \"filter\": [ \"lowercase\",\"asciifolding\" ] } } } }");
-        Response response = requestSpecification.put("yesbank");
+        Response response = requestSpecification.put("gny_cust_search");
 
 
 
@@ -62,14 +59,16 @@ public class CreateElasticDataTest {
     }
 
 
-    public void createMappingCustomer() {
+    public void createMappingGnyCustDoc() {
         RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
-        String body = "{\"customer\":{\"properties\":{ \"DOB\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"aadharNo\":{\"type\":\"keyword\",\"index\":\"true\"}, \"accountNo\":{\"type\":\"long\"}, \"addressArea\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"city\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"assetRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"serviceRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"salesRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"businessSegment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"cKyc\":{\"type\":\"keyword\",\"index\":\"true\", \"normalizer\":\"lowercase_normalizer\"}, \"custId\":{\"type\":\"long\"}, \"custType\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"indexType\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"customerName\":{\"type\":\"text\",\"index\":\"true\", \"analyzer\":\"tokenized_lowercase_analyzer\"}, \"customerOpenDate\":{\"type\":\"keyword\",\"index\":\"true\"},\"customerSearchEnabled\":{\"type\":\"boolean\"}, \"email\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"groupId\":{\"type\":\"long\"},\"homeBranch\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"liabilityRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"},\"mdmId\":{\"type\":\"long\"}, \"linkedMdmId\":{\"type\":\"long\"},\"mobileNumber\":{\"type\":\"long\"}, \"PAN\":{\"type\":\"keyword\",\"index\":\"true\"}, \"partnerSegment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"passportNo\":{\"type\":\"keyword\",\"index\":\"true\"}, \"twitter\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"upiId\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"branchCode\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"} }}}    ";
+        //String body = "{\"customer\":{\"properties\":{ \"DOB\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"aadharNo\":{\"type\":\"keyword\",\"index\":\"true\"}, \"accountNo\":{\"type\":\"long\"}, \"addressArea\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"city\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"assetRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"serviceRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"salesRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"businessSegment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"cKyc\":{\"type\":\"keyword\",\"index\":\"true\", \"normalizer\":\"lowercase_normalizer\"}, \"custId\":{\"type\":\"long\"}, \"custType\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"indexType\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"customerName\":{\"type\":\"text\",\"index\":\"true\", \"analyzer\":\"tokenized_lowercase_analyzer\"}, \"customerOpenDate\":{\"type\":\"keyword\",\"index\":\"true\"},\"customerSearchEnabled\":{\"type\":\"boolean\"}, \"email\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"groupId\":{\"type\":\"long\"},\"homeBranch\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"liabilityRM\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"},\"mdmId\":{\"type\":\"long\"}, \"linkedMdmId\":{\"type\":\"long\"},\"mobileNumber\":{\"type\":\"long\"}, \"PAN\":{\"type\":\"keyword\",\"index\":\"true\"}, \"partnerSegment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"passportNo\":{\"type\":\"keyword\",\"index\":\"true\"}, \"twitter\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"upiId\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"branchCode\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"} }}}    ";
+
+        String body="{\"gny_cust_doc\":{\"properties\":{ \"dob\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"aadhar_no\":{\"type\":\"keyword\",\"index\":\"true\"}, \"permanent_state\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"current_state\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"current_city\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"permanent_city\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"asset_rm\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"service_rm\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"sales_rm\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ybl_staff_flg\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"business_segment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ckyc_no\":{\"type\":\"keyword\",\"index\":\"true\", \"normalizer\":\"lowercase_normalizer\"}, \"cust_id\":{\"type\":\"long\"}, \"cust_category_flg\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"dataset_flg\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"customer_name\":{\"type\":\"text\",\"index\":\"true\", \"analyzer\":\"tokenized_lowercase_analyzer\"}, \"link_cust_name\":{\"type\":\"text\",\"index\":\"true\", \"analyzer\":\"tokenized_lowercase_analyzer\"}, \"gny_display_name\":{\"type\":\"text\",\"index\":\"true\", \"analyzer\":\"tokenized_lowercase_analyzer\"}, \"cust_open_date\":{\"type\":\"keyword\",\"index\":\"true\"}, \"email\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"group_id\":{\"type\":\"long\"}, \"mdm_id\":{\"type\":\"long\"}, \"linked_mdm_id\":{\"type\":\"long\"}, \"mobile_no\":{\"type\":\"long\"}, \"pan_no\":{\"type\":\"keyword\",\"index\":\"true\"}, \"partner_segment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"passport_no\":{\"type\":\"keyword\",\"index\":\"true\"}, \"twitter_handle\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"upi\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ucic\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"link_ucic\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"branch_code\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"branch_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"branch_region\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"clusters\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"cust_rel_type\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"link_cod_cust\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"data_dt\":{\"type\":\"keyword\",\"index\":\"true\"} }}}";
         RequestSpecification requestSpecification = given();
         requestSpecification.contentType("application/json");
         requestSpecification.body(body);
-        Response response = requestSpecification.put("yesbank/_mapping/customer");
+        Response response = requestSpecification.put("gny_cust_search/_mapping/gny_cust_doc");
         responseValidation.compareResponseCode(response, 200);
 
 
@@ -98,7 +97,7 @@ public class CreateElasticDataTest {
         String ar[] = getJson();
         for (int i = 0; i < ar.length; i++) {
             System.out.println(ar[i]);
-            requestSpecification.body("{ \"index\":{ \"_index\": \"yesbank\" , \"_type\": \"customer\" } } \n" +ar[i]+"\n");
+            requestSpecification.body("{ \"index\":{ \"_index\": \"gny_cust_search\" , \"_type\": \"gny_cust_doc\" } } \n" +ar[i]+"\n");
             Response response = requestSpecification.post("_bulk");
             System.out.println("bulk indexing result is " + response.body().asString());
             responseValidation.compareResponseCode(response, 200);
@@ -123,7 +122,7 @@ public class CreateElasticDataTest {
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
         requestSpecification.contentType("application/json");
-        Response response = requestSpecification.get("yesbank/_search");
+        Response response = requestSpecification.get("gny_cust_search/_search");
         responseValidation.compareResponseCode(response, 200);
         System.out.println(response.body().asString());
 
@@ -140,11 +139,11 @@ public class CreateElasticDataTest {
 
     }
 
-    public void deleteYesBankIndex(){
+    public void deleteGnyCustSearchIndex(){
         RestAssured.baseURI="http://192.168.7.51";
         RestAssured.port=9200;
         RequestSpecification requestSpecification = given();
-        Response response = requestSpecification.delete("yesbank");
+        Response response = requestSpecification.delete("gny_cust_search");
         responseValidation.compareResponseCode(response, 200);
 
 
@@ -154,11 +153,7 @@ public class CreateElasticDataTest {
 
 
     public String[] getJson() {
-
-        // You can specify your excel file path.
         String excelFilePath = "elastic.xls";
-
-        // This method will read each sheet data from above excel file and create a JSON and a text file to save the sheet data.
         ReadExcelDataWithDynamicColumn.creteJSONAndTextFileFromExcel(excelFilePath);
         try {
             String content = new String(Files.readAllBytes(Paths.get("JsonFile.json")));
@@ -173,9 +168,6 @@ public class CreateElasticDataTest {
             for (int i = 0; i < ar.length; i++) {
                 ar[i] = ar[i].replaceAll("\\{\":", "");
                 ar[i] = ar[i].replaceAll("\\}\\}", "}");
-
-                //Logic for json to string conversion
-//                    ar[i] = ar[i].replaceAll("\"", "\\\"");
             }
             return ar;
         } catch (Exception e) {
