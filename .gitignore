@@ -19,6 +19,8 @@ out
 test-properties
 gradlew
 gradlew.bat
+gradle
+gradle/*
 log/*
 log
 data_file
