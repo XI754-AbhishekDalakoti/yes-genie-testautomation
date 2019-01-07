@@ -303,7 +303,7 @@ public class DriverUtil {
             case "safari":
                 try {
                     driver = new SafariDriver();
-                }catch(Exception e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                     System.exit(0);
                 }
@@ -311,7 +311,7 @@ public class DriverUtil {
             case "edge":
                 try {
                     driver = new EdgeDriver();
-                }catch(Exception e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                     System.exit(0);
                 }
@@ -321,26 +321,26 @@ public class DriverUtil {
                 if (headless) {
                     chromeOptions.addArguments("--headless");
                 }
-                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-                try
-                {
-                    if (System.getProperty("os.name").equals("Linux1")) {
-                        System.setProperty("webdriver.chrome.driver", "chromedriver");
-//                    }
-                    driver = new ChromeDriver(capabilities);
-                    ErrorHandler handler = new ErrorHandler();
-                    handler.setIncludeServerErrors(false);
-                    //driver.setErrorHandler(handler);
-                }catch(Exception e) {
-                    System.out.println(e.getMessage());
-                    System.exit(0);
-                }
-                return driver;
-        }
-    }
+                if (System.getProperty("os.name").equals("Linux1")) {
+                    System.setProperty("webdriver.chrome.driver", "chromedriver");
+                    }
 
-    public static WebElement waitAndGetElementByCssSelector(WebDriver driver, String selector,
-                                                            int seconds) {
+                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+                try {
+                   driver = new ChromeDriver(capabilities);
+                        ErrorHandler handler = new ErrorHandler();
+                        handler.setIncludeServerErrors(false);
+                        //driver.setErrorHandler(handler);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                        System.exit(0);
+                    }
+                    return driver;
+                }
+        }
+
+
+    public static WebElement waitAndGetElementByCssSelector(WebDriver driver, String selector,int seconds) {
         By selection = By.cssSelector(selector);
         return (new WebDriverWait(driver, seconds)).until( // ensure element is visible!
                 visibilityOfElementLocated(selection));
