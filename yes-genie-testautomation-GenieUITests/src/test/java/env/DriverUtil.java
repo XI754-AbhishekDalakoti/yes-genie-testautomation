@@ -297,7 +297,7 @@ public class DriverUtil {
      */
     private static WebDriver chooseDriver(DesiredCapabilities capabilities) {
         String preferredDriver = System.getProperty("browser", "Firefox");
-        boolean headless = System.getProperty("headless", "true").equals("true");
+        boolean headless = System.getProperty("headless", "true").equals("false");
 
         switch (preferredDriver.toLowerCase()) {
             case "safari":
@@ -324,6 +324,9 @@ public class DriverUtil {
                 capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                 try
                 {
+                    if (System.getProperty("os.name").equals("Linux1")) {
+                        System.setProperty("webdriver.chrome.driver", "chromedriver");
+//                    }
                     driver = new ChromeDriver(capabilities);
                     ErrorHandler handler = new ErrorHandler();
                     handler.setIncludeServerErrors(false);
