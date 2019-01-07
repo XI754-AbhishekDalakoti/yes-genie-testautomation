@@ -21,7 +21,7 @@ public class SearchAPI extends ResponseValidation {
     ResponseValidation responseValidation = new ResponseValidation();
 
     @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\"$")
-    public void getTheResponseOfTheApiByPassingParametersDirectly(String query, String thresholdValue) {
+    public void get_the_response_of_the_api_by_passing_parameters_directly(String query, String thresholdValue) {
         response = given().accept(ContentType.JSON).
                 header("Authorization", accessToken).
                 param("query", query).
@@ -30,7 +30,7 @@ public class SearchAPI extends ResponseValidation {
     }
 
     @Given("^user wants a valid access token from \"([^\"]*)\" URI$")
-    public void getAccessToken(String value) {
+    public void get_access_token(String value) {
         uriAccessToken = value;
 
     }
@@ -52,17 +52,17 @@ public class SearchAPI extends ResponseValidation {
     }
 
     @Given("^api to test is \"([^\"]*)\"$")
-    public void apiValue(String value) {
+    public void api_Value(String value) {
         uri = value;
     }
 
     @Then("^a user get the status code 200 as a response from the api$")
-    public void validateAPIisOK() {
+    public void validate_API_is_OK() {
         responseValidation.validateResponseOk(response);
     }
 
     @Then("^user get status code is 400 as response from the api$")
-    public void validateAPIis400() {
+    public void validate_API_is_400() {
         responseValidation.validateBadRequest(response);
     }
 

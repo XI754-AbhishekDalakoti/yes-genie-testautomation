@@ -7,6 +7,8 @@ import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
+import org.junit.Assert;
+
 import static io.restassured.RestAssured.expect;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
@@ -24,7 +26,7 @@ public class ResponseValidation {
                     body((param.concat(key)), is(nullValue()));
         } else {
             response.then().
-                    body((param.concat(key)), is(vlaue));
+                    body((param.concat(key)).trim(), is(vlaue));
         }
     }
 
@@ -126,5 +128,13 @@ public class ResponseValidation {
 
     public void compareEqualCount(Response response, int vlaue) {
         response.then().assertThat().body("size()", is(vlaue));
+    }
+    public void validateNullObject(Response response) {
+        String body = response.getBody().asString();
+        Assert.assertTrue(body.equals("{}"));
+    }
+    public void validateResponseForUnauthorized(Response response) {
+        response.
+                then().assertThat().statusCode(HttpStatus.SC_UNAUTHORIZED);
     }
 }

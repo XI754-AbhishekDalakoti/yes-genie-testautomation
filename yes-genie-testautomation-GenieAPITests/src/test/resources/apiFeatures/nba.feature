@@ -67,18 +67,18 @@ Feature: Validate nba APIs
     Then user get the response for "amount" is "54856.73" from the nba api where customer type is corporate
     And user get the response for "<key>" is "<value>" from the nba api where customer type is corporate
     Examples:
-      | key                 | value                   |
-      | mdmId               | 998003452               |
-      | actionCode          | FD03                    |
-      | recommendationTitle | Issue Cheque Book (P 4) |
-      | category            | Service                 |
-      | toolTip             | Issue Cheque Book (P 4) |
-      | accountNo           | 39400000000000          |
-      | dueDate             | null                    |
-      | cumulationCount     | 1                       |
-      | priority            | 4                       |
-      | status              | open                    |
-      | referenceNo         | 128                     |
+      | key                 | value                                           |
+      | mdmId               | 998003452                                       |
+      | actionCode          | FD02                                            |
+      | recommendationTitle | Non Individual Customer not registered on CNB 4 |
+      | category            | Regulatory                                      |
+      | toolTip             | Non Individual Customer not registered on CNB 4 |
+      | accountNo           | 39400000000000                                  |
+      | dueDate             | 31-Dec-2019                                     |
+      | cumulationCount     | 1                                               |
+      | priority            | 4                                               |
+      | status              | open                                            |
+      | referenceNo         | 126                                             |
 
   @regression
   Scenario Outline: User search with valid mdmId and validate response of nba api where customer type is corporate for all the mentioned keys in examples of boolean type
@@ -166,7 +166,6 @@ Feature: Validate nba APIs
       | branchCode  | 416        |
       | remarks     | null       |
 
-
   @regression
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is individual
     Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
@@ -181,7 +180,7 @@ Feature: Validate nba APIs
     And a genie user edits the "remarks" field by the "test data"
     Then user validates remarks modify successfully
 
-  @regression 
+  @regression
   Scenario: User validates the response code of nba api and actionCode as response where customer type is individual
     Given a genie user has a nba api to test is "http://192.168.3.241:31175/api/recommendation/configurations/mappings"
     When a genie user passes the "FD0123" as action codes to get the response from nba api where customer type is individual
@@ -194,3 +193,4 @@ Feature: Validate nba APIs
     When a genie user passes the "1" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is individual
     Then a user get the status code 200 as a response from the nba lead api where customer type is individual
     And a user get empty List as response
+

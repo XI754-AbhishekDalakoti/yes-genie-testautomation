@@ -223,3 +223,19 @@ Feature: Validate end to end response from elastic search , demographics and NBA
     And a genie user edits the "remarks" field by the "test data"
     Then user validates remarks modify successfully
 
+  Scenario Outline: User search with valid custid and validate response for all the mentioned keys in example
+    When a user search with value "996264849" and setting value for threshold "50"
+    Then user get the response from the api for the initial record for "<key>" is "<value>"
+    Examples:
+      | key              | value                    |
+      | customerName     | CHARU SADANA             |
+      | city             | SAHARANPUR               |
+      | addressArea      | W/O RAHUL SADANA 25-B    |
+      | homeBranch       | SAHARANPUR,UTTAR PRADESH |
+      | assetRM          | NULL                     |
+      | groupId          | 274937                   |
+      | businessSegment  | BRB                      |
+      | partnerSegment   | NULL                     |
+      | customerOpenDate | 13-May-2011              |
+      | DOB              | 15-May-1990              |
+      | custType         | I                        |

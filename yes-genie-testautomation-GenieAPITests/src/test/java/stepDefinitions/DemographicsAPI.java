@@ -12,21 +12,21 @@ import static utils.Utilities.matchesJsonSchema;
 /**
  * Created by vibhu on 12/5/2018.
  */
-public class demographicsAPI extends ResponseValidation {
+public class DemographicsAPI extends ResponseValidation {
 
     public static Response responseIndividual, responseCorporate;
     public static String uri;
     ResponseValidation responseValidation = new ResponseValidation();
 
     @When("^a genie user passes the \"([^\"]*)\" as a parameter to get the response from demographic api where customer type is individual$")
-    public void getTheResponseOfTheApiByPassingParametersDirectly(String mdmid) {
+    public void get_the_response_of_the_Api_by_passing_parameters_directly(String mdmid) {
         uri = uri.concat(mdmid);
         responseIndividual = given().accept(ContentType.JSON).
                 get(uri);
     }
 
     @Given("^a genie user has a demographic api to test is \"([^\"]*)\"$")
-    public void apiValue(String value) {
+    public void api_Value(String value) {
         uri = value;
     }
 
@@ -37,7 +37,7 @@ public class demographicsAPI extends ResponseValidation {
     }
 
     @Then("^a user get the status code 200 as a response from the demographic api where customer type is individual$")
-    public void validateDemographicAPIResponseisOK() {
+    public void validate_demographic_API_response_is_oK() {
         responseValidation.validateResponseOk(responseIndividual);
     }
 
@@ -66,7 +66,7 @@ public class demographicsAPI extends ResponseValidation {
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a parameter to get the response from demographic api where customer type is corporate$")
-    public void getThecorporateResponseOfTheApiByPassingParametersDirectly(String mdmid) {
+    public void get_the_corporate_response_of_the_Api_by_passing_parameters_directly(String mdmid) {
         uri = uri.concat(mdmid);
         responseCorporate = given().accept(ContentType.JSON).
                 get(uri);
@@ -78,18 +78,18 @@ public class demographicsAPI extends ResponseValidation {
                 body(matchesJsonSchema(fileName));
     }
     @Then("^a genie user get the \"([^\"]*)\" as \"([^\"]*)\" from the api as a response$")
-    public void messsageAsaResponse(String key,String value){
+    public void messsage_as_a_response(String key,String value){
         String param = "";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 
     @Then("^a user get the status code 404 as a response from the demographic api where customer type is individual$")
-    public void validateResultNotFoundInResponse(){
+    public void validate_result_not_found_in_response(){
         responseValidation.validateResultNotRequest(responseIndividual);
     }
 
     @Then("^a user get the status code 200 as a response from the demographic api where customer type is corporate")
-    public void validateDemographicCorporateAPIResponseisOK() {
+    public void validate_demographic_corporate_API_response_is_oK() {
         responseValidation.validateResponseOk(responseCorporate);
     }
 
@@ -112,19 +112,19 @@ public class demographicsAPI extends ResponseValidation {
     }
 
     @Then("^user get the response for \"([^\"]*)\" like pan is \"([^\"]*)\" from the demographic api where customer type is corporate$")
-    public void resultcorporate_as_response_is(String key, String value) throws Throwable {
+    public void result_corporate_as_response_is(String key, String value) throws Throwable {
         String param = "records[0].demogData[0].";
         responseValidation.responseStringValueCompare(param, responseCorporate, key, value);
     }
 
     @Then("^user get the response for \"([^\"]*)\" is null from the demographic api where customer type is corporate$")
-    public void resultcorporate_for_key_is(String key) throws Throwable {
+    public void result_corporate_for_key_is(String key) throws Throwable {
         String param = "";
         responseValidation.responseNullValueCompare(param, responseCorporate, key);
     }
 
     @Then("^a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is individual$")
-    public void validateDemographicAPIResponseForInitialCFlagisOK() {
+    public void validate_demographic_API_response_for_initial_c_flag_is_oK() {
         responseValidation.validateResponseOk(responseIndividual);
     }
 
@@ -135,7 +135,7 @@ public class demographicsAPI extends ResponseValidation {
     }
 
     @Then("^a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is corporate")
-    public void validateDemographicCorporateAPIResponseForInitialCFlagisOK() {
+    public void validate_demographic_corporate_API_response_for_initial_c_flag_is_oK() {
         responseValidation.validateResponseOk(responseCorporate);
     }
 

@@ -12,7 +12,7 @@ import static net.serenitybdd.rest.SerenityRest.given;
 /**
  * Created by vibhu on 12/19/2018.
  */
-public class nbaAPI {
+public class NbaAPI {
 
     public static Response responseIndividual, responseCorporate, responseLeadIndividual, responseLeadCorporate;
     public static String uri;
@@ -25,7 +25,7 @@ public class nbaAPI {
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid to get the response from nba api where customer type is individual$")
-    public void getTheResponseOfTheApiByPassingParametersDirectly(String mdmid) {
+    public void get_the_response_of_the_Api_by_passing_parameters_directly(String mdmid) {
         uri = uri.concat(mdmid);
         responseIndividual = given().accept(ContentType.JSON).
                 get(uri);
@@ -49,12 +49,12 @@ public class nbaAPI {
     }
 
     @Then("^a user get the status code 200 as a response from the nba api where customer type is individual$")
-    public void validateDemographicAPIResponseisOK() {
+    public void validate_demographic_API_response_is_oK() {
         responseValidation.validateResponseOk(responseIndividual);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid to get the response from nba api where customer type is corporate$")
-    public void getTheResponseOfTheApiByPassingMdmIdDirectly(String mdmid) {
+    public void get_the_response_of_the_Api_by_passing_mdmId_directly(String mdmid) {
         uri = uri.concat(mdmid);
         responseCorporate = given().accept(ContentType.JSON).
                 get(uri);
@@ -73,19 +73,19 @@ public class nbaAPI {
     }
 
     @Then("^a user get the status code 200 as a response from the nba api where customer type is corporate$")
-    public void validateDemographicAPIResponseisOKForcorporate$() {
+    public void validate_demographic_API_response_is_oK_for_corporate$() {
         responseValidation.validateResponseOk(responseCorporate);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as action codes to get the response from nba api where customer type is individual$")
-    public void getTheResponseOfTheApiByPassingParametersDirectlyForActionCodeIndividual(String actionCode) {
+    public void get_the_response_of_the_Api_by_passing_parameters_directly_for_action_code_individual(String actionCode) {
         responseIndividual = given().accept(ContentType.JSON).
                 param("query", actionCode).
                 get(uri);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as action codes to get the response from nba api where customer type is corporate")
-    public void getTheResponseOfTheApiByPassingParametersDirectlyForActionCodeCorporate(String actionCode) {
+    public void get_the_response_of_the_Api_by_passing_parameters_directly_for_action_code_corporate(String actionCode) {
         responseCorporate = given().accept(ContentType.JSON).
                 param("query", actionCode).
                 get(uri);
@@ -99,7 +99,7 @@ public class nbaAPI {
     }
 
     @Then("^a user get the status code 200 as a response from the nba lead api where customer type is individual$")
-    public void validateNbaLeadAPIResponseisOK() {
+    public void validate_nba_lead_API_response_is_oK() {
         responseValidation.validateResponseOk(responseLeadIndividual);
     }
 
@@ -144,7 +144,6 @@ public class nbaAPI {
 
     @Then("^user get the only records which have open status and we know only (\\d+) records having open status$")
     public void user_get_the_only_records_which_have_open_status_and_we_know_only_records_having_open_status(int count) throws Throwable {
-
         responseValidation.compareEqualCount(responseIndividual,count);
     }
     @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" from the nba api where customer type is corporate and field is of boolean type$")
