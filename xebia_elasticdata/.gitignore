@@ -18,4 +18,4 @@ bin/
 out
 test-properties
 gradlew
-gradlew.bat
+gradlew.bat.idea
