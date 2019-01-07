@@ -1,5 +1,6 @@
 #!/bin/bash
-LOG_FILE="hbaseDataCreation.log"
+LOG_LOCATION= echo pwd
+LOG_FILE="./log/hbaseDataCreation.log"
 if [ -e $1 ] ;
 then  #check existence of the file
 echo -e "xlsx file is present" $1
@@ -9,10 +10,11 @@ sed 's/|0\./|/g' a.csv >b.csv
 sed  -e 's/"//g' b.csv  >data_demogs.csv
 fi
 rm -rf a.csv b.csv withquotes_demogs.csv
-if [ -e data_demogs.csv ] ; 
+mv data_demogs.csv data_file/
+if [ -e data_file/data_demogs.csv ] ;
 then  #check existence of the file
 echo "csv file is present" 
-sshpass -p "cloudera" scp -P 3022 -r data_demogs.csv  cloudera@192.168.3.9:/home/cloudera/Desktop/
+sshpass -p "cloudera" scp -P 3022 -r data_file/data_demogs.csv  cloudera@192.168.3.9:/home/cloudera/Desktop/
 fi
 if [ $? -eq 0 ] ;
 then

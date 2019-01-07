@@ -135,7 +135,7 @@ public class ApiContracts {
 
 
     public static String[] getJson() throws Exception {
-        String excelFilePath = System.getProperty("user.dir")+ "/src/main/resources/elastic.xls";
+        String excelFilePath = System.getProperty("user.dir").concat(propertyReader.getProperty("elastic_file_path"));
         ReadExcelDataWithDynamicColumn.creteJSONAndTextFileFromExcel(excelFilePath);
         String content = new String(Files.readAllBytes(Paths.get("src/test/resources/JsonFile.json")));
         content = content.replaceAll("\"row[0-9]+", "");
