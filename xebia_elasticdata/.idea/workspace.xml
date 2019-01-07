@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4025be15-7099-4bdb-9b00-cdcb40abd2a8" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_lib_2_4_jdk15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/elastic.xls" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/CreateElasticDataTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/script/hbase_data_deletion.sh" afterDir="false" />
@@ -53,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/CreateElasticDataTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+            <state relative-caret-position="50">
+              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -225,7 +222,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546840857232" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546841680017" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -332,9 +329,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CreateElasticDataTest - 2019.01.03 at 23h 15m 14s.xml">
-      <configuration name="CreateElasticDataTest" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="CreateElasticDataTest - 2019.01.03 at 23h 17m 17s.xml">
       <configuration name="CreateElasticDataTest" configurationId="TestNG" />
     </history-entry>
@@ -362,12 +356,14 @@
     <history-entry file="CreateElasticDataTest_afterScenario - 2019.01.07 at 11h 29m 34s.xml">
       <configuration name="CreateElasticDataTest.afterScenario" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="CreateElasticDataTest_afterScenario - 2019.01.07 at 11h 30m 43s.xml">
+      <configuration name="CreateElasticDataTest.afterScenario" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25338647" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25338647" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -621,8 +617,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/CreateElasticDataTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        <state relative-caret-position="50">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
