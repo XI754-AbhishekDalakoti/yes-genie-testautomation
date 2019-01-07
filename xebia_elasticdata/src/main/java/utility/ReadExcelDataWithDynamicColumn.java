@@ -1,3 +1,5 @@
+package utility;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +21,7 @@ public class ReadExcelDataWithDynamicColumn {
     /* Read data from an excel file and output each sheet data to a json file and a text file.
      * filePath :  The excel file store path.
      * */
-    protected static void creteJSONAndTextFileFromExcel(String filePath)
+    public static void creteJSONAndTextFileFromExcel(String filePath)
     {
         try{
             /* First need to open the file. */
@@ -226,7 +228,7 @@ public class ReadExcelDataWithDynamicColumn {
         {
             String currentWorkingFolder = System.getProperty("user.dir");
 
-            String filePathSeperator = System.getProperty("file.separator");
+            String filePathSeperator = System.getProperty("file.separator")+"/src/test/resources/";
 
             String filePath = currentWorkingFolder + filePathSeperator + fileName;
 

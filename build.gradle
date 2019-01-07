@@ -7,13 +7,13 @@
 apply plugin: 'java'
 
 task setup(type:Exec){
-    commandLine 'sh', './setup.sh'
+    commandLine 'sh', './task_script/setup.sh'
 }
 
 
 
 task teardown(type:Exec){
-    commandLine 'sh', './teardown.sh'
+    commandLine 'sh', './task_script/teardown.sh'
 }
 
 
