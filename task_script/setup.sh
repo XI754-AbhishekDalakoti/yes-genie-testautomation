@@ -4,9 +4,9 @@ pwd
 gradle clean test
 echo -e "xebia_elasticdata completed successfully"
 cd ..
-/bin/bash ./xebia_elasticdata/src/test/script/hbase_genie_cust_demog.sh ./xebia_elasticdata/src/main/resources/textxls.xlsx
+/bin/bash ./xebia_elasticdata/src/test/script/hbase_genie_cust_demog.sh ./xebia_elasticdata/src/main/resources/demogs.xlsx
 echo -e "demogs executed"
-/bin/bash ./xebia_elasticdata/src/test/script/hbase_genie_recomendations.sh ./xebia_elasticdata/src/main/resources/xyz.xlsx
+/bin/bash ./xebia_elasticdata/src/test/script/hbase_genie_recomendations.sh ./xebia_elasticdata/src/main/resources/NBA.xlsx
 echo -e "NBA executed"
 
 #cd yes-genie-testautomation-GenieAPITests

@@ -19,3 +19,7 @@ out
 test-properties
 gradlew
 gradlew.bat
+log/*
+log
+data_file
+data_file/*
