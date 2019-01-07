@@ -321,7 +321,7 @@ public class DriverUtil {
                 if (headless) {
                     chromeOptions.addArguments("--headless");
                 }
-                if (System.getProperty("os.name").equals("Linux1")) {
+                if (System.getProperty("os.name").equals("Linux")) {
                     System.setProperty("webdriver.chrome.driver", "chromedriver");
                     }
 
