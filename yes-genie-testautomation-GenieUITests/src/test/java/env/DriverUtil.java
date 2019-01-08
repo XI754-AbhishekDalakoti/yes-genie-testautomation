@@ -298,7 +298,8 @@ public class DriverUtil {
     private static WebDriver chooseDriver(DesiredCapabilities capabilities) {
         String preferredDriver = System.getProperty("browser", "Firefox");
         boolean headless = System.getProperty("headless", "true").equals("false");
-
+        boolean ios = System.getProperty("ios", "true").equals("false");
+        boolean android = System.getProperty("headless", "true").equals("true");
         switch (preferredDriver.toLowerCase()) {
             case "safari":
                 try {
@@ -321,16 +322,26 @@ public class DriverUtil {
                 if (headless) {
                     chromeOptions.addArguments("--headless");
                 }
-                if (System.getProperty("os.name").equals("Linux")) {
+                /*if (System.getProperty("os.name").equals("Linux")) {
                     System.setProperty("webdriver.chrome.driver", "chromedriver");
-                    }
+                    }*/
 
-                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+
+                if (ios){
+                    chromeOptions.addArguments("--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25");
+                }
+                else if(android){
+                    chromeOptions.addArguments("--user-agent=Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36");
+                }
+                    capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+
                 try {
-                   driver = new ChromeDriver(capabilities);
-                        ErrorHandler handler = new ErrorHandler();
-                        handler.setIncludeServerErrors(false);
-                        //driver.setErrorHandler(handler);
+                    chromeOptions.addArguments("--start-maximized");
+                    capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+                    driver = new ChromeDriver(capabilities);
+                    ErrorHandler handler = new ErrorHandler();
+                    handler.setIncludeServerErrors(false);
+                    //driver.setErrorHandler(handler);
                     }catch(Exception e){
                         System.out.println(e.getMessage());
                         System.exit(0);
