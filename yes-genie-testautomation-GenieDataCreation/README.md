@@ -26,10 +26,10 @@ Run the below command to create data
 
 
 gradle clean test
-/bin/bash xebia_elasticdata/src/test/script/hbase_genie_cust_demog.sh   yes-genie-testautomation-GenieDataCreation/src/main/resources/demogs.xlsx
-/bin/bash xebia_elasticdata/src/test/script/hbase_genie_recomendations.sh yes-genie-testautomation-GenieDataCreation/src/main/resources/NBA.xlsx
+/bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_genie_cust_demog.sh   yes-genie-testautomation-GenieDataCreation/src/main/resources/demogs.xlsx
+/bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_genie_recomendations.sh yes-genie-testautomation-GenieDataCreation/src/main/resources/NBA.xlsx
 
 
 Run the below command for data cleanup
 
-/bin/bash xebia_elasticdata/src/test/script/hbase_data_deletion.sh
+/bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_data_deletion.sh
