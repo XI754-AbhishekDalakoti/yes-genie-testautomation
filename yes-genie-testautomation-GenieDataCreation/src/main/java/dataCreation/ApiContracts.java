@@ -1,5 +1,4 @@
 package dataCreation;
-
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -11,7 +10,6 @@ import java.nio.file.Paths;
 
 
 public class ApiContracts {
-
 	static ResponseValidation responseValidation = new ResponseValidation();
 	static PropertyReader propertyReader= new PropertyReader("src/main/resources/config.properties");
 
@@ -22,10 +20,7 @@ public class ApiContracts {
         requestSpecification.contentType("application/json");
         requestSpecification.body("{ \"number_of_shards\":1,\"number_of_replicas\":1, \"analysis\": { \"normalizer\": { \"lowercase_normalizer\": { \"type\": \"custom\", \"filter\": [ \"lowercase\",\"asciifolding\" ] } }, \"analyzer\": { \"tokenized_lowercase_analyzer\": { \"type\":\"custom\", \"tokenizer\": \"whitespace\", \"filter\": [ \"lowercase\",\"asciifolding\" ] } } } }");
         Response response = requestSpecification.put("gny_cust_search");
-
-
-
-    }
+}
 
 
     public static void createIndexHierachy() {
@@ -36,9 +31,7 @@ public class ApiContracts {
         requestSpecification.body("{ \"number_of_shards\":1,\"number_of_replicas\":1, \"analysis\": { \"normalizer\": { \"lowercase_normalizer\": { \"type\": \"custom\", \"filter\": [ \"lowercase\",\"asciifolding\" ] } }, \"analyzer\": { \"tokenized_lowercase_analyzer\": { \"type\":\"custom\", \"tokenizer\": \"whitespace\", \"filter\": [ \"lowercase\",\"asciifolding\" ] } } } }");
         Response response = requestSpecification.put("gny_hris_master");
         responseValidation.compareResponseCode(response, 200);
-
-
-    }
+}
 
 
     public static void createMappingGnyCustDoc() {
@@ -50,9 +43,7 @@ public class ApiContracts {
         requestSpecification.body(body);
         Response response = requestSpecification.put("gny_cust_search/_mapping/gny_cust_doc");
         responseValidation.compareResponseCode(response, 200);
-
-
-    }
+}
 
 
     public static void createMappingHirechy() {
@@ -64,9 +55,7 @@ public class ApiContracts {
         requestSpecification.body(body);
         Response response = requestSpecification.put("gny_hris_master/_mapping/gny_hris_doc");
         responseValidation.compareResponseCode(response, 200);
-
-
-    }
+}
 
 
     public static void bulkIndexing() throws Exception{
@@ -93,8 +82,7 @@ public class ApiContracts {
         requestSpecification.body("{ \"index\":{ \"_index\": \"yesbankaccount\" , \"_type\": \"custaccount\" } } \n {\"custId\": 838218, \"accountNo\": 181400005300037 }\n");
         Response response = requestSpecification.post("_bulk");
         responseValidation.compareResponseCode(response, 200);
-
-    }
+}
 
 
     public static void searchData(){
@@ -105,8 +93,7 @@ public class ApiContracts {
         Response response = requestSpecification.get("gny_cust_search/_search");
         responseValidation.compareResponseCode(response, 200);
         System.out.println(response.body().asString());
-
-    }
+}
 
 
     public static void deleteAll(){
@@ -115,9 +102,7 @@ public class ApiContracts {
         RequestSpecification requestSpecification = RestAssured.given();
         Response response = requestSpecification.delete("_all");
         responseValidation.compareResponseCode(response, 200);
-
-
-    }
+}
 
     public static void deleteGnyCustSearchIndex(){
     	RestAssured.baseURI=propertyReader.getProperty("baseURI");
@@ -126,13 +111,10 @@ public class ApiContracts {
         Response response = requestSpecification.delete("gny_cust_search");
         responseValidation.compareResponseCode(response, 200);
 
-
-    }
-
+ }
 
 
-
-    public static String[] getJson() throws Exception {
+public static String[] getJson() throws Exception {
         String excelFilePath = System.getProperty("user.dir").concat(propertyReader.getProperty("elastic_file_path"));
         ReadExcelDataWithDynamicColumn.creteJSONAndTextFileFromExcel(excelFilePath);
         String content = new String(Files.readAllBytes(Paths.get("src/test/resources/JsonFile.json")));
@@ -144,7 +126,5 @@ public class ApiContracts {
             ar[i] = ar[i].replaceAll("\\}\\}", "}");
         }
         return ar;
-
-    }
-
+}
 }
