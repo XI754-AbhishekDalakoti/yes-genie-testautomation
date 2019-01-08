@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 public class ApiContracts {
 
     static ResponseValidation responseValidation = new ResponseValidation();
-	static PropertyReader propertyReader= new PropertyReader("src/main/resources/config.properties");
+    static PropertyReader propertyReader= new PropertyReader("src/main/resources/config.properties");
 
     public static void createIndexGnyCustSearch() {
         RestAssured.baseURI=propertyReader.getProperty("baseURI");
