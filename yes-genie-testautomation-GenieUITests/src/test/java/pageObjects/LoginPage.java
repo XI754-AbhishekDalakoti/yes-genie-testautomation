@@ -4,6 +4,8 @@ import env.Constant;
 import locators.LoginLocators;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
@@ -66,7 +68,7 @@ public class LoginPage extends LoginLocators {
 
     public void staticSearchParameters() {
         String staticSearchParameters = search_static_parameters.getText();
-        Assert.assertEquals("Cust IDMDM IDMobile No.PANPassportCust NameAccount No.AUS IDCKYC No.UPI HandleTwitter IdAadharEmail",staticSearchParameters);
+        Assert.assertEquals("Cust IDMDM IDMobile No.PANPassportCust NameAccount No.CKYC No.UPI HandleTwitter IdAadharEmail",staticSearchParameters);
     }
 
     public void logOut() {

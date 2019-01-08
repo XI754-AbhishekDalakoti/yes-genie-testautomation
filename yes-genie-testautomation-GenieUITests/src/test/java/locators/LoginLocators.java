@@ -32,7 +32,7 @@ public class LoginLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'IDAM')]")
     public static WebElement display_role;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Sr. Developer')]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'NA')]")
     public static WebElement display_designation;
 
     @FindBy(how = How.XPATH, using = "//div[@class=\"_1HWu9-VMmg-bQcnoV5fSo-\"]")

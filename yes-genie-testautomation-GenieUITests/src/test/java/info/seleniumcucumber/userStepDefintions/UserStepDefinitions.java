@@ -1,5 +1,6 @@
 package info.seleniumcucumber.userStepDefintions;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -146,13 +147,48 @@ public class UserStepDefinitions implements BaseTest {
         snap.demographicsAttributesOfIndividual();
     }
 
-    @Then("^I verify all the attributes of demographics having customer type corporate$")
-    public void snapPageofCorporate() throws Throwable {
-        snap.demographicsAttributesOfCorporate();
-    }
-
     @Then("^I lands to SNAP page directly$")
     public void snapPageIsOpenedDirectly() throws Throwable {
         sp.landsIntoSnapPage();
+    }
+
+    @Then("^I verify all the attributes of demographics having customer type corporate$")
+    public void iVerifyAllTheAttributesOfDemographicsHavingCustomerTypeCorporate() throws Throwable {
+        snap.demographicsAttributesOfCorporate();
+    }
+
+    @Then("^I verify all the \"([^\"]*)\" with \"([^\"]*)\" and \"([^\"]*)\" , \"([^\"]*)\", \"([^\"]*)\" is available in NBA section$")
+    public void iVerifyAllTheWithDataAndIsAvailableInNBACategories(String category, String count, String recommendation, String recommendationEndDate, String actionLableIcon) throws Throwable {
+        snap.verfiyDifferentCategoriesOnSnapPage(category, count, recommendation, recommendationEndDate, actionLableIcon);
+    }
+
+    @When("^I click on Book FD on ALL category section$")
+    public void iClickOnBookFDOnALLCategorySection() throws Throwable {
+        snap.clickOnBookFD();
+    }
+
+    @Then("^Book FD page should get open with attributes \"([^\"]*)\" \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" & \"([^\"]*)\"$")
+    public void bookFDPageShouldGetOpenWithAttributes(String attribute1, String attribute2, String attribute3, String attribute4, String attribute5, String attribute6) throws Throwable {
+        snap.verifyBookFDPage(attribute1, attribute2, attribute3, attribute4, attribute5, attribute6);
+    }
+
+    @And("^Data is prefilled with values \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" respectively$")
+    public void dataIsPrefilledWithValuesRespectively(String value1, String value2, String value3, String value4, String value5) throws Throwable {
+        snap.verifyValueOfAttribute(value1, value2, value3, value4, value5);
+    }
+
+    @Then("^I click on submit button$")
+    public void iClickOnSubmitButton() throws Throwable {
+        snap.clickOnSubmitButtonOfBookFDForm();
+    }
+
+    @And("^I click on remarks tab and write \"([^\"]*)\" remarks into remarks field$")
+    public void iClickOnRemarksTabAndWriteRemarksIntoRemarksField(String remarks) throws Throwable {
+        snap.writeRemarksOnRemarkstab(remarks);
+    }
+
+    @And("^gets message \"([^\"]*)\"$")
+    public void getsMessage(String message) throws Throwable {
+        snap.verifyTransactionCompleted(message);
     }
 }
