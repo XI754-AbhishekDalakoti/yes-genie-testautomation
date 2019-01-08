@@ -298,8 +298,8 @@ public class DriverUtil {
     private static WebDriver chooseDriver(DesiredCapabilities capabilities) {
         String preferredDriver = System.getProperty("browser", "Firefox");
         boolean headless = System.getProperty("headless", "true").equals("false");
-        boolean ios = System.getProperty("ios", "true").equals("false");
-        boolean android = System.getProperty("headless", "true").equals("true");
+        boolean ios = System.getProperty("ios", "true").equals("true");
+        boolean android = System.getProperty("headless", "true").equals("false");
         switch (preferredDriver.toLowerCase()) {
             case "safari":
                 try {
