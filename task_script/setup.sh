@@ -1,12 +1,12 @@
 #!/bin/bash
-cd xebia_elasticdata
+cd yes-genie-testautomation-GenieDataCreation
 pwd
 gradle clean test
 echo -e "xebia_elasticdata completed successfully"
 cd ..
-/bin/bash ./xebia_elasticdata/src/test/script/hbase_genie_cust_demog.sh ./xebia_elasticdata/src/main/resources/demogs.xlsx
+/bin/bash ./yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_genie_cust_demog.sh ./yes-genie-testautomation-GenieDataCreation/src/main/resources/demogs.xlsx
 echo -e "demogs executed"
-/bin/bash ./xebia_elasticdata/src/test/script/hbase_genie_recomendations.sh ./xebia_elasticdata/src/main/resources/NBA.xlsx
+/bin/bash ./yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_genie_recomendations.sh ./yes-genie-testautomation-GenieDataCreation/src/main/resources/NBA.xlsx
 echo -e "NBA executed"
 
 #cd yes-genie-testautomation-GenieAPITests
