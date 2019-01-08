@@ -33,21 +33,21 @@ Feature: Snap Page
 
   @Smoke @Regression
   Scenario Outline: Verify NBA categories and data for Individual customer
-    Then I wait for 2 sec
+    And I wait for 2 sec
     Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     And I wait for 2 sec
     Then I lands to SNAP page directly
-    And I wait for 2 sec
+    And I wait for 5 sec
     Then I verify all the "<category>" with "<count>" and "<recommendation>" , "<recommendationEndDate>", "<actionLableIcon>" is available in NBA section
     Examples:
       | category    | count | recommendation                                  | recommendationEndDate | actionLableIcon |
-      | All         | 15    | Kindly Renew your existing FD 3                 | By: 31-Dec-2019       | Book FD         |
+      | All         | 17    | Kindly Renew your existing FD 3                 | By: 31-Dec-2019       | Book FD         |
       | Regulatory  | 4     | Non Individual Customer not registered on CNB 4 | By: 31-Dec-2019       | Create SR       |
       | Service     | 8     | Issue Cheque Book (P 4)                         | By: 31-Dec-2019       | Issue           |
-      | Sell        | 0     |                                                 |                       |                 |
-      | Alerts      | 3     | FD Maturing 2                                   | By: 31-Dec-2019       | Renew FD        |
+      | Sell        | 3     |                                                 |                       |                 |
+      | Alerts      | 2     | FD Maturing 2                                   | By: 31-Dec-2019       | Renew FD        |
       | Information | 0     |                                                 |                       |                 |
 
   @Smoke @Regression
@@ -62,11 +62,11 @@ Feature: Snap Page
     Then I verify all the "<category>" with "<count>" and "<recommendation>" , "<recommendationEndDate>", "<actionLableIcon>" is available in NBA section
     Examples:
       | category    | count | recommendation                                  | recommendationEndDate | actionLableIcon |
-      | All         | 13    | Kindly Renew your existing FD 3                 | By: 31-Dec-2019       | Book FD         |
+      | All         | 15    | Kindly Renew your existing FD 3                 | By: 31-Dec-2019       | Book FD         |
       | Regulatory  | 4     | Non Individual Customer not registered on CNB 3 | By: 31-Dec-2019       | Create SR       |
       | Service     | 6     | Issue Cheque Book (P 4)                         | By: 31-Dec-2019       | Issue           |
-      | Sell        | 0     |                                                 |                       |                 |
-      | Alerts      | 3     | FD Maturing 2                                   | By: 31-Dec-2019       | Renew FD        |
+      | Sell        | 3     |                                                 |                       |                 |
+      | Alerts      | 2     | FD Maturing 2                                   | By: 31-Dec-2019       | Renew FD        |
       | Information | 0     |                                                 |                       |                 |
 
   @End2End @Smoke @Regression

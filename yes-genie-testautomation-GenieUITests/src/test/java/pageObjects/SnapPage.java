@@ -177,6 +177,7 @@ public class SnapPage extends SnapLocators {
             case "All":
                 String all = category_all.getText();
                 boolean validateTextOfCategoryAll = all.contains(category) && all.contains(count);
+                System.out.println(all);
                 String getRecommendationData = recommendation_data.getText();
                 String getRecommendationEndDate = recommendation_end_date.getText();
                 String getActionLableData = action_lable.getText();
