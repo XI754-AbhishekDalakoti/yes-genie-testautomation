@@ -3,7 +3,7 @@ package env;
 public class Constant {
 
     public static final String name = "Panna Das";
-    public static final String designation = "Sr. Developer";
+    public static final String designation = "NA";
     public static final String role = "IDAM";
     public static final String MDMID = "MDM ID";
     public static final String CUSTID = "Cust ID";

@@ -4,7 +4,7 @@ Feature: Login
   Background: User is on Genie Page
     Given I navigate to "http://yesgenie.com:30978/"
 
-  @Regression @Smoke
+  @Regression
   Scenario Outline: Login button should be disabled if both credentials are not entered
     When User enters "<Username>" and "<Password>"
     And I click on Login
@@ -15,6 +15,7 @@ Feature: Login
       | panna    |          |
       |          | 123      |
 
+  @Regression
   Scenario: User should not be able to login with invalid credentails
     Then I wait for 2 sec
     And I enter "panna" into input field having id "username"
@@ -22,6 +23,7 @@ Feature: Login
     When I click on Login
     Then I should get error message
 
+  @Regression
   Scenario: User ID field is case sensitive
     Then I wait for 2 sec
     And I enter "PANNA" into input field having id "username"
@@ -29,7 +31,7 @@ Feature: Login
     When I click on Login
     Then I should get error message
 
-  @Regression
+  @Regression @Smoke
   Scenario: I login with valid credential with welcome message
     Given I'm on login page
     Then I wait for 2 sec
@@ -38,12 +40,14 @@ Feature: Login
     And I click on Login
     Then I should get logged-in with welcome message
 
+  @Smoke @Regression
   Scenario: Validate Last Login date time format and basic information is displayed
-    And I wait for 2 sec
+    Then I wait for 2 sec
     Then I validate Last Login date and time format displayed on bottom right of the page
     And I click on dropdown on top right of page
     Then I validate basic information is displayed on top right
 
+  @Regression
   Scenario: I should get logged out of application
     And I wait for 2 sec
     Then I should get logout

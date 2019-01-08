@@ -13,51 +13,51 @@ public class SearchLocators extends UserStepDefinitions {
     }
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[1]")
-    public static WebElement heading_MDMID;
+    public static WebElement heading_mdmId;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[2]")
-    public static WebElement heading_CUSTID;
+    public static WebElement heading_custId;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[3]")
-    public static WebElement heading_CustomerName;
+    public static WebElement heading_customerName;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[4]")
-    public static WebElement heading_DOB;
+    public static WebElement heading_dob;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[5]")
-    public static WebElement heading_AddressCity;
+    public static WebElement heading_addressCity;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[6]")
-    public static WebElement heading_AddressArea;
+    public static WebElement heading_addressArea;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[7]")
-    public static WebElement heading_HomeBranch;
+    public static WebElement heading_homeBranch;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[8]")
-    public static WebElement heading_AssetRM;
+    public static WebElement heading_assetRM;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[9]")
-    public static WebElement heading_LiabilityRM;
+    public static WebElement heading_liabilityRM;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[10]")
-    public static WebElement heading_GroupID;
+    public static WebElement heading_groupId;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[11]")
-    public static WebElement heading_BusinessSegment;
+    public static WebElement heading_businessSegment;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[12]")
-    public static WebElement heading_PartnerSegment;
+    public static WebElement heading_partnerSegment;
 
     @FindBy(how = How.XPATH, using = "//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/thead/tr/th[13]")
-    public static WebElement heading_CustOpenDate;
+    public static WebElement heading_custOpenDate;
 
     @FindBy(how = How.XPATH, using = "//div[@class='_1yZKqTlSrXNSB_Zl_9scaj']")
-    public static WebElement heading_NoSearchResult;
+    public static WebElement heading_noSearchResult;
 
     @FindBy(how = How.XPATH, using = "//div[@class=\"_1yZKqTlSrXNSB_Zl_9scaj\"]")
-    public static WebElement refinementMessage;
+    public static WebElement refinement_message;
 
     @FindBy(how = How.XPATH, using = "//div[@class=\"_1HWu9-VMmg-bQcnoV5fSo-\"]/label[not(@class=\"_3Q0Indavt4PQipSfQVyWpQ\")]")
-    public static WebElement bubbleHighlight;
+    public static WebElement bubble_highlight;
 
 }
