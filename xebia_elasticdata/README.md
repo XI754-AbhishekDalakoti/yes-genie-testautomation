@@ -25,7 +25,6 @@ Built With
 Run the below command to create data
 
 gradle clean test
-
 /bin/bash xebia_elasticdata/src/test/script/hbase_genie_cust_demog.sh  xebia_elasticdata/src/main/resources/demogs.xlsx
 /bin/bash xebia_elasticdata/src/test/script/hbase_genie_recomendations.sh xebia_elasticdata/src/main/resources/NBA.xlsx
 
