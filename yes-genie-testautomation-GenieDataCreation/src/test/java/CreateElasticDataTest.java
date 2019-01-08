@@ -4,10 +4,6 @@ import org.testng.annotations.BeforeSuite;
 
 public class CreateElasticDataTest {
 	
-    
-    
-
-
 
     @BeforeSuite
     public void dataCreation() throws Exception {
@@ -16,9 +12,8 @@ public class CreateElasticDataTest {
         ApiContracts.createMappingGnyCustDoc();
         ApiContracts.bulkIndexing();
         ApiContracts.bulkIndexingInYesBankAccount();
-
-
     }
+
 
     @AfterSuite
     public void afterScenario() {
@@ -26,10 +21,6 @@ public class CreateElasticDataTest {
 
 
     }
-
-
- 
-
 }
 
 

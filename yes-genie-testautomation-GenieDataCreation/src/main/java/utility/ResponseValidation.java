@@ -1,8 +1,6 @@
 package utility;
-
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
-
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
 

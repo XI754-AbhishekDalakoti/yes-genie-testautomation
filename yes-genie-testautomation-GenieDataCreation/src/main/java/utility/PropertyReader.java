@@ -10,28 +10,15 @@ public class PropertyReader {
 	FileInputStream fis ;
 	Properties config;
 
-
-
-
-	public   PropertyReader(String path)   {
-		try {
-			fis = new FileInputStream(path);
-
-			config= new Properties();
-			config.load(fis);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+	public   PropertyReader(String path) throws Exception   {
+		fis = new FileInputStream(path);
+		config= new Properties();
+		config.load(fis);
 	}
 
 
 	public String getProperty(String key){
 		return config.getProperty(key);
-
-
 	}
-
-
 
 }
