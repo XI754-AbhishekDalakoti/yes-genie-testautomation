@@ -1,16 +1,13 @@
 package utility;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import net.sf.json.JSONObject;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
+
+import java.io.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ReadExcelDataWithDynamicColumn {
@@ -18,27 +15,19 @@ public class ReadExcelDataWithDynamicColumn {
 
 
 
-    /* Read data from an excel file and output each sheet data to a json file and a text file.
-     * filePath :  The excel file store path.
-     * */
+
     public static void creteJSONAndTextFileFromExcel(String filePath)
     {
         try{
-            /* First need to open the file. */
+
             FileInputStream fInputStream = new FileInputStream(filePath.trim());
 
             Workbook excelWorkBook =  new HSSFWorkbook(fInputStream);
 
-            // Get all excel sheet count.
             int totalSheetNumber = excelWorkBook.getNumberOfSheets();
-
-            // Loop in all excel sheet.
             for(int i=0;i<totalSheetNumber;i++)
             {
-                // Get current sheet.
                 Sheet sheet = excelWorkBook.getSheetAt(i);
-
-                // Get sheet name.
                 String sheetName = sheet.getSheetName();
 
                 if(sheetName != null && sheetName.length() > 0)
@@ -64,15 +53,11 @@ public class ReadExcelDataWithDynamicColumn {
     }
 
 
-    /* Return sheet data in a two dimensional list.
-     * Each element in the outer list is represent a row,
-     * each element in the inner list represent a column.
-     * The first row is the column name row.*/
+
     private static List<List<String>> getSheetDataList(Sheet sheet)
     {
         List<List<String>> ret = new ArrayList<List<String>>();
 
-        // Get the first and last sheet row number.
         int firstRowNum = sheet.getFirstRowNum();
         int lastRowNum = sheet.getLastRowNum();
 
@@ -106,10 +91,6 @@ public class ReadExcelDataWithDynamicColumn {
                             double numberValue = cell.getNumericCellValue();
                             System.out.println("double value is " +numberValue);
 
-
-
-                            // BigDgetNumericCellValueecimal is used to avoid double value is counted use Scientific counting method.
-                            // For example the original double variable value is 12345678, but jdk translated the value to 1.2345678E7.
                             String stringCellValue = BigDecimal.valueOf(numberValue).toPlainString();
 
                             rowDataList.add((stringCellValue));
@@ -174,10 +155,10 @@ public class ReadExcelDataWithDynamicColumn {
                         String columnName = headerRow.get(j);
                         String columnValue;
                         if (dataRow.get(j) == null || dataRow.get(j)==" "){
-                             columnValue=null;
+                            columnValue=null;
                         }
                         else{
-                             columnValue = dataRow.get(j);
+                            columnValue = dataRow.get(j);
                         }
 
 

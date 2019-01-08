@@ -1,7 +1,6 @@
-import org.testng.annotations.Test;
 import dataCreation.ApiContracts;
-
-import static io.restassured.RestAssured.given;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 public class CreateElasticDataTest {
 	
@@ -10,18 +9,18 @@ public class CreateElasticDataTest {
 
 
 
-    @Test
+    @BeforeSuite
     public void dataCreation() throws Exception {
         ApiContracts.deleteGnyCustSearchIndex();
         ApiContracts.createIndexGnyCustSearch();
         ApiContracts.createMappingGnyCustDoc();
         ApiContracts.bulkIndexing();
-//      dataCreation.ApiContracts.bulkIndexingInYesBankAccount();
+        ApiContracts.bulkIndexingInYesBankAccount();
 
 
     }
 
-    @Test
+    @AfterSuite
     public void afterScenario() {
     	ApiContracts.searchData();
 
