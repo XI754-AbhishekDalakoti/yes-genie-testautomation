@@ -4,8 +4,11 @@ import env.Constant;
 import locators.LoginLocators;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -15,13 +18,17 @@ public class LoginPage extends LoginLocators {
         super();
     }
 
-    public void checkDisableButton() {
-        Assert.assertFalse(Login_button.isEnabled());
+    public void checkButtonIsDisbale() {
+        Assert.assertFalse(login_button.isEnabled());
     }
 
     public void enterCredentials(String Username, String Password){
-        textBox_Username.sendKeys(Username);
-        textBox_Password.sendKeys(Password);
+        textbox_username.sendKeys(Username);
+        textbox_password.sendKeys(Password);
+    }
+
+    public void clickOnLogin() {
+        login_button.click();
     }
 
     public void verifyLoginPage() {
@@ -34,19 +41,20 @@ public class LoginPage extends LoginLocators {
     }
 
     public void lastLoginDateTimeFormat() throws ParseException {
-
-        String strDate = display_LastLogin.getText();
-        strDate = strDate.replaceAll("Last Login: ", "");
-        SimpleDateFormat sdfrmt = new SimpleDateFormat("dd-MMM-yyyy, hh:mm a");
-        sdfrmt.setLenient(false);
-        sdfrmt.parse(strDate);
+        String[] months = new String[]{"Jan", "Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","AM","PM"};
+        List<String> list = Arrays.asList(months);
+        String lastLoginDateTime = display_lastlogin.getText();
+        String lastLoginDateFormat = lastLoginDateTime.replaceAll("Last Login: ", "");
+        String splittingOnDash[] = lastLoginDateFormat.split("\\-");
+        String splittingOnSpace[] = lastLoginDateFormat.split("\\ ");
+        Assert.assertTrue(list.contains(splittingOnDash[1]));
+        Assert.assertTrue(list.contains(splittingOnSpace[2]));
     }
 
     public void displayBasicInformation() throws ParseException {
-
-        String UserDesignation = display_Designation.getText();
-        String UserRole = display_Role.getText();
-        String UserName = display_Name.getText();
+        String UserDesignation = display_designation.getText();
+        String UserRole = display_role.getText();
+        String UserName = display_name.getText();
         Assert.assertEquals(Constant.designation,UserDesignation);
         Assert.assertEquals(Constant.role,UserRole);
         Assert.assertEquals(Constant.name,UserName);
@@ -55,17 +63,17 @@ public class LoginPage extends LoginLocators {
     }
 
     public void clickDropDownOnTopRight() {
-        dropDown.click();
+        dropdown.click();
     }
 
     public void staticSearchParameters() {
-        String parameters = display_Parameters.getText();
-        Assert.assertEquals("Cust IDMDM IDMobile No.PANPassportCust NameAccount No.AUS IDCKYC No.UPI HandleTwitter IdAadharEmail",parameters);
+        String staticSearchParameters = search_static_parameters.getText();
+        Assert.assertEquals("Cust IDMDM IDMobile No.PANPassportCust NameAccount No.CKYC No.UPI HandleTwitter IdAadharEmail",staticSearchParameters);
     }
 
     public void logOut() {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        dropDown.click();
-        Logout_button.click();
+        dropdown.click();
+        logout_button.click();
     }
 }
