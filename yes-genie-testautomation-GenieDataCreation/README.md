@@ -14,22 +14,19 @@ Add shell script for hbase and demogs data creation under "/src/test/script/"
 
 Add the below content to the config.properties file
 
-```
-baseURI=http://192.168.7.51
-port=9200
-elastic_file_path=/src/main/resources/elastic.xls
-```
-Built With
+Built With Run with the below command to upload data
 
 
-Run the below command to create data
+gradle clean test /bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_genie_cust_demog.sh 
 
+yes-genie-testautomation-GenieDataCreation/src/main/resources/demogs.xlsx
 
-gradle clean test
-/bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_genie_cust_demog.sh   yes-genie-testautomation-GenieDataCreation/src/main/resources/demogs.xlsx
-/bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_genie_recomendations.sh yes-genie-testautomation-GenieDataCreation/src/main/resources/NBA.xlsx
+/bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_genie_recomendations.sh
+
+yes-genie-testautomation-GenieDataCreation/src/main/resources/NBA.xlsx
 
 
 Run the below command for data cleanup
+
 
 /bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_data_deletion.sh
