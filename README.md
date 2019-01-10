@@ -3,3 +3,5 @@ This is test repo which contain contains the framework used in automation testin
 a) UITests framework
 
 b) API Test framework
+
+c) DATA creation framework
