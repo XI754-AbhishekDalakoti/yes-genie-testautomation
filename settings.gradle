@@ -8,9 +8,10 @@
  */
 
 rootProject.name = 'yes-genie-testautomation'
-
-
 include(
-      'yes-genie-testautomation-GenieAPITests'
+        'yes-genie-testautomation-GenieAPITests',
+        'yes-genie-testautomation-GenieUITests'
 
 )
+
+
