@@ -198,7 +198,7 @@ public class SnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//div[@class='_2gVTPG7uHIMeGvbtzdUoz0'])[1]/div")
     public static WebElement book_fd_lable;
 
-    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_3RRdNL0L_hPI0WIDrzn26Y') and text() = 'Cust ID']")
+    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_2IsuK2p9vH43XwRgJIESFz') and text() = 'Cust ID']")
     public static WebElement cust_id_attribute;
 
     @FindBy(how = How.XPATH, using = "(//div[@class='_3RRdNL0L_hPI0WIDrzn26Y'])[2]")

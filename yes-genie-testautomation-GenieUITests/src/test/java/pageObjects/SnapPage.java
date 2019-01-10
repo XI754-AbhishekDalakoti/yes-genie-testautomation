@@ -177,7 +177,6 @@ public class SnapPage extends SnapLocators {
             case "All":
                 String all = category_all.getText();
                 boolean validateTextOfCategoryAll = all.contains(category) && all.contains(count);
-                System.out.println(all);
                 String getRecommendationData = recommendation_data.getText();
                 String getRecommendationEndDate = recommendation_end_date.getText();
                 String getActionLableData = action_lable.getText();
@@ -259,8 +258,8 @@ public class SnapPage extends SnapLocators {
      }
 
      public void verifyBookFDPage(String attribute1, String attribute2, String attribute3, String attribute4, String attribute5, String attribute6) {
-         String getCustIdSize = cust_id_attribute.getCssValue("display");
-         System.out.println("getCustIdAttribute "+getCustIdSize);
+         String getCustIdAttribute = cust_id_attribute.getText();
+         System.out.println("getCustIdAttribute "+getCustIdAttribute);
          String getProductNameAttribute = product_name_attribute.getText();
          System.out.println(getProductNameAttribute);
          String getBuAttribute = bu_attribute.getText();
@@ -270,7 +269,7 @@ public class SnapPage extends SnapLocators {
          System.out.println(getBranchCodeAttribure);
          String getRemarksAttribute = remarks_attribute.getText();
 
-//         Assert.assertEquals(attribute1, getCustIdAttribute);
+         Assert.assertEquals(attribute1, getCustIdAttribute);
          Assert.assertEquals(attribute2, getProductNameAttribute);
          Assert.assertEquals(attribute3, getBuAttribute);
          Assert.assertEquals(attribute4, getSourceRefIdAttribute);

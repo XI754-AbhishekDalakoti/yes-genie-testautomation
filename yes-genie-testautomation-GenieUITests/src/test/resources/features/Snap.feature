@@ -46,7 +46,7 @@ Feature: Snap Page
       | All         | 17    | Kindly Renew your existing FD 3                 | By: 31-Dec-2019       | Book FD         |
       | Regulatory  | 4     | Non Individual Customer not registered on CNB 4 | By: 31-Dec-2019       | Create SR       |
       | Service     | 8     | Issue Cheque Book (P 4)                         | By: 31-Dec-2019       | Issue           |
-      | Sell        | 3     |                                                 |                       |                 |
+      | Sell        | 3     | Kindly Renew your existing FD 3                 | By: 31-Dec-2019       | Book FD         |
       | Alerts      | 2     | FD Maturing 2                                   | By: 31-Dec-2019       | Renew FD        |
       | Information | 0     |                                                 |                       |                 |
 
@@ -65,7 +65,7 @@ Feature: Snap Page
       | All         | 15    | Kindly Renew your existing FD 3                 | By: 31-Dec-2019       | Book FD         |
       | Regulatory  | 4     | Non Individual Customer not registered on CNB 3 | By: 31-Dec-2019       | Create SR       |
       | Service     | 6     | Issue Cheque Book (P 4)                         | By: 31-Dec-2019       | Issue           |
-      | Sell        | 3     |                                                 |                       |                 |
+      | Sell        | 3     | Kindly Renew your existing FD 3                 | By: 31-Dec-2019       | Book FD         |
       | Alerts      | 2     | FD Maturing 2                                   | By: 31-Dec-2019       | Renew FD        |
       | Information | 0     |                                                 |                       |                 |
 
