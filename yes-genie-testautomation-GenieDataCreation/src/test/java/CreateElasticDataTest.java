@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 public class CreateElasticDataTest {
 	
 
-    @Test
+    @BeforeSuite
     public void dataCreation() throws Exception {
         ApiContracts.deleteGnyCustSearchIndex();
         ApiContracts.createIndexGnyCustSearch();
