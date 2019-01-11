@@ -1,5 +1,4 @@
 #!/bin/bash
-LOG_LOCATION= echo pwd
 LOG_FILE="./log/hbaseDataCreation.log"
 if [ -e $1 ] ;
 then  #check existence of the file
