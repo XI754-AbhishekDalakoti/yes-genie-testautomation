@@ -10,11 +10,11 @@ Feature: Validate end to end response from elastic search , demographics and NBA
   Scenario Outline: This is the test to validate response upto demographics where customer type is individual
     When a user search with value "996264849" and setting value for threshold "50"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than or equal to 1
     Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     And a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api where customer type is individual
-    And user get the response for "mdmId" is "996264849" from the demographic api where customer type is individual
+   # And user get the response for "mdmId" is "996264849" from the demographic api where customer type is individual
     And user get the response for "emailId" is "csadana@yahoo.co.in" from the demographic api where customer type is individual
     And user get the response for "vintage" is "3.3" from the demographic api where customer type is individual
     And user get the response for "<key>" is "<value>" from the demographic api where customer type is individual
@@ -43,17 +43,17 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | PS                     | RS                         |
       | BS                     | BRB                        |
       | PAN                    | VERIFIED                   |
-      | DOB                    | 15-May-1990                |
+      | DOB                    | 27-Aug-1975                |
 
 
   Scenario Outline: This is the test to validate response upto demographics where customer type is corporate
     When a user search with value "998003452" and setting value for threshold "50"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than or equal to 1
     Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     And a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then a user get the status code 200 as a response from the demographic api where customer type is corporate
-    And user get the response for "mdmId" is "998003452" from the demographic api where customer type is corporate
+#    And user get the response for "mdmId" is "998003452" from the demographic api where customer type is corporate
     And user get the response for "emailId" is "amarjeets555@gmail.com" from the demographic api where customer type is corporate
     And user get the response for "vintage" is "4.1" from the demographic api where customer type is corporate
     And user get the response for "<key>" is "<value>" from the demographic api where customer type is corporate
@@ -78,7 +78,7 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | PS                     | RS                              |
       | BS                     | BRB                             |
       | PAN                    | NOTVERIFIED                     |
-      | DOI                    | 29-Feb-2016                     |
+      | DOI                    | 27-May-2015                     |
       | landlineNumber         | null                            |
       | webSite                | null                            |
 
@@ -86,7 +86,7 @@ Feature: Validate end to end response from elastic search , demographics and NBA
   Scenario Outline: This is the test to validate response upto nba view api where customer type is individual and validate the response of initial c flag record
     When a user search with value "996264849" and setting value for threshold "50"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than or equal to 1
     Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     And a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is individual
@@ -103,24 +103,24 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | referenceNo         | 126                                             |
       | toolTip             | Non Individual Customer not registered on CNB 4 |
       | accountNo           | 39400000000000                                  |
-      | dueDate             | 31-Dec-2019                                     |
+      | dueDate             | 31-Mar-2019                                     |
       | cumulationCount     | 1                                               |
       | priority            | 4                                               |
       | status              | open                                            |
       | recommendationTitle | Non Individual Customer not registered on CNB 4 |
       | category            | Regulatory                                      |
 
-  Scenario Outline: This is the test to validate response upto nba view API where customer type is individual and validate the response of boolean fields
+  Scenario Outline: This is the test to validate response upto nba view API where customer type is individual and validate the response of additional info fields and boolean fields of first Record of NBA Section
     When a user search with value "996264849" and setting value for threshold "50"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than or equal to 1
     Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     And a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is individual
     And user get the response for "custId" is "996264849" from the demographic api for initial c flag record where customer type is individual
-    Then a genie user has a nba api to test is "http://192.168.3.241:31175/api/recommendation/view/"
+    Then a genie user has a nba api to test is "http://yesgenie.com:30978/api/recommendation/view/"
     And a genie user passes the "996264849" as a mdmid to get the response from nba api where customer type is individual
-    Then user get the response for "branch_code" is "416" as additional info from the nba api where customer type is individual
+    Then user get the response for "branch_code" is "1" as additional info from the nba api where customer type is individual
     And user get the response for "fd_amount" is "54856.73" as additional info from the nba api where customer type is individual
     And user get the response for "LOB" is "Branch Banking" as additional info from the nba api where customer type is individual
     And user get the response for "BU" is "YES BANK" as additional info from the nba api where customer type is individual
@@ -133,42 +133,42 @@ Feature: Validate end to end response from elastic search , demographics and NBA
   Scenario Outline: This is the test to validate response upto nba view api where customer type is corporate and validate the response of initial c flag record
     When a user search with value "998003452" and setting value for threshold "50"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than or equal to 1
     Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     And a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is corporate
     And user get the response for "custId" is "998003452" from the demographic api for initial c flag record where customer type is corporate
-    Then a genie user has a nba api to test is "http://192.168.3.241:31175/api/recommendation/view/"
+    Then a genie user has a nba api to test is "http://yesgenie.com:30978/api/recommendation/view/"
     And a genie user passes the "998003452" as a mdmid to get the response from nba api where customer type is corporate
     Then a user get the status code 200 as a response from the nba api where customer type is corporate
     And user get the response for "amount" is "54856.73" from the nba api where customer type is corporate
     And user get the response for "<key>" is "<value>" from the nba api where customer type is corporate
     Examples:
-      | key                 | value                   |
-      | mdmId               | 998003452               |
-      | actionCode          | FD03                    |
-      | recommendationTitle | Issue Cheque Book (P 4) |
-      | category            | Service                 |
-      | toolTip             | Issue Cheque Book (P 4) |
-      | accountNo           | 39400000000000          |
-      | dueDate             | null                    |
-      | cumulationCount     | 1                       |
-      | priority            | 4                       |
-      | status              | open                    |
-      | referenceNo         | 128                     |
+      | key                 | value                                           |
+      | mdmId               | 998003452                                       |
+      | actionCode          | FD02                                            |
+      | recommendationTitle | Non Individual Customer not registered on CNB 4 |
+      | category            | Regulatory                                      |
+      | toolTip             | Non Individual Customer not registered on CNB 4 |
+      | accountNo           | 39400000000000                                  |
+      | dueDate             | 31-Mar-2019                                    |
+      | cumulationCount     | 1                                               |
+      | priority            | 4                                               |
+      | status              | open                                            |
+      | referenceNo         | 126                                             |
 
 
-  Scenario Outline: This is the test to validate response upto nba view API where customer type is corporate and validate the response of boolean fields
+  Scenario Outline: This is the test to validate response upto nba view API where customer type is corporate and validate the response of additional info fields and boolean fields of first Record of NBA Section
     When a user search with value "998003452" and setting value for threshold "50"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than or equal to 1
     Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     And a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then a user get the status code 200 as a response from the demographic api for initial c flag record where customer type is corporate
     And user get the response for "custId" is "998003452" from the demographic api for initial c flag record where customer type is corporate
-    Then a genie user has a nba api to test is "http://192.168.3.241:31175/api/recommendation/view/"
+    Then a genie user has a nba api to test is "http://yesgenie.com:30978/api/recommendation/view/"
     And a genie user passes the "998003452" as a mdmid to get the response from nba api where customer type is corporate
-    Then user get the response for "branch_code" is "416" as additional info from the nba api where customer type is corporate
+    Then user get the response for "branch_code" is "2" as additional info from the nba api where customer type is corporate
     And user get the response for "fd_amount" is "54856.73" as additional info from the nba api where customer type is corporate
     And user get the response for "LOB" is "Branch Banking" as additional info from the nba api where customer type is corporate
     And user get the response for "BU" is "YES BANK" as additional info from the nba api where customer type is corporate
@@ -178,8 +178,7 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | dismissable    | false |
       | cumulationFlag | true  |
 
-  @regression
-  Scenario Outline: User search with valid mdmId and validate response of nba api where customer type is individual for all the mentioned keys in examples
+  Scenario Outline: User search with valid mdmId, reference id and validate response of nba create lead api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
     When a genie user passes the "996264849" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is individual
     Then a user get the status code 200 as a response from the nba lead api where customer type is individual
@@ -192,7 +191,7 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | productName | FD628      |
       | bu          | YES BANK   |
       | sourceRefId | FDYES BANK |
-      | branchCode  | 416        |
+      | branchCode  | 1        |
       | remarks     | null       |
 
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is individual
@@ -201,11 +200,11 @@ Feature: Validate end to end response from elastic search , demographics and NBA
     And a genie user edits the "remarks" field by the "test data"
     Then user validates remarks modify successfully
 
-  Scenario Outline: User search with valid mdmId and validate response of nba create lead api where customer type is corporate for all the mentioned keys in examples
+  Scenario Outline: User search with valid mdmId, reference id and validate response of nba create lead api where customer type is corporate for all the mentioned keys in examples
     Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
     When a genie user passes the "998003452" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is corporate
     Then a user get the status code 200 as a response from the nba lead api where customer type is corporate
-     And user get the response for "<key>" is "<value>" from the nba lead api where customer type is corporate
+    And user get the response for "<key>" is "<value>" from the nba lead api where customer type is corporate
     Examples:
       | key         | value      |
       | mdmId       | 998003452  |
@@ -214,7 +213,7 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | productName | FD628      |
       | bu          | YES BANK   |
       | sourceRefId | FDYES BANK |
-      | branchCode  | 416        |
+      | branchCode  | 2        |
       | remarks     | null       |
 
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is corporate
@@ -236,6 +235,22 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | groupId          | 274937                   |
       | businessSegment  | BRB                      |
       | partnerSegment   | NULL                     |
-      | customerOpenDate | 13-May-2011              |
-      | DOB              | 15-May-1990              |
+      | customerOpenDate | 11-Mar-2017              |
+      | DOB              | 11-Sep-1987              |
       | custType         | I                        |
+
+  Scenario: User validates the response code of create lead without recommendation api
+    Given a genie user has a create lead lineofbusinesses api to test is "http://yesgenie.com:30978/api/lead/lineofbusinesses"
+    Then a user get the status code 200 as a response from the create lead lineofbusinesses api
+    And user get "BRB" as a response from create lead lineofbusinesses api
+    And a genie user has a create lead product name api to test is "http://yesgenie.com:30978/api/lead/productnames"
+    When a genie user passes the "BRB" as a product name to get the response from create lead product name api
+    Then a user get the status code 200 as a response from the create lead product name api where customer type is individual
+    And user get "Savings Account" as a response from create lead product name api
+    And a genie user has a create lead branchcodes api to test is "http://yesgenie.com:30978/api/lead/branchcodes"
+    Then a user get the status code 200 as a response from the create lead branchcodes api
+    And user get "1" as "branchCode" from create lead branchcodes api as a first value
+    And user get "NEHRU CENTRE - MUMBAI (1)" as "branchDisplayName" from create lead branchcodes api as a first value
+    And a genie user has a nba create lead without recommendation api to test is "http://yesgenie.com:30978/api/lead"
+    When a genie user edits the "custId" field by "1234567" and "lineOfBusiness" field by "BRB" and "productName" field by "Savings Account" and "sourceReferenceId" field by "Savings AccountBRB" and "remark" field by "test" and "branchCode" field by "1"
+    Then user validates all fields in nba create lead without recommendation api modify successfully
