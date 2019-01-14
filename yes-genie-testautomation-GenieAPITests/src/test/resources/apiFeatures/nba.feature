@@ -21,7 +21,7 @@ Feature: Validate nba APIs
       | referenceNo         | 126                                             |
       | toolTip             | Non Individual Customer not registered on CNB 4 |
       | accountNo           | 39400000000000                                  |
-      | dueDate             | 31-Dec-2019                                     |
+      | dueDate             | 31-Mar-2019                                     |
       | cumulationCount     | 1                                               |
       | priority            | 4                                               |
       | status              | open                                            |
@@ -140,7 +140,7 @@ Feature: Validate nba APIs
       | productName | FD628      |
       | bu          | YES BANK   |
       | sourceRefId | FDYES BANK |
-      | branchCode  | 1        |
+      | branchCode  | 1          |
       | remarks     | null       |
 
   @smoke @regression
@@ -163,7 +163,7 @@ Feature: Validate nba APIs
       | productName | FD628      |
       | bu          | YES BANK   |
       | sourceRefId | FDYES BANK |
-      | branchCode  | 2        |
+      | branchCode  | 2          |
       | remarks     | null       |
 
   @regression
@@ -194,8 +194,6 @@ Feature: Validate nba APIs
     Then a user get the status code 500 as a response from the nba lead api where customer type is individual
     And user validates the response body as "Invalid request" in response
 
-    # blacklist API Cases
-
   @smoke @regression
   Scenario: User validates the response code and response of blacklist api
     Given a genie user has a blacklist api to test is "http://yesgenie.com:30978/api/blacklist/reasons"
@@ -208,8 +206,6 @@ Feature: Validate nba APIs
     Given a genie user has a blacklist api to test is "http://yesgenie.com:30978/api/blacklist/reasons"
     When a genie user passes the "FD03" as action codes to get the response from blacklist api
     Then a user get the status code 200 as a response from the blacklist api and "No Record Found." as a message in body
-
-    # dismissal API Cases
 
   @regression
   Scenario: User validates the response code of dismissal put api where user enters reason and action
@@ -224,8 +220,6 @@ Feature: Validate nba APIs
     When a genie user passes the "996264849" as a mdmid and "1290" as a refrence id to get the response from dismissal api where customer type is individual
     And a genie user edits the "reason" field by the "testing for reason field" and "actionChannel" field by the "GENIE" to see "Recommendation Data not found for mdmId:996264849, referenceNo:1290 " from dismissal api where customer type is individual
     Then user validates the response code to validate fields modify unsuccessfully
-
-        # defer API Cases
 
   @regression
   Scenario: User validates the response code of dismissal put api where user enters deferDate, action and recomendationDueDate

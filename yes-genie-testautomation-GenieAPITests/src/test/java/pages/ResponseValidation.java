@@ -128,12 +128,10 @@ public class ResponseValidation {
     public void compareEqualCount(Response response, int vlaue) {
         response.then().assertThat().body("size()", is(vlaue));
     }
-
     public void validateNullObject(Response response) {
         String body = response.getBody().asString();
         Assert.assertTrue(body.equals("{}"));
     }
-
     public void validateResponseForUnauthorized(Response response) {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_UNAUTHORIZED);
@@ -203,5 +201,4 @@ public class ResponseValidation {
         int code = response.getStatusCode();
         return code;
     }
-
 }

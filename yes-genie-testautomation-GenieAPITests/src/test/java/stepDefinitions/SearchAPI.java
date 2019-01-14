@@ -73,7 +73,6 @@ public class SearchAPI extends ResponseValidation {
         String param = "records[0].";
         responseValidation.responseCompareForStringValue(param, response, key, value);
     }
-
     @Then("^user get the response from the api for initial record of numeric type for \"([^\"]*)\" is (\\d+)$")
     public void result_for_numeric_is(String key, int value) throws Throwable {
         String param = "records[0].";

@@ -14,7 +14,6 @@ Feature: Validate end to end response from elastic search , demographics and NBA
     Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     And a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api where customer type is individual
-   # And user get the response for "mdmId" is "996264849" from the demographic api where customer type is individual
     And user get the response for "emailId" is "csadana@yahoo.co.in" from the demographic api where customer type is individual
     And user get the response for "vintage" is "3.3" from the demographic api where customer type is individual
     And user get the response for "<key>" is "<value>" from the demographic api where customer type is individual
@@ -53,7 +52,6 @@ Feature: Validate end to end response from elastic search , demographics and NBA
     Then a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
     And a genie user passes the "998003452" as a parameter to get the response from demographic api where customer type is corporate
     Then a user get the status code 200 as a response from the demographic api where customer type is corporate
-#    And user get the response for "mdmId" is "998003452" from the demographic api where customer type is corporate
     And user get the response for "emailId" is "amarjeets555@gmail.com" from the demographic api where customer type is corporate
     And user get the response for "vintage" is "4.1" from the demographic api where customer type is corporate
     And user get the response for "<key>" is "<value>" from the demographic api where customer type is corporate

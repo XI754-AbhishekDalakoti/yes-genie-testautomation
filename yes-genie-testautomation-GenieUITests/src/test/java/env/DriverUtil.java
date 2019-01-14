@@ -297,13 +297,14 @@ public class DriverUtil {
      */
     private static WebDriver chooseDriver(DesiredCapabilities capabilities) {
         String preferredDriver = System.getProperty("browser", "Firefox");
-        boolean headless = System.getProperty("headless", "true").equals("true");
-
+        boolean headless = System.getProperty("headless", "true").equals("false");
+        boolean ios = System.getProperty("ios", "true").equals("true");
+        boolean android = System.getProperty("headless", "true").equals("false");
         switch (preferredDriver.toLowerCase()) {
             case "safari":
                 try {
                     driver = new SafariDriver();
-                }catch(Exception e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                     System.exit(0);
                 }
@@ -311,7 +312,7 @@ public class DriverUtil {
             case "edge":
                 try {
                     driver = new EdgeDriver();
-                }catch(Exception e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                     System.exit(0);
                 }
@@ -321,23 +322,36 @@ public class DriverUtil {
                 if (headless) {
                     chromeOptions.addArguments("--headless");
                 }
-                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-                try
-                {
+                /*if (System.getProperty("os.name").equals("Linux")) {
+                    System.setProperty("webdriver.chrome.driver", "chromedriver");
+                    }*/
+
+
+                if (ios){
+                    chromeOptions.addArguments("--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25");
+                }
+                else if(android){
+                    chromeOptions.addArguments("--user-agent=Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36");
+                }
+                    capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+
+                try {
+                    chromeOptions.addArguments("--start-maximized");
+                    capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                     driver = new ChromeDriver(capabilities);
                     ErrorHandler handler = new ErrorHandler();
                     handler.setIncludeServerErrors(false);
                     //driver.setErrorHandler(handler);
-                }catch(Exception e) {
-                    System.out.println(e.getMessage());
-                    System.exit(0);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                        System.exit(0);
+                    }
+                    return driver;
                 }
-                return driver;
         }
-    }
 
-    public static WebElement waitAndGetElementByCssSelector(WebDriver driver, String selector,
-                                                            int seconds) {
+
+    public static WebElement waitAndGetElementByCssSelector(WebDriver driver, String selector,int seconds) {
         By selection = By.cssSelector(selector);
         return (new WebDriverWait(driver, seconds)).until( // ensure element is visible!
                 visibilityOfElementLocated(selection));

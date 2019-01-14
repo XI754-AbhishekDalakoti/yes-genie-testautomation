@@ -52,6 +52,7 @@ public class NbaAPI {
     public void validate_demographic_API_response_is_oK() {
         responseValidation.validateResponseOk(responseIndividual);
     }
+
     @Then("^a user get the status code 500 as a response from the nba lead api where customer type is individual$")
     public void validate_demographic_API_response_is_bad_request() {
         responseValidation.validateResponseBadRequest(responseLeadIndividual);
@@ -249,5 +250,4 @@ public class NbaAPI {
     public void user_validates_the_response_code_to_validate_fields_modify_unsuccessfully_for_defer() throws Throwable {
         Assert.assertEquals(codeEditRemark, 500);
     }
-
 }
