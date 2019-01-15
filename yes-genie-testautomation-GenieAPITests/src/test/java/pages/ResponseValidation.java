@@ -170,6 +170,10 @@ public class ResponseValidation {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR);
     }
+    public void validateResponseNoContent(Response response) {
+        response.
+                then().assertThat().statusCode(HttpStatus.SC_NO_CONTENT);
+    }
 
     public void validateResponseOk(Response response, String message) {
         String body = response.getBody().asString();

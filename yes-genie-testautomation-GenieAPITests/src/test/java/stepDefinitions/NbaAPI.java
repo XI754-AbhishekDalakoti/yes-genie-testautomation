@@ -58,6 +58,11 @@ public class NbaAPI {
         responseValidation.validateResponseBadRequest(responseLeadIndividual);
     }
 
+    @Then("^a user get the status code 204 as a response from the nba lead api where customer type is individual$")
+    public void validate_demographic_API_response_is_no_content() {
+        responseValidation.validateResponseNoContent(responseLeadIndividual);
+    }
+
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid to get the response from nba api where customer type is corporate$")
     public void get_the_response_of_the_Api_by_passing_mdmId_directly(String mdmid) {
         uri = uri.concat(mdmid);

@@ -191,8 +191,7 @@ Feature: Validate nba APIs
   Scenario: User validates the response code of nba create lead api and pass the invalid mdmId
     Given a genie user has a nba api to test is "http://yesgenie.com:30978/api/lead/"
     When a genie user passes the "1" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is individual
-    Then a user get the status code 500 as a response from the nba lead api where customer type is individual
-    And user validates the response body as "Invalid request" in response
+    Then a user get the status code 204 as a response from the nba lead api where customer type is individual
 
   @smoke @regression
   Scenario: User validates the response code and response of blacklist api
