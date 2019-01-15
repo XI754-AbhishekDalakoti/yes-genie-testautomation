@@ -1,8 +1,5 @@
 package utility;
 
-
-
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hbase.Cell;
@@ -10,26 +7,18 @@ import org.apache.hadoop.hbase.CompareOperator;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
-import org.apache.hadoop.hbase.exceptions.HBaseException;
 import org.apache.hadoop.hbase.filter.*;
 import org.apache.hadoop.hbase.util.Bytes;
 
-import javax.annotation.PreDestroy;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 
 import static org.apache.hadoop.hbase.util.Bytes.toBytes;
 
 
 public class HBaseClient {
-
-
 	private static final List<String> NULL_VALUES = Arrays.asList("", "NULL", "NULLNULL");
-
-
 	private String hbaseErrorMessage;
-
 	private Connection connection;
 	Configuration config;
 
@@ -37,6 +26,7 @@ public class HBaseClient {
 		Configuration config = getBasicConfiguration();
 		connection = ConnectionFactory.createConnection(config);
 	}
+
 
 	public HBaseClient(Configuration config) throws IOException {
 		connection = ConnectionFactory.createConnection(config);
@@ -49,18 +39,16 @@ public class HBaseClient {
 		}
 	}
 
+
 	private Configuration getBasicConfiguration() throws IOException {
 		Configuration config = HBaseConfiguration.create();
-		/*ClassPathResource classPathResource = new ClassPathResource("hbase/hbase-site.xml");
-        InputStream inputStream = classPathResource.getInputStream();*/
 		String path = "src/test/resources/hbase-site.xml";
 		config.addResource(new Path(path));
-		//        config.addResource(inputStream);
 		return config;
 	}
 
-	public Table getTable(String tableName) throws HBaseRecommendationException {
 
+	public Table getTable(String tableName) throws HBaseRecommendationException {
 		TableName tabName = TableName.valueOf(tableName);
 		try {
 			return connection.getTable(tabName);
@@ -80,10 +68,9 @@ public class HBaseClient {
 		for (Result r : scanner){
 			deletes.add(new Delete(r.getRow()));
 		}
-
-
-
+		table.delete(deletes);
 	}
+
 
 	public void closeTable(Table table) {
 		if (null != table) {
@@ -94,6 +81,7 @@ public class HBaseClient {
 			}
 		}
 	}
+
 
 	public Filter getPrefixFilter(String columnFamily, String value) {
 		//LOGGER.debug("Creating prefix filter for columnFamily:{}, value:{}", columnFamily, value);
@@ -112,13 +100,6 @@ public class HBaseClient {
 		}
 	}
 
-	//    public Filter getOrFilter(String columnFamily, String fieldName, List<String> values) {
-	//        FilterList orFilter = new FilterList(FilterList.Operator.MUST_PASS_ONE);
-	//        values.forEach(v ->
-	//                orFilter.addFilter(getSingleFilter(columnFamily, fieldName, v))
-	//        );
-	//        return orFilter;
-	//    }
 
 	public List<Map<String, String>> getAllRows(Table table, Scan scan) throws IOException {
 		ResultScanner resultScanner = table.getScanner(scan);
@@ -130,6 +111,7 @@ public class HBaseClient {
 		return resultList;
 	}
 
+
 	public Map<String, String> getRowData(Result result) {
 		Map<String, String> map = new HashMap<String, String>();
 		for (Cell cell : result.listCells()) {
@@ -140,6 +122,7 @@ public class HBaseClient {
 		//LOGGER.debug("Data fetched from db is :{}", map);
 		return map;
 	}
+
 
 	public String getValue(String value) {
 		if (value == null || NULL_VALUES.contains(value.toUpperCase())) {

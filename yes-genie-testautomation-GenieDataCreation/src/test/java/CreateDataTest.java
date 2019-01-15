@@ -1,5 +1,5 @@
 import dataCreation.ApiContracts;
-import dataCreation.ImportRecommendationData;
+import dataCreation.ImportHbaseData;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -7,7 +7,7 @@ import utility.HBaseRecommendationException;
 
 import java.io.IOException;
 
-public class CreateElasticDataTest {
+public class CreateDataTest {
 	
 
     @BeforeSuite
@@ -29,12 +29,16 @@ public class CreateElasticDataTest {
     
     @Test
     public void recommendationDataCreation() throws IOException, HBaseRecommendationException {
-		ImportRecommendationData.setupHbase("genie_recomendations","data_file/data_NBA.csv");
+        ImportHbaseData.createConnection();
+        ImportHbaseData.delete("genie_recomendations");
+		ImportHbaseData.setupHbase("genie_recomendations","data_file/data_NBA.csv");
 	}
 
     @Test
     public void demogsDataCreation() throws IOException, HBaseRecommendationException {
-        ImportRecommendationData.setupHbase("genie_cust_demog","data_file/data_demogs.csv");
+        ImportHbaseData.createConnection();
+        ImportHbaseData.delete("genie_cust_demog");
+        ImportHbaseData.setupHbase("genie_cust_demog","data_file/data_demogs.csv");
     }
 }
 
