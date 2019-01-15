@@ -56,8 +56,8 @@ public class ImportRecommendationData {
                }
                firstRow = false;
            } else {
-               Put p1 = new Put(Bytes.toBytes("row" + start));
-               for (int i = 0; i < str.length; i++) {
+               Put p1 = new Put(Bytes.toBytes(str[0]));
+               for (int i = 1; i < str.length; i++) {
                    p1.addColumn(Bytes.toBytes(FAMILY), Bytes.toBytes(map.get(i)), Bytes.toBytes(str[i]));
                }
                table.put(p1);
