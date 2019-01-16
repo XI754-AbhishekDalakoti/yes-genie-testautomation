@@ -3,7 +3,7 @@ LOG_FILE="./log/hbaseDataCreation_NBA.log"
 if [ -e $1 ] ;
 then  #check existence of the file
 echo -e "xlsx file is present" $1
-xlsx2csv -d '|' -f  '%m/%d/%Y' $1 > withquotes_NBA.csv
+xlsx2csv -d '|' -f  '%Y-%m-%d' $1 > withquotes_NBA.csv
 fi
 sed  -e 's/""/"/g' withquotes_NBA.csv  >a.csv
 sed  -e 's/"{/{/g' a.csv  >b.csv

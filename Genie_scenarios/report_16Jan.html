@@ -1,0 +1,4155 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Jan 16, 2019 09:38:28 AM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.2</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@Regression</a></li>
+					<li><a href='#'>@Smoke</a></li>
+					<li><a href='#'>@End2End</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>1</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='66.667%'>2</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='94.545%'><span class='strong'>52</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='5.455%'>3</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='97.525%'><span class='strong'>394</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0.743%'>3</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='1.733%'>7</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Login</span>
+						<span class='test-time'>Jan 16, 2019 09:38:28 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 4s+150ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Login button should be disabled if both credentials are not entered</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Login button should be disabled if both credentials are not entered</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When User enters "" and ""</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Login</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The button should be disabled</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='8' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Login button should be disabled if both credentials are not entered</span>
+			
+				<ul class='steps'>
+					<li test-id='9' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='10' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When User enters "panna" and ""</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Login</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The button should be disabled</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='13' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Login button should be disabled if both credentials are not entered</span>
+			
+				<ul class='steps'>
+					<li test-id='14' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='15' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When User enters "" and "123"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='16' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Login</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The button should be disabled</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='18' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 2s+661ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">User should not be able to login with invalid credentails</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='19' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='20' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='21' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "panna" into input field having id "username"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='22' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "secretpassword" into input field having id "password"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='23' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on Login</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='24' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I should get error message</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='25' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 32s+871ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">User ID field is case sensitive</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='26' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='27' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='28' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "PANNA" into input field having id "username"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='29' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "123" into input field having id "password"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='30' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on Login</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='31' class='node then fail' status='fail'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I should get error message</span>
+				<div class='pre'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.className: kc-feedback-text (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
+	at info.seleniumcucumber.userStepDefintions.UserStepDefinitions.iShouldGetErrorMessage(UserStepDefinitions.java:43)
+	at ✽.Then I should get error message(features/Login.feature:32)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.className: kc-feedback-text
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.2', revision: '10229a9', time: '2017-08-21T17:29:55.15Z'
+System info: host: 'xebia-Latitude-5490', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-43-generic', java.version: '1.8.0_191'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:883)
+	at java.util.Optional.orElseThrow(Optional.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:882)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:206)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:202)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at info.seleniumcucumber.userStepDefintions.UserStepDefinitions.iShouldGetErrorMessage(UserStepDefinitions.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.api.junit.Cucumber.run(Cucumber.java:100)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:236)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:386)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:323)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:143)
+</pre></div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='32' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+		<span class='category label white-text'>@Smoke</span>
+	</div>
+	<span class='duration right label'>0h 0m 3s+817ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">I login with valid credential with welcome message</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='33' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='34' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm on login page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='35' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='36' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "panna" into input field having id "username"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='37' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "123" into input field having id "password"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='38' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on Login</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='39' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I should get logged-in with welcome message</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='40' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Smoke</span>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 2s+408ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Validate Last Login date time format and basic information is displayed</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='41' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='42' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='43' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I validate Last Login date and time format displayed on bottom right of the page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='44' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on dropdown on top right of page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='45' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I validate basic information is displayed on top right</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='46' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 2s+351ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">I should get logged out of application</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='47' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='48' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='49' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I should get logout</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='50'>
+					<div class='test-heading'>
+						<span class='test-name'>Search or Landing Page</span>
+						<span class='test-time'>Jan 16, 2019 09:39:16 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='51' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Smoke</span>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 4s+613ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Ensure static parameter under search bar is displayed</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='52' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='53' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm on login page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='54' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='55' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "chandan" into input field having id "username"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='56' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "chandan" into input field having id "password"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='57' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on Login</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='58' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='59' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Under search bar, it contains static search parameters</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='60' status='pass'>
+	<span class='duration right label'>0h 0m 19s+123ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Search with record which is not present in system and "No Results Found" message is displayed</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='61' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with record which is not present in system and "No Results Found" message is displayed</span>
+			
+				<ul class='steps'>
+					<li test-id='62' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='63' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='64' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "Mohit" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='65' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='66' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='67' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='68' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then 'No Results Found, Please refine' message is displayed</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='69' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with record which is not present in system and "No Results Found" message is displayed</span>
+			
+				<ul class='steps'>
+					<li test-id='70' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='71' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='72' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "ABZVS6253K" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='73' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='74' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='75' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='76' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then 'No Results Found, Please refine' message is displayed</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='77' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with record which is not present in system and "No Results Found" message is displayed</span>
+			
+				<ul class='steps'>
+					<li test-id='78' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='79' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='80' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "15-May-1990" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='81' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='82' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='83' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='84' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then 'No Results Found, Please refine' message is displayed</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='85' status='pass'>
+	<span class='duration right label'>0h 0m 54s+452ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Search with different parameters</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='86' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with different parameters</span>
+			
+				<ul class='steps'>
+					<li test-id='87' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='88' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='89' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "12713" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='90' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='91' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='92' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='93' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='94' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with different parameters</span>
+			
+				<ul class='steps'>
+					<li test-id='95' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='96' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='97' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "9184820250" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='98' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='99' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='100' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='101' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='102' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with different parameters</span>
+			
+				<ul class='steps'>
+					<li test-id='103' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='104' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='105' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "Abhishek" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='106' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='107' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='108' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='109' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='110' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with different parameters</span>
+			
+				<ul class='steps'>
+					<li test-id='111' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='112' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='113' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "AXEPD7154N" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='114' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='115' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='116' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='117' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='118' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with different parameters</span>
+			
+				<ul class='steps'>
+					<li test-id='119' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='120' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='121' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "Y7654537" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='122' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='123' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='124' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='125' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='126' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with different parameters</span>
+			
+				<ul class='steps'>
+					<li test-id='127' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='128' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='129' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "123456789123" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='130' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='131' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='132' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='133' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='134' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with different parameters</span>
+			
+				<ul class='steps'>
+					<li test-id='135' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='136' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='137' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "surabhimehta@yesbank" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='138' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='139' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='140' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='141' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='142' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search with different parameters</span>
+			
+				<ul class='steps'>
+					<li test-id='143' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='144' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='145' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "anupamgupta@yahoo.co.in" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='146' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='147' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='148' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='149' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='150' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 6s+322ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Search with MDM ID and if that MDM ID is not present in CUST ID column then "No Results Found" message should be displayed</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='151' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='152' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='153' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "127145" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='154' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='155' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='156' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='157' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then 'No Results Found, Please refine' message is displayed</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='158' status='pass'>
+	<span class='duration right label'>0h 0m 6s+429ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Refine search message option when threshold 50 exceeded</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='159' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Refine search message option when threshold 50 exceeded</span>
+			
+				<ul class='steps'>
+					<li test-id='160' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='161' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='162' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "Ayush" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='163' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='164' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='165' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='166' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then 'Search returned too many results, Please refine' message is displayed due to threshold exceeded</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='167' status='pass'>
+	<span class='duration right label'>0h 0m 34s+99ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Search data with refine parameter and lower and upper case both</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='168' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search data with refine parameter and lower and upper case both</span>
+			
+				<ul class='steps'>
+					<li test-id='169' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='170' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='171' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "Ayush + 11-Apr-1981" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='172' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='173' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='174' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='175' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='176' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search data with refine parameter and lower and upper case both</span>
+			
+				<ul class='steps'>
+					<li test-id='177' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='178' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='179' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "ayush + 11-apr-1981" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='180' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='181' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='182' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='183' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='184' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search data with refine parameter and lower and upper case both</span>
+			
+				<ul class='steps'>
+					<li test-id='185' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='186' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='187' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "aYUSh + Delhi" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='188' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='189' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='190' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='191' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='192' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search data with refine parameter and lower and upper case both</span>
+			
+				<ul class='steps'>
+					<li test-id='193' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='194' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='195' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "ayush + delhi" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='196' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='197' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='198' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='199' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='200' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Search data with refine parameter and lower and upper case both</span>
+			
+				<ul class='steps'>
+					<li test-id='201' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='202' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='203' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "Ayush + 2019" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='204' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='205' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='206' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='207' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search result is displayed with all fields in search UI screen</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='208' status='pass'>
+	<span class='duration right label'>0h 0m 20s+508ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='209' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+			
+				<ul class='steps'>
+					<li test-id='210' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='211' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='212' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "AXEPD7154N" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='213' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Accordingly respective "PAN" gets highlighted in static search parameter under search bar</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='214' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+			
+				<ul class='steps'>
+					<li test-id='215' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='216' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='217' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "Y7654537" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='218' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Accordingly respective "Passport" gets highlighted in static search parameter under search bar</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='219' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+			
+				<ul class='steps'>
+					<li test-id='220' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='221' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='222' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "123456789123" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='223' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Accordingly respective "Aadhar" gets highlighted in static search parameter under search bar</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='224' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+			
+				<ul class='steps'>
+					<li test-id='225' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='226' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='227' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "Ayush" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='228' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Accordingly respective "Cust Name" gets highlighted in static search parameter under search bar</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='229' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+			
+				<ul class='steps'>
+					<li test-id='230' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='231' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='232' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "@tomer31twitter" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='233' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Accordingly respective "Twitter ID" gets highlighted in static search parameter under search bar</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='234' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+			
+				<ul class='steps'>
+					<li test-id='235' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='236' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='237' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "9184821250" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='238' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Accordingly respective "Mobile No." gets highlighted in static search parameter under search bar</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='239' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+			
+				<ul class='steps'>
+					<li test-id='240' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='241' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='242' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "181400001300037" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='243' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Accordingly respective "Account No." gets highlighted in static search parameter under search bar</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='244' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+			
+				<ul class='steps'>
+					<li test-id='245' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='246' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='247' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "12355612355006" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='248' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Accordingly respective "CKYC No." gets highlighted in static search parameter under search bar</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='249' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">When user enters parameter in search field it should intelligently highlight the label with bubble</span>
+			
+				<ul class='steps'>
+					<li test-id='250' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='251' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='252' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter "anupamgupta@yesbank" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='253' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Accordingly respective "UPI Handle" gets highlighted in static search parameter under search bar</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='254' status='pass'>
+	<span class='duration right label'>0h 0m 6s+376ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Format of Search label below search bar</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='255' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Format of Search label below search bar</span>
+			
+				<ul class='steps'>
+					<li test-id='256' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='257' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='258' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "Ayush + delhi" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='259' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='260' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='261' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='262' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I verify search label display like 'Search result for "Ayush": "delhi" "Cust Name:": "City:" Results'</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='263' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 8s+418ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">For single record after search & user is authorized to view, SNAP page is opened directly</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='264' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='265' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='266' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='267' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='268' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='269' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='270' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='271' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='272'>
+					<div class='test-heading'>
+						<span class='test-name'>Snap Page</span>
+						<span class='test-time'>Jan 16, 2019 09:41:56 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='273' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 21s+972ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify demographics attributes in SNAP page of customer type Corporate</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='274' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='275' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm on login page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='276' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='277' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "chandan" into input field having id "username"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='278' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter "chandan" into input field having id "password"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='279' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on Login</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='280' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='281' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='282' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='283' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='284' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='285' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='286' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='287' class='node then fail' status='fail'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify all the attributes of demographics having customer type corporate</span>
+				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[7]"}
+  (Session info: chrome=71.0.3578.80)
+  (Driver info: chromedriver=2.45.615279 (12b89733300bd268cff3b78fc76cb8f3a7cc44e5),platform=Linux 4.15.0-43-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.2', revision: '10229a9', time: '2017-08-21T17:29:55.15Z'
+System info: host: 'xebia-Latitude-5490', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-43-generic', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=LINUX, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:45023}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.45.615279 (12b89733300bd268cff3b78fc76cb8f3a7cc44e5), userDataDir=/tmp/.org.chromium.Chromium.4IPz5s}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.80, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cf2cf3d3b5bb45e33cf6b4fb898a2902
+*** Element info: {Using=xpath, value=(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[7]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:414)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:513)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:406)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy15.getText(Unknown Source)
+	at pageObjects.SnapPage.demographicsAttributesOfCorporate(SnapPage.java:119)
+	at info.seleniumcucumber.userStepDefintions.UserStepDefinitions.iVerifyAllTheAttributesOfDemographicsHavingCustomerTypeCorporate(UserStepDefinitions.java:157)
+	at ✽.Then I verify all the attributes of demographics having customer type corporate(features/Snap.feature:27)
+</pre></div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='288' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 9s+360ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify demographics attributes in SNAP page of customer type Individual</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='289' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='290' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='291' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='292' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='293' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='294' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='295' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='296' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='297' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify all the attributes of demographics having customer type individual</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='298' status='pass'>
+	<span class='duration right label'>0h 1m 19s+230ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verify NBA categories and data for Individual customer</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='299' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Individual customer</span>
+			
+				<ul class='steps'>
+					<li test-id='300' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='301' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='302' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='303' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='304' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='305' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='306' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='307' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 5 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='308' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "All" with "17" and "Kindly Renew your existing FD 3" , "By: 31-Mar-2019", "Book FD" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='309' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Individual customer</span>
+			
+				<ul class='steps'>
+					<li test-id='310' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='311' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='312' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='313' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='314' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='315' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='316' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='317' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 5 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='318' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Regulatory" with "4" and "Non Individual Customer not registered on CNB 4" , "By: 31-Mar-2019", "Create SR" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='319' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Individual customer</span>
+			
+				<ul class='steps'>
+					<li test-id='320' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='321' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='322' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='323' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='324' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='325' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='326' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='327' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 5 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='328' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Service" with "8" and "Issue Cheque Book (P 4)" , "By: 31-Mar-2019", "Issue" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='329' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Individual customer</span>
+			
+				<ul class='steps'>
+					<li test-id='330' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='331' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='332' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='333' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='334' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='335' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='336' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='337' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 5 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='338' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Sell" with "3" and "Kindly Renew your existing FD 3" , "By: 31-Mar-2019", "Book FD" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='339' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Individual customer</span>
+			
+				<ul class='steps'>
+					<li test-id='340' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='341' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='342' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='343' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='344' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='345' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='346' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='347' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 5 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='348' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Alerts" with "2" and "FD Maturing 2" , "By: 31-Mar-2019", "Renew FD" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='349' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Individual customer</span>
+			
+				<ul class='steps'>
+					<li test-id='350' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='351' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='352' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='353' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='354' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='355' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='356' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='357' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 5 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='358' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Information" with "0" and "" , "", "" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='359' status='pass'>
+	<span class='duration right label'>0h 1m 1s+111ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verify NBA categories and data for Corporate customer</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='360' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Corporate customer</span>
+			
+				<ul class='steps'>
+					<li test-id='361' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='362' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='363' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='364' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='365' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='366' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='367' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='368' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='369' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "All" with "16" and "Kindly Renew your existing FD 3" , "By: 31-Mar-2019", "Book FD" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='370' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Corporate customer</span>
+			
+				<ul class='steps'>
+					<li test-id='371' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='372' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='373' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='374' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='375' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='376' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='377' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='378' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='379' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Regulatory" with "4" and "Non Individual Customer not registered on CNB 4" , "By: 31-Mar-2019", "Create SR" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='380' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Corporate customer</span>
+			
+				<ul class='steps'>
+					<li test-id='381' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='382' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='383' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='384' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='385' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='386' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='387' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='388' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='389' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Service" with "8" and "Issue Cheque Book (P 4)" , "By: 31-Mar-2019", "Issue" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='390' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Corporate customer</span>
+			
+				<ul class='steps'>
+					<li test-id='391' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='392' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='393' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='394' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='395' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='396' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='397' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='398' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='399' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Sell" with "2" and "Kindly Renew your existing FD 3" , "By: 31-Mar-2019", "Book FD" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='400' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Corporate customer</span>
+			
+				<ul class='steps'>
+					<li test-id='401' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='402' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='403' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='404' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='405' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='406' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='407' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='408' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='409' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Alerts" with "2" and "FD Maturing 2" , "By: 31-Mar-2019", "Renew FD" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='410' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify NBA categories and data for Corporate customer</span>
+			
+				<ul class='steps'>
+					<li test-id='411' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='412' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='413' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='414' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='415' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='416' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='417' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='418' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I wait for 2 sec</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='419' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify all the "Information" with "0" and "" , "", "" is available in NBA section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='420' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@End2End</span>
+		<span class='category label white-text'>@Smoke</span>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 14s+941ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">User is able to book FD</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='421' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='422' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='423' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='424' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='425' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='426' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='427' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='428' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='429' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on Book FD on ALL category section</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='430' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='431' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='432' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Data is prefilled with values "996264849", "FD638", "YES BANK", "FDYES BANK", "1" respectively</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='433' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on remarks tab and write "customer wants to book fd" remarks into remarks field</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='434' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on submit button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='435' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='436' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And gets message "Transaction has been completed successfully"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='437' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Smoke</span>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 20s+563ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">User is able to defer the recommendation</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='438' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='439' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='440' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='441' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='442' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='443' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='444' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='445' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='446' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on 'Regulatory' section in NBA</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='447' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='448' class='node and fail' status='fail'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on cross button in 'Regulatory' recommendation</span>
+				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"id","selector":"nbaItemClose-3-0"}
+  (Session info: chrome=71.0.3578.80)
+  (Driver info: chromedriver=2.45.615279 (12b89733300bd268cff3b78fc76cb8f3a7cc44e5),platform=Linux 4.15.0-43-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.2', revision: '10229a9', time: '2017-08-21T17:29:55.15Z'
+System info: host: 'xebia-Latitude-5490', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-43-generic', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=LINUX, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:45023}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.45.615279 (12b89733300bd268cff3b78fc76cb8f3a7cc44e5), userDataDir=/tmp/.org.chromium.Chromium.4IPz5s}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.80, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cf2cf3d3b5bb45e33cf6b4fb898a2902
+*** Element info: {Using=id, value=nbaItemClose-3-0}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:414)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:457)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:406)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy15.click(Unknown Source)
+	at pageObjects.SnapPage.clickOnCrossButton(SnapPage.java:343)
+	at info.seleniumcucumber.userStepDefintions.UserStepDefinitions.iClickOnCrossButtonInRegulatoryRecommendation(UserStepDefinitions.java:202)
+	at ✽.And I click on cross button in 'Regulatory' recommendation(features/Snap.feature:108)
+</pre></div>
+			
+		</li>
+		<li test-id='449' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='450' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on 'Defer' option to defer the recommendation</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='451' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then In calender I select a future defer date</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='452' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='453' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on submit button in calender</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='454' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='455' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I get message "Deffered Successfully !"</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='456' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Smoke</span>
+		<span class='category label white-text'>@Regression</span>
+	</div>
+	<span class='duration right label'>0h 0m 12s+806ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">User is able to dismiss the recommendation</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='457' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to "http://yesgenie.com:30978/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='458' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='459' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='460' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='461' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='462' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='463' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I lands to SNAP page directly</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='464' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='465' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on 'X-Sell' section in NBA</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='466' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on cross button in 'X-Sell' recommendation</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='467' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on 'Dimiss' option to dismiss the recommendation</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='468' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='469' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I select dimiss reason from dialogue box and i click on submit</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='470' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I wait for 2 sec</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='471' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I get message "Dismissed Successfully !"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Regression</span>
+						<span class='category-status right'>
+							<span class='label pass'>52</span>
+							<span class='label fail'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 52</span>
+							<span class='label red lighten-1 white-text'>Failed: 3</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 16, 2019 09:38:28 AM</td>
+										<td class='linked' test-id='3'>Login.Login button should be disabled if both credentials are not entered.Login button should be disabled if both credentials are not entered</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:38:31 AM</td>
+										<td class='linked' test-id='8'>Login.Login button should be disabled if both credentials are not entered.Login button should be disabled if both credentials are not entered</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:38:31 AM</td>
+										<td class='linked' test-id='13'>Login.Login button should be disabled if both credentials are not entered.Login button should be disabled if both credentials are not entered</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:38:32 AM</td>
+										<td class='linked' test-id='18'>Login.User should not be able to login with invalid credentails</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:38:34 AM</td>
+										<td class='linked' test-id='25'>Login.User ID field is case sensitive</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:07 AM</td>
+										<td class='linked' test-id='32'>Login.I login with valid credential with welcome message</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:11 AM</td>
+										<td class='linked' test-id='40'>Login.Validate Last Login date time format and basic information is displayed</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:14 AM</td>
+										<td class='linked' test-id='46'>Login.I should get logged out of application</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:16 AM</td>
+										<td class='linked' test-id='51'>Search or Landing Page.Ensure static parameter under search bar is displayed</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:20 AM</td>
+										<td class='linked' test-id='61'>Search or Landing Page.Search with record which is not present in system and "No Results Found" message is displayed.Search with record which is not present in system and "No Results Found" message is displayed</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:27 AM</td>
+										<td class='linked' test-id='69'>Search or Landing Page.Search with record which is not present in system and "No Results Found" message is displayed.Search with record which is not present in system and "No Results Found" message is displayed</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:33 AM</td>
+										<td class='linked' test-id='77'>Search or Landing Page.Search with record which is not present in system and "No Results Found" message is displayed.Search with record which is not present in system and "No Results Found" message is displayed</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:40 AM</td>
+										<td class='linked' test-id='86'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:46 AM</td>
+										<td class='linked' test-id='94'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:53 AM</td>
+										<td class='linked' test-id='102'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:00 AM</td>
+										<td class='linked' test-id='110'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:07 AM</td>
+										<td class='linked' test-id='118'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:14 AM</td>
+										<td class='linked' test-id='126'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:20 AM</td>
+										<td class='linked' test-id='134'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:27 AM</td>
+										<td class='linked' test-id='142'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:34 AM</td>
+										<td class='linked' test-id='150'>Search or Landing Page.Search with MDM ID and if that MDM ID is not present in CUST ID column then "No Results Found" message should be displayed</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:40 AM</td>
+										<td class='linked' test-id='159'>Search or Landing Page.Refine search message option when threshold 50 exceeded.Refine search message option when threshold 50 exceeded</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:47 AM</td>
+										<td class='linked' test-id='168'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:54 AM</td>
+										<td class='linked' test-id='176'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:00 AM</td>
+										<td class='linked' test-id='184'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:07 AM</td>
+										<td class='linked' test-id='192'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:14 AM</td>
+										<td class='linked' test-id='200'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:21 AM</td>
+										<td class='linked' test-id='209'>Search or Landing Page.When user enters parameter in search field it should intelligently highlight the label with bubble.When user enters parameter in search field it should intelligently highlight the label with bubble</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:23 AM</td>
+										<td class='linked' test-id='214'>Search or Landing Page.When user enters parameter in search field it should intelligently highlight the label with bubble.When user enters parameter in search field it should intelligently highlight the label with bubble</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:25 AM</td>
+										<td class='linked' test-id='219'>Search or Landing Page.When user enters parameter in search field it should intelligently highlight the label with bubble.When user enters parameter in search field it should intelligently highlight the label with bubble</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:28 AM</td>
+										<td class='linked' test-id='224'>Search or Landing Page.When user enters parameter in search field it should intelligently highlight the label with bubble.When user enters parameter in search field it should intelligently highlight the label with bubble</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:30 AM</td>
+										<td class='linked' test-id='229'>Search or Landing Page.When user enters parameter in search field it should intelligently highlight the label with bubble.When user enters parameter in search field it should intelligently highlight the label with bubble</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:32 AM</td>
+										<td class='linked' test-id='234'>Search or Landing Page.When user enters parameter in search field it should intelligently highlight the label with bubble.When user enters parameter in search field it should intelligently highlight the label with bubble</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:34 AM</td>
+										<td class='linked' test-id='239'>Search or Landing Page.When user enters parameter in search field it should intelligently highlight the label with bubble.When user enters parameter in search field it should intelligently highlight the label with bubble</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:37 AM</td>
+										<td class='linked' test-id='244'>Search or Landing Page.When user enters parameter in search field it should intelligently highlight the label with bubble.When user enters parameter in search field it should intelligently highlight the label with bubble</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:39 AM</td>
+										<td class='linked' test-id='249'>Search or Landing Page.When user enters parameter in search field it should intelligently highlight the label with bubble.When user enters parameter in search field it should intelligently highlight the label with bubble</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:41 AM</td>
+										<td class='linked' test-id='255'>Search or Landing Page.Format of Search label below search bar.Format of Search label below search bar</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:48 AM</td>
+										<td class='linked' test-id='263'>Search or Landing Page.For single record after search & user is authorized to view, SNAP page is opened directly</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:56 AM</td>
+										<td class='linked' test-id='273'>Snap Page.Verify demographics attributes in SNAP page of customer type Corporate</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:42:18 AM</td>
+										<td class='linked' test-id='288'>Snap Page.Verify demographics attributes in SNAP page of customer type Individual</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:42:28 AM</td>
+										<td class='linked' test-id='299'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:42:39 AM</td>
+										<td class='linked' test-id='309'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:42:51 AM</td>
+										<td class='linked' test-id='319'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:02 AM</td>
+										<td class='linked' test-id='329'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:14 AM</td>
+										<td class='linked' test-id='339'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:25 AM</td>
+										<td class='linked' test-id='349'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:47 AM</td>
+										<td class='linked' test-id='360'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:55 AM</td>
+										<td class='linked' test-id='370'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:04 AM</td>
+										<td class='linked' test-id='380'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:12 AM</td>
+										<td class='linked' test-id='390'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:21 AM</td>
+										<td class='linked' test-id='400'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:29 AM</td>
+										<td class='linked' test-id='410'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:48 AM</td>
+										<td class='linked' test-id='420'>Snap Page.User is able to book FD</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:45:03 AM</td>
+										<td class='linked' test-id='437'>Snap Page.User is able to defer the recommendation</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:45:23 AM</td>
+										<td class='linked' test-id='456'>Snap Page.User is able to dismiss the recommendation</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Smoke</span>
+						<span class='category-status right'>
+							<span class='label pass'>31</span>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 31</span>
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 16, 2019 09:39:07 AM</td>
+										<td class='linked' test-id='32'>Login.I login with valid credential with welcome message</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:11 AM</td>
+										<td class='linked' test-id='40'>Login.Validate Last Login date time format and basic information is displayed</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:16 AM</td>
+										<td class='linked' test-id='51'>Search or Landing Page.Ensure static parameter under search bar is displayed</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:40 AM</td>
+										<td class='linked' test-id='86'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:46 AM</td>
+										<td class='linked' test-id='94'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:39:53 AM</td>
+										<td class='linked' test-id='102'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:00 AM</td>
+										<td class='linked' test-id='110'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:07 AM</td>
+										<td class='linked' test-id='118'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:14 AM</td>
+										<td class='linked' test-id='126'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:20 AM</td>
+										<td class='linked' test-id='134'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:27 AM</td>
+										<td class='linked' test-id='142'>Search or Landing Page.Search with different parameters.Search with different parameters</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:40 AM</td>
+										<td class='linked' test-id='159'>Search or Landing Page.Refine search message option when threshold 50 exceeded.Refine search message option when threshold 50 exceeded</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:47 AM</td>
+										<td class='linked' test-id='168'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:40:54 AM</td>
+										<td class='linked' test-id='176'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:00 AM</td>
+										<td class='linked' test-id='184'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:07 AM</td>
+										<td class='linked' test-id='192'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:41:14 AM</td>
+										<td class='linked' test-id='200'>Search or Landing Page.Search data with refine parameter and lower and upper case both.Search data with refine parameter and lower and upper case both</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:42:28 AM</td>
+										<td class='linked' test-id='299'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:42:39 AM</td>
+										<td class='linked' test-id='309'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:42:51 AM</td>
+										<td class='linked' test-id='319'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:02 AM</td>
+										<td class='linked' test-id='329'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:14 AM</td>
+										<td class='linked' test-id='339'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:25 AM</td>
+										<td class='linked' test-id='349'>Snap Page.Verify NBA categories and data for Individual customer.Verify NBA categories and data for Individual customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:47 AM</td>
+										<td class='linked' test-id='360'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:43:55 AM</td>
+										<td class='linked' test-id='370'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:04 AM</td>
+										<td class='linked' test-id='380'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:12 AM</td>
+										<td class='linked' test-id='390'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:21 AM</td>
+										<td class='linked' test-id='400'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:29 AM</td>
+										<td class='linked' test-id='410'>Snap Page.Verify NBA categories and data for Corporate customer.Verify NBA categories and data for Corporate customer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:44:48 AM</td>
+										<td class='linked' test-id='420'>Snap Page.User is able to book FD</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:45:03 AM</td>
+										<td class='linked' test-id='437'>Snap Page.User is able to defer the recommendation</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jan 16, 2019 09:45:23 AM</td>
+										<td class='linked' test-id='456'>Snap Page.User is able to dismiss the recommendation</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@End2End</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 16, 2019 09:44:48 AM</td>
+										<td class='linked' test-id='420'>Snap Page.User is able to book FD</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.TimeoutException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Jan 16, 2019 09:38:37 AM</td>
+                                                        <td class='linked' test-id='31'>Login.User ID field is case sensitive.Then I should get error message</td>
+                                                        <td><pre><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.className: kc-feedback-text (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
+	at info.seleniumcucumber.userStepDefintions.UserStepDefinitions.iShouldGetErrorMessage(UserStepDefinitions.java:43)
+	at ✽.Then I should get error message(features/Login.feature:32)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.className: kc-feedback-text
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.2', revision: '10229a9', time: '2017-08-21T17:29:55.15Z'
+System info: host: 'xebia-Latitude-5490', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-43-generic', java.version: '1.8.0_191'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:883)
+	at java.util.Optional.orElseThrow(Optional.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:882)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:206)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:202)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at info.seleniumcucumber.userStepDefintions.UserStepDefinitions.iShouldGetErrorMessage(UserStepDefinitions.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.api.junit.Cucumber.run(Cucumber.java:100)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:236)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:386)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:323)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:143)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Jan 16, 2019 09:42:08 AM</td>
+                                                        <td class='linked' test-id='287'>Snap Page.Verify demographics attributes in SNAP page of customer type Corporate.Then I verify all the attributes of demographics having customer type corporate</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[7]"}
+  (Session info: chrome=71.0.3578.80)
+  (Driver info: chromedriver=2.45.615279 (12b89733300bd268cff3b78fc76cb8f3a7cc44e5),platform=Linux 4.15.0-43-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.2', revision: '10229a9', time: '2017-08-21T17:29:55.15Z'
+System info: host: 'xebia-Latitude-5490', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-43-generic', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=LINUX, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:45023}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.45.615279 (12b89733300bd268cff3b78fc76cb8f3a7cc44e5), userDataDir=/tmp/.org.chromium.Chromium.4IPz5s}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.80, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cf2cf3d3b5bb45e33cf6b4fb898a2902
+*** Element info: {Using=xpath, value=(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[7]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:414)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:513)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:406)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy15.getText(Unknown Source)
+	at pageObjects.SnapPage.demographicsAttributesOfCorporate(SnapPage.java:119)
+	at info.seleniumcucumber.userStepDefintions.UserStepDefinitions.iVerifyAllTheAttributesOfDemographicsHavingCustomerTypeCorporate(UserStepDefinitions.java:157)
+	at ✽.Then I verify all the attributes of demographics having customer type corporate(features/Snap.feature:27)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 16, 2019 09:45:13 AM</td>
+                                                        <td class='linked' test-id='448'>Snap Page.User is able to defer the recommendation.And I click on cross button in 'Regulatory' recommendation</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"id","selector":"nbaItemClose-3-0"}
+  (Session info: chrome=71.0.3578.80)
+  (Driver info: chromedriver=2.45.615279 (12b89733300bd268cff3b78fc76cb8f3a7cc44e5),platform=Linux 4.15.0-43-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.2', revision: '10229a9', time: '2017-08-21T17:29:55.15Z'
+System info: host: 'xebia-Latitude-5490', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-43-generic', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=LINUX, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:45023}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.45.615279 (12b89733300bd268cff3b78fc76cb8f3a7cc44e5), userDataDir=/tmp/.org.chromium.Chromium.4IPz5s}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.80, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cf2cf3d3b5bb45e33cf6b4fb898a2902
+*** Element info: {Using=id, value=nbaItemClose-3-0}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:414)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:457)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:406)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy15.click(Unknown Source)
+	at pageObjects.SnapPage.clickOnCrossButton(SnapPage.java:343)
+	at info.seleniumcucumber.userStepDefintions.UserStepDefinitions.iClickOnCrossButtonInRegulatoryRecommendation(UserStepDefinitions.java:202)
+	at ✽.And I click on cross button in 'Regulatory' recommendation(features/Snap.feature:108)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>3</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>55</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>404</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jan 16, 2019 09:38:28 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jan 16, 2019 09:45:36 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>428,637ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@Regression</td>
+							<td>52</td>
+							<td>3</td>
+							<td>0</td>
+							<td>
+									94.545%
+							</td>
+						</tr>
+						<tr>
+							<td>@Smoke</td>
+							<td>31</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									96.875%
+							</td>
+						</tr>
+						<tr>
+							<td>@End2End</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 1,
+				failParent: 2,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 2,
+				
+				passChild: 52,
+				failChild: 3,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 3,
+				
+				passGrandChild: 394,
+				failGrandChild: 3,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 7,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 10,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
