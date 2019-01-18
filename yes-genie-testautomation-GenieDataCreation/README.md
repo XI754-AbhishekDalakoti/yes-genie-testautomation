@@ -41,3 +41,4 @@ yes-genie-testautomation-GenieDataCreation/src/main/resources/NBA.xlsx
 Run the below command for data cleanup
 
 /bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_data_deletion.sh
+
