@@ -10,44 +10,44 @@ import java.io.IOException;
 public class CreateDataTest {
 	
 
-//    @BeforeSuite
-//    public void dataCreation() throws Exception {
-//        ApiContracts.deleteGnyCustSearchIndex();
-//        ApiContracts.createIndexGnyCustSearch();
-//        ApiContracts.createMappingGnyCustDoc();
-//        ApiContracts.bulkIndexing();
-//        ApiContracts.bulkIndexingInYesBankAccount();
-//    }
-//
-//
-//    @AfterSuite
-//    public void afterScenario() {
-//    	ApiContracts.searchData();
-//
-//
-//    }
-//
-//    @Test
-//    public void recommendationDataCreation() throws IOException, HBaseRecommendationException {
-//        ImportHbaseData.createConnection();
-//        ImportHbaseData.delete("genie_recomendations");
-//		ImportHbaseData.setupHbase("genie_recomendations","data_file/data_NBA.csv");
-//	}
-//
-//    @Test
-//    public void demogsDataCreation() throws IOException, HBaseRecommendationException {
-//        ImportHbaseData.createConnection();
-//        ImportHbaseData.delete("genie_cust_demog");
-//        ImportHbaseData.setupHbase("genie_cust_demog","data_file/data_demogs.csv");
-//    }
-//
-//
-//    @Test
-//    public void kpiDataCreation() throws IOException, HBaseRecommendationException {
-//        ImportHbaseData.createConnection();
-//        ImportHbaseData.delete("kpi_matrix");
-//        ImportHbaseData.setupHbase("kpi_matrix","data_file/kpi.csv");
-//    }
+   @BeforeSuite
+   public void dataCreation() throws Exception {
+       ApiContracts.deleteGnyCustSearchIndex();
+       ApiContracts.createIndexGnyCustSearch();
+       ApiContracts.createMappingGnyCustDoc();
+       ApiContracts.bulkIndexing();
+       ApiContracts.bulkIndexingInYesBankAccount();
+   }
+
+
+   @AfterSuite
+   public void afterScenario() {
+   	ApiContracts.searchData();
+
+
+   }
+
+   @Test
+   public void recommendationDataCreation() throws IOException, HBaseRecommendationException {
+       ImportHbaseData.createConnection();
+       ImportHbaseData.delete("genie_recomendations");
+		ImportHbaseData.setupHbase("genie_recomendations","data_file/data_NBA.csv");
+	}
+
+   @Test
+   public void demogsDataCreation() throws IOException, HBaseRecommendationException {
+       ImportHbaseData.createConnection();
+       ImportHbaseData.delete("genie_cust_demog");
+       ImportHbaseData.setupHbase("genie_cust_demog","data_file/data_demogs.csv");
+   }
+
+
+   @Test
+   public void kpiDataCreation() throws IOException, HBaseRecommendationException {
+       ImportHbaseData.createConnection();
+       ImportHbaseData.delete("kpi_matrix");
+       ImportHbaseData.setupHbase("kpi_matrix","data_file/kpi.csv");
+   }
 
 
 
