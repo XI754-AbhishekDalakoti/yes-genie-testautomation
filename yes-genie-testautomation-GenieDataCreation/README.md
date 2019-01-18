@@ -1,3 +1,7 @@
+Add following properties in /etc/hosts
+192.168.3.9 hbase-service
+192.168.3.9 quickstart.cloudera
+
 Install Gradle and IntelliJ/Eclipse on your machine but Since most of the people are using IntelliJ so to get less conflicts in project files , its better to use IntelliJ
 
 Import this project as gradle project in Intellij and give the path of build.gradle while importing
@@ -37,3 +41,4 @@ yes-genie-testautomation-GenieDataCreation/src/main/resources/NBA.xlsx
 Run the below command for data cleanup
 
 /bin/bash yes-genie-testautomation-GenieDataCreation/src/test/script/hbase_data_deletion.sh
+
