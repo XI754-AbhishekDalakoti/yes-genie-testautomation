@@ -9,6 +9,7 @@ import utility.HBaseRecommendationException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
@@ -46,7 +47,8 @@ public class ImportHbaseData {
            } else {
                Put p1 = new Put(Bytes.toBytes(str[0]));
                for (int i = 1; i < str.length; i++) {
-                   p1.addColumn(Bytes.toBytes(FAMILY), Bytes.toBytes(map.get(i)), Bytes.toBytes(str[i]));
+                       p1.addColumn(Bytes.toBytes(FAMILY), Bytes.toBytes(map.get(i)), Bytes.toBytes(str[i]));
+
                }
                table.put(p1);
            }
