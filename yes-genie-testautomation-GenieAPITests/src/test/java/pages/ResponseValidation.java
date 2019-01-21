@@ -30,6 +30,13 @@ public class ResponseValidation {
         }
     }
 
+
+    public void responseStringValueCompare(String param, Response response, String key, Boolean vlaue) {
+        response.then().
+                    body((param.concat(key)).trim(), is(vlaue));
+
+    }
+
     public void responseCompareForStringValue(String param, Response response, String key, String vlaue) {
         response.then().
                 body((param.concat(key)), is(vlaue));
