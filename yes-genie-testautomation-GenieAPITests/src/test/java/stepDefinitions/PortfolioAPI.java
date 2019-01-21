@@ -30,6 +30,7 @@ public class PortfolioAPI {
     @When("^get the response from portfolio api$")
     public void get_the_response_from_portfolio_api() throws Throwable {
         responseIndividual = given().accept(ContentType.JSON).get(uri);
+        System.out.print(responseIndividual.body().asString());
     }
 
 
@@ -40,21 +41,44 @@ public class PortfolioAPI {
 
 
 
+    @Then("^productCategory will be LOANS \"([^\"]*)\" and total \"([^\"]*)\"$")
+    public void productcategory_will_be_LOANS_and_total(String arg1, String arg2) throws Throwable {
+        String param1 = "[0].productCategory";
+        System.out.print("param1 is " +param1);
+        String param2 ="[0].total";
+        System.out.print("param2 is " +param2);
+        responseValidation.responseStringValueCompare(param1,responseIndividual,arg1);
+        responseValidation.responseStringValueCompare(param2,responseIndividual,arg2);
+    }
+
     @Then("^user get the response for productCategory loans \"([^\"]*)\" is \"([^\"]*)\" from the portfolio api where customer type is individual$")
     public void user_get_the_response_for_productCategory_loans_is_from_the_portfolio_api_where_customer_type_is_individual(String key, String value) throws Throwable {
-        String param = "0.portfolioProducts[0].";
+        String param = "[0].portfolioProducts[0].";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 
+
+    @Then("^productCategory will be OTHERS \"([^\"]*)\" and total \"([^\"]*)\"$")
+    public void productcategory_will_be_OTHERS_and_total(String arg1, String arg2) throws Throwable {
+        String param1 = "[1].productCategory";
+        System.out.print("param1 is " +param1);
+        String param2 ="[1].total";
+        System.out.print("param2 is " +param2);
+        responseValidation.responseStringValueCompare(param1,responseIndividual,arg1);
+        responseValidation.responseStringValueCompare(param2,responseIndividual,arg2);
+    }
+
+
+
     @Then("^user get the response for productCategory others \"([^\"]*)\" is \"([^\"]*)\" from the portfolio api where customer type is individual$")
     public void user_get_the_response_for_productCategory_others_is_from_the_portfolio_api_where_customer_type_is_individual(String key, String value) throws Throwable {
-        String param = "0.portfolioProducts[1].";
+        String param = "[0].portfolioProducts[1].";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 
     @Then("^a user get empty Object as response from the portfolio api where customer type is individual$")
     public void a_user_get_empty_Object_as_response_from_the_portfolio_api_where_customer_type_is_individual() throws Throwable {
-        responseValidation.validateNullObject(responseIndividual);
+        responseValidation.validateNullObjectArray(responseIndividual);
     }
 
 }

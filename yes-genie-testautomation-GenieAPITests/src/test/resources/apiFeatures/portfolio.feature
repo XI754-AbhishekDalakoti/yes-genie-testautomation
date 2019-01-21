@@ -9,14 +9,15 @@ Feature: Validate portfolio APIs
       Then a user get the status code 200 as a response from the portfolio api where customer type is individual
 
 
-  @regression
+  @regression @er
   Scenario Outline: User search with valid mdmId and validate response of portfolio api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a portfolio api to test is "http://yesgenie.com:30978/api/portfolio/"
     When a genie user passes the "996264849" as a mdmid to get the response from portfolio api where customer type is individual
-    Then user get the response for productCategory loans "<key>" is "<value>" from the portfolio api where customer type is individual
+    And get the response from portfolio api
+    Then productCategory will be LOANS "LOANS" and total "26100000"
+    And user get the response for productCategory loans "<key>" is "<value>" from the portfolio api where customer type is individual
     Examples:
       | key                 | value         |
-      | total               | 26100000      |
       | mdmId               | 996264849     |
       | custId              | 996264849     |
       | productType         | AL            |
@@ -31,11 +32,11 @@ Feature: Validate portfolio APIs
   Scenario Outline: User search with valid mdmId and validate response of portfolio api where customer type is individual for all the mentioned keys in examples
       Given a genie user has a portfolio api to test is "http://yesgenie.com:30978/api/portfolio/"
       When a genie user passes the "996264849" as a mdmid to get the response from portfolio api where customer type is individual
-      Then user get the response for productCategory others "<key>" is "<value>" from the portfolio api where customer type is individual
+      And get the response from portfolio api
+      Then productCategory will be OTHERS "OTHERS" and total "0"
+      And user get the response for productCategory others "<key>" is "<value>" from the portfolio api where customer type is individual
       Examples:
         | key                 | value         |
-        | productCategory     | OTHERS        |
-        | total               | 0             |
         | mdmId               | 996264849     |
         | custId              | 996264849     |
         | productType         | CB            |
@@ -46,10 +47,11 @@ Feature: Validate portfolio APIs
         | usageTrend          | null          |
 
 
-  @regression
+  @regression @pa
   Scenario: User search with valid mdmId and validate response of portfolio api where customer type is Individual for all the mentioned keys in examples
-    Given a genie user has a portfolio api to test is "http://yesgenie.com:30978/api/portfolio"
+    Given a genie user has a portfolio api to test is "http://yesgenie.com:30978/api/portfolio/"
     When a genie user passes the "24" as a mdmid to get the response from portfolio api where customer type is individual
+    And get the response from portfolio api
     Then a user get the status code 200 as a response from the portfolio api where customer type is individual
     And a user get empty Object as response from the portfolio api where customer type is individual
 

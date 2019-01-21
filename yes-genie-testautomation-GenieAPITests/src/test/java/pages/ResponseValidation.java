@@ -132,6 +132,13 @@ public class ResponseValidation {
         String body = response.getBody().asString();
         Assert.assertTrue(body.equals("{}"));
     }
+
+    public void validateNullObjectArray(Response response) {
+        String body = response.getBody().asString();
+        Assert.assertTrue(body.equals("[]"));
+    }
+
+
     public void validateResponseForUnauthorized(Response response) {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_UNAUTHORIZED);

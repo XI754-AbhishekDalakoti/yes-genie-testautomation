@@ -10,7 +10,6 @@
 rootProject.name = 'yes-genie-testautomation'
 include(
         'yes-genie-testautomation-GenieDataCreation',
-        'yes-genie-testautomation-GenieAPITests',
         'yes-genie-testautomation-GenieUITests'
 
 )
