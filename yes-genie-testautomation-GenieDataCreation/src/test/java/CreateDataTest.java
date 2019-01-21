@@ -10,7 +10,7 @@ import java.io.IOException;
 public class CreateDataTest {
 	
 
-   @BeforeSuite
+   @Test
    public void dataCreation() throws Exception {
        ApiContracts.deleteGnyCustSearchIndex();
        ApiContracts.createIndexGnyCustSearch();
