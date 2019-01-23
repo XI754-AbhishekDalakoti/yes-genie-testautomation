@@ -16,12 +16,12 @@ mv data_NBA.csv yes-genie-testautomation-GenieDataCreation/data_file/
 if [ -e yes-genie-testautomation-GenieDataCreation/data_file/data_NBA.csv ] ;
 then  #check existence of the file
 echo "csv file is present"
-fi
+
 #sshpass -p "cloudera" scp -P 3022 -r data_file/data_NBA.csv cloudera@192.168.3.9:/home/cloudera/Desktop/
-#else
-#echo "csv not present"
-#fi
-#
+else
+echo "csv not present"
+fi
+
 #if [ $? -eq 0 ]
 #then
 #   echo "Command was successful." >> ${LOG_FILE}

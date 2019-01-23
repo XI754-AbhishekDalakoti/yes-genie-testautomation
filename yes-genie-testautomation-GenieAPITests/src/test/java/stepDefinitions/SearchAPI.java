@@ -6,7 +6,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import pages.ResponseValidation;
+
 import static net.serenitybdd.rest.SerenityRest.given;
 import static utils.Utilities.matchesJsonSchema;
 
@@ -74,10 +76,11 @@ public class SearchAPI extends ResponseValidation {
     @Then("^user get the response from the api for initial record of numeric type for \"([^\"]*)\" is (\\d+)$")
     public void result_for_numeric_is(String key, int value) throws Throwable {
         String param = "records[0].";
+        System.out.println("response.getBody().asString()" + response.getBody().asString());
         responseValidation.responseIntValueCompare(param, response, key, value);
     }
 
-    @Then("^user get the response from the api and count of records is more than (\\d+)$")
+    @Then("^user get the response from the api and count of records is more than or equal to (\\d+)$")
     public void result_for_count_is(int value) throws Throwable {
         String param = "count";
         responseValidation.compareCount(param, response, value);
@@ -94,6 +97,12 @@ public class SearchAPI extends ResponseValidation {
         response.then().
                 body(matchesJsonSchema("searchAPISchema.json"));
     }
+
+    @Then("^user get the response from the elastic search API$")
+    public void user_get_the_response_from_the_elastic_search_API() throws Throwable {
+        responseValidation.compareResponseAsAStringIsNotEmpty(response);
+    }
+
 }
 
 
