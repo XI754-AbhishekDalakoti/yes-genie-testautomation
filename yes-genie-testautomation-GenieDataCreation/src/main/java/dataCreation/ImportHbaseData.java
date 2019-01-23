@@ -57,9 +57,23 @@ public class ImportHbaseData {
        table.close();
        System.out.println(map);
    }
-   
-   
-   public static void delete(String tablename) throws HBaseRecommendationException, IOException{
+
+    public static void updateRowkeyHbase(String tablename, String rowkey) throws IOException, HBaseRecommendationException {
+        try{
+            Table table = hBaseClient.getTable(tablename);
+
+            Put p1 = new Put(Bytes.toBytes(rowkey));
+            p1.addColumn(Bytes.toBytes(FAMILY), Bytes.toBytes("status"), Bytes.toBytes("open"));
+            table.put(p1);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public static void delete(String tablename) throws HBaseRecommendationException, IOException{
 	   hBaseClient.deleteTableData(tablename);
 }
 

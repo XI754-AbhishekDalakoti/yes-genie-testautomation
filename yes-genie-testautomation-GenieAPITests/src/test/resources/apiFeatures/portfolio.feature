@@ -9,7 +9,7 @@ Feature: Validate portfolio APIs
       Then a user get the status code 200 as a response from the portfolio api where customer type is individual
 
 
-  @regression @er
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of portfolio api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a portfolio api to test is "http://yesgenie.com:30978/api/portfolio/"
     When a genie user passes the "996264849" as a mdmid to get the response from portfolio api where customer type is individual
@@ -47,7 +47,7 @@ Feature: Validate portfolio APIs
         | usageTrend          | null          |
 
 
-  @regression @pa
+  @regression
   Scenario: User search with valid mdmId and validate response of portfolio api where customer type is Individual for all the mentioned keys in examples
     Given a genie user has a portfolio api to test is "http://yesgenie.com:30978/api/portfolio/"
     When a genie user passes the "24" as a mdmid to get the response from portfolio api where customer type is individual
