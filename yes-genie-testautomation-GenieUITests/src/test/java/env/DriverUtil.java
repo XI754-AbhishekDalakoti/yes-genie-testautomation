@@ -328,6 +328,10 @@ public class DriverUtil {
                 else if (System.getProperty("os.name").equals("Mac OS X")) {
                     System.setProperty("webdriver.chrome.driver", "chromedriver_mac");
                 }
+                else {
+                    System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+                }
+
 
 
                 if (ios){

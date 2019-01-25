@@ -10,7 +10,7 @@ Feature: Validate Search API
   Scenario Outline: User search with custId and other parameters mentioned in below Examples: and validate response from tha api
     When a user search with value "<query>" and setting value for threshold "<threshold>"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than or equal to 1
     Examples:
       | query               | threshold |
       | 996264849           | 50        |
@@ -18,11 +18,11 @@ Feature: Validate Search API
       | AXEPD7154N          | 50        |
       | Y7654537            | 50        |
       | CHARU SADANA        | 50        |
-      | 181400001300037     | 50        |
-      | 12355612355006      | 50        |
-      | 123456789123        | 50        |
-      | anupamgupta@yesbank | 50        |
-      | @tomer31twitter     | 50        |
+      | 101400079900037     | 5000        |
+      | 12355612355006      | 5000        |
+      | 123456789123        | 5000        |
+      | anupamgupta@yesbank | 5000        |
+      | @tomer31twitter     | 5000        |
 
   @simplesearch @regression
   Scenario: User search with custId and validate accessiblity is true or false
@@ -30,10 +30,10 @@ Feature: Validate Search API
     Then user get the response from the api as "true"
 
   @simplesearch
-  Scenario: User perform refine search with valid email id and validate response from the api
+  Scenario: User search with valid email id and validate response from the api
     When a user search with value "csadana@yahoo.co.in" and setting value for threshold "50"
     Then a user get the status code 200 as a response from the api
-    Then user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than or equal to 1
 
   @simplesearch @regression
   Scenario Outline: User search with valid custid and validate response for all the mentioned keys in example
@@ -49,9 +49,10 @@ Feature: Validate Search API
       | groupId          | 274937                   |
       | businessSegment  | BRB                      |
       | partnerSegment   | NULL                     |
-      | customerOpenDate | 13-May-2011              |
-      | DOB              | 15-May-1990              |
+      | customerOpenDate | 11-Mar-2017              |
+      | DOB              | 11-Sep-1987              |
       | custType         | I                        |
+
 
   @simplesearch @smoke @regression
   Scenario Outline: User search with valid custId and validate response for custId and mdmId
@@ -70,13 +71,13 @@ Feature: Validate Search API
   @simplesearch @regression
   Scenario: User search with name and validate the count is greater than threshold value
     When a user search with value "Ayush" and setting value for threshold "5000"
-    Then user get the response from the api and count of records is more than 50
+    Then user get the response from the api and count of records is more than or equal to 51
 
   @simplesearch @smoke @regression
   Scenario Outline: User search with different parameters mentioned in below examples to validate search is not restrict to case sensitive
     When a user search with value "<query>" and setting value for threshold "<threshold>"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than 1
+    And user get the response from the api and count of records is more than or equal to 1
     Examples:
       | query               | threshold |
       | ChaRu               | 50        |
@@ -99,13 +100,13 @@ Feature: Validate Search API
       | groupId          | 274937                |
       | businessSegment  | BRB                   |
       | partnerSegment   | RB                    |
-      | customerOpenDate | 15-May-2011           |
-      | DOB              | 15-May-1990           |
+      | customerOpenDate | 30-Nov-2016           |
+      | DOB              | 30-May-1952           |
       | custType         | I                     |
 
   @refinesearch @regression
   Scenario Outline: User perform refine search with valid customer name and DOB and validate response for all the mentioned keys in below Examples:
-    When a user search with value "Ayush+15-May-1990" and setting value for threshold "50"
+    When a user search with value "Ayush+30-May-1952" and setting value for threshold "50"
     Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
       | key              | value                 |
@@ -117,8 +118,8 @@ Feature: Validate Search API
       | groupId          | 274937                |
       | businessSegment  | BRB                   |
       | partnerSegment   | RB                    |
-      | customerOpenDate | 15-May-2011           |
-      | DOB              | 15-May-1990           |
+      | customerOpenDate | 30-Nov-2016           |
+      | DOB              | 30-May-1952           |
       | custType         | I                     |
 
   @refinesearch @regression
@@ -135,6 +136,6 @@ Feature: Validate Search API
       | groupId          | 274937                |
       | businessSegment  | BRB                   |
       | partnerSegment   | RB                    |
-      | customerOpenDate | 15-May-2011           |
-      | DOB              | 15-May-1990           |
+      | customerOpenDate | 30-Nov-2016           |
+      | DOB              | 30-May-1952           |
       | custType         | I                     |
