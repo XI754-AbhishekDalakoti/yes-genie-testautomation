@@ -23,6 +23,5 @@ gradle
 gradle/*
 log/*
 log
-data_file
-data_file/*
+
 
