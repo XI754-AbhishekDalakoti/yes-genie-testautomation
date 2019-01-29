@@ -55,3 +55,5 @@ gradle clean test aggregate -Dserenity.properties=test-properties/chrome.propert
 
 To run the tests excluding a par
 gradle clean test aggregate -Dserenity.properties=test-properties/chrome.properties -Dwebdriver.base.url="url" -Dcucumber.options="--tags @Smoke"
+
+

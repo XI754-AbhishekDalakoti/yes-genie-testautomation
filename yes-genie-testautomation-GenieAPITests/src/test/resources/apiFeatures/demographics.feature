@@ -46,7 +46,7 @@ Feature: Validate demographics APIs
       | PS                     | RS                         |
       | BS                     | BRB                        |
       | PAN                    | VERIFIED                   |
-      | DOB                    | 15-May-1990                |
+      | DOB                    | 27-Aug-1975                |
 
 
   @smoke @regression
@@ -82,7 +82,7 @@ Feature: Validate demographics APIs
       | PS                     | RS                              |
       | BS                     | BRB                             |
       | PAN                    | NOTVERIFIED                     |
-      | DOI                    | 29-Feb-2016                     |
+      | DOI                    | 27-May-2015                     |
       | landlineNumber         | null                            |
       | webSite                | null                            |
 
@@ -101,9 +101,9 @@ Feature: Validate demographics APIs
       | key              | value                    |
       | name             | CHARU SADANA             |
       | custId           | 996264849                |
-      | DOB              | 15-Mar-1994              |
+      | DOB              | 27-Aug-1975              |
       | profession       | BUSINESS                 |
-      | custOpenDate     | 22-Aug-2015              |
+      | custOpenDate     | 27-May-2015              |
       | income           | 0 TO 50 LACS             |
       | mobileNumber     | 917123456789             |
       | alternateNumber  | 919158706602             |
@@ -138,9 +138,9 @@ Feature: Validate demographics APIs
       | key              | value                           |
       | name             | SURINDRA RADIOS PRIVATE LIMITED |
       | custId           | 998003452                       |
-      | DOI              | 09-Apr-1986                     |
+      | DOI              | 27-May-2015                     |
       | constitution     | null                            |
-      | custOpenDate     | null                            |
+      | custOpenDate     | 27-May-2015                     |
       | annualTurnover   | 1 TO 5 CRORE                    |
       | mobileNumber     | 6080112225                      |
       | alternateNumber  | 919158706602                    |

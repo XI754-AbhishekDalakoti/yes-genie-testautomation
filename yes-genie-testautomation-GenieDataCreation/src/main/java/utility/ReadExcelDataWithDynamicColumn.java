@@ -150,7 +150,7 @@ public class ReadExcelDataWithDynamicColumn {
                 {
                     String column = row.get(j);
                     strBuf.append(column);
-                    strBuf.append("    ");
+                    strBuf.append("|");
                 }
                 strBuf.append("\r\n");
             }
