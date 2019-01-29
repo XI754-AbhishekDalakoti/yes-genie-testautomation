@@ -29,6 +29,10 @@ public class ImportHbaseData {
        insertIntoHbase(tablename, file);
    }
 
+   public static void createHbaseTable(String table) throws IOException {
+       hBaseClient.createTable(table);
+   }
+
 
    public static void insertIntoHbase(String tablename, String file) throws IOException, HBaseRecommendationException {
        Table table = hBaseClient.getTable(tablename);

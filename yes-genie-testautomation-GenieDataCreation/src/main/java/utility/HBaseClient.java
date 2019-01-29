@@ -2,10 +2,7 @@ package utility;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.hbase.Cell;
-import org.apache.hadoop.hbase.CompareOperator;
-import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.*;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.filter.*;
 import org.apache.hadoop.hbase.util.Bytes;
@@ -37,6 +34,13 @@ public class HBaseClient {
 		if (null != connection) {
 			connection.close();
 		}
+	}
+
+	public void createTable(String tablename) throws IOException {
+		HTableDescriptor hTableDescriptor = new HTableDescriptor(TableName.valueOf(tablename));
+		hTableDescriptor.addFamily(new HColumnDescriptor("D"));
+		Admin hBaseAdmin = connection.getAdmin();
+		hBaseAdmin.createTable(hTableDescriptor);
 	}
 
 
