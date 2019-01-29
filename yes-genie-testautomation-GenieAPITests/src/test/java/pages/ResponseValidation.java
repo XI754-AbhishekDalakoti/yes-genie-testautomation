@@ -30,6 +30,13 @@ public class ResponseValidation {
         }
     }
 
+
+    public void responseStringValueCompare(String param, Response response, String key, Boolean vlaue) {
+        response.then().
+                    body((param.concat(key)).trim(), is(vlaue));
+
+    }
+
     public void responseCompareForStringValue(String param, Response response, String key, String vlaue) {
         response.then().
                 body((param.concat(key)), is(vlaue));
@@ -51,7 +58,7 @@ public class ResponseValidation {
         }
     }
 
-    public void responseBooleanValueCompare(String param, Response response,String key, String value) {
+    public void responseBooleanValueCompare(String param, Response response, String key, String value) {
         if (value.equalsIgnoreCase("null")) {
             response.then().
                     body((param), is(nullValue()));
@@ -61,6 +68,7 @@ public class ResponseValidation {
                     body(param.concat(key), is(b));
         }
     }
+
     public void validateResponseOk(Response response) {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_OK);
@@ -108,7 +116,6 @@ public class ResponseValidation {
     }
 
     public int putOperation(String uri, String key, String value) {
-        System.out.println("URI Value : " + uri);
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.header("Content-Type", "application/json");
         JSONObject json = new JSONObject();
@@ -116,7 +123,6 @@ public class ResponseValidation {
         requestSpecification.body(json.toJSONString());
         Response response = requestSpecification.put(uri);
         int code = response.getStatusCode();
-        System.out.println("status code is : " + code);
         return code;
 
     }
@@ -133,8 +139,84 @@ public class ResponseValidation {
         String body = response.getBody().asString();
         Assert.assertTrue(body.equals("{}"));
     }
+
+    public void validateNullObjectArray(Response response) {
+        String body = response.getBody().asString();
+        Assert.assertTrue(body.equals("[]"));
+    }
+
+
     public void validateResponseForUnauthorized(Response response) {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_UNAUTHORIZED);
+    }
+
+    public int putOperationForTwoKeys(String uri, String keyOne, String valueOne, String keyTwo, String valueTwo, String responseBody) {
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.header("Content-Type", "application/json");
+        JSONObject json = new JSONObject();
+        json.put(keyOne, valueOne);
+        json.put(keyTwo, valueTwo);
+        requestSpecification.body(json.toJSONString());
+        Response response = requestSpecification.put(uri);
+        int code = response.getStatusCode();
+        String body = response.getBody().asString();
+        Assert.assertEquals(responseBody, body);
+        return code;
+    }
+
+    public int putOperationForThreeKeys(String uri, String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree, String valueThree, String responseBody) {
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.header("Content-Type", "application/json");
+        JSONObject json = new JSONObject();
+        json.put(keyOne, valueOne);
+        json.put(keyTwo, valueTwo);
+        json.put(keyThree, valueThree);
+        requestSpecification.body(json.toJSONString());
+        Response response = requestSpecification.put(uri);
+        int code = response.getStatusCode();
+        String body = response.getBody().asString();
+        Assert.assertEquals(responseBody, body);
+        return code;
+    }
+
+    public void validateResponseBadRequest(Response response) {
+        response.
+                then().assertThat().statusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR);
+    }
+    public void validateResponseNoContent(Response response) {
+        response.
+                then().assertThat().statusCode(HttpStatus.SC_NO_CONTENT);
+    }
+
+    public void validateResponseOk(Response response, String message) {
+        String body = response.getBody().asString();
+        Assert.assertEquals(message, body);
+        response.
+                then().assertThat().statusCode(HttpStatus.SC_OK);
+    }
+
+    public void compareResponseAsAStringIsNotEmpty(Response response) {
+        String body = response.getBody().asString();
+        System.out.println("body is :" + body);
+        Assert.assertFalse(body.isEmpty());
+    }
+
+    public int putOperationForSixKeys(String uri, String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree,
+                                      String valueThree, String keyFour, String valueFour, String keyFive, String valueFive,
+                                      String keySix,String valueSix) {
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.header("Content-Type", "application/json");
+        JSONObject json = new JSONObject();
+        json.put(keyOne, valueOne);
+        json.put(keyTwo, valueTwo);
+        json.put(keyThree, valueThree);
+        json.put(keyFour, valueFour);
+        json.put(keyFive, valueFive);
+        json.put(keySix, valueSix);
+        requestSpecification.body(json.toJSONString());
+        Response response = requestSpecification.put(uri);
+        int code = response.getStatusCode();
+        return code;
     }
 }
