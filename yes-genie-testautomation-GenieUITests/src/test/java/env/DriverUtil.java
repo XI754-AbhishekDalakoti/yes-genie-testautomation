@@ -327,13 +327,13 @@ public class DriverUtil {
                     chromeOptions.addArguments("--headless");
                 }
                 if (System.getProperty("os.name").equals("Linux")) {
-                    System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/chromedriver");
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
                 }
                 else if (System.getProperty("os.name").equals("Mac OS X")) {
-                    System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/chromedriver_mac");
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver_mac");
                 }
                 else {
-                    System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/chromedriver.exe");
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
                 }
 
 
