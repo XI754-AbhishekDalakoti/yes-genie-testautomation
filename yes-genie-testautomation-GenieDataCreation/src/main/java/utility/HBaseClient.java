@@ -63,14 +63,6 @@ public class HBaseClient {
 		return config;
 	}
 
-	public void createTable(String tablename) throws IOException {
-		HTableDescriptor hTableDescriptor = new HTableDescriptor(TableName.valueOf(tablename));
-		hTableDescriptor.addFamily(new HColumnDescriptor("D"));
-		Admin hBaseAdmin = connection.getAdmin();
-		hBaseAdmin.createTable(hTableDescriptor);
-	}
-
-
 
 	public Configuration getConfiguration() throws Exception {
 		Configuration config = HBaseConfiguration.create();
