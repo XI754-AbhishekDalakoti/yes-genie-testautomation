@@ -14,7 +14,7 @@ Feature: Validate portfolio APIs
     Given a genie user has a portfolio api to test is "http://cust360.yesgenie.com:30978/api/portfolio/"
     When a genie user passes the "996264849" as a mdmid to get the response from portfolio api where customer type is individual
     And get the response from portfolio api
-    Then productCategory will be LOANS "LOANS" and total "26100000"
+    Then productCategory will be LOANS "LOANS" and total "2.61E7"
     And user get the response for productCategory loans "<key>" is "<value>" from the portfolio api where customer type is individual
     Examples:
       | key                 | value         |
@@ -22,7 +22,7 @@ Feature: Validate portfolio APIs
       | custId              | 996264849     |
       | productType         | AL            |
       | productDescription  | Auto Loan     |
-      | value               | 1100000       |
+      | value               | 1100000.0     |
       | productCategory     | LOANS         |
       | productHoldingFlag  | YES           |
       | usageTrend          | Good          |

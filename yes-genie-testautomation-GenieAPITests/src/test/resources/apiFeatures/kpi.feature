@@ -19,7 +19,7 @@ Feature: Validate kpi APIs
       Examples:
         | key                 | value         |
         | kpi                 | GROUP_NRV     |
-        | value               | 100000        |
+        | value               | 100000.0      |
 
 
 
