@@ -65,6 +65,14 @@ public class CreateDataTest {
         ImportHbaseData.delete("v_gny_cust_aus_master");
         ImportHbaseData.setupHbase("v_gny_cust_aus_master","data_file/aus.csv");
     }
+
+
+    @Test
+    public void portfolioDetailsDataCreation() throws Exception {
+        ImportHbaseData.createConnection();
+        ImportHbaseData.delete("gny_portfolio_detail");
+        ImportHbaseData.setupHbase("gny_portfolio_detail","data_file/portfolio_details.csv");
+    }
 }
 
 

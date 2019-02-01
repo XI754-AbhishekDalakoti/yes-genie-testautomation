@@ -1,7 +1,7 @@
 @kpi
 Feature: Validate kpi APIs
 
-  @smoke @regression
+  @smoke @regression @k
   Scenario: User validates the response code of kpi api and mdmId as response where customer type is individual
       Given a genie user has a kpi api to test is "http://cust360.yesgenie.com:30978/api/portfolio/kpi/"
       When a genie user passes the "996264849" as a mdmid to get the response from kpi api where customer type is individual
@@ -10,7 +10,7 @@ Feature: Validate kpi APIs
 
 
 
-   @regression
+   @regression @k
     Scenario Outline: User search with valid mdmId and validate response of kpi api where customer type is individual for all the mentioned keys in examples
       Given a genie user has a kpi api to test is "http://cust360.yesgenie.com:30978/api/portfolio/kpi/"
       When a genie user passes the "996264849" as a mdmid to get the response from kpi api where customer type is individual
@@ -19,11 +19,10 @@ Feature: Validate kpi APIs
       Examples:
         | key                 | value         |
         | kpi                 | GROUP_NRV     |
-        | value               | 100000.0      |
 
 
 
-   @regression
+   @regression @k
     Scenario Outline: User search with valid mdmId and validate response of kpi api where customer type is individual for all the mentioned keys in examples
       Given a genie user has a kpi api to test is "http://cust360.yesgenie.com:30978/api/portfolio/kpi/"
       When a genie user passes the "996264849" as a mdmid to get the response from kpi api where customer type is individual
@@ -36,7 +35,7 @@ Feature: Validate kpi APIs
 
 
 
-   @regression
+   @regression @k
      Scenario: User search with valid mdmId and validate response of kpi api where customer type is Individual for all the mentioned keys in examples
        Given a genie user has a kpi api to test is "http://cust360.yesgenie.com:30978/api/portfolio/kpi/"
        When a genie user passes the "24" as a mdmid to get the response from kpi api where customer type is individual

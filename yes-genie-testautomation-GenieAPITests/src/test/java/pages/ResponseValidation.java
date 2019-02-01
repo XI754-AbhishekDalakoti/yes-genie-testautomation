@@ -9,6 +9,10 @@ import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 
+import javax.mail.event.FolderAdapter;
+
+import java.math.BigDecimal;
+
 import static io.restassured.RestAssured.expect;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
@@ -45,6 +49,11 @@ public class ResponseValidation {
     public void responseIntValueCompare(String param, Response response, String key, int vlaue) {
         response.then().
                 body((param.concat(key)), is(vlaue));
+    }
+
+    public void responseIntValueCompare(String param, Response response, int vlaue) {
+        response.then().
+                body(param, is(vlaue));
     }
 
     public void responseBooleanValueCompare(String param, Response response, String value) {
@@ -94,6 +103,10 @@ public class ResponseValidation {
                 then().assertThat().statusCode(vlaue);
     }
 
+    public void responseStringValueContains(Response response, String vlaue) {
+        response.body().asString().contains(vlaue);
+    }
+
     public void responseStringValueCompare(String param, Response response, String vlaue) {
         if (vlaue.equalsIgnoreCase("null")) {
             response.then().
@@ -107,6 +120,12 @@ public class ResponseValidation {
     public void responseNullValueCompare(String param, Response response, String key) {
         response.then().
                 body((param.concat(key)), is(nullValue()));
+    }
+
+
+    public void responseNullValueCompare(String param, Response response) {
+        response.then().
+                body(param, is(nullValue()));
     }
 
     public String getResponse(Response response) {
