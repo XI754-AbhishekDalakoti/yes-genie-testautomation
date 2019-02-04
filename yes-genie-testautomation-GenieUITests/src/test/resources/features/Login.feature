@@ -2,7 +2,7 @@ Feature: Login
   As a user I should able to login into my Genie
 
   Background: User is on Genie Page
-    Given I navigate to "http://yesgenie.com:30978/"
+    Given I navigate to "http://cust360.yesgenie.com:30978"
 
   @Regression
   Scenario Outline: Login button should be disabled if both credentials are not entered
@@ -12,13 +12,13 @@ Feature: Login
     Examples:
       | Username | Password |
       |          |          |
-      | panna    |          |
-      |          | 123      |
+      | manisha  |          |
+      |          | manisha  |
 
   @Regression
   Scenario: User should not be able to login with invalid credentails
     Then I wait for 2 sec
-    And I enter "panna" into input field having id "username"
+    And I enter "manisha" into input field having id "username"
     And I enter "secretpassword" into input field having id "password"
     When I click on Login
     Then I should get error message
@@ -26,8 +26,8 @@ Feature: Login
   @Regression
   Scenario: User ID field is case sensitive
     Then I wait for 2 sec
-    And I enter "PANNA" into input field having id "username"
-    And I enter "123" into input field having id "password"
+    And I enter "MANISHA" into input field having id "username"
+    And I enter "manisha" into input field having id "password"
     When I click on Login
     Then I should get error message
 
@@ -35,8 +35,8 @@ Feature: Login
   Scenario: I login with valid credential with welcome message
     Given I'm on login page
     Then I wait for 2 sec
-    And I enter "panna" into input field having id "username"
-    And I enter "123" into input field having id "password"
+    And I enter "manisha" into input field having id "username"
+    And I enter "manisha" into input field having id "password"
     And I click on Login
     Then I should get logged-in with welcome message
 

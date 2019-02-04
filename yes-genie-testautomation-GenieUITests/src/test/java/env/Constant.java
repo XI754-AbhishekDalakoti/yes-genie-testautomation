@@ -2,9 +2,9 @@ package env;
 
 public class Constant {
 
-    public static final String name = "Panna Das";
+    public static final String name = "Manisha Chauhan";
     public static final String designation = "NA";
-    public static final String role = "IDAM";
+    public static final String role = "SUPERUSER";
     public static final String MDMID = "MDM ID";
     public static final String CUSTID = "Cust ID";
     public static final String CustomerName = "Customer Name";

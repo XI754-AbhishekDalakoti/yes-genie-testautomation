@@ -2,14 +2,14 @@ Feature: Search or Landing Page
   As a user I should able to login into my app
 
   Background: User has logged in to Genie
-    Given I navigate to "http://yesgenie.com:30978/"
+    Given I navigate to "http://cust360.yesgenie.com:30978"
 
   @Smoke @Regression
   Scenario: Ensure static parameter under search bar is displayed
     Given I'm on login page
     Then I wait for 2 sec
-    And I enter "chandan" into input field having id "username"
-    And I enter "chandan" into input field having id "password"
+    And I enter "manisha" into input field having id "username"
+    And I enter "manisha" into input field having id "password"
     Then I click on Login
     And I wait for 2 sec
     Then Under search bar, it contains static search parameters
@@ -37,18 +37,18 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     Then Search result is displayed with all fields in search UI screen
     Examples:
-      | Parameter               |
-      | 12713                 |
-      | 9184820250              |
-      | Abhishek                    |
-      | AXEPD7154N              |
-      | Y7654537                |
-      | 123456789123            |
-      | 181400001300037         |
-      | 12355612355006          |
-      | anupamgupta@yesbank     |
-      | anupamgupta@yahoo.co.in |
-      | @tomer31twitter         |
+      | Parameter            |
+      | 1001                 |
+      | 9184820250           |
+      | Abhishek             |
+      | AXEPD7154N           |
+      | Y7654537             |
+      | 123456789123         |
+      | 101400079900037      |
+      | 10355612355007       |
+      | surabhimehta@yesbank |
+      | csadana@yahoo.co.in  |
+      | @tomer33twitter      |
 
   @Regression
   Scenario: Search with MDM ID and if that MDM ID is not present in CUST ID column then "No Results Found" message should be displayed
@@ -83,9 +83,9 @@ Feature: Search or Landing Page
       | Parameter           |
       | Ayush + 15-May-1990 |
       | ayush + 15-may-1990 |
-      | aYUSh + Delhi     |
-      | ayush + delhi     |
-      | Ayush + 2019         |
+      | aYUSh + Delhi       |
+      | ayush + delhi       |
+      | Ayush + 2019        |
 
   @Regression
   Scenario Outline: When user enters parameter in search field it should intelligently highlight the label with bubble
@@ -97,7 +97,7 @@ Feature: Search or Landing Page
       | AXEPD7154N          | PAN         |
       | Y7654537            | Passport    |
       | 123456789123        | Aadhar      |
-      | Ayush             | Cust Name   |
+      | Ayush               | Cust Name   |
       | @tomer31twitter     | Twitter ID  |
       | 9184821250          | Mobile No.  |
       | 181400001300037     | Account No. |
@@ -113,8 +113,8 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     And I verify search label display like 'Search result for "<Result1>": "<Result2>" "<Result3>": "<Result4>" Results'
     Examples:
-      | Parameter           | Result1 | Result2     | Result3    | Result4 |
-      | Ayush + delhi | Ayush   | delhi | Cust Name: | City:    |
+      | Parameter     | Result1 | Result2 | Result3    | Result4 |
+      | Ayush + delhi | Ayush   | delhi   | Cust Name: | City:   |
 
   @Regression
   Scenario: For single record after search & user is not authorized to view, record is displayed in results

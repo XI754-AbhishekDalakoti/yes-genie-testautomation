@@ -1,5 +1,6 @@
 package info.seleniumcucumber.userStepDefintions;
 
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -33,7 +34,7 @@ public class UserStepDefinitions implements BaseTest {
         String msg = driver.findElement(By.xpath("//span[@class='_2QCs8cFfqH_wnXLIYBu5ro ZU4gfSwYj6EDl657TJqnA']")).getText();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Welcome, Panna Das", msg);
+        Assert.assertEquals("Welcome, Manisha Chauhan", msg);
     }
 
     @Then("^I should get error message$")
@@ -143,8 +144,8 @@ public class UserStepDefinitions implements BaseTest {
     }
 
     @Then("^I verify all the attributes of demographics having customer type individual$")
-    public void snapPageofIndividual() throws Throwable {
-        snap.demographicsAttributesOfIndividual();
+    public void snapPageofIndividual(DataTable data) throws Throwable {
+        snap.demographicsAttributesOfIndividual(data);
     }
 
     @Then("^I lands to SNAP page directly$")
@@ -153,8 +154,8 @@ public class UserStepDefinitions implements BaseTest {
     }
 
     @Then("^I verify all the attributes of demographics having customer type corporate$")
-    public void iVerifyAllTheAttributesOfDemographicsHavingCustomerTypeCorporate() throws Throwable {
-        snap.demographicsAttributesOfCorporate();
+    public void iVerifyAllTheAttributesOfDemographicsHavingCustomerTypeCorporate(DataTable data) throws Throwable {
+        snap.demographicsAttributesOfCorporate(data);
     }
 
     @Then("^I verify all the \"([^\"]*)\" with \"([^\"]*)\" and \"([^\"]*)\" , \"([^\"]*)\", \"([^\"]*)\" is available in NBA section$")
@@ -190,5 +191,155 @@ public class UserStepDefinitions implements BaseTest {
     @And("^gets message \"([^\"]*)\"$")
     public void getsMessage(String message) throws Throwable {
         snap.verifyTransactionCompleted(message);
+    }
+
+    @Then("^I click on 'Regulatory' section in NBA$")
+    public void iClickOnRegulatorySectionInNBA() throws Throwable {
+        snap.ClickOnRegulatorySectionInNBA();
+    }
+
+    @Then("^I click on cross button in 'Regulatory' recommendation$")
+    public void iClickOnCrossButtonInRegulatoryRecommendation() throws Throwable {
+        snap.clickOnCrossButton();
+    }
+
+    @And("^I click on 'Defer' option to defer the recommendation$")
+    public void iClickOnDeferOptionToDeferTheRecommendation() throws Throwable {
+        snap.clickOnDefer();
+    }
+
+    @Then("^In calender I select a future defer date$")
+    public void inCalenderISelectAFutureDeferDate() throws Throwable {
+        snap.selectDateFromCalender();
+    }
+
+    @And("^I click on submit button in calender$")
+    public void iClickOnSubmitButtonInCalender() throws Throwable {
+        snap.clickOnSubmitOfCalender();
+    }
+
+    @Then("^I get message \"([^\"]*)\"$")
+    public void iGetsMessage(String message) throws Throwable {
+        snap.verifyMessage(message);
+    }
+
+    @And("^I click on 'Dimiss' option to dismiss the recommendation$")
+    public void iClickOnDimissOptionToDeferTheRecommendation() throws Throwable {
+        snap.clickOnDismiss();
+    }
+
+    @Then("^I select dimiss reason from dialogue box and i click on submit$")
+    public void iSelectDimissReasonFromDialogueBoxAndIClickOnSubmit() throws Throwable {
+        snap.selectDismissReason();
+    }
+
+    @Then("^I click on 'Customer Relation' icon$")
+    public void iClickOnCustomerRelationshipIcon() throws Throwable {
+        snap.ClicksOnRelationshipIcon();
+    }
+
+    @Then("^I click on 'X-Sell' section in NBA$")
+    public void iClickOnXSellSectionInNBA() throws Throwable {
+        snap.clickOnSellCategory();
+    }
+
+    @And("^I click on cross button in 'X-Sell' recommendation$")
+    public void iClickOnCrossButtonInXSellRecommendation() throws Throwable {
+        snap.clickCrossButtonOfSellCategory();
+    }
+
+    @And("^Customer relation graph gets open where i can see 'Customer Relations Categories' like \"([^\"]*)\"$")
+    public void customerRelationshipPageGetsOpenWhereICanSeeCustomerRelationshipCategoriesLike(String category) throws Throwable {
+        snap.verifyRelationCategory(category);
+    }
+
+    @Then("^I click on 'minimize icon' to close relation graph$")
+    public void iClickOnMinimizeButtonToCloseRelationGraph() throws Throwable {
+        snap.clickOnMinimizeIconOfRelationGraph();
+    }
+
+    @Then("^I click on 'Transactions' icon on top right$")
+    public void iClickOnTransactionsIconOnTopRight() throws Throwable {
+        snap.clickOnTransactionsIcon();
+    }
+
+    @Then("^I click on 'Create Lead'$")
+    public void iClickOnCreateLead() throws Throwable {
+        snap.clickOnCreateLead();
+    }
+
+    @And("^Form gets open with attributes \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" , \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void formGetsOpenWithAttributesAnd(String attribute1, String attribute2, String attribute3, String attribute4, String attribute5, String attribute6) throws Throwable {
+        snap.verifyAttributesOfCreateLeadWithoutReccomendation(attribute1, attribute2, attribute3, attribute4, attribute5, attribute6);
+    }
+
+    @Then("^I select values \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" and enter 'Remarks' \"([^\"]*)\"$")
+    public void iSelectValuesAndEnterRemarks(String value1, String value2, String value3, String value4, String value5, String value6) throws Throwable {
+        snap.selectValuesFromDropdownInCreateLead(value1, value2, value3, value4, value5, value6);
+    }
+
+    @Then("^I click on 'Authorised Signatory' icon in demographics$")
+    public void iClickOnAuthorisedSignatoryIconInDemographics() throws Throwable {
+        snap.iClickOnAuthorisedSignatoryIcon();
+    }
+
+    @Then("^Authorised Signatory page gets open with title \"([^\"]*)\"$")
+    public void authorisedSignatoryPageGetsOpenWithTitle(String title) throws Throwable {
+        snap.verifyAuthorisedSignatoryPage(title);
+    }
+
+    @Then("^I verify 'Portfolio' section is displayed to user with KPI attributes \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void iVerifyPortfolioSectionIsDisplayedToUserWithKPIAttributesAnd(String attr1, String attr2, String attr3) throws Throwable {
+        snap.verifyKpiAttributes(attr1, attr2, attr3);
+    }
+
+    @And("^Respective values like \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\" is displayed on portfolio UI$")
+    public void respectiveValuesLikeAndIsDisplayedOnPortfolioUI(String val1, String val2, String val3) throws Throwable {
+        snap.verifyValuesOfKpiAttributes(val1, val2, val3);
+    }
+
+    @Then("^I click on MDM ID on demographics$")
+    public void iClickOnMDMIDOnDemographics() throws Throwable {
+        snap.clickOnMmdIdOnDemogs();
+    }
+
+    @And("^I verify all DemogsValue with DetailedValue$")
+    public void iVerifyAllDemogsValueWithDetailedValue(DataTable data) throws Throwable {
+        snap.verifyDetailedAttributes(data);
+    }
+
+    @And("^I verify all attributes and there values for detailed MDM ID with indexType 'M'$")
+    public void iVerifyAllAttributesAndThereValuesForDetailedMDMIDWithIndexTypeM(DataTable data) throws Throwable {
+        snap.verifyDetailedAttributesAndValueOfMdmIDTypeM(data);
+    }
+
+    @And("^I verify all attributes and there values for detailed MDM ID with indexType 'C'$")
+    public void iVerifyAllAttributesAndThereValuesForDetailedMDMIDWithIndexTypeC(DataTable data) throws Throwable {
+        snap.verifyDetailedAttributesAndValueOfMdmIDTypeC(data);
+    }
+
+    @And("^I verify all attributes and there values for detailed MDM ID for corporate customer with Type M$")
+    public void iVerifyAllAttributesAndThereValuesForDetailedMDMIDForCorporateCustomerWithTypeM(DataTable data) throws Throwable {
+        snap.verifyDetailedAttributesAndValueOfCorporateCustomerWithMdmIDTypeM(data);
+    }
+
+    @And("^I verify all attributes and there values of corporate customer for indexType C$")
+    public void iVerifyAllAttributesAndThereValuesOfCorporateCustomerForIndexTypeC(DataTable data) throws Throwable {
+        snap.verifyDetailedAttributesAndValueOfCorporateCustomerWithMdmIDTypeC(data);
+    }
+
+    @When("^I click on Book FD on ALL category section and note the count of reccomendation of category ALL$")
+    public void iClickOnBookFDOnALLCategorySectionAndNoteTheCountOfReccomendationOfCategoryALL() throws Throwable {
+        snap.clickOnBookFD();
+    }
+
+    @Then("^Customer relation graph gets open where i can see 'Customer Relations' under categories$")
+    public void customerRelationGraphGetsOpenWhereICanSeeCustomerRelationsUnderCategories(DataTable data) throws Throwable {
+        snap.customerRelationGraphWithCategories(data);
+    }
+
+    @And("^I verify all the attributes is displayed with authorised signatory data$")
+    public void iVerifyAllTheAttributesIsDisplayedWithAuthorisedSignatoryData(DataTable data) throws Throwable {
+        snap.verifyAuthrisedSignatoryAttributesAndData(data);
     }
 }
