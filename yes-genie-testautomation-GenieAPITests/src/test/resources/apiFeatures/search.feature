@@ -2,9 +2,9 @@
 Feature: Validate Search API
 
   Background: User get the access token
-    Given user wants a valid access token from "http://yesgenie.com:30978/auth/realms/YBL/protocol/openid-connect/token" URI
-    And to get valid access token user passes "yes-genie-frontend" as "client_id" and "password" as "grant_type" and "chandan" as "username" and "chandan" as "password" and "f2b07a8f-ce69-41c6-9d28-f056bc9713fe" as "client_secret"
-    And api to test is "http://yesgenie.com:30978/api/genie/customer/search"
+    Given user wants a valid access token from "http://sso.yesgenie.com:30978/auth/realms/YBL/protocol/openid-connect/token" URI
+    And to get valid access token user passes "yes-genie-frontend" as "client_id" and "password" as "grant_type" and "manisha" as "username" and "manisha" as "password" and "f2b07a8f-ce69-41c6-9d28-f056bc9713fe" as "client_secret"
+    And api to test is "http://cust360.yesgenie.com:30978/api/genie/customer/search"
 
   @simplesearch @smoke @regression
   Scenario Outline: User search with custId and other parameters mentioned in below Examples: and validate response from tha api
