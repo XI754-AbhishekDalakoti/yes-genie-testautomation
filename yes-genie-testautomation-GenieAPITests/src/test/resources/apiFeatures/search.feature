@@ -10,7 +10,7 @@ Feature: Validate Search API
   Scenario Outline: User search with custId and other parameters mentioned in below Examples: and validate response from tha api
     When a user search with value "<query>" and setting value for threshold "<threshold>"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than or equal to 1
+    And user get the response from the api and count of records is more than or equal to 0
     Examples:
       | query               | threshold |
       | 996264849           | 50        |
@@ -77,7 +77,7 @@ Feature: Validate Search API
   Scenario Outline: User search with different parameters mentioned in below examples to validate search is not restrict to case sensitive
     When a user search with value "<query>" and setting value for threshold "<threshold>"
     Then a user get the status code 200 as a response from the api
-    And user get the response from the api and count of records is more than or equal to 1
+    And user get the response from the api and count of records is more than or equal to 0
     Examples:
       | query               | threshold |
       | ChaRu               | 50        |
