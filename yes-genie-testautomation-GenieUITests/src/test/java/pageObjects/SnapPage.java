@@ -15,7 +15,7 @@ public class SnapPage extends SnapLocators {
 
     public void demographicsAttributesOfIndividual() {
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals("http://yesgenie.com:30978/snap", currentUrl);
+        Assert.assertEquals("http://cust360.yesgenie.com:30978/snap", currentUrl);
 
         String getIconTooltipText = icon.getAttribute("title");
         String getCustName = customername.getText().trim();
@@ -92,7 +92,7 @@ public class SnapPage extends SnapLocators {
 
     public void demographicsAttributesOfCorporate() {
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals("http://yesgenie.com:30978/snap", currentUrl);
+        Assert.assertEquals("http://cust360.yesgenie.com:30978/snap", currentUrl);
 
         String getIconTooltipText = icon.getAttribute("title");
         String getCustName = customername.getText().trim();

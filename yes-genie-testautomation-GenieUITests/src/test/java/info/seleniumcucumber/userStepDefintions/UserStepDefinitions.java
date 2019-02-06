@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.LoginPage;
+import pageObjects.PortfolioPage;
 import pageObjects.SearchPage;
 import pageObjects.SnapPage;
 
@@ -22,6 +23,7 @@ public class UserStepDefinitions implements BaseTest {
     public static LoginPage lp = new LoginPage();
     public static SearchPage sp = new SearchPage();
     public static SnapPage snap = new SnapPage();
+    public static PortfolioPage portfolio = new PortfolioPage();
     protected WebDriver driver = DriverUtil.getDefaultDriver();
 
     @Then("^I should get logged-in with welcome message$")
@@ -190,5 +192,30 @@ public class UserStepDefinitions implements BaseTest {
     @And("^gets message \"([^\"]*)\"$")
     public void getsMessage(String message) throws Throwable {
         snap.verifyTransactionCompleted(message);
+    }
+
+    @Then("^I verify deposit options of portfolio section$")
+    public void depositOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyDepositOptions();
+    }
+
+    @Then("^I verify investment options of portfolio section$")
+    public void investmentOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyInvestmentOptions();
+    }
+
+    @Then("^I verify loan options of portfolio section$")
+    public void loanOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyLoanOptions();
+    }
+
+    @Then("^I verify cards and wallets options of portfolio section$")
+    public void cardsOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyCardsOptions();
+    }
+
+    @Then("^I verify other options of portfolio section$")
+    public void otherOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyOthersOptions();
     }
 }
