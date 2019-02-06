@@ -4,7 +4,7 @@ Feature: Login
   Background: User is on Genie Page
     Given I navigate to "http://cust360.yesgenie.com:30978/"
 
-  @Regression
+  @Regression  @arya
   Scenario Outline: Login button should be disabled if both credentials are not entered
     When User enters "<Username>" and "<Password>"
     And I click on Login

@@ -238,4 +238,29 @@ public class ResponseValidation {
         int code = response.getStatusCode();
         return code;
     }
+
+
+    public Response putOperationForEightKeys(String uri,String path,String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree,
+                                             String valueThree, String keyFour, String valueFour, String keyFive, String valueFive,
+                                             String keySix, String valueSix, String keySeven, String valueSeven, String keyEight, int valueEight, String keyNine, String valueNine) {
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.header("Content-Type", "application/json");
+        JSONObject json = new JSONObject();
+        json.put(keyOne, valueOne);
+        json.put(keyTwo, valueTwo);
+        json.put(keyThree, valueThree);
+        json.put(keyFour, valueFour);
+        json.put(keyFive, valueFive);
+        json.put(keySix, valueSix);
+        json.put(keySeven, valueSeven);
+        json.put(keyEight, valueEight);
+        json.put(keyNine, valueNine);
+        requestSpecification.body(json.toJSONString());
+        requestSpecification.basePath(path);
+        requestSpecification.baseUri(uri);
+        Response response = requestSpecification.put();
+        return response;
+    }
 }
+
+
