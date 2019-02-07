@@ -65,6 +65,20 @@ public class CreateDataTest {
         ImportHbaseData.delete("v_gny_cust_aus_master");
         ImportHbaseData.setupHbase("v_gny_cust_aus_master","data_file/aus.csv");
     }
+
+    @Test
+    public void kpiTrendDataCreation() throws Exception {
+        ImportHbaseData.createConnection();
+        ImportHbaseData.delete("gny_kpi_trend");
+        ImportHbaseData.setupHbase("gny_kpi_trend","data_file/product_kpi_trend.csv");
+    }
+
+    @Test
+    public void kpiPortFolioDetailDataCreation() throws Exception {
+        ImportHbaseData.createConnection();
+        ImportHbaseData.delete("gny_portfolio_detail");
+        ImportHbaseData.setupHbase("gny_portfolio_detail","data_file/product_detail.csv");
+    }
 }
 
 
