@@ -73,6 +73,13 @@ public class CreateDataTest {
         ImportHbaseData.delete("gny_portfolio_detail");
         ImportHbaseData.setupHbase("gny_portfolio_detail","data_file/portfolio_details.csv");
     }
+
+    @Test
+    public void kpiTrendDataCreation() throws Exception {
+        ImportHbaseData.createConnection();
+        ImportHbaseData.delete("gny_kpi_trend");
+        ImportHbaseData.setupHbase("gny_kpi_trend","data_file/product_kpi_trend.csv");
+    }
 }
 
 
