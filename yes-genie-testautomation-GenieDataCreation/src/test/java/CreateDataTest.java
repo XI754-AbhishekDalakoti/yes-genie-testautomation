@@ -36,8 +36,8 @@ public class CreateDataTest {
     @Test
     public void demogsDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.delete("genie_cust_demog");
-        ImportHbaseData.setupHbase("genie_cust_demog", "data_file/data_demogs.csv");
+        ImportHbaseData.delete("gny_cust_demogs");
+        ImportHbaseData.setupHbase("gny_cust_demogs", "data_file/data_demogs.csv");
     }
 
 
