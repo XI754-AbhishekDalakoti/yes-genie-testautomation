@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.yecht.Data;
 import pages.ResponseValidation;
+import pages.TokenGenerator;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import static net.serenitybdd.rest.SerenityRest.given;
 
 public class CreateCaseAdditionalFieldsAPI {
     public static Response responseIndividual, responseCorporate;
-    public static String uri;
+    public static String uri,accessToken;
     ResponseValidation responseValidation = new ResponseValidation();
 
     @Given("^a genie user has a createcaseadditionfields api to test is \"([^\"]*)\"$")
@@ -42,7 +43,8 @@ public class CreateCaseAdditionalFieldsAPI {
 
     @When("^get the response from createcaseadditionfields api$")
     public void get_the_response_from_createcaseadditionfields_api() throws Throwable {
-        responseIndividual=given().accept(ContentType.JSON).get(uri);
+        accessToken = TokenGenerator.getToken();
+        responseIndividual=given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
 
 
     }
@@ -89,7 +91,8 @@ public class CreateCaseAdditionalFieldsAPI {
 
     @When("^get the response from createcaseadditionfields api for corporate$")
     public void get_the_response_from_createcaseadditionfields_api_for_corporate() throws Throwable {
-        responseCorporate=given().accept(ContentType.JSON).get(uri);
+        accessToken = TokenGenerator.getToken();
+        responseCorporate=given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
 
     }
 

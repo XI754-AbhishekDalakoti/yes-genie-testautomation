@@ -7,6 +7,7 @@ import cucumber.api.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import pages.ResponseValidation;
+import pages.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -14,7 +15,7 @@ public class KPIAPI
 {
 
     public static Response responseIndividual, responseCorporate;
-    public static String uri;
+    public static String uri,accessToken;
     ResponseValidation responseValidation = new ResponseValidation();
 
     @Given("^a genie user has a kpi api to test is \"([^\"]*)\"$")
@@ -29,7 +30,8 @@ public class KPIAPI
 
     @When("^get the response from kpi api$")
     public void get_the_response_from_kpi_api() throws Throwable {
-        responseIndividual = given().accept(ContentType.JSON).get(uri);
+        accessToken = TokenGenerator.getToken();
+        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
         System.out.print(responseIndividual.body().asString());
     }
 

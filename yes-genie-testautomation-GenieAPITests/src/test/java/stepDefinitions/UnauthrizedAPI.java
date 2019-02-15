@@ -15,7 +15,7 @@ import static net.serenitybdd.rest.SerenityRest.given;
 public class UnauthrizedAPI extends ResponseValidation {
 
     public static Response response;
-    public static String uri;
+    public static String uri,accessToken;
     ResponseValidation responseValidation = new ResponseValidation();
 
     @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\" to test unauthorized functionality$")

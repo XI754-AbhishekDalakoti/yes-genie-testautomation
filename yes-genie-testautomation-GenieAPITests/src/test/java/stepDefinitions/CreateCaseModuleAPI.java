@@ -7,13 +7,14 @@ import cucumber.api.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import pages.ResponseValidation;
+import pages.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
 public class CreateCaseModuleAPI {
 
     public static Response responseIndividual, responseCorporate;
-    public static String uri;
+    public static String uri,accessToken;
     ResponseValidation responseValidation = new ResponseValidation();
 
     @Given("^a genie user has a createcasemodule api to test is \"([^\"]*)\"$")
@@ -28,11 +29,13 @@ public class CreateCaseModuleAPI {
 
     @When("^get the response from createcasemodule api$")
     public void get_the_response_from_createcasemodule_api() throws Throwable {
-        responseIndividual = given().accept(ContentType.JSON).get(uri);
+        accessToken = TokenGenerator.getToken();
+        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
     }
     @When("^get the response from createcasemodule api for corporate$")
     public void get_the_response_from_createcasemodule_api_for_corportate() throws Throwable {
-        responseCorporate = given().accept(ContentType.JSON).get(uri);
+        accessToken = TokenGenerator.getToken();
+        responseCorporate = given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
     }
 
     @Then("^a user get the status code (\\d+) as a response from the createcasemodule api where customer type is individual$")

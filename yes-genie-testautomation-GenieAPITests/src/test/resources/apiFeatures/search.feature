@@ -104,23 +104,23 @@ Feature: Validate Search API
       | DOB              | 30-May-1952           |
       | custType         | I                     |
 
-  @refinesearch @regression
-  Scenario Outline: User perform refine search with valid customer name and DOB and validate response for all the mentioned keys in below Examples:
-    When a user search with value "Ayush+30-May-1952" and setting value for threshold "50"
-    Then user get the response from the api for the initial record for "<key>" is "<value>"
-    Examples:
-      | key              | value                 |
-      | customerName     | Ayush                 |
-      | city             | Delhi                 |
-      | addressArea      | W/O RAHUL SADANA 25-B |
-      | homeBranch       | Panipat,Haryana       |
-      | assetRM          | NULL                  |
-      | groupId          | 274937                |
-      | businessSegment  | BRB                   |
-      | partnerSegment   | RB                    |
-      | customerOpenDate | 30-Nov-2016           |
-      | DOB              | 30-May-1952           |
-      | custType         | I                     |
+#  @refinesearch @regression
+#  Scenario Outline: User perform refine search with valid customer name and DOB and validate response for all the mentioned keys in below Examples:
+#    When a user search with value "Ayush+30-May-1952" and setting value for threshold "50"
+#    Then user get the response from the api for the initial record for "<key>" is "<value>"
+#    Examples:
+#      | key              | value                 |
+#      | customerName     | Ayush                 |
+#      | city             | Delhi                 |
+#      | addressArea      | W/O RAHUL SADANA 25-B |
+#      | homeBranch       | Panipat,Haryana       |
+#      | assetRM          | NULL                  |
+#      | groupId          | 274937                |
+#      | businessSegment  | BRB                   |
+#      | partnerSegment   | RB                    |
+#      | customerOpenDate | 30-Nov-2016           |
+#      | DOB              | 30-May-1952           |
+#      | custType         | I                     |
 
   @refinesearch @regression @paa
   Scenario Outline: User perform refine search with valid customer name and Branch Code and validate response for all the mentioned keys in below Examples:

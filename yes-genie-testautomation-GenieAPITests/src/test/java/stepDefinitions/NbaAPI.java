@@ -7,6 +7,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import pages.ResponseValidation;
+import pages.TokenGenerator;
+
 import static net.serenitybdd.rest.SerenityRest.given;
 
 /**
@@ -15,9 +17,10 @@ import static net.serenitybdd.rest.SerenityRest.given;
 public class NbaAPI {
 
     public static Response responseIndividual, responseCorporate, responseLeadIndividual, responseLeadCorporate,responseBlacklist;
-    public static String uri;
+    public static String uri,accessToken;
     public int codeEditRemark;
     ResponseValidation responseValidation = new ResponseValidation();
+
 
     @Given("^a genie user has a nba api to test is \"([^\"]*)\"$")
     public void apiValue(String value) {
@@ -27,7 +30,8 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid to get the response from nba api where customer type is individual$")
     public void get_the_response_of_the_Api_by_passing_parameters_directly(String mdmid) {
         uri = uri.concat(mdmid);
-        responseIndividual = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -44,7 +48,7 @@ public class NbaAPI {
 
     @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" as additional info from the nba api where customer type is individual$")
     public void respose_as_additional_info_for_key_and_value_is(String key, String value) throws Throwable {
-        String param = "additionalInfo[0].";
+        String param = "[0].additionalInfo[0].";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 
@@ -66,7 +70,8 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid to get the response from nba api where customer type is corporate$")
     public void get_the_response_of_the_Api_by_passing_mdmId_directly(String mdmid) {
         uri = uri.concat(mdmid);
-        responseCorporate = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        responseCorporate = given().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -78,7 +83,7 @@ public class NbaAPI {
 
     @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" as additional info from the nba api where customer type is corporate$")
     public void respose_nba_as_additional_info_for_key_and_value_is(String key, String value) throws Throwable {
-        String param = "additionalInfo[0].";
+        String param = "[0].additionalInfo[0].";
         responseValidation.responseStringValueCompare(param, responseCorporate, key, value);
     }
 
@@ -89,14 +94,16 @@ public class NbaAPI {
 
     @When("^a genie user passes the \"([^\"]*)\" as action codes to get the response from nba api where customer type is individual$")
     public void get_the_response_of_the_Api_by_passing_parameters_directly_for_action_code_individual(String actionCode) {
-        responseIndividual = given().accept(ContentType.JSON).
+        accessToken  = TokenGenerator.getToken();
+        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).
                 param("query", actionCode).
                 get(uri);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as action codes to get the response from nba api where customer type is corporate")
     public void get_the_response_of_the_Api_by_passing_parameters_directly_for_action_code_corporate(String actionCode) {
-        responseCorporate = given().accept(ContentType.JSON).
+        accessToken  = TokenGenerator.getToken();
+        responseCorporate = given().accept(ContentType.JSON).header("Authorization", accessToken).
                 param("query", actionCode).
                 get(uri);
     }
@@ -104,7 +111,8 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from nba api where customer type is individual$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_nba_api_where_customer_type_is_individual(String mdmId, String refrenceID) throws Throwable {
         uri = uri.concat(mdmId).concat("/").concat(refrenceID);
-        responseLeadIndividual = given().accept(ContentType.JSON).
+        accessToken  = TokenGenerator.getToken();
+        responseLeadIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -122,7 +130,8 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from nba api where customer type is corporate$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_nba_api_where_customer_type_is_corporate(String mdmId, String refrenceID) throws Throwable {
         uri = uri.concat(mdmId).concat("/").concat(refrenceID);
-        responseLeadCorporate = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        responseLeadCorporate = given().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -170,7 +179,8 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as action codes to get the response from blacklist api$")
     public void a_genie_user_passes_the_as_action_codes_to_get_the_response_from_blacklist_api(String actionCodeValue) throws Throwable {
         uri=uri.concat("/").concat(actionCodeValue);
-        responseBlacklist = given().accept(ContentType.JSON).
+        accessToken  = TokenGenerator.getToken();
+        responseBlacklist = given().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -204,7 +214,7 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from dismissal api where customer type is individual$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_dismissal_api_where_customer_type_is_individual(String mdmId, String refrenceID) throws Throwable {
         uri = uri.concat(mdmId).concat("/").concat(refrenceID);
-        responseIndividual = given().accept(ContentType.JSON).
+        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 

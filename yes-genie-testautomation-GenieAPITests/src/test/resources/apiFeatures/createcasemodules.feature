@@ -1,9 +1,11 @@
 @case
 Feature: Validate createcase modules APIs
 
+
+
   @smoke @regression @cm1
   Scenario: User validates the response code of createcasemodules api and mdmId as response where customer type is individual
-      Given a genie user has a createcasemodules api to test is "http://cust360.yesgenie.com:30978/api/case/modules/"
+      Given a genie user has a createcasemodules api to test is "http://cust360.yesgenie.com:30978/api/genie/case/modules/"
       When user pass productname "Deposits"
       And get the response from createcasemodules api
       Then a user get the status code 200 as a response from the createcasemodules api where customer type is individual
@@ -12,7 +14,7 @@ Feature: Validate createcase modules APIs
 
    @regression @cm1
     Scenario Outline: User validate response for caseModuleAttributes of createcasemodules api where customer type is individual for all the mentioned keys in examples
-      Given a genie user has a createcasemodules api to test is "http://cust360.yesgenie.com:30978/api/case/modules/"
+      Given a genie user has a createcasemodules api to test is "http://cust360.yesgenie.com:30978/api/genie/case/modules/"
       When user pass productname "Deposits"
       And get the response from createcasemodules api
       Then user get the response  with productname "Deposits" in createcasemodules api where customer type is individual
@@ -25,7 +27,7 @@ Feature: Validate createcase modules APIs
 
     @regression @cm1
     Scenario Outline: User validate response for caseTypeAttribute of createcasemodules api where customer type is individual for all the mentioned keys in examples
-       Given a genie user has a createcasemodules api to test is "http://cust360.yesgenie.com:30978/api/case/modules/"
+       Given a genie user has a createcasemodules api to test is "http://cust360.yesgenie.com:30978/api/genie/case/modules/"
        When user pass productname "Deposits"
        And get the response from createcasemodules api
        Then user get the response  with productname "Deposits" in createcasemodules api where customer type is individual
@@ -39,7 +41,7 @@ Feature: Validate createcase modules APIs
 
     @regression @cm1
           Scenario: User validates the blank response of createcasemodules api and mdmId as response where customer type is individual
-              Given a genie user has a createcasemodules api to test is "http://cust360.yesgenie.com:30978/api/case/modules/"
+              Given a genie user has a createcasemodules api to test is "http://cust360.yesgenie.com:30978/api/genie/case/modules/"
               When user pass productname "1"
               And get the response from createcasemodules api
               Then a user get the blank response from the createcasemodules api where customer type is individualzzz
