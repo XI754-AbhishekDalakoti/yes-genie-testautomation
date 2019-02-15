@@ -218,4 +218,9 @@ public class UserStepDefinitions implements BaseTest {
     public void otherOptionsOfPortfolio() throws Throwable {
         portfolio.verifyOthersOptions();
     }
+
+    @Then("^I verify KPI data of portfolio section$")
+    public void KPIDataOfPortfolio() throws Throwable {
+        portfolio.verifyKPIData();
+    }
 }

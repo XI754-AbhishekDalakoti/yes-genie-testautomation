@@ -193,4 +193,11 @@ public class PortfolioLocators extends UserStepDefinitions {
     @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw cardHover']")
     public static WebElement total_card_amount;
 
+    @FindBy(how = How.CSS, using = "span[class='_1wQ1rFim9bh2TNPIuuDBdQ']")
+    public static List<WebElement> kpi_labels;
+
+    @FindBy(how = How.XPATH, using = "//span[@class='_20Mx09ER8emApg4placFeV']/span")
+    public static List<WebElement> kpi_data;
+
+
 }

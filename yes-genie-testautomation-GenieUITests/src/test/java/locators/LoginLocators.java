@@ -13,7 +13,10 @@ public class LoginLocators extends UserStepDefinitions {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(how = How.CLASS_NAME, using = "buttonRipple")
+/*    @FindBy(how = How.CLASS_NAME, using = "buttonRipple")
+    public static WebElement login_button;*/
+
+    @FindBy(how = How.ID, using = "kc-login")
     public static WebElement login_button;
 
     @FindBy(how = How.ID, using = "username")
