@@ -28,8 +28,6 @@ public class PortfolioPage extends PortfolioLocators {
         action.moveToElement(deposit_heading).build().perform();
 
         double actualTotal = help.getAmountAfterReplacing(total_deposit);
-        System.out.println(expectedTotal);
-        System.out.println(actualTotal);
 
         Assert.assertEquals(true,deposit_icon.isDisplayed());
         Assert.assertEquals(true,deposit_heading.isDisplayed());
@@ -37,8 +35,8 @@ public class PortfolioPage extends PortfolioLocators {
         Assert.assertEquals(true,fixed_deposit_heading.isDisplayed());
         Assert.assertEquals(true,savings_account_icon.isDisplayed());
         Assert.assertEquals(true,savings_account_heading.isDisplayed());
-/*        Assert.assertEquals(true,current_account_icon.isDisplayed());
-        Assert.assertEquals(true,current_account_heading.isDisplayed());*/
+        Assert.assertEquals(true,current_account_icon.isDisplayed());
+        Assert.assertEquals(true,current_account_heading.isDisplayed());
         Assert.assertEquals(true,recurring_deposit_icon.isDisplayed());
         Assert.assertEquals(true,recurring_deposit_heading.isDisplayed());
         Assert.assertEquals(true,demat_account_icon.isDisplayed());
@@ -57,9 +55,6 @@ public class PortfolioPage extends PortfolioLocators {
 
         double actualTotal = help.getAmountAfterReplacing(total_investment);
 
-        System.out.println(expectedTotal);
-        System.out.println(actualTotal);
-
         Assert.assertEquals(true,investment_icon.isDisplayed());
         Assert.assertEquals(true,investment_heading.isDisplayed());
         Assert.assertEquals(true,life_insurance_icon.isDisplayed());
@@ -74,7 +69,7 @@ public class PortfolioPage extends PortfolioLocators {
         Assert.assertEquals(true,apy_heading.isDisplayed());
         Assert.assertEquals(true,gold_icon.isDisplayed());
         Assert.assertEquals(true,gold_heading.isDisplayed());
-        //Assert.assertEquals(expectedTotal,actualTotal,0.0f);
+        Assert.assertEquals(expectedTotal,actualTotal,0.0f);
 
     }
 
@@ -86,9 +81,6 @@ public class PortfolioPage extends PortfolioLocators {
         action.moveToElement(loan_heading).build().perform();
 
         double actualTotal = help.getAmountAfterReplacing(total_loan);
-
-        System.out.println(expectedTotal);
-        System.out.println(actualTotal);
 
         Assert.assertEquals(true,loan_icon.isDisplayed());
         Assert.assertEquals(true,loan_heading.isDisplayed());
@@ -110,9 +102,6 @@ public class PortfolioPage extends PortfolioLocators {
         action.moveToElement(cards_heading).build().perform();
 
         double actualTotal = help.getAmountAfterReplacing(total_card_amount);
-
-        System.out.println(expectedTotal);
-        System.out.println(actualTotal);
 
         Assert.assertEquals(true,cards_icon.isDisplayed());
         Assert.assertEquals(true,cards_heading.isDisplayed());
@@ -140,23 +129,34 @@ public class PortfolioPage extends PortfolioLocators {
 
     }
 
-    public void verifyKPIData(){
+    public void verifyKPILabels(){
 
         ArrayList<String> expected_labels = new ArrayList<>(Arrays.asList("GROUP_NRV","NRV","PPI"));
         ArrayList<String> actual_labels = new ArrayList<>();
-
-        ArrayList<String> expected_data = new ArrayList<>(Arrays.asList("₹ 10,000","₹ 1,00,00,00,000","1.6"));
-        ArrayList<String> actual_data = new ArrayList<>();
-
         for(WebElement element : kpi_labels){
             actual_labels.add(element.getText());
         }
         Assert.assertEquals(expected_labels,actual_labels);
 
+    }
+
+    public void verifyKPIAmountsForIndividual(){
+
+        ArrayList<String> expected_data = new ArrayList<>(Arrays.asList("₹ 1,00,000","₹ 1,00,00,000","1.2"));
+        ArrayList<String> actual_data = new ArrayList<>();
         for(WebElement dataElement : kpi_data){
             actual_data.add(dataElement.getText());
         }
         Assert.assertEquals(expected_data,actual_data);
+    }
 
+    public void verifyKPIAmountsForCorporate(){
+
+        ArrayList<String> expected_data = new ArrayList<>(Arrays.asList("₹ 10,000","₹ 1,00,000","1.6"));
+        ArrayList<String> actual_data = new ArrayList<>();
+        for(WebElement dataElement : kpi_data){
+            actual_data.add(dataElement.getText());
+        }
+        Assert.assertEquals(expected_data,actual_data);
     }
 }

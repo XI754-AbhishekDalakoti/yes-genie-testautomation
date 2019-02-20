@@ -1,6 +1,7 @@
 package info.seleniumcucumber.userStepDefintions;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -15,6 +16,10 @@ import pageObjects.PortfolioPage;
 import pageObjects.SearchPage;
 import pageObjects.SnapPage;
 
+import java.util.concurrent.TimeUnit;
+
+import static locators.LoginLocators.dropdown;
+import static locators.LoginLocators.logout_button;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 
@@ -219,8 +224,22 @@ public class UserStepDefinitions implements BaseTest {
         portfolio.verifyOthersOptions();
     }
 
-    @Then("^I verify KPI data of portfolio section$")
-    public void KPIDataOfPortfolio() throws Throwable {
-        portfolio.verifyKPIData();
+    @Then("^I verify KPI data of portfolio section for individual$")
+    public void kpiDataOfPortfolioIndividual() throws Throwable {
+        portfolio.verifyKPILabels();
+        portfolio.verifyKPIAmountsForIndividual();
+    }
+
+    @Then("^I verify KPI data of portfolio section for corporate$")
+    public void kpiDataOfPortfolioCorporate() throws Throwable {
+        portfolio.verifyKPILabels();
+        portfolio.verifyKPIAmountsForCorporate();
+    }
+
+    @After
+    public void afterScenario() {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        dropdown.click();
+        logout_button.click();
     }
 }

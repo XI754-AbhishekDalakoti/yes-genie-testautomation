@@ -169,25 +169,25 @@ public class PortfolioLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[contains(text(),'Cheque Book')]")
     public static WebElement cheque_book_heading;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][1]//span[contains(text(),'₹')]")
+    @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][1]//span[contains(text(),',')]")
     public static List<WebElement> deposit_amounts;
 
     @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw depositHover']")
     public static WebElement total_deposit;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][2]//span[contains(text(),'₹')]")
+    @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][2]//span[contains(text(),',')]")
     public static List<WebElement> investment_amounts;
 
     @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw investmentHover']")
     public static WebElement total_investment;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][3]//span[contains(text(),'₹')]")
+    @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][3]//span[contains(text(),',')]")
     public static List<WebElement> loan_amounts;
 
     @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw loanHover']")
     public static WebElement total_loan;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][4]//span[contains(text(),'₹')]")
+    @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][4]//span[contains(text(),',')]")
     public static List<WebElement> card_amounts;
 
     @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw cardHover']")
