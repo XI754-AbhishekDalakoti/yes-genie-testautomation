@@ -19,8 +19,8 @@ public class TokenGenerator {
                 header("Content-Type", "application/x-www-form-urlencoded").
                 formParam("client_id", "yes-genie-frontend").
                 formParam("grant_type", "password").
-                formParam("username", "manisha").
-                formParam("password", "manisha").
+                formParam("username", "prabhat").
+                formParam("password", "1234").
                 formParam("client_secret", "f2b07a8f-ce69-41c6-9d28-f056bc9713fe").
                 post(uriAccessToken);
         responseValidation.validateResponseOk(responseAccessToken);

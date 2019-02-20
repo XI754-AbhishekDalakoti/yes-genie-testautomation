@@ -24,7 +24,7 @@ import static org.hamcrest.Matchers.nullValue;
  */
 public class ResponseValidation {
 
-    public static String accessToken=TokenGenerator.getToken();
+    public static String accessToken;
 
     public void responseStringValueCompare(String param, Response response, String key, String vlaue) {
         if (vlaue.equalsIgnoreCase("null")) {

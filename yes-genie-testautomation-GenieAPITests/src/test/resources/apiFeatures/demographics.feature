@@ -69,22 +69,22 @@ Feature: Validate demographics APIs
       | custType               | FEMALE RESIDENT INDIVIDUAL      |
       | emailStatus            | VERIFIED                        |
       | currentCityState       | PATNA,BIHAR                     |
-      | currentCityStateStatus | NOTVERIFIED                     |
+      | currentCityStateStatus | INDETERMINISTIC                 |
       | mobileNumber           | 6080112225                      |
       | mobileNumberStatus     | NOTVERIFIED                     |
-      | profitablilityBand     | #FF0000                          |
+      | profitablilityBand     | #FF0000                         |
       | custCategory           | C                               |
       | indexType              | M                               |
       | constitution           | null                            |
       | business               | null                            |
       | industry               | Agri Commodities                |
       | annualTurnover         | 1 TO 5 CRORE                    |
-      | landlineNumberStatus   | null                    |
+      | landlineNumberStatus   | null                            |
       | PS                     | RS                              |
       | BS                     | BRB                             |
       | PAN                    | NOTVERIFIED                     |
-      | DOI                    | 27-May-2015                     |
-      | landlineNumber         | 919158706602                            |
+      | DOI                    | 2015-05-27 00:00:00             |
+      | landlineNumber         | 919158706602                    |
       | webSite                | null                            |
 
   @smoke @regression @dm
@@ -102,9 +102,9 @@ Feature: Validate demographics APIs
       | key              | value                    |
       | name             | CHARU SADANA             |
       | custId           | 996264849                |
-      | DOB              | 27-Aug-1975              |
+      | DOB              | 1975-08-27 00:00:00      |
       | profession       | BUSINESS                 |
-      | custOpenDate     | 27-May-2015              |
+      | custOpenDate     | 2015-05-27 00:00:00      |
       | income           | 0 TO 50 LACS             |
       | mobileNumber     | 917123456789             |
       | alternateNumber  | 919158706602             |
@@ -114,7 +114,7 @@ Feature: Validate demographics APIs
       | cluster          | null                     |
       | region           | null                     |
       | assetRM          | null                     |
-      | liabilityRM      | null                  |
+      | liabilityRM      | 4188029                  |
       | serviceRM        | 2985009                  |
       | groupCode        | 1466889                  |
       | PSM              | null                     |

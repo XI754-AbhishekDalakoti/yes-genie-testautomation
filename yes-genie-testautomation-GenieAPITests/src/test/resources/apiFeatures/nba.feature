@@ -138,7 +138,7 @@ Feature: Validate nba APIs
       | mdmId       | 996264849  |
       | referenceNo | 123        |
       | custId      | 996264849  |
-      | productName | 9      ````|
+      | productName | 9          |
       | bu          | Branch Banking   |
       | sourceRefId | FFDBranch Banking |
       | branchCode  | 1          |
