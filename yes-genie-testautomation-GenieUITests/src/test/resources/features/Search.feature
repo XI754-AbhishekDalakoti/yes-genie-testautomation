@@ -8,8 +8,8 @@ Feature: Search or Landing Page
   Scenario: Ensure static parameter under search bar is displayed
     Given I'm on login page
     Then I wait for 2 sec
-    And I enter "chandan" into input field having id "username"
-    And I enter "chandan" into input field having id "password"
+    And I enter "prabhat" into input field having id "username"
+    And I enter "1234" into input field having id "password"
     Then I click on Login
     And I wait for 2 sec
     Then Under search bar, it contains static search parameters

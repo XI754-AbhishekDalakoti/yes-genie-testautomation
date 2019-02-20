@@ -35,8 +35,8 @@ Feature: Login
   Scenario: I login with valid credential with welcome message
     Given I'm on login page
     Then I wait for 2 sec
-    And I enter "panna" into input field having id "username"
-    And I enter "123" into input field having id "password"
+    And I enter "prabhat" into input field having id "username"
+    And I enter "1234" into input field having id "password"
     And I click on Login
     Then I should get logged-in with welcome message
 
