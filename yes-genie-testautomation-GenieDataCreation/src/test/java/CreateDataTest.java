@@ -2,21 +2,27 @@ import dataCreation.ApiContracts;
 import dataCreation.ImportHbaseData;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
-import utility.HBaseRecommendationException;
 
-import java.io.IOException;
 
 public class CreateDataTest {
 
 
-  /*  @Test
-    public void dataCreation() throws Exception {
+    @Test
+    public void dataCreationSearch() throws Exception {
         ApiContracts.deleteGnyCustSearchIndex();
         ApiContracts.createIndexGnyCustSearch();
         ApiContracts.createMappingGnyCustDoc();
-        ApiContracts.bulkIndexing();
+        ApiContracts.bulkIndexingCustSearch();
         ApiContracts.bulkIndexingInYesBankAccount();
-    }*/
+    }
+
+    @Test
+    public void dataCreationRelationship() throws Exception {
+        ApiContracts.deleteGnyCustRelationshipIndex();
+        ApiContracts.createIndexGnyCustRelationship();
+        ApiContracts.createMappingGnyCustRelationship();
+        ApiContracts.bulkIndexingCustRelationship();
+    }
 
 
     @Test
@@ -26,67 +32,70 @@ public class CreateDataTest {
 
     }
 
- /*   @Test
+    @Test
+    public void list() throws Exception {
+        ImportHbaseData.createConnection();
+        ImportHbaseData.listHbaseTable();
+    }
+
+
+    @Test
     public void recommendationDataCreation()  throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.delete("genie_recomendations");
-        ImportHbaseData.setupHbase("genie_recomendations", "data_file/data_NBA.csv");
+        ImportHbaseData.createHbaseTable("gny_nba");
+        ImportHbaseData.setupHbase("gny_nba", "data_file/data_NBA.csv");
     }
 
     @Test
     public void demogsDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.delete("gny_cust_demogs");
+        ImportHbaseData.createHbaseTable("gny_cust_demogs");
         ImportHbaseData.setupHbase("gny_cust_demogs", "data_file/data_demogs.csv");
     }
 
 
 
-   @Test
-   public void kpiDataCreation() throws Exception {
-       ImportHbaseData.createConnection();
-       ImportHbaseData.delete("kpi_matrix");
-       ImportHbaseData.setupHbase("kpi_matrix","data_file/kpi.csv");
-   }
+    @Test
+    public void kpiDataCreation() throws Exception {
+        ImportHbaseData.createConnection();
+        ImportHbaseData.createHbaseTable("gny_portfolio_kpi_snap");
+        ImportHbaseData.setupHbase("gny_portfolio_kpi_snap","data_file/kpi.csv");
+    }
 
 
 
     @Test
     public void portfolioDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.delete("portfolio_snap");
-        ImportHbaseData.setupHbase("portfolio_snap","data_file/portfolio.csv");
+        ImportHbaseData.createHbaseTable("gny_portfolio_snap");
+        ImportHbaseData.setupHbase("gny_portfolio_snap","data_file/portfolio.csv");
     }
 
 
     @Test
     public void ausDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.delete("v_gny_cust_aus_master");
-        ImportHbaseData.setupHbase("v_gny_cust_aus_master","data_file/aus.csv");
+        ImportHbaseData.createHbaseTable("gny_cust_aus");
+        ImportHbaseData.setupHbase("gny_cust_aus","data_file/aus.csv");
     }
 
 
     @Test
     public void portfolioDetailsDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.delete("gny_portfolio_detail");
-        ImportHbaseData.setupHbase("gny_portfolio_detail","data_file/portfolio_details.csv");
+        ImportHbaseData.createHbaseTable("gny_product_details");
+        ImportHbaseData.setupHbase("gny_product_details","data_file/portfolio_details.csv");
     }
 
     @Test
     public void kpiTrendDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.delete("gny_kpi_trend");
+        ImportHbaseData.createHbaseTable("gny_kpi_trend");
         ImportHbaseData.setupHbase("gny_kpi_trend","data_file/product_kpi_trend.csv");
-    }*/
-
-
-    @Test
-    public void list() throws Exception {
-        ImportHbaseData.createConnection();
-        ImportHbaseData.listHbaseTable();
     }
+
+
+
 }
 
 
