@@ -9,24 +9,24 @@ import java.io.IOException;
 public class CreateDataTest {
 
 
-    @Test
+  /*  @Test
     public void dataCreation() throws Exception {
         ApiContracts.deleteGnyCustSearchIndex();
         ApiContracts.createIndexGnyCustSearch();
         ApiContracts.createMappingGnyCustDoc();
         ApiContracts.bulkIndexing();
         ApiContracts.bulkIndexingInYesBankAccount();
-    }
+    }*/
 
 
-    @AfterSuite
+    @Test
     public void afterScenario() {
         ApiContracts.searchData();
 
 
     }
 
-    @Test
+ /*   @Test
     public void recommendationDataCreation()  throws Exception {
         ImportHbaseData.createConnection();
         ImportHbaseData.delete("genie_recomendations");
@@ -79,6 +79,13 @@ public class CreateDataTest {
         ImportHbaseData.createConnection();
         ImportHbaseData.delete("gny_kpi_trend");
         ImportHbaseData.setupHbase("gny_kpi_trend","data_file/product_kpi_trend.csv");
+    }*/
+
+
+    @Test
+    public void list() throws Exception {
+        ImportHbaseData.createConnection();
+        ImportHbaseData.listHbaseTable();
     }
 }
 

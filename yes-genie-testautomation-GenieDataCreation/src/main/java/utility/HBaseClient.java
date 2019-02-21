@@ -56,6 +56,15 @@ public class HBaseClient {
 	}
 
 
+    public void listTable() throws IOException {
+        Admin hBaseAdmin = connection.getAdmin();
+        HTableDescriptor[] tableDescriptor = hBaseAdmin.listTables();
+        for (int i=0; i<tableDescriptor.length;i++ ){
+            System.out.println(tableDescriptor[i].getNameAsString());
+        }
+    }
+
+
 	private Configuration getBasicConfiguration() throws IOException {
 		Configuration config = HBaseConfiguration.create();
 		String path = "src/test/resources/hbase-site.xml";

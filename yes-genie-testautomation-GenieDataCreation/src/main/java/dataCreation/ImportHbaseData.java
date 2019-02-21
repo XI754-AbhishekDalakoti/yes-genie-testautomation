@@ -34,6 +34,11 @@ public class ImportHbaseData {
     }
 
 
+    public static void listHbaseTable() throws IOException {
+        hBaseClient.listTable();
+    }
+
+
    public static void insertIntoHbase(String tablename, String file) throws IOException, HBaseRecommendationException {
        Table table = hBaseClient.getTable(tablename);
        BufferedReader br = new BufferedReader(new FileReader(file));
