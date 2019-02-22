@@ -297,9 +297,13 @@ public class DriverUtil {
      */
     private static WebDriver chooseDriver(DesiredCapabilities capabilities) {
         String preferredDriver = System.getProperty("browser", "Firefox");
-        boolean headless = System.getProperty("headless", "true").equals("false");
-        boolean ios = System.getProperty("ios", "false").equals("true");
-        boolean android = System.getProperty("android", "true").equals("false");
+
+
+        boolean headless = System.getProperty("headless").equals("true");
+
+        boolean ios = System.getProperty("ios_flag").equals("true");
+
+        boolean android = System.getProperty("android_flag").equals("true");
         switch (preferredDriver.toLowerCase()) {
             case "safari":
                 try {
@@ -323,24 +327,26 @@ public class DriverUtil {
                     chromeOptions.addArguments("--headless");
                 }
                 if (System.getProperty("os.name").equals("Linux")) {
-                    System.setProperty("webdriver.chrome.driver", "chromedriver");
-                    }
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+                }
                 else if (System.getProperty("os.name").equals("Mac OS X")) {
-                    System.setProperty("webdriver.chrome.driver", "chromedriver_mac");
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver_mac");
                 }
                 else {
-                    System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
                 }
 
 
 
+                System.getProperty("ios_flag");
                 if (ios){
+                    System.out.print("ios flag is set");
                     chromeOptions.addArguments("--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25");
                 }
                 else if(android){
                     chromeOptions.addArguments("--user-agent=Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36");
                 }
-                    capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 
                 try {
                     chromeOptions.addArguments("--start-maximized");
@@ -349,13 +355,13 @@ public class DriverUtil {
                     ErrorHandler handler = new ErrorHandler();
                     handler.setIncludeServerErrors(false);
                     //driver.setErrorHandler(handler);
-                    }catch(Exception e){
-                        System.out.println(e.getMessage());
-                        System.exit(0);
-                    }
-                    return driver;
+                }catch(Exception e){
+                    System.out.println(e.getMessage());
+                    System.exit(0);
                 }
+                return driver;
         }
+    }
 
 
     public static WebElement waitAndGetElementByCssSelector(WebDriver driver, String selector,int seconds) {
