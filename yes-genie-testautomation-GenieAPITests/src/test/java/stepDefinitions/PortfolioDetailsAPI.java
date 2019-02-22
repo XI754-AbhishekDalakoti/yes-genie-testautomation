@@ -3,10 +3,11 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
-import pages.TokenGenerator;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -18,7 +19,8 @@ public class PortfolioDetailsAPI {
 
     @Given("^a genie user has a portfoliodetails api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_portfoliodetails_api_to_test_is(String arg1) throws Throwable {
-        uri =arg1;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(arg1);
 
     }
 
@@ -37,7 +39,7 @@ public class PortfolioDetailsAPI {
     @When("^get the response from portfoliodetails api$")
     public void get_the_response_from_portfoliodetails_api() throws Throwable {
         accessToken  = TokenGenerator.getToken();
-        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
         System.out.print(responseIndividual.body().asString());
 
     }

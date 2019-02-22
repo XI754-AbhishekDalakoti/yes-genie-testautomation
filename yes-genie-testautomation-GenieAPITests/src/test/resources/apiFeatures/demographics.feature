@@ -2,7 +2,7 @@
 Feature: Validate demographics APIs
 
   Background: User get the access token
-    Given a genie user has a demographic api to test is "http://cust360.yesgenie.com:30978/api/genie/demographic/"
+    Given a genie user has a demographic api to test is "/api/genie/demographic/"
 
 
   @smoke @regression @dm

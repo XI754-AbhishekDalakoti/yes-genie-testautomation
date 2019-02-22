@@ -3,10 +3,11 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
-import pages.TokenGenerator;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -23,8 +24,9 @@ public class CaseWithoutRecommendationAPI  {
 
     @Given("^a genie user has a createcasesubmit api to test uri is \"([^\"]*)\" and path is \"([^\"]*)\"$")
     public void a_genie_user_has_a_createcasesubmit_api_to_test_uri_is_and_path_is(String arg1, String arg2) throws Throwable {
-         uri = arg1;
-         path =arg2;
+        uri = UriHelper.uricheck();
+        uri = uri.concat(arg1);
+        path =arg2;
 
 
     }
@@ -52,7 +54,7 @@ public class CaseWithoutRecommendationAPI  {
     @When("^User sends the request$")
     public void user_sends_the_request() throws Throwable {
         accessToken=TokenGenerator.getToken();
-        responseIndividual =given().accept(ContentType.JSON).header("Authorization", accessToken).put(uri.concat(path));
+        responseIndividual =given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).put(uri.concat(path));
     }
 
 

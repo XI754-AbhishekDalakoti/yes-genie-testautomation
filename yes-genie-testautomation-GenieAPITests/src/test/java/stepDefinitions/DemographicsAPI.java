@@ -3,10 +3,11 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
-import pages.TokenGenerator;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 import static utils.Utilities.matchesJsonSchema;
@@ -24,13 +25,14 @@ public class DemographicsAPI extends ResponseValidation {
     public void get_the_response_of_the_Api_by_passing_parameters_directly(String mdmid) {
         uri = uri.concat(mdmid);
         accessToken = TokenGenerator.getToken();
-        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
     @Given("^a genie user has a demographic api to test is \"([^\"]*)\"$")
     public void api_Value(String value) {
-        uri = value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @Then("^a genie user validates that in the response for demographic api for corporate has all the required fields of required types as mentioned in \"([^\"]*)\"$")
@@ -72,7 +74,7 @@ public class DemographicsAPI extends ResponseValidation {
     public void get_the_corporate_response_of_the_Api_by_passing_parameters_directly(String mdmid) {
         uri = uri.concat(mdmid);
         accessToken = TokenGenerator.getToken();
-        responseCorporate = given().accept(ContentType.JSON).header("Authorization", accessToken).
+        responseCorporate = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 

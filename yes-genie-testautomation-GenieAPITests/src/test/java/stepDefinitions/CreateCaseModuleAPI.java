@@ -1,13 +1,13 @@
 package stepDefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
-import pages.TokenGenerator;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -19,7 +19,8 @@ public class CreateCaseModuleAPI {
 
     @Given("^a genie user has a createcasemodule api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_createcasemodule_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^user pass crm_id \"([^\"]*)\"$")
@@ -30,12 +31,12 @@ public class CreateCaseModuleAPI {
     @When("^get the response from createcasemodule api$")
     public void get_the_response_from_createcasemodule_api() throws Throwable {
         accessToken = TokenGenerator.getToken();
-        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
     }
     @When("^get the response from createcasemodule api for corporate$")
     public void get_the_response_from_createcasemodule_api_for_corportate() throws Throwable {
         accessToken = TokenGenerator.getToken();
-        responseCorporate = given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
+        responseCorporate = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
     }
 
     @Then("^a user get the status code (\\d+) as a response from the createcasemodule api where customer type is individual$")

@@ -2,13 +2,11 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.yecht.Data;
-import pages.ResponseValidation;
-import pages.TokenGenerator;
-
-import java.util.List;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -19,7 +17,8 @@ public class CreateCaseAdditionalFieldsAPI {
 
     @Given("^a genie user has a createcaseadditionfields api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_createcaseadditionfields_api_to_test_is(String arg1) throws Throwable {
-        uri =arg1;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(arg1);
     }
 
     @When("^user pass mdmid \"([^\"]*)\" in createcaseadditionfields api$")
@@ -44,7 +43,7 @@ public class CreateCaseAdditionalFieldsAPI {
     @When("^get the response from createcaseadditionfields api$")
     public void get_the_response_from_createcaseadditionfields_api() throws Throwable {
         accessToken = TokenGenerator.getToken();
-        responseIndividual=given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
+        responseIndividual=given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
 
 
     }
@@ -92,7 +91,7 @@ public class CreateCaseAdditionalFieldsAPI {
     @When("^get the response from createcaseadditionfields api for corporate$")
     public void get_the_response_from_createcaseadditionfields_api_for_corporate() throws Throwable {
         accessToken = TokenGenerator.getToken();
-        responseCorporate=given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
+        responseCorporate=given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
 
     }
 

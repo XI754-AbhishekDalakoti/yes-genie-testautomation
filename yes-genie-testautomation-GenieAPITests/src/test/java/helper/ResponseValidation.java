@@ -1,4 +1,4 @@
-package pages;
+package helper;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
@@ -9,12 +9,6 @@ import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 
-import javax.mail.event.FolderAdapter;
-
-import java.math.BigDecimal;
-
-import static io.restassured.RestAssured.expect;
-import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -137,7 +131,7 @@ public class ResponseValidation {
     }
 
     public int putOperation(String uri, String key, String value) {
-        RequestSpecification requestSpecification = RestAssured.given();
+        RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
         accessToken=TokenGenerator.getToken();
         requestSpecification.header("Content-Type", "application/json").header("Authorization", accessToken);;
         JSONObject json = new JSONObject();
@@ -174,7 +168,7 @@ public class ResponseValidation {
     }
 
     public int putOperationForTwoKeys(String uri, String keyOne, String valueOne, String keyTwo, String valueTwo, String responseBody) {
-        RequestSpecification requestSpecification = RestAssured.given();
+        RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
         accessToken=TokenGenerator.getToken();
         requestSpecification.header("Content-Type", "application/json").header("Authorization", accessToken);;
         JSONObject json = new JSONObject();
@@ -189,7 +183,7 @@ public class ResponseValidation {
     }
 
     public int putOperationForThreeKeys(String uri, String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree, String valueThree, String responseBody) {
-        RequestSpecification requestSpecification = RestAssured.given();
+        RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
         accessToken=TokenGenerator.getToken();
         requestSpecification.header("Content-Type", "application/json").header("Authorization", accessToken);;
         JSONObject json = new JSONObject();
@@ -229,7 +223,7 @@ public class ResponseValidation {
     public int putOperationForSixKeys(String uri, String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree,
                                       String valueThree, String keyFour, String valueFour, String keyFive, String valueFive,
                                       String keySix,String valueSix) {
-        RequestSpecification requestSpecification = RestAssured.given();
+        RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
         accessToken=TokenGenerator.getToken();
         requestSpecification.header("Content-Type", "application/json").header("Authorization", accessToken);;
         JSONObject json = new JSONObject();
@@ -250,7 +244,7 @@ public class ResponseValidation {
                                              String valueThree, String keyFour, String valueFour, String keyFive, String valueFive,
                                              String keySix, String valueSix, String keySeven, String valueSeven, String keyEight, int valueEight, String keyNine, String valueNine) {
 
-        RequestSpecification requestSpecification = RestAssured.given();
+        RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
         accessToken=TokenGenerator.getToken();
         requestSpecification.header("Content-Type", "application/json").header("Authorization", accessToken);
         JSONObject json = new JSONObject();

@@ -3,10 +3,11 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
-import pages.TokenGenerator;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -18,9 +19,8 @@ public class CreateCaseModulesAPI {
 
     @Given("^a genie user has a createcasemodules api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_createcasemodules_api_to_test_is(String arg1) throws Throwable {
-        uri =arg1;
-
-
+        uri = UriHelper.uricheck();
+        uri =uri.concat(arg1);
     }
 
     @When("^user pass productname \"([^\"]*)\"$")
@@ -33,7 +33,7 @@ public class CreateCaseModulesAPI {
     @When("^get the response from createcasemodules api$")
     public void get_the_response_from_createcasemodules_api() throws Throwable {
         accessToken = TokenGenerator.getToken();
-        responseIndividual =given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
+        responseIndividual =given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
 
     }
 

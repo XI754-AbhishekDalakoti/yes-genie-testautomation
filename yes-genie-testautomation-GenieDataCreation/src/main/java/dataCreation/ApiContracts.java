@@ -18,12 +18,27 @@ import java.util.Scanner;
 
 public class ApiContracts {
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiContracts.class);
-
+    static String baseURI;
     static ResponseValidation responseValidation = new ResponseValidation();
     static PropertyReader propertyReader= new PropertyReader("src/main/resources/config.properties");
 
+
+
+    public static String uricheck() {
+        if (System.getProperty("env").equals("UAT")) {
+            baseURI = propertyReader.getProperty("UATURI");
+
+        } else {
+            baseURI = propertyReader.getProperty("baseURI");
+        }
+        return baseURI;
+
+
+    }
+
+
     public static void createIndexGnyCustSearch() {
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
@@ -34,7 +49,7 @@ public class ApiContracts {
 
 
     public static void createIndexGnyCustRelationship() {
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
@@ -44,7 +59,7 @@ public class ApiContracts {
 
 
     public static void createIndexHierachy() {
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
@@ -55,7 +70,7 @@ public class ApiContracts {
 
 
     public static void createMappingGnyCustDoc() {
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         String body="{\"gny_cust_doc\":{\"properties\":{ \"dob\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"aadhar_no\":{\"type\":\"keyword\",\"index\":\"true\"}, \"permanent_state\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"current_state\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"current_city\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"permanent_city\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"asset_rm\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"service_rm\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"sales_rm\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ybl_staff_flg\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"business_segment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ckyc_no\":{\"type\":\"keyword\",\"index\":\"true\", \"normalizer\":\"lowercase_normalizer\"}, \"cust_id\":{\"type\":\"long\"}, \"cust_category_flg\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"dataset_flg\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"customer_name\":{\"type\":\"text\",\"index\":\"true\", \"analyzer\":\"tokenized_lowercase_analyzer\"}, \"link_cust_name\":{\"type\":\"text\",\"index\":\"true\", \"analyzer\":\"tokenized_lowercase_analyzer\"}, \"gny_display_name\":{\"type\":\"text\",\"index\":\"true\", \"analyzer\":\"tokenized_lowercase_analyzer\"}, \"cust_open_date\":{\"type\":\"keyword\",\"index\":\"true\"}, \"email\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"group_id\":{\"type\":\"long\"}, \"mdm_id\":{\"type\":\"long\"}, \"linked_mdm_id\":{\"type\":\"long\"}, \"mobile_no\":{\"type\":\"long\"}, \"pan_no\":{\"type\":\"keyword\",\"index\":\"true\"}, \"partner_segment\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"passport_no\":{\"type\":\"keyword\",\"index\":\"true\"}, \"twitter_handle\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"upi\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ucic\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"link_ucic\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"branch_code\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"branch_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"branch_region\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"clusters\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"cust_rel_type\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"link_cod_cust\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"data_dt\":{\"type\":\"keyword\",\"index\":\"true\"} }}}";
         RequestSpecification requestSpecification = RestAssured.given();
@@ -66,7 +81,7 @@ public class ApiContracts {
     }
 
     public static void createMappingGnyCustRelationship() {
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         String body="{\"gny_cust_relationship\": { \"properties\": { \"mdm_id_1\": {\"type\": \"long\",\"index\": \"true\" }, \"mdm_id_2\": {\"type\": \"long\",\"index\": \"true\" }, \"display_name_1\": {\"type\": \"keyword\",\"index\": \"true\"}, \"display_name_2\": {\"type\": \"keyword\",\"index\": \"true\"}, \"income_band_1\": {\"type\": \"keyword\",\"index\": \"true\"}, \"income_band_2\": {\"type\": \"keyword\",\"index\": \"true\"}, \"cust_type_1\": {\"type\": \"keyword\",\"index\": \"true\"}, \"cust_type_2\": {\"type\": \"keyword\",\"index\": \"true\"}, \"relation\": {\"type\": \"keyword\",\"index\": \"true\"}, \"relation_bank\": {\"type\": \"keyword\",\"index\": \"true\"}, \"inverse_relation\": {\"type\": \"keyword\",\"index\": \"true\"}, \"relation_type\": {\"type\": \"keyword\",\"index\": \"true\"}, \"remarks\": {\"type\": \"keyword\",\"index\": \"true\"}, \"cost_sex_1\": {\"type\": \"keyword\",\"index\": \"true\"}, \"cost_sex_2\": {\"type\": \"keyword\",\"index\": \"true\"} } } }";        RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
@@ -77,7 +92,7 @@ public class ApiContracts {
 
 
     public static void createMappingHirechy() {
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         String body ="{\"gny_hris_doc\":{\"properties\":{ \"emp_no\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"emp_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"emp_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"emp_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra1\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra1_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra1_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra1_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra2\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra2_name\":{\"type\":\"keyword\",\"index\":\"true\", \"normalizer\":\"lowercase_normalizer\"}, \"ra2_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra2_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra3\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra3_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra3_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra3_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra4\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra4_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra4_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra4_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra5\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra5_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra5_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra5_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra6\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra6_name\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra6_func_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"ra6_corp_desig\":{\"type\":\"keyword\",\"index\":\"true\",\"normalizer\":\"lowercase_normalizer\"}, \"data_dt\":{\"type\":\"keyword\",\"index\":\"true\"} }}}";
         RequestSpecification requestSpecification = RestAssured.given();
@@ -89,7 +104,7 @@ public class ApiContracts {
 
 
     public static void bulkIndexingCustSearch() throws Exception{
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
@@ -106,7 +121,7 @@ public class ApiContracts {
 
 
     public static void bulkIndexingCustRelationship() throws Exception{
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
@@ -124,7 +139,7 @@ public class ApiContracts {
 
 
     public static void bulkIndexingInYesBankAccount(){
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
@@ -135,7 +150,7 @@ public class ApiContracts {
 
 
     public static void searchData(){
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
@@ -146,7 +161,7 @@ public class ApiContracts {
 
 
     public static void deleteAll(){
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         Response response = requestSpecification.delete("_all");
@@ -154,7 +169,7 @@ public class ApiContracts {
     }
 
     public static void deleteGnyCustSearchIndex(){
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         Response response = requestSpecification.delete("gny_cust_search");
@@ -169,7 +184,7 @@ public class ApiContracts {
 
 
     public static void deleteGnyCustRelationshipIndex(){
-        RestAssured.baseURI=propertyReader.getProperty("baseURI");
+        RestAssured.baseURI=uricheck();
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         Response response = requestSpecification.delete("gny_cust_relationship");

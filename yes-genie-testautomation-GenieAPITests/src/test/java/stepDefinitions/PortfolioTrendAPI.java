@@ -3,10 +3,11 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
-import pages.TokenGenerator;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -19,7 +20,8 @@ public class PortfolioTrendAPI {
 
     @Given("^a genie user has a portfoliotrend api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_portfoliotrend_api_to_test_is(String arg1) throws Throwable {
-        uri=arg1;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(arg1);
 
 
     }
@@ -33,7 +35,7 @@ public class PortfolioTrendAPI {
     @When("^get the response from portfoliotrend api$")
     public void get_the_response_from_portfoliotrend_api() throws Throwable {
         accessToken  = TokenGenerator.getToken();
-        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
         System.out.print(responseIndividual.body().asString());
 
     }
@@ -62,7 +64,7 @@ public class PortfolioTrendAPI {
 
     @When("^user get the cumulative response for kpiTrendAggregatedData BANK_AMB \"([^\"]*)\" is \"([^\"]*)\" from the portfoliotrend api where customer type is individual$")
     public void user_get_the_cumulative_response_for_kpiTrendAggregatedData_BANK_AMB_is_from_the_portfoliotrend_api_where_customer_type_is_individual(String key, String value) throws Throwable {
-        String param = "kpiTrendAggregatedData.BANK_AMB[6].";
+        String param = "kpiTrendAggregatedData.BANK_AMB[0].";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 

@@ -25,9 +25,8 @@ public class HBaseClient {
 	Configuration config;
 	static PropertyReader propertyReader= new PropertyReader("src/main/resources/config.properties");
 
-
 	public HBaseClient() throws Exception {
-		if (propertyReader.getProperty("env").equals("UAT")){
+		if (System.getProperty("env").equals("UAT")){
 			config = getConfiguration();
 		}
 		else {

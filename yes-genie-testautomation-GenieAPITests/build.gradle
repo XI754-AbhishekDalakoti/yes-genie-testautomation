@@ -58,6 +58,7 @@ tasks.withType(Test) {
     systemProperty "properties", System.getProperty("serenity.properties")
     systemProperty "cucumber.options", System.getProperty("cucumber.options")
     systemProperty "webdriver.base.url", System.getProperty("webdriver.base.url")
+    systemProperty "env", System.getProperty("env")
     testLogging {
         events "standardOut", "started", "passed", "skipped", "failed"
     }

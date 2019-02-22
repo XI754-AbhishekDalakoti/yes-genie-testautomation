@@ -1,14 +1,13 @@
 package stepDefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
-import pages.TokenGenerator;
-
+import helper.ResponseValidation;
+import helper.TokenGenerator;
+import helper.UriHelper;
 import static net.serenitybdd.rest.SerenityRest.given;
 
 public class PortfolioAPI {
@@ -20,7 +19,8 @@ public class PortfolioAPI {
 
     @Given("^a genie user has a portfolio api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_portfolio_api_to_test_is(String value) {
-        uri =value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid to get the response from portfolio api where customer type is individual$")
@@ -31,7 +31,7 @@ public class PortfolioAPI {
     @When("^get the response from portfolio api$")
     public void get_the_response_from_portfolio_api() throws Throwable {
         accessToken  = TokenGenerator.getToken();
-        responseIndividual = given().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
         System.out.print(responseIndividual.body().asString());
     }
 

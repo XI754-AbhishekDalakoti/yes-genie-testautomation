@@ -1,9 +1,10 @@
+@case
 Feature: Validate createcase additionalfields APIs
 
 
   @smoke @regression @ca
   Scenario: User validates the response code of createcaseadditionfields api and mdmId as response where customer type is individual
-    Given a genie user has a createcaseadditionfields api to test is "http://cust360.yesgenie.com:30978/api/genie/case/additionalfields/"
+    Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "996264849" in createcaseadditionfields api
     And user pass reference_number "123" in createcaseadditionfields api
     And user pass crm_id "9" in createcaseadditionfields api
@@ -14,7 +15,7 @@ Feature: Validate createcase additionalfields APIs
 
   @regression @ca
   Scenario Outline: User validate response of createcaseadditionfields api where customer type is individual for all the mentioned keys in examples
-    Given a genie user has a createcaseadditionfields api to test is "http://cust360.yesgenie.com:30978/api/genie/case/additionalfields/"
+    Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "996264849" in createcaseadditionfields api
     And user pass reference_number "123" in createcaseadditionfields api
     And user pass crm_id "9" in createcaseadditionfields api
@@ -33,7 +34,7 @@ Feature: Validate createcase additionalfields APIs
 
   @smoke @regression @ca
   Scenario: User validates the response code of createcaseadditionfields api and mdmId as response where customer type is corporate
-    Given a genie user has a createcaseadditionfields api to test is "http://cust360.yesgenie.com:30978/api/genie/case/additionalfields/"
+    Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "998003452" in createcaseadditionfields api
     And user pass reference_number "123" in createcaseadditionfields api
     And user pass crm_id "9" in createcaseadditionfields api
@@ -44,7 +45,7 @@ Feature: Validate createcase additionalfields APIs
 
   @regression @ca
   Scenario Outline: User validate response of createcaseadditionfields api where customer type is corporate for all the mentioned keys in examples
-    Given a genie user has a createcaseadditionfields api to test is "http://cust360.yesgenie.com:30978/api/genie/case/additionalfields/"
+    Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "998003452" in createcaseadditionfields api
     And user pass reference_number "123" in createcaseadditionfields api
     And user pass crm_id "9" in createcaseadditionfields api
@@ -64,7 +65,7 @@ Feature: Validate createcase additionalfields APIs
 
   @regression @ca
   Scenario: User validates the blank response of createcaseadditionfields api and mdmId as response where customer type is individual
-    Given a genie user has a createcaseadditionfields api to test is "http://cust360.yesgenie.com:30978/api/genie/case/additionalfields/"
+    Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "998003452" in createcaseadditionfields api
     And user pass reference_number "123" in createcaseadditionfields api
     And user pass crm_id "1" in createcaseadditionfields api

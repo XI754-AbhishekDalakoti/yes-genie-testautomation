@@ -1,4 +1,4 @@
-package pages;
+package helper;
 
 import net.thucydides.core.pages.PageObject;
 
