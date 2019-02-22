@@ -156,7 +156,18 @@ public class ApiContracts {
         requestSpecification.contentType("application/json");
         Response response = requestSpecification.get("gny_cust_search/_search");
         responseValidation.compareResponseCode(response, 200);
-        System.out.println(response.body().asString());
+        LOGGER.debug(response.body().asString());
+    }
+
+
+    public static void relationshipData(){
+        RestAssured.baseURI=uricheck();
+        RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.contentType("application/json");
+        Response response = requestSpecification.get("gny_cust_relationship/_search");
+        responseValidation.compareResponseCode(response, 200);
+        LOGGER.debug(response.body().asString());
     }
 
 

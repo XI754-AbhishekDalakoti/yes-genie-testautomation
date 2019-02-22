@@ -2,6 +2,7 @@ package info.seleniumcucumber.userStepDefintions;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import env.DriverUtil;
@@ -23,6 +24,17 @@ public class UserStepDefinitions implements BaseTest {
     public static SearchPage sp = new SearchPage();
     public static SnapPage snap = new SnapPage();
     protected WebDriver driver = DriverUtil.getDefaultDriver();
+
+
+    @Given("^I navigate to url \"([^\"]*)\"$")
+    public void navigate_to(String link) {
+        if (System.getProperty("env").equals("UAT")) {
+            link="http://ybblx3v355ca02.yesbank.com:30978/";
+        }
+        navigationObj.navigateTo(link);
+    }
+
+
 
     @Then("^I should get logged-in with welcome message$")
     public void should_logged_in_with_welcome_message() throws Throwable {

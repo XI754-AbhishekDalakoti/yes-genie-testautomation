@@ -20,18 +20,13 @@ public class CaseWithoutRecommendationAPI  {
     ResponseValidation responseValidation = new ResponseValidation();
 
 
-
-
     @Given("^a genie user has a createcasesubmit api to test uri is \"([^\"]*)\" and path is \"([^\"]*)\"$")
     public void a_genie_user_has_a_createcasesubmit_api_to_test_uri_is_and_path_is(String arg1, String arg2) throws Throwable {
         uri = UriHelper.uricheck();
         uri = uri.concat(arg1);
         path =arg2;
 
-
     }
-
-
 
 
     @When("^a genie user edits the \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\"  and \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by (\\d+) and \"([^\"]*)\" field by \"([^\"]*)\"$")

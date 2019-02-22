@@ -2,7 +2,7 @@ Feature: Snap Page
   As a user I should able to login into my app
 
   Background: User has logged in to Genie
-    Given I navigate to "http://cust360.yesgenie.com:30978/"
+    Given I navigate to url "https://cust360.yesgenie.com:31390/"
 
   @Regression
   Scenario: Verify demographics attributes in SNAP page of customer type Corporate

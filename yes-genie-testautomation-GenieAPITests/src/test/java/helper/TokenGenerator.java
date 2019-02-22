@@ -17,7 +17,7 @@ public class TokenGenerator {
 
         public static String getToken() {
             if (System.getProperty("env").equals("UAT")) {
-                uriAccessToken="";
+                uriAccessToken="http://ybblx3v355ca02.yesbank.com:30978/auth/realms/YBL/protocol/openid-connect/token";
                 username ="ADC0008352";
                 password="Test@1234";
             }

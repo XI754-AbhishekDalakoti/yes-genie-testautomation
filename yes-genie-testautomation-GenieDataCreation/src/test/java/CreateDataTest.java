@@ -28,6 +28,7 @@ public class CreateDataTest {
     @Test
     public void afterScenario() {
         ApiContracts.searchData();
+        ApiContracts.relationshipData();
 
 
     }

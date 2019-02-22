@@ -17,11 +17,6 @@ public class CreatCaseProductAPI {
     public static String uriAccessToken="http://sso.yesgenie.com:30978/auth/realms/YBL/protocol/openid-connect/token";
 
 
-
-//    @Given("^get access token first$")
-//    public void getAccessToken() throws Throwable {
-//        accessToken = TokenGenerator.getToken();
-//    }
     @Given("^get the response from createcaseproduct api$")
     public void get_the_response_from_createcaseproduct_api() throws Throwable {
         accessToken = TokenGenerator.getToken();
