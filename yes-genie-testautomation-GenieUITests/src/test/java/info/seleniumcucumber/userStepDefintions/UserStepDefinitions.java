@@ -29,7 +29,7 @@ public class UserStepDefinitions implements BaseTest {
     @Given("^I navigate to url \"([^\"]*)\"$")
     public void navigate_to(String link) {
         if (System.getProperty("env").equals("UAT")) {
-            link="http://ybblx3v355ca02.yesbank.com:30978/";
+            link="https://cust360.uat-genie.yesbank.com/";
         }
         navigationObj.navigateTo(link);
     }
