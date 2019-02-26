@@ -42,6 +42,17 @@ public class ImportHbaseData {
     }
 
 
+
+    public static void getHbaseTableData(String table) throws IOException {
+        try{
+            hBaseClient.getAllRows(table);
+        }
+        catch(Exception e){
+            LOGGER.debug("Table Not Found");
+        }
+    }
+
+
     public static void listHbaseTable() throws IOException {
         hBaseClient.listTable();
     }

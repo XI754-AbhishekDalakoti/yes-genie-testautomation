@@ -147,7 +147,10 @@ public class HBaseClient {
 	}
 
 
-	public List<Map<String, String>> getAllRows(Table table, Scan scan) throws IOException {
+	public List<Map<String, String>> getAllRows(String tableName) throws IOException {
+		TableName tabName = TableName.valueOf(tableName);
+		Table table =connection.getTable(tabName);
+		Scan scan=new Scan();
 		ResultScanner resultScanner = table.getScanner(scan);
 		List<Map<String, String>> resultList = new ArrayList<Map<String, String>>();
 		for (Result result = resultScanner.next(); (result != null); result = resultScanner.next()) {
@@ -155,6 +158,15 @@ public class HBaseClient {
 		}
 		resultScanner.close();
 		return resultList;
+	}
+
+
+	public Result getAllRowsForRowKey(String tableName, String rowKey) throws IOException {
+		TableName tabName = TableName.valueOf(tableName);
+		Table table =connection.getTable(tabName);
+		Get g = new Get(Bytes.toBytes(rowKey));
+		Result result = table.get(g);
+		return result;
 	}
 
 
