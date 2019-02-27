@@ -15,7 +15,7 @@ public class SnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[@class='Zpr-MNfPstkKfN9HLNF5_']/img")
     public static WebElement icon;
 
-    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_2USxA5C9026oPXW0fmlfg-')]")
+    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_2USxA5C9026oPXW0fmlfg-')]/span")
     public static WebElement customername;
 
     @FindBy(how = How.XPATH, using = "//div[contains(@class, 'kEWBDoHMNQ5jG2zd4akm')]")
@@ -78,13 +78,13 @@ public class SnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//span[@class='tGryspxNgmwWz4yKlBBB8'])")
     public static WebElement bsps_value1;
 
-    @FindBy(how = How.XPATH, using = "(//span[@class='tGryspxNgmwWz4yKlBBB8'])[2]")
+    @FindBy(how = How.XPATH, using = "(//span[@class='tGryspxNgmwWz4yKlBBB8'])[1]")
     public static WebElement bsps_value2;
 
     @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[6]")
     public static WebElement customer_segment_attribute;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[4]/span")
+    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[3]/span")
     public static WebElement customer_segment_value;
 
     @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[6]")
@@ -126,7 +126,7 @@ public class SnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//div[@class='_53pmg1lz9yMKjYqMWgpA3'])[4]/span[5]")
     public static WebElement detailed_corporate_ecommsite_value;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[4]/span")
+    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[3]/span")
     public static WebElement corporate_customer_type_value;
 
     @FindBy(how = How.XPATH, using = "(//div[@class='OTMu80ITtJxpvgHq3X4pf'])[3]/img[1]")
@@ -162,10 +162,10 @@ public class SnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[4]")
     public static WebElement vintage_attribute;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='_2Z1-0e6lDtN46kzzs-wGIf'])[4]")
+    @FindBy(how = How.XPATH, using = "(//div[@class='_2Z1-0e6lDtN46kzzs-wGIf'])[3]")
     public static WebElement annual_turnover_corporate_attribute;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[5]")
+    @FindBy(how = How.XPATH, using = "(//div[contains(@class, 'tGryspxNgmwWz4yKlBBB8')])[6]")
     public static WebElement annual_turnover_corporate_value;
 
     @FindBy(how = How.XPATH, using = "//div[contains(@class, '_3LIYoDr15lNjvPToNw26Nd')]/img[1]")
@@ -374,9 +374,6 @@ public class SnapLocators extends UserStepDefinitions {
 
     @FindBy(how = How.XPATH, using = "//div[@class='AvMHovGJlIEUhAIFgNAtR']")
     public static WebElement relation_graph_minimize_icon;
-
-    @FindBy(how = How.XPATH, using = "//div[contains(@class,'haTYyk_20GBasK5vg5Au8')]")
-    public static WebElement transactions_icon;
 
     @FindBy(how = How.XPATH, using = "//div[@class='_2aG_5jPrRWSJhHTNP_8ku6']/div")
     public static WebElement create_lead;

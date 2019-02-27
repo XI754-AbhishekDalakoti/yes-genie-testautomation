@@ -2,7 +2,7 @@
 Feature: Validate demographics APIs
 
   Background: User has api to test
-    Given a genie user has a demographic api to test is "http://yesgenie.com:30978/api/demographic/"
+    Given a genie user has a demographic api to test is "http://cust360.yesgenie.com:30978/api/demographic/"
 
   @smoke @regression
   Scenario: User validates the response code of demographic api and mdmId as response where customer type is individual

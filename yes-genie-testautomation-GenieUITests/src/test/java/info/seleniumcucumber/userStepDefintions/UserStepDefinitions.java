@@ -2,6 +2,7 @@ package info.seleniumcucumber.userStepDefintions;
 
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -11,10 +12,12 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.LoginPage;
-import pageObjects.SearchPage;
-import pageObjects.SnapPage;
+import pageObjects.*;
 
+import java.util.concurrent.TimeUnit;
+
+import static locators.LoginLocators.dropdown;
+import static locators.LoginLocators.logout_button;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 
@@ -23,18 +26,20 @@ public class UserStepDefinitions implements BaseTest {
     public static LoginPage lp = new LoginPage();
     public static SearchPage sp = new SearchPage();
     public static SnapPage snap = new SnapPage();
+    public static PortfolioPage portfolio = new PortfolioPage();
+//    public static CaseNLeadPage caseNlead = new CaseNLeadPage();
     protected WebDriver driver = DriverUtil.getDefaultDriver();
 
     @Then("^I should get logged-in with welcome message$")
     public void should_logged_in_with_welcome_message() throws Throwable {
 
-        By selection = By.xpath("//span[@class='_2QCs8cFfqH_wnXLIYBu5ro ZU4gfSwYj6EDl657TJqnA']");
+        By selection = By.xpath("//span[@class='_1ItRkkJp4JtCGSqCU2C5QD']");
         (new WebDriverWait(driver, 10)).until(
                 visibilityOfElementLocated(selection));
-        String msg = driver.findElement(By.xpath("//span[@class='_2QCs8cFfqH_wnXLIYBu5ro ZU4gfSwYj6EDl657TJqnA']")).getText();
+        String msg = driver.findElement(By.xpath("//span[@class='_1ItRkkJp4JtCGSqCU2C5QD']")).getText();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Welcome, Manisha Chauhan", msg);
+        Assert.assertEquals("Manisha Chauhan", msg);
     }
 
     @Then("^I should get error message$")
@@ -258,15 +263,15 @@ public class UserStepDefinitions implements BaseTest {
         snap.clickOnMinimizeIconOfRelationGraph();
     }
 
-    @Then("^I click on 'Transactions' icon on top right$")
+/*    @Then("^I click on 'Transactions' icon on top right$")
     public void iClickOnTransactionsIconOnTopRight() throws Throwable {
-        snap.clickOnTransactionsIcon();
-    }
+        caseNlead.clickOnTransactionsButton();
+    }*/
 
-    @Then("^I click on 'Create Lead'$")
+/*    @Then("^I click on 'Create Lead'$")
     public void iClickOnCreateLead() throws Throwable {
-        snap.clickOnCreateLead();
-    }
+        caseNlead.clickOnCreateLead();
+    }*/
 
     @And("^Form gets open with attributes \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" , \"([^\"]*)\" and \"([^\"]*)\"$")
     public void formGetsOpenWithAttributesAnd(String attribute1, String attribute2, String attribute3, String attribute4, String attribute5, String attribute6) throws Throwable {
@@ -342,4 +347,58 @@ public class UserStepDefinitions implements BaseTest {
     public void iVerifyAllTheAttributesIsDisplayedWithAuthorisedSignatoryData(DataTable data) throws Throwable {
         snap.verifyAuthrisedSignatoryAttributesAndData(data);
     }
+
+    @Then("^I verify deposit options of portfolio section$")
+    public void depositOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyDepositOptions();
+    }
+
+    @Then("^I verify investment options of portfolio section$")
+    public void investmentOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyInvestmentOptions();
+    }
+
+    @Then("^I verify loan options of portfolio section$")
+    public void loanOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyLoanOptions();
+    }
+
+    @Then("^I verify cards and wallets options of portfolio section$")
+    public void cardsOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyCardsOptions();
+    }
+
+    @Then("^I verify other options of portfolio section$")
+    public void otherOptionsOfPortfolio() throws Throwable {
+        portfolio.verifyOthersOptions();
+    }
+
+    @Then("^I verify KPI data of portfolio section for individual$")
+    public void kpiDataOfPortfolioIndividual() throws Throwable {
+        portfolio.verifyKPILabels();
+        portfolio.verifyKPIAmountsForIndividual();
+    }
+
+    @Then("^I verify KPI data of portfolio section for corporate$")
+    public void kpiDataOfPortfolioCorporate() throws Throwable {
+        portfolio.verifyKPILabels();
+        portfolio.verifyKPIAmountsForCorporate();
+    }
+
+    @After
+    public void afterScenario() {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        dropdown.click();
+        logout_button.click();
+    }
+
+/*    @Then("^Create Lead form gets open with title \"([^\"]*)\"$")
+    public void createLeadFormGetsOpenWithTitle(String title) throws Throwable {
+        caseNlead.verifyCreateLeadFormTitle(title);
+    }
+
+    @Then("^I select Cust ID \"([^\"]*)\", LOB \"([^\"]*)\", Branch Name \"([^\"]*)\", Product Name \"([^\"]*)\" and provide remarks \"([^\"]*)\"$")
+    public void iSelectCustIDLOBBranchNameProductNameAndProvideRemarks(String custid, String lob, String branchName, String productName, String rmrks) throws Throwable {
+        caseNlead.selectFieldsInCreateLeadForm(custid, lob, branchName, productName, rmrks);
+    }*/
 }

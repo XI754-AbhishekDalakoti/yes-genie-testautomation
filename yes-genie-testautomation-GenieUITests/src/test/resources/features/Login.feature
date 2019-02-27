@@ -2,7 +2,7 @@ Feature: Login
   As a user I should able to login into my Genie
 
   Background: User is on Genie Page
-    Given I navigate to "http://cust360.yesgenie.com:30978"
+    Given I navigate to "https://cust360.yesgenie.com:31390"
 
   @Regression
   Scenario Outline: Login button should be disabled if both credentials are not entered
@@ -43,11 +43,11 @@ Feature: Login
   @Smoke @Regression
   Scenario: Validate Last Login date time format and basic information is displayed
     Then I wait for 2 sec
+    And I enter "manisha" into input field having id "username"
+    And I enter "manisha" into input field having id "password"
+    And I click on Login
+    Then I wait for 2 sec
     Then I validate Last Login date and time format displayed on bottom right of the page
+    And I wait for 2 sec
     And I click on dropdown on top right of page
     Then I validate basic information is displayed on top right
-
-  @Regression
-  Scenario: I should get logged out of application
-    And I wait for 2 sec
-    Then I should get logout

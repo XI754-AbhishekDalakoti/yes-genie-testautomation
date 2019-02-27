@@ -3,7 +3,6 @@ package pageObjects;
 import cucumber.api.DataTable;
 import locators.SnapLocators;
 import org.junit.Assert;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.List;
@@ -103,10 +102,10 @@ public class SnapPage extends SnapLocators {
 
         List<List<String>> table = data.raw();
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals("http://cust360.yesgenie.com:30978/snap", currentUrl);
+        Assert.assertEquals("https://cust360.yesgenie.com:31390/snap", currentUrl);
 
         String getIconTooltipText = icon.getAttribute("title");
-        String getCustName = customername.getText().trim();
+        String getCustName = customername.getAttribute("title");
         String getDobDoi = dob_doi.getText().trim();
         String getDoiTooltipTxt = doi_tooltipText.getAttribute("title");
         String getAuthorisedSignatoryTooltipText = authorised_signatory_tooltiptext.getAttribute("title");
@@ -404,14 +403,6 @@ public class SnapPage extends SnapLocators {
 
     public void clickOnMinimizeIconOfRelationGraph() {
         relation_graph_minimize_icon.click();
-    }
-
-    public void clickOnTransactionsIcon() {
-        transactions_icon.click();
-    }
-
-    public void clickOnCreateLead() {
-        create_lead.click();
     }
 
     public void verifyAttributesOfCreateLeadWithoutReccomendation(String attribute1, String attribute2, String attribute3, String attribute4, String attribute5, String attribute6) {
