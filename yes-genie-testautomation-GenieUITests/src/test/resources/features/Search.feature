@@ -4,8 +4,8 @@ Feature: Search or Landing Page
   Background: User has logged in to Genie
     Given I navigate to "https://cust360.yesgenie.com:31390"
     Then I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
+    And I enter "MCC0008398" into input field having id "username"
+    And I enter "yesbank@321" into input field having id "password"
     Then I click on Login
 
   @Smoke @Regression
@@ -120,21 +120,6 @@ Feature: Search or Landing Page
     Examples:
       | Parameter     | Result1 | Result2 | Result3    | Result4 |
       | Ayush + delhi | Ayush   | delhi   | Cust Name: | City:   |
-
-#  @Regression @Selenium
-#  Scenario: For single record after search & user is not authorized to view, record is displayed in result
-#    Given I navigate to "http://cust360.yesgenie.com:30978"
-#    Then I wait for 2 sec
-#    And I enter "preeti" into input field having id "username"
-#    And I enter "preeti" into input field having id "password"
-#    Then I click on Login
-#    And I wait for 2 sec
-#    Then I enter "rajiv" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
-#    Then I wait for 2 sec
-#    When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
-#    And I wait for 2 sec
-#    Then Search result is displayed with all fields in search UI screen
-#    And I wait for 2 sec
 
   @Regression
   Scenario: For single record after search & user is authorized to view, SNAP page is opened directly

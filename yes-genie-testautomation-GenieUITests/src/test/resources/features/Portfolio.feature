@@ -4,8 +4,8 @@ Feature: Portfolio Page
   Background: User has logged in to Genie
     Given I navigate to "https://cust360.yesgenie.com:31390"
       Then I wait for 2 sec
-      And I enter "prabhat" into input field having id "username"
-      And I enter "1234" into input field having id "password"
+      And I enter "MCC0008398" into input field having id "username"
+      And I enter "yesbank@321" into input field having id "password"
       Then I click on Login
 
     Scenario: Verify deposit options of the Portfolio section of customer type Individual
