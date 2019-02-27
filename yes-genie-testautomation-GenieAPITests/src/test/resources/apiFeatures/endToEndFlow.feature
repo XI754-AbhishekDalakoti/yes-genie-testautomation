@@ -3,9 +3,9 @@
 Feature: Validate end to end response from elastic search , demographics and NBA API
 
   Background: User get the access token
-    Given user wants a valid access token from "/auth/realms/YBL/protocol/openid-connect/token" URI
-    And to get valid access token user passes "yes-genie-frontend" as "client_id" and "password" as "grant_type" and "chandan" as "username" and "chandan" as "password" and "f2b07a8f-ce69-41c6-9d28-f056bc9713fe" as "client_secret"
-    And api to test is "/api/genie/customer/search"
+#    Given user wants a valid access token from "/auth/realms/YBL/protocol/openid-connect/token" URI
+#    And to get valid access token user passes "yes-genie-frontend" as "client_id" and "password" as "grant_type" and "chandan" as "username" and "chandan" as "password" and "f2b07a8f-ce69-41c6-9d28-f056bc9713fe" as "client_secret"
+    Given api to test is "/api/genie/customer/search"
 
   Scenario Outline: This is the test to validate response upto demographics where customer type is individual
     When a user search with value "996264849" and setting value for threshold "50"

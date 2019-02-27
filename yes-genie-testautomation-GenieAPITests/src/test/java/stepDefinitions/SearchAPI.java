@@ -4,6 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.TokenGenerator;
 import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -24,6 +25,7 @@ public class SearchAPI extends ResponseValidation {
 
     @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\"$")
     public void get_the_response_of_the_api_by_passing_parameters_directly(String query, String thresholdValue) {
+        accessToken  = TokenGenerator.getToken();
         response = given().relaxedHTTPSValidation().accept(ContentType.JSON).
                 header("Authorization", accessToken).
                 param("query", query).
