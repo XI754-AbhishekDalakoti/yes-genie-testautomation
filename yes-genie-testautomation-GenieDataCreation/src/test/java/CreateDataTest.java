@@ -11,9 +11,9 @@ public class CreateDataTest {
     public void dataCreationSearch() throws Exception {
         /*ApiContracts.deleteGnyCustSearchIndex();
         ApiContracts.createIndexGnyCustSearch();
-        ApiContracts.createMappingGnyCustDoc();*/
+        ApiContracts.createMappingGnyCustDoc();
         ApiContracts.bulkIndexingCustSearch();
-        ApiContracts.bulkIndexingInYesBankAccount();
+        ApiContracts.bulkIndexingInYesBankAccount();*/
     }
 
     @Test
@@ -50,8 +50,8 @@ public class CreateDataTest {
     @Test
     public void demogsDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_cust_demogs");
-        ImportHbaseData.setupHbase("gny_cust_demogs", "data_file/data_demogs.csv");
+        ImportHbaseData.createHbaseTable("gny_cust_demogs_v1");
+        ImportHbaseData.setupHbase("gny_cust_demogs_v1", "data_file/data_demogs.csv");
     }
 
 
@@ -59,8 +59,8 @@ public class CreateDataTest {
     @Test
     public void kpiDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_portfolio_kpi_snap");
-        ImportHbaseData.setupHbase("gny_portfolio_kpi_snap","data_file/kpi.csv");
+        ImportHbaseData.createHbaseTable("gny_portfolio_kpi_snap_v1");
+        ImportHbaseData.setupHbase("gny_portfolio_kpi_snap_v1","data_file/kpi.csv");
     }
 
 
@@ -68,8 +68,8 @@ public class CreateDataTest {
     @Test
     public void portfolioDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_portfolio_snap");
-        ImportHbaseData.setupHbase("gny_portfolio_snap","data_file/portfolio.csv");
+        ImportHbaseData.createHbaseTable("gny_portfolio_snap_v1");
+        ImportHbaseData.setupHbase("gny_portfolio_snap_v1","data_file/portfolio.csv");
     }
 
 
@@ -91,8 +91,8 @@ public class CreateDataTest {
     @Test
     public void kpiTrendDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_kpi_trend");
-        ImportHbaseData.setupHbase("gny_kpi_trend","data_file/product_kpi_trend.csv");
+        ImportHbaseData.createHbaseTable("gny_product_kpi_trend");
+        ImportHbaseData.setupHbase("gny_product_kpi_trend","data_file/product_kpi_trend.csv");
     }
 
 

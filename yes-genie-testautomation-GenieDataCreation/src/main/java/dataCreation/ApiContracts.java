@@ -132,7 +132,7 @@ public class ApiContracts {
             String s=scanner.nextLine();
             requestSpecification.body("{ \"index\":{ \"_index\": \"gny_cust_relationship\" , \"_type\": \"gny_cust_relationship_doc\" } } \n" +s+"\n");
             Response response = requestSpecification.post("_bulk");
-            System.out.println("bulk indexing result is " + response.body().asString());
+            System.out.println("bulk indexing result for relationship is " + response.body().asString());
             responseValidation.compareResponseCode(response, 200);
         }
         scanner.close();
