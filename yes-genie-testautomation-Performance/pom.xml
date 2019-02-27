@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org</groupId>
 	<artifactId>yes-genie-testautomation-Performance</artifactId>
@@ -57,12 +57,12 @@
 							<tasks>
 								<mkdir dir="${basedir}/target/jmeter/results/dashboard" />
 								<copy file="${basedir}/src/test/resources/reportgenerator.properties"
-									tofile="${basedir}/target/jmeter/bin/reportgenerator.properties" />
+									  tofile="${basedir}/target/jmeter/bin/reportgenerator.properties" />
 								<copy todir="${basedir}/target/jmeter/bin/report-template">
 									<fileset dir="${basedir}/src/test/resources/report-template" />
 								</copy>
 								<java jar="${basedir}/target/jmeter/bin/ApacheJMeter-3.1.jar"
-									fork="true">
+									  fork="true">
 									<arg value="-g" />
 									<arg value="${basedir}/target/jmeter/results/QA_Default_URL.jtl" />
 									<arg value="-o" />
