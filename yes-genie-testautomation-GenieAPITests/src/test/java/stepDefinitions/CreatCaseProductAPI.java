@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import helper.ResponseValidation;
@@ -25,7 +26,8 @@ public class CreatCaseProductAPI {
 
     @Given("^a genie user has a createcaseproduct api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_createcaseproduct_api_to_test_is(String value) throws Throwable {
-        uri =value;
+        uri = UriHelper.uricheck();
+        uri = uri.concat(value);
     }
 
     @Then("^user get the response \"([^\"]*)\" from the createcaseproduct api where customer type is individual$")

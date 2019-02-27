@@ -50,7 +50,7 @@ public class NbaAPI {
 
     @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" as additional info from the nba api where customer type is individual$")
     public void respose_as_additional_info_for_key_and_value_is(String key, String value) throws Throwable {
-        String param = "[0].additionalInfo[0].";
+        String param = "[0].additionalInfo.";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 
@@ -252,12 +252,12 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from defer api where customer type is individual$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_defer_api_where_customer_type_is_individual(String mdmId, String refrenceID) throws Throwable {
         uri = uri.concat(mdmId).concat("/").concat(refrenceID);
-        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).
-                get(uri);
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken)
+                .get(uri);
     }
 
     @When("^a genie user edits the \"([^\"]*)\" field by the \"([^\"]*)\" and \"([^\"]*)\" field by the \"([^\"]*)\" and \"([^\"]*)\" field by the \"([^\"]*)\" to see \"([^\"]*)\" as body from defer api where customer type is individual$")
-            public void a_genie_user_edits_the_field_by_the_and_field_by_the_and_field_by_the_to_see_from_defer_api_where_customer_type_is_individual(String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree, String valueThree, String body) throws Throwable {
+    public void a_genie_user_edits_the_field_by_the_and_field_by_the_and_field_by_the_to_see_from_defer_api_where_customer_type_is_individual(String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree, String valueThree, String body) throws Throwable {
         codeEditRemark = responseValidation.putOperationForThreeKeys(uri, keyOne, valueOne,keyTwo,valueTwo,keyThree,valueThree,body);
     }
 

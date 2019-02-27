@@ -18,15 +18,15 @@ Feature: Validate nba APIs
     Examples:
       | key                 | value                                           |
       | mdmId               | 996264849                                       |
-      | actionCode          | FD02                                            |
+      | actionCode          | MF002T                                          |
       | referenceNo         | 126                                             |
-      | toolTip             | Non Individual Customer not registered on CNB 4 |
+      | toolTip             | ECS updated with incorrect account number       |
       | accountNo           | 39400000000000                                  |
       | dueDate             | 31-Mar-2019                                     |
       | cumulationCount     | 1                                               |
       | priority            | 4                                               |
-      | status              | open                                            |
-      | recommendationTitle | Non Individual Customer not registered on CNB 4 |
+      | status              | OPEN                                            |
+      | recommendationTitle | ECS updated with incorrect account number       |
       | category            | Regulatory                                      |
 
   @regression @nba
@@ -44,9 +44,8 @@ Feature: Validate nba APIs
     Given a genie user has a nba api to test is "/api/genie/recommendation/view/"
     When a genie user passes the "996264849" as a mdmid to get the response from nba api where customer type is individual
     Then user get the response for "branch_code" is "1" as additional info from the nba api where customer type is individual
-    And user get the response for "fd_amount" is "54856.73" as additional info from the nba api where customer type is individual
-    And user get the response for "LOB" is "Branch Banking" as additional info from the nba api where customer type is individual
-    And user get the response for "BU" is "YES BANK" as additional info from the nba api where customer type is individual
+    And user get the response for "amount" is "54856.73" as additional info from the nba api where customer type is individual
+    And user get the response for "lob" is "Branch Banking" as additional info from the nba api where customer type is individual
 
   @regression @nba
   Scenario: User validates the response of nba api by passing invalid mdmId where customer type is individual
@@ -97,8 +96,8 @@ Feature: Validate nba APIs
     When a genie user passes the "998003452" as a mdmid to get the response from nba api where customer type is corporate
     Then user get the response for "branch_code" is "2" as additional info from the nba api where customer type is corporate
     And user get the response for "BU" is "null" as additional info from the nba api where customer type is corporate
-    And user get the response for "fd_amount" is "54856.73" as additional info from the nba api where customer type is corporate
-    And user get the response for "LOB" is "Branch Banking" as additional info from the nba api where customer type is corporate
+    And user get the response for "amount" is "54856.73" as additional info from the nba api where customer type is corporate
+    And user get the response for "lob" is "Branch Banking" as additional info from the nba api where customer type is corporate
 
 
   @smoke @regression @nba
@@ -199,7 +198,7 @@ Feature: Validate nba APIs
     Given a genie user has a blacklist api to test is "/api/genie/blacklist/reasons"
     When a genie user passes the "FD001" as action codes to get the response from blacklist api
     Then a user get the status code 200 as a response from the blacklist api
-    And user get the reason "Customer does not need the product" from the blacklist api
+    And user get the reason "Customer does not have disposable funds to book FD" from the blacklist api
 
   @regression @nba
   Scenario: User validates the empty response of blacklist api
