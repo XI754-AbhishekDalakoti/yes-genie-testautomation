@@ -2,7 +2,7 @@ Feature: Snap Page
   As a user I should able to login into my app
 
   Background: User has logged in to Genie
-    Given I navigate to "https://cust360.yesgenie.com:31390"
+    Given I navigate to "https://cust360.uat-genie.yesbank.com"
     And I wait for 2 sec
     And I enter "MCC0008398" into input field having id "username"
     And I enter "yesbank@321" into input field having id "password"
