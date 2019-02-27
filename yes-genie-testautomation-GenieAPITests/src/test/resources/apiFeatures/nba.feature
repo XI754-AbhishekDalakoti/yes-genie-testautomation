@@ -140,7 +140,7 @@ Feature: Validate nba APIs
       | custId      | 996264849  |
       | productName | 9          |
       | bu          | Branch Banking   |
-      | sourceRefId | FFDBranch Banking |
+      | sourceRefId | SABranch Banking |
       | branchCode  | 1          |
       | remarks     | null       |
 
@@ -161,9 +161,9 @@ Feature: Validate nba APIs
       | mdmId       | 998003452  |
       | referenceNo | 123        |
       | custId      | 998003452  |
-      | productName | FD628      |
-      | bu          | YES BANK   |
-      | sourceRefId | FDYES BANK |
+      | productName | 9      |
+      | bu          | Branch Banking   |
+      | sourceRefId | FDBranch Banking |
       | branchCode  | 2          |
       | remarks     | null       |
 
