@@ -175,7 +175,8 @@ public class NbaAPI {
 
     @Given("^a genie user has a blacklist api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_blacklist_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as action codes to get the response from blacklist api$")
@@ -210,7 +211,8 @@ public class NbaAPI {
 
     @Given("^a genie user has a dismissal api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_dismissal_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from dismissal api where customer type is individual$")
@@ -243,7 +245,8 @@ public class NbaAPI {
 
     @Given("^a genie user has a defer api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_defer_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from defer api where customer type is individual$")

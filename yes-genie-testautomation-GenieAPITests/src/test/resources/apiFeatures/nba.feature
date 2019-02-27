@@ -104,18 +104,18 @@ Feature: Validate nba APIs
   @smoke @regression @nba
   Scenario: User validates the response code of nba api and actionCode as response
     Given a genie user has a nba api to test is "/api/genie/recommendation/configurations/mappings"
-    When a genie user passes the "FD01" as action codes to get the response from nba api where customer type is individual
+    When a genie user passes the "FD001" as action codes to get the response from nba api where customer type is individual
     Then a user get the status code 200 as a response from the nba api where customer type is individual
-    And user get the response for "actionCode" is "FD01" from the nba api where customer type is individual
+    And user get the response for "actionCode" is "FD001" from the nba api where customer type is individual
 
   @regression @nba
   Scenario Outline: User search with valid actionCode and validate response of nba api for all the mentioned keys in examples
     Given a genie user has a nba api to test is "/api/genie/recommendation/configurations/mappings"
-    When a genie user passes the "FD01" as action codes to get the response from nba api where customer type is individual
+    When a genie user passes the "FD001" as action codes to get the response from nba api where customer type is individual
     Then user get the response for "<key>" is "<value>" from the nba api where customer type is individual
     Examples:
       | key         | value       |
-      | actionCode  | FD01        |
+      | actionCode  | FD001        |
       | actionLabel | Book FD     |
       | iconType    | FD          |
       | transaction | Create Lead |
@@ -197,14 +197,14 @@ Feature: Validate nba APIs
   @smoke @regression @nba
   Scenario: User validates the response code and response of blacklist api
     Given a genie user has a blacklist api to test is "/api/genie/blacklist/reasons"
-    When a genie user passes the "FD01" as action codes to get the response from blacklist api
+    When a genie user passes the "FD001" as action codes to get the response from blacklist api
     Then a user get the status code 200 as a response from the blacklist api
     And user get the reason "Customer does not need the product" from the blacklist api
 
   @regression @nba
   Scenario: User validates the empty response of blacklist api
     Given a genie user has a blacklist api to test is "/api/genie/blacklist/reasons"
-    When a genie user passes the "FD03" as action codes to get the response from blacklist api
+    When a genie user passes the "FD0003" as action codes to get the response from blacklist api
     Then a user get the status code 200 as a response from the blacklist api and "[]" as a message in body
 
   @regression @nba
