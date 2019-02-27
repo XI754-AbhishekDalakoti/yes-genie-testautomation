@@ -17,7 +17,7 @@ public class TokenGenerator {
 //    To do :change the login URL for UAT
         public static String getToken() {
             if (System.getProperty("env").equals("UAT")) {
-                uriAccessToken="https://cust360.uat-genie.yesbank.com/auth/realms/YBL/protocol/openid-connect/token";
+                uriAccessToken="https://sso.uat-genie.yesbank.com/auth/realms/YBL/protocol/openid-connect/token";
                 username ="ADC0008352";
                 password="Test@1234";
             }

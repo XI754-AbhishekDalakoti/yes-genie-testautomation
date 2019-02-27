@@ -41,7 +41,7 @@ Feature: Validate kpi APIs
    @regression @k
      Scenario: User search with valid mdmId and validate response of kpi api where customer type is Individual for all the mentioned keys in examples
        Given a genie user has a kpi api to test is "/api/genie/portfolio/kpi/"
-       When a genie user passes the "24" as a mdmid to get the response from kpi api where customer type is individual
+       When a genie user passes the "24d" as a mdmid to get the response from kpi api where customer type is individual
        And get the response from kpi api
        Then a user get the status code 200 as a response from the kpi api where customer type is individual
        And a user get empty Object as response from the kpi api where customer type is individual

@@ -21,7 +21,8 @@ public class UnauthrizedAPI extends ResponseValidation {
 
     @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\" to test unauthorized functionality$")
     public void get_the_response_of_the_Api_by_passing_parameters_directly(String query, String thresholdValue) {
-        response = given().relaxedHTTPSValidation().accept(ContentType.JSON).
+        accessToken="1";
+        response = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 param("query", query).
                 param("threshold", thresholdValue).
                 get(uri);

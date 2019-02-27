@@ -85,7 +85,7 @@ public class NbaAPI {
 
     @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" as additional info from the nba api where customer type is corporate$")
     public void respose_nba_as_additional_info_for_key_and_value_is(String key, String value) throws Throwable {
-        String param = "[0].additionalInfo[0].";
+        String param = "[0].additionalInfo.";
         responseValidation.responseStringValueCompare(param, responseCorporate, key, value);
     }
 
