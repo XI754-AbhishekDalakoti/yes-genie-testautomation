@@ -12,7 +12,7 @@ public class CreateDataTest {
         /*ApiContracts.deleteGnyCustSearchIndex();
         ApiContracts.createIndexGnyCustSearch();
         ApiContracts.createMappingGnyCustDoc();
-        ApiContracts.bulkIndexingCustSearch();
+        ApiContracts.bulkIndexingCustSearch();`
         ApiContracts.bulkIndexingInYesBankAccount();*/
     }
 
@@ -20,8 +20,8 @@ public class CreateDataTest {
     public void dataCreationRelationship() throws Exception {
         /*ApiContracts.deleteGnyCustRelationshipIndex();
         ApiContracts.createIndexGnyCustRelationship();
-        ApiContracts.createMappingGnyCustRelationship();*/
-        ApiContracts.bulkIndexingCustRelationship();
+        ApiContracts.createMappingGnyCustRelationship();
+        ApiContracts.bulkIndexingCustRelationship();*/
     }
 
 
@@ -93,6 +93,13 @@ public class CreateDataTest {
         ImportHbaseData.createConnection();
         ImportHbaseData.createHbaseTable("gny_product_kpi_trend");
         ImportHbaseData.setupHbase("gny_product_kpi_trend","data_file/product_kpi_trend.csv");
+    }
+
+    @Test
+    public void channelDataCreation() throws Exception {
+        ImportHbaseData.createConnection();
+        ImportHbaseData.createHbaseTable("gny_channel_snap_v1");
+        ImportHbaseData.setupHbase("gny_channel_snap_v1","data_file/channel.csv");
     }
 
 

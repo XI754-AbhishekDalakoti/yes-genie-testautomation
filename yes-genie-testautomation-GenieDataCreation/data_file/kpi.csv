@@ -1,4 +1,4 @@
-row_key|mdm_id|kpi|kpi_value|currency_flag
+row_key|mdm_id|kpi|kpi_value|currency_flg
 996264849_PPI|996264849|PPI|1.2|N
 996264849_NRV|996264849|NRV|10000000|Y
 996264849_GROUP_NRV|996264849|GROUP_NRV|100000|Y
