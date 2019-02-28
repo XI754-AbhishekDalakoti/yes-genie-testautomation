@@ -166,18 +166,18 @@ Feature: Validate nba APIs
       | branchCode  | 2          |
       | remarks     | null       |
 
-  @regression @nba
+  @regression @nba @nbatest
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is individual
     Given a genie user has a nba api to test is "/api/genie/lead/"
     When a genie user passes the "996264849" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is individual
-    And a genie user edits the "remarks" field by the "null"
+    And a genie user edits the "remarks" field by the "null" where "branchCode"is "1" and "custId" is "996264849"
     Then user validates remarks modify successfully
 
   @regression @nba
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is corporate
     Given a genie user has a nba api to test is "/api/genie/lead/"
     When a genie user passes the "998003452" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is corporate
-    And a genie user edits the "remarks" field by the "test data"
+    And a genie user edits the "remarks" field by the "test data" where "branchCode"is "1" and "custId" is "996264849"
     Then user validates remarks modify successfully
 
   @regression @nba

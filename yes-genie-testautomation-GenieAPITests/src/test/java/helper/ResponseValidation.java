@@ -198,6 +198,22 @@ public class ResponseValidation {
         return code;
     }
 
+
+
+    public int putOperationForThreeKeys(String uri, String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree, String valueThree) {
+        RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
+        accessToken=TokenGenerator.getToken();
+        requestSpecification.header("Content-Type", "application/json").header("Authorization", accessToken);;
+        JSONObject json = new JSONObject();
+        json.put(keyOne, valueOne);
+        json.put(keyTwo, valueTwo);
+        json.put(keyThree, valueThree);
+        requestSpecification.body(json.toJSONString());
+        Response response = requestSpecification.put(uri);
+        int code = response.getStatusCode();
+        return code;
+    }
+
     public void validateResponseBadRequest(Response response) {
         response.
                 then().assertThat().statusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR);

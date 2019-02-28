@@ -150,8 +150,17 @@ public class NbaAPI {
 
     @When("^a genie user edits the \"([^\"]*)\" field by the \"([^\"]*)\"$")
     public void a_genie_user_enters_the_as(String key, String value) throws Throwable {
+
         codeEditRemark = responseValidation.putOperation(uri, key, value);
     }
+
+
+    @When("^a genie user edits the \"([^\"]*)\" field by the \"([^\"]*)\" where \"([^\"]*)\"is \"([^\"]*)\" and \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void a_genie_user_edits_the_field_by_the_where_is_and_is(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
+        codeEditRemark = responseValidation.putOperationForThreeKeys(uri, arg1, arg2,arg3,arg4,arg5,arg6);
+    }
+
+
 
     @Then("^user validates remarks modify successfully$")
     public void user_validates_remarks_modify_successfully() throws Throwable {
