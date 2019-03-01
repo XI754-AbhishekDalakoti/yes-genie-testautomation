@@ -97,6 +97,6 @@ public class SearchPage extends SearchLocators {
 
     public void landsIntoSnapPage(){
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals("http://cust360.yesgenie.com:30978/snap", currentUrl);
+        Assert.assertEquals("https://cust360.yesgenie.com:31390/snap", currentUrl);
     }
 }

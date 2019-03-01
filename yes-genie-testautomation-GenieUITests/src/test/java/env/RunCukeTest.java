@@ -11,7 +11,7 @@ import java.io.*;
 @CucumberOptions(
 		plugin = {
 				"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
-		features =  "classpath:features/Portfolio.feature",
+		features =  "classpath:features/ProductDetails.feature",
 		glue = {"info.seleniumcucumber.stepdefinitions",   // predefined step definitions package
 				"info.seleniumcucumber.userStepDefintions" // user step definitions package
 		}

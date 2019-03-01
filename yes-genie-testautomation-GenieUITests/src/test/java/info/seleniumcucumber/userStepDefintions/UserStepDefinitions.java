@@ -1,5 +1,6 @@
 package info.seleniumcucumber.userStepDefintions;
 
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
@@ -11,10 +12,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.LoginPage;
-import pageObjects.PortfolioPage;
-import pageObjects.SearchPage;
-import pageObjects.SnapPage;
+import pageObjects.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +27,7 @@ public class UserStepDefinitions implements BaseTest {
     public static SearchPage sp = new SearchPage();
     public static SnapPage snap = new SnapPage();
     public static PortfolioPage portfolio = new PortfolioPage();
+    public static ProductDetailsPage productdetail =new ProductDetailsPage();
     protected WebDriver driver = DriverUtil.getDefaultDriver();
 
     @Then("^I should get logged-in with welcome message$")
@@ -234,6 +233,26 @@ public class UserStepDefinitions implements BaseTest {
     public void kpiDataOfPortfolioCorporate() throws Throwable {
         portfolio.verifyKPILabels();
         portfolio.verifyKPIAmountsForCorporate();
+    }
+
+    @Then("^I verify the columns and data displayed in the tabular view$")
+    public void verifyProductDetailsInTable(DataTable table1) throws Throwable {
+        productdetail.verifyProductDetailsInTabularView(table1);
+    }
+
+    @Then("^I click on Saving Account$")
+    public void clickOnSavings() throws Throwable {
+        productdetail.clickOnSavingsAccount();
+    }
+
+    @Then("^I verify the alerts displayed in the alert view$")
+    public void verifyAlertBox(DataTable table2) throws Throwable {
+        productdetail.verifyAlertinAlertView(table2);
+    }
+
+    @Then("^I verify the data displayed in the graph view$")
+    public void verifyGraphView(DataTable table3) throws Throwable {
+        productdetail.verifyDataInGraphView(table3);
     }
 
     @After
