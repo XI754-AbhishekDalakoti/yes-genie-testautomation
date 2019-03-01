@@ -27,13 +27,13 @@ public class CreateDataTest {
     }
 
 
-   /* @Test
+    @Test
     public void afterScenario() {
         ApiContracts.searchData();
         ApiContracts.relationshipData();
 
 
-    }*/
+    }
 
     @Test
     public void list() throws Exception {
@@ -46,7 +46,6 @@ public class CreateDataTest {
     public void recommendationDataCreation()  throws Exception {
         ImportHbaseData.createConnection();
         tableName= TablePicker.nba_picker();
-        System.out.println("tablename is " +tableName);
         ImportHbaseData.createHbaseTable(tableName);
         ImportHbaseData.setupHbase(tableName, "data_file/data_NBA.csv");
     }
@@ -105,13 +104,14 @@ public class CreateDataTest {
         ImportHbaseData.setupHbase(tableName,"data_file/product_kpi_trend.csv");
     }
 
-  /*  @Test
+
+    @Test
     public void channelDataCreation() throws Exception {
         ImportHbaseData.createConnection();
         tableName= TablePicker.channel_picker();
         ImportHbaseData.createHbaseTable(tableName);
         ImportHbaseData.setupHbase(tableName,"data_file/channel.csv");
-    }*/
+    }
 
 
 
