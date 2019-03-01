@@ -82,7 +82,7 @@
 				<artifactId>jmeter-graph-maven-plugin</artifactId>
 				<version>0.1.0</version>
 				<configuration>
-					<inputFile>${project.build.directory}/jmeter/results/20190226-QA_Default_URL.jtl</inputFile>
+					<inputFile>${project.build.directory}/jmeter/results/QA_Default_URL.jtl</inputFile>
 					<graphs>
 						<graph>
 							<pluginType>ResponseTimesOverTime</pluginType>
