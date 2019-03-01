@@ -3,9 +3,12 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
+
 import static net.serenitybdd.rest.SerenityRest.given;
 import static utils.Utilities.matchesJsonSchema;
 
@@ -15,19 +18,21 @@ import static utils.Utilities.matchesJsonSchema;
 public class DemographicsAPI extends ResponseValidation {
 
     public static Response responseIndividual, responseCorporate;
-    public static String uri;
+    public static String uri,accessToken;
     ResponseValidation responseValidation = new ResponseValidation();
 
     @When("^a genie user passes the \"([^\"]*)\" as a parameter to get the response from demographic api where customer type is individual$")
     public void get_the_response_of_the_Api_by_passing_parameters_directly(String mdmid) {
         uri = uri.concat(mdmid);
-        responseIndividual = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
     @Given("^a genie user has a demographic api to test is \"([^\"]*)\"$")
     public void api_Value(String value) {
-        uri = value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @Then("^a genie user validates that in the response for demographic api for corporate has all the required fields of required types as mentioned in \"([^\"]*)\"$")
@@ -68,7 +73,8 @@ public class DemographicsAPI extends ResponseValidation {
     @When("^a genie user passes the \"([^\"]*)\" as a parameter to get the response from demographic api where customer type is corporate$")
     public void get_the_corporate_response_of_the_Api_by_passing_parameters_directly(String mdmid) {
         uri = uri.concat(mdmid);
-        responseCorporate = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        responseCorporate = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -77,10 +83,10 @@ public class DemographicsAPI extends ResponseValidation {
         responseCorporate.then().
                 body(matchesJsonSchema(fileName));
     }
-    @Then("^a genie user get the \"([^\"]*)\" as \"([^\"]*)\" from the api as a response$")
-    public void messsage_as_a_response(String key,String value){
-        String param = "";
-        responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
+    @Then("^a genie user get the (\\d+) from the api as a response$")
+    public void a_genie_user_get_the_from_the_api_as_a_response(int arg1) throws Throwable {
+        responseValidation.compareResponseCode(responseIndividual,arg1);
+
     }
 
     @Then("^a user get the status code 404 as a response from the demographic api where customer type is individual$")

@@ -3,9 +3,10 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
+import helper.ResponseValidation;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -15,12 +16,13 @@ import static net.serenitybdd.rest.SerenityRest.given;
 public class UnauthrizedAPI extends ResponseValidation {
 
     public static Response response;
-    public static String uri;
+    public static String uri,accessToken;
     ResponseValidation responseValidation = new ResponseValidation();
 
     @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\" to test unauthorized functionality$")
     public void get_the_response_of_the_Api_by_passing_parameters_directly(String query, String thresholdValue) {
-        response = given().accept(ContentType.JSON).
+        accessToken="1";
+        response = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 param("query", query).
                 param("threshold", thresholdValue).
                 get(uri);
@@ -28,7 +30,8 @@ public class UnauthrizedAPI extends ResponseValidation {
 
     @Given("^api to test is \"([^\"]*)\" to test unauthorized functionality$")
     public void api_value(String value) {
-        uri = value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @Then("^a user get the status code 401 as a response from the api$")
