@@ -9,7 +9,7 @@ IntelliJ so to get less conflicts in project files , its better to use IntelliJ
 
 5. Write your stepDefinitions under "src\test\java\stepDefinitions" 
 
-6. Write your pages under the "src\test\java\pages" 
+6. Write your helper under the "src\test\java\helper"
 
 7. Create a runner to run the cucumber tests under the "src\test\java\" 
 

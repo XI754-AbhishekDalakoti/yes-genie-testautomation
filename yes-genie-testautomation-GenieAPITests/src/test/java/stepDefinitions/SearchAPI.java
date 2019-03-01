@@ -4,10 +4,11 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.TokenGenerator;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.Assert;
-import pages.ResponseValidation;
+import helper.ResponseValidation;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 import static utils.Utilities.matchesJsonSchema;
@@ -24,7 +25,8 @@ public class SearchAPI extends ResponseValidation {
 
     @When("^a user search with value \"([^\"]*)\" and setting value for threshold \"([^\"]*)\"$")
     public void get_the_response_of_the_api_by_passing_parameters_directly(String query, String thresholdValue) {
-        response = given().accept(ContentType.JSON).
+        accessToken  = TokenGenerator.getToken();
+        response = given().relaxedHTTPSValidation().accept(ContentType.JSON).
                 header("Authorization", accessToken).
                 param("query", query).
                 param("threshold", thresholdValue).
@@ -39,7 +41,7 @@ public class SearchAPI extends ResponseValidation {
 
     @And("^to get valid access token user passes \"([^\"]*)\" as \"([^\"]*)\" and \"([^\"]*)\" as \"([^\"]*)\" and \"([^\"]*)\" as \"([^\"]*)\" and \"([^\"]*)\" as \"([^\"]*)\" and \"([^\"]*)\" as \"([^\"]*)\"$")
     public void to_get_valid_access_token_user_passes_as_and_as_and_as_and_as_and_as(String client_idValue, String client_id, String grant_typeValue, String grant_type, String usernameValue, String username, String passwordValue, String password, String client_secretValue, String client_secret) throws Throwable {
-        responseAccessToken = given().accept(ContentType.JSON).
+        responseAccessToken = given().relaxedHTTPSValidation().accept(ContentType.JSON).
                 header("Content-Type", "application/x-www-form-urlencoded").
                 param(client_id, client_idValue).
                 param(grant_type, grant_typeValue).
@@ -55,7 +57,8 @@ public class SearchAPI extends ResponseValidation {
 
     @Given("^api to test is \"([^\"]*)\"$")
     public void api_Value(String value) {
-        uri = value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @Then("^a user get the status code 200 as a response from the api$")
@@ -70,12 +73,12 @@ public class SearchAPI extends ResponseValidation {
 
     @Then("^user get the response from the api for the initial record for \"([^\"]*)\" is \"([^\"]*)\"$")
     public void respose_for_key_and_value_is(String key, String value) throws Throwable {
-        String param = "records[0].";
+        String param = "customer[0].";
         responseValidation.responseCompareForStringValue(param, response, key, value);
     }
     @Then("^user get the response from the api for initial record of numeric type for \"([^\"]*)\" is (\\d+)$")
     public void result_for_numeric_is(String key, int value) throws Throwable {
-        String param = "records[0].";
+        String param = "customer[0].";
         System.out.println("response.getBody().asString()" + response.getBody().asString());
         responseValidation.responseIntValueCompare(param, response, key, value);
     }
@@ -88,7 +91,7 @@ public class SearchAPI extends ResponseValidation {
 
     @Then("^user get the response from the api as \"([^\"]*)\"$")
     public void result_as_response_is(String value) throws Throwable {
-        String param = "records[0].accessible";
+        String param = "customer[0].accessible";
         responseValidation.responseBooleanValueCompare(param, response, value);
     }
 

@@ -3,10 +3,12 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import pages.ResponseValidation;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -16,18 +18,20 @@ import static net.serenitybdd.rest.SerenityRest.given;
 public class CreateLeadAPI extends ResponseValidation {
 
     public static Response response;
-    public static String uri;
+    public static String uri,accessToken;
     int codeSubmitLead;
     ResponseValidation responseValidation = new ResponseValidation();
 
     @Given("^a genie user has a create lead lineofbusinesses api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_create_lead_lineofbusinesses_api_to_test_is(String value) throws Throwable {
-        uri = value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @Then("^a user get the status code 200 as a response from the create lead lineofbusinesses api$")
     public void a_user_get_the_status_code_as_a_response_from_the_create_lead_lineofbusinesses_api() throws Throwable {
-        response = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        response = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
         responseValidation.validateResponseOk(response);
     }
@@ -50,7 +54,8 @@ public class CreateLeadAPI extends ResponseValidation {
 
     @Then("^a user get the status code 200 as a response from the create lead product name api where customer type is individual$")
     public void a_user_get_the_status_code_as_a_response_from_the_create_lead_product_name_api_where_customer_type_is_individual() throws Throwable {
-        response = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        response = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
         responseValidation.validateResponseOk(response);
     }
@@ -68,7 +73,8 @@ public class CreateLeadAPI extends ResponseValidation {
 
     @Then("^a user get the status code 200 as a response from the create lead branchcodes api$")
     public void a_user_get_the_status_code_as_a_response_from_the_create_lead_branchcodes_api() throws Throwable {
-        response = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        response = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
         responseValidation.validateResponseOk(response);
     }

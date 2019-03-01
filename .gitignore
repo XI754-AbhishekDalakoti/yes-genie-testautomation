@@ -17,10 +17,6 @@ target
 bin/
 out
 test-properties
-gradlew
-gradlew.bat
-gradle
-gradle/*
 log/*
 log
 

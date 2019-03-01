@@ -2,14 +2,14 @@ Feature: Search or Landing Page
   As a user I should able to login into my app
 
   Background: User has logged in to Genie
-    Given I navigate to "http://yesgenie.com:30978/"
+    Given I navigate to url "https://cust360.yesgenie.com:31390/"
 
   @Smoke @Regression
   Scenario: Ensure static parameter under search bar is displayed
     Given I'm on login page
     Then I wait for 2 sec
-    And I enter "chandan" into input field having id "username"
-    And I enter "chandan" into input field having id "password"
+    And I enter "prabhat" into input field having id "username"
+    And I enter "1234" into input field having id "password"
     Then I click on Login
     And I wait for 2 sec
     Then Under search bar, it contains static search parameters

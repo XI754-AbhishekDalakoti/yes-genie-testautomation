@@ -18,11 +18,7 @@ bin/
 out
 out/*
 test-properties
-gradlew
-gradlew.bat
 .idea
 .metadata
-gradle
-gradle/*
 
 

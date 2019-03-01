@@ -1,8 +1,10 @@
 package dataCreation;
 
+import com.jcraft.jsch.Logger;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.util.Bytes;
+import org.slf4j.LoggerFactory;
 import utility.HBaseClient;
 import utility.HBaseRecommendationException;
 
@@ -18,6 +20,7 @@ public class ImportHbaseData {
 
    private static final String FAMILY = "D";
    private static HBaseClient hBaseClient;
+   private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ImportHbaseData.class);
 
    
    public static void setUp(String tablename, String file) throws IOException, InterruptedException, ExecutionException, HBaseRecommendationException {
@@ -30,7 +33,28 @@ public class ImportHbaseData {
    }
 
     public static void createHbaseTable(String table) throws IOException {
-        hBaseClient.createTable(table);
+        try{
+            hBaseClient.createTable(table);
+        }
+        catch(Exception e){
+            LOGGER.debug("Table already exists");
+        }
+    }
+
+
+
+    public static void getHbaseTableData(String table) throws IOException {
+        try{
+            hBaseClient.getAllRows(table);
+        }
+        catch(Exception e){
+            LOGGER.debug("Table Not Found");
+        }
+    }
+
+
+    public static void listHbaseTable() throws IOException {
+        hBaseClient.listTable();
     }
 
 

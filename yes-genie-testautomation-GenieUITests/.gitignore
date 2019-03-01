@@ -28,9 +28,6 @@ yes-genie-testautomation-GenieUITest.iml
 
 #Gradle
 .gradle/
-gradle/
-gradlew
-gradlew.bat
 
 #settings
 .settings/org.eclipse.core.resources.prefs

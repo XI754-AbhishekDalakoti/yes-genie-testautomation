@@ -14,7 +14,7 @@ public class UserManagement {
 
     public void getAccessTocken(){
         access_token =
-                given().
+                given().relaxedHTTPSValidation().
                         header("Authorization", "Basic Z3Vlc3RfaG91c2VfcHdkOmdoX3NlY3JldA==").
                         param("username", "123").
                         param("password", "123").
@@ -32,7 +32,7 @@ public class UserManagement {
         String value="hh";
         System.out.println("access_token : " + access_token);
 
-        response = given().header("Authorization", access_token).
+        response = given().relaxedHTTPSValidation().header("Authorization", access_token).
                 get("");
 
         response.

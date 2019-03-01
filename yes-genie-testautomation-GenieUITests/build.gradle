@@ -28,6 +28,7 @@ test  {
     systemProperty "ios_flag", System.getProperty("ios_flag")
     systemProperty "android_flag", System.getProperty("android_flag")
     systemProperty "headless", System.getProperty("headless")
+    systemProperty "env", System.getProperty("env")
 }
 
 configurations

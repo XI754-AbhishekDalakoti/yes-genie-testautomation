@@ -2,9 +2,9 @@ Feature: Login
   As a user I should able to login into my Genie
 
   Background: User is on Genie Page
-    Given I navigate to "http://yesgenie.com:30978/"
+    Given I navigate to url "https://cust360.yesgenie.com:31390/"
 
-  @Regression
+  @Regression  @arya
   Scenario Outline: Login button should be disabled if both credentials are not entered
     When User enters "<Username>" and "<Password>"
     And I click on Login
@@ -35,8 +35,8 @@ Feature: Login
   Scenario: I login with valid credential with welcome message
     Given I'm on login page
     Then I wait for 2 sec
-    And I enter "panna" into input field having id "username"
-    And I enter "123" into input field having id "password"
+    And I enter "prabhat" into input field having id "username"
+    And I enter "1234" into input field having id "password"
     And I click on Login
     Then I should get logged-in with welcome message
 
