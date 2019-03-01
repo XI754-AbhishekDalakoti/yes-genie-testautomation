@@ -83,7 +83,7 @@ public class ImportHbaseData {
            start++;
        }
        table.close();
-       System.out.println(map);
+//       System.out.println(map);
    }
 
     public static void updateRowkeyHbase(String tablename, String rowkey) throws IOException, HBaseRecommendationException {

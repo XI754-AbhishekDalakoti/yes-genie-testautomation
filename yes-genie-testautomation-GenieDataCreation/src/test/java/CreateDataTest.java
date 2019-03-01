@@ -2,9 +2,11 @@ import dataCreation.ApiContracts;
 import dataCreation.ImportHbaseData;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
+import utility.TablePicker;
 
 
 public class CreateDataTest {
+    public  String tableName;
 
 
     @Test
@@ -25,13 +27,13 @@ public class CreateDataTest {
     }
 
 
-    @Test
+   /* @Test
     public void afterScenario() {
         ApiContracts.searchData();
         ApiContracts.relationshipData();
 
 
-    }
+    }*/
 
     @Test
     public void list() throws Exception {
@@ -43,15 +45,18 @@ public class CreateDataTest {
     @Test
     public void recommendationDataCreation()  throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_nba");
-        ImportHbaseData.setupHbase("gny_nba", "data_file/data_NBA.csv");
+        tableName= TablePicker.nba_picker();
+        System.out.println("tablename is " +tableName);
+        ImportHbaseData.createHbaseTable(tableName);
+        ImportHbaseData.setupHbase(tableName, "data_file/data_NBA.csv");
     }
 
     @Test
     public void demogsDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_cust_demogs_v1");
-        ImportHbaseData.setupHbase("gny_cust_demogs_v1", "data_file/data_demogs.csv");
+        tableName= TablePicker.demogs_picker();
+        ImportHbaseData.createHbaseTable(tableName);
+        ImportHbaseData.setupHbase(tableName, "data_file/data_demogs.csv");
     }
 
 
@@ -59,8 +64,9 @@ public class CreateDataTest {
     @Test
     public void kpiDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_portfolio_kpi_snap_v1");
-        ImportHbaseData.setupHbase("gny_portfolio_kpi_snap_v1","data_file/kpi.csv");
+        tableName= TablePicker.portfolio_kpi_picker();
+        ImportHbaseData.createHbaseTable(tableName);
+        ImportHbaseData.setupHbase(tableName,"data_file/kpi.csv");
     }
 
 
@@ -68,39 +74,44 @@ public class CreateDataTest {
     @Test
     public void portfolioDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_portfolio_snap_v1");
-        ImportHbaseData.setupHbase("gny_portfolio_snap_v1","data_file/portfolio.csv");
+        tableName= TablePicker.portfolio_snap_picker();
+        ImportHbaseData.createHbaseTable(tableName);
+        ImportHbaseData.setupHbase(tableName,"data_file/portfolio.csv");
     }
 
 
     @Test
     public void ausDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_cust_aus");
-        ImportHbaseData.setupHbase("gny_cust_aus","data_file/aus.csv");
+        tableName= TablePicker.aus_picker();
+        ImportHbaseData.createHbaseTable(tableName);
+        ImportHbaseData.setupHbase(tableName,"data_file/aus.csv");
     }
 
 
     @Test
     public void portfolioDetailsDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_product_details");
-        ImportHbaseData.setupHbase("gny_product_details","data_file/portfolio_details.csv");
+        tableName= TablePicker.product_details_picker();
+        ImportHbaseData.createHbaseTable(tableName);
+        ImportHbaseData.setupHbase(tableName,"data_file/portfolio_details.csv");
     }
 
     @Test
     public void kpiTrendDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_product_kpi_trend");
-        ImportHbaseData.setupHbase("gny_product_kpi_trend","data_file/product_kpi_trend.csv");
+        tableName= TablePicker.product_kpi_trend_picker();
+        ImportHbaseData.createHbaseTable(tableName);
+        ImportHbaseData.setupHbase(tableName,"data_file/product_kpi_trend.csv");
     }
 
-    @Test
+  /*  @Test
     public void channelDataCreation() throws Exception {
         ImportHbaseData.createConnection();
-        ImportHbaseData.createHbaseTable("gny_channel_snap_v1");
-        ImportHbaseData.setupHbase("gny_channel_snap_v1","data_file/channel.csv");
-    }
+        tableName= TablePicker.channel_picker();
+        ImportHbaseData.createHbaseTable(tableName);
+        ImportHbaseData.setupHbase(tableName,"data_file/channel.csv");
+    }*/
 
 
 
