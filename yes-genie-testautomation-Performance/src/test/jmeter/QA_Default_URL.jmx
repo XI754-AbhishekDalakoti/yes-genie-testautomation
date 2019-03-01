@@ -15,7 +15,7 @@
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
         <stringProp name="delimiter">,</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="filename">/home/prabhatarya/yes-genie-testautomation-Performance/login.csv</stringProp>
+        <stringProp name="filename">/var/lib/jenkins/workspace/Genie_API_Performance/yes-genie-testautomation-Performance/login.csv</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
@@ -120,8 +120,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">sso.uat-genie.com</stringProp>
-          <stringProp name="HTTPSampler.port">31390</stringProp>
+          <stringProp name="HTTPSampler.domain">sso.uat-genie.yesbank.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">auth/realms/YBL/protocol/openid-connect/token</stringProp>
