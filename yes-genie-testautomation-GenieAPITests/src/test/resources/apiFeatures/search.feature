@@ -80,7 +80,7 @@ Feature: Validate Search API
     And user get the response from the api and count of records is more than or equal to 0
     Examples:
       | query               | threshold |
-      | ChaRu               | 50        |
+      | ChaRu sadana        | 50        |
       | AnupamGupta@yesbank | 5000      |
       | @toMEr31twitter     | 5000      |
       | AxepD7154N          | 50        |
@@ -88,7 +88,25 @@ Feature: Validate Search API
 
   @refinesearch @regression
   Scenario Outline: User perform refine search with valid customer name and city and validate response for all the mentioned keys in below Examples:
-    When a user search with value "Ayush+Delhi" and setting value for threshold "50"
+    When a user search with value "Prabhat+Saharanpur" and setting value for threshold "100"
+    Then user get the response from the api for the initial record for "<key>" is "<value>"
+    Examples:
+      | key              | value                 |
+      | customerName     | Prabhat Arya          |
+      | city             | SAHARANPUR            |
+      | addressArea      | W/O RAHUL SADANA 25-B |
+      | homeBranch       | SAHARANPUR,UTTAR PRADESH|
+      | assetRM          | NULL                  |
+      | groupId          | 274937                |
+      | businessSegment  | BRB                   |
+      | partnerSegment   | NULL                  |
+      | customerOpenDate | 11-Mar-2017           |
+      | DOB              | 11-Sep-1987           |
+      | custType         | I                     |
+
+  @refinesearch @regression
+  Scenario Outline: User perform refine search with valid customer name and DOB and validate response for all the mentioned keys in below Examples:
+    When a user search with value "Ayush+30-May-1952" and setting value for threshold "50"
     Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
       | key              | value                 |
@@ -103,24 +121,6 @@ Feature: Validate Search API
       | customerOpenDate | 30-Nov-2016           |
       | DOB              | 30-May-1952           |
       | custType         | I                     |
-
-#  @refinesearch @regression
-#  Scenario Outline: User perform refine search with valid customer name and DOB and validate response for all the mentioned keys in below Examples:
-#    When a user search with value "Ayush+30-May-1952" and setting value for threshold "50"
-#    Then user get the response from the api for the initial record for "<key>" is "<value>"
-#    Examples:
-#      | key              | value                 |
-#      | customerName     | Ayush                 |
-#      | city             | Delhi                 |
-#      | addressArea      | W/O RAHUL SADANA 25-B |
-#      | homeBranch       | Panipat,Haryana       |
-#      | assetRM          | NULL                  |
-#      | groupId          | 274937                |
-#      | businessSegment  | BRB                   |
-#      | partnerSegment   | RB                    |
-#      | customerOpenDate | 30-Nov-2016           |
-#      | DOB              | 30-May-1952           |
-#      | custType         | I                     |
 
   @refinesearch @regression @paa
   Scenario Outline: User perform refine search with valid customer name and Branch Code and validate response for all the mentioned keys in below Examples:
