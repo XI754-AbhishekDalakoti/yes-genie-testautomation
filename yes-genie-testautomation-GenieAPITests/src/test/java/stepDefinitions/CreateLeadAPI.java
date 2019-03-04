@@ -84,7 +84,7 @@ public class CreateLeadAPI extends ResponseValidation {
     @Then("^user get \"([^\"]*)\" as \"([^\"]*)\" from create lead branchcodes api as a first value$")
     public void user_get_as_branchCode_and_as_branchDisplayName_from_create_lead_branchcodes_api_as_a_first_value(String value, String key) throws Throwable {
         String param ="[0].";
-        responseValidation.responseStringValueCompare(param,response,key,value);
+        responseValidation.responseStringValueContains(response,value);
     }
 
     @Given("^a genie user has a nba create lead without recommendation api to test is \"([^\"]*)\"$")

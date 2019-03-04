@@ -1,8 +1,8 @@
-@case
+@case @caseadditionalinfo
 Feature: Validate createcase additionalfields APIs
 
 
-  @smoke @regression @ca
+  @smoke @regression 
   Scenario: User validates the response code of createcaseadditionfields api and mdmId as response where customer type is individual
     Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "996264849" in createcaseadditionfields api
@@ -13,7 +13,7 @@ Feature: Validate createcase additionalfields APIs
 
 
 
-  @regression @ca
+  @regression 
   Scenario Outline: User validate response of createcaseadditionfields api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "996264849" in createcaseadditionfields api
@@ -32,7 +32,7 @@ Feature: Validate createcase additionalfields APIs
       | type                |Boolean              |
 
 
-  @smoke @regression @ca
+  @smoke @regression 
   Scenario: User validates the response code of createcaseadditionfields api and mdmId as response where customer type is corporate
     Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "998003452" in createcaseadditionfields api
@@ -43,7 +43,7 @@ Feature: Validate createcase additionalfields APIs
 
 
 
-  @regression @ca
+  @regression 
   Scenario Outline: User validate response of createcaseadditionfields api where customer type is corporate for all the mentioned keys in examples
     Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "998003452" in createcaseadditionfields api
@@ -63,7 +63,7 @@ Feature: Validate createcase additionalfields APIs
 
 
 
-  @regression @ca
+  @regression 
   Scenario: User validates the blank response of createcaseadditionfields api and mdmId as response where customer type is individual
     Given a genie user has a createcaseadditionfields api to test is "/api/genie/case/additionalfields/"
     When user pass mdmid "998003452" in createcaseadditionfields api

@@ -166,7 +166,7 @@ Feature: Validate nba APIs
       | branchCode  | 2          |
       | remarks     | null       |
 
-  @regression @nba @nbatest
+  @regression @nba
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is individual
     Given a genie user has a nba api to test is "/api/genie/lead/"
     When a genie user passes the "996264849" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is individual

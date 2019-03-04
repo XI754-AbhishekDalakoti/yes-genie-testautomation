@@ -1,8 +1,8 @@
-@case
+@case @casewithoutrecommendation
 Feature: Validate createcase submit APIs
 
 
-  @smoke @regression @cs
+  @smoke @regression 
   Scenario: User validates the response code of createcasesubmit api and mdmId as response where customer type is individual
       Given a genie user has a createcasesubmit api to test uri is "/" and path is "api/genie/case"
       When a genie user edits the "source" field by "Adhoc" and "channel" field by "Genie" and "custId" field by "996264849" and "productName" field by "Deposits" and "caseType" field by "RD Bookinga" and "issueTypeName" field by "Account Not Opened"  and "caseCategory" field by "Complaint" and "issueTypeId" field by 271 and "remarks" field by "test"
@@ -10,7 +10,7 @@ Feature: Validate createcase submit APIs
 
 
 
-   @regression @cs
+   @regression 
     Scenario Outline: User validates the response code of createcasesubmit api and mdmId as response where customer type is individual
      Given a genie user has a createcasesubmit api to test uri is "/" and path is "api/genie/case"
      When a genie user edits the "source" field by "Adhoc" and "channel" field by "Genie" and "custId" field by "996264849" and "productName" field by "Deposits" and "caseType" field by "RD Bookinga" and "issueTypeName" field by "Account Not Opened"  and "caseCategory" field by "Complaint" and "issueTypeId" field by 271 and "remarks" field by "test"
@@ -26,7 +26,7 @@ Feature: Validate createcase submit APIs
 
 
 
-   @regression @cs
+   @regression 
      Scenario: User validates the blank response of createcasesubmit api and mdmId as response where customer type is individual
      Given a genie user has a createcasesubmit api to test uri is "/" and path is "api/genie/case"
      When User sends the request

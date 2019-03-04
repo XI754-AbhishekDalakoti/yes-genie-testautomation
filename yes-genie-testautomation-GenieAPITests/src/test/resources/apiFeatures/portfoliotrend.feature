@@ -2,7 +2,7 @@
 Feature: Validate portfoliotrend APIs
 
 
-  @smoke @regression @pt
+  @smoke @regression
   Scenario: User validates the response code of portfoliotrend api and mdmId as response where customer type is individual
     Given a genie user has a portfoliotrend api to test is "/api/genie/portfolio/trend/"
     When a genie user passes the "996264849" as a mdmid and "SA" as product type to get the response from portfoliotrend api where customer type is individual
@@ -10,7 +10,7 @@ Feature: Validate portfoliotrend APIs
     Then a user get the status code 200 as a response from the portfoliotrend api where customer type is individual
 
 
-  @regression @pt
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of portfoliotrend api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a portfoliotrend api to test is "/api/genie/portfolio/trend/"
     When a genie user passes the "996264849" as a mdmid and "SA" as product type to get the response from portfoliotrend api where customer type is individual
@@ -27,7 +27,7 @@ Feature: Validate portfoliotrend APIs
 
 
 
-  @regression @pt
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of portfoliotrend api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a portfoliotrend api to test is "/api/genie/portfolio/trend/"
     When a genie user passes the "996264849" as a mdmid and "SA" as product type to get the response from portfoliotrend api where customer type is individual
@@ -42,7 +42,7 @@ Feature: Validate portfoliotrend APIs
 
 
 
-  @regression @pt
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of portfoliotrend api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a portfoliotrend api to test is "/api/genie/portfolio/trend/"
     When a genie user passes the "996264849" as a mdmid and "SA" as product type to get the response from portfoliotrend api where customer type is individual
@@ -58,7 +58,7 @@ Feature: Validate portfoliotrend APIs
 
 
 
-  @regression @pt
+  @regression
   Scenario: User search with invalid mdmId and validate response of portfoliotrend api where customer type is Individual for all the mentioned keys in examples
     Given a genie user has a portfoliotrend api to test is "/api/genie/portfolio/trend/"
     When a genie user passes the "996264849" as a mdmid and "SAh" as product type to get the response from portfoliotrend api where customer type is individual

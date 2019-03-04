@@ -2,7 +2,7 @@
 Feature: Validate nba APIs
 
 
-  @smoke @regression @r
+  @smoke @regression
   Scenario: User validates the response code of relationship api and mdmId as response where customer type is individual
     Given a genie user has a relationship api to test is "/api/genie/customer/relationship/"
     When a genie user passes the "996264849" as a mdmid to get the response from relationship api where customer type is individual
@@ -11,7 +11,7 @@ Feature: Validate nba APIs
     And user get the response for friend group for "mdmId" is "12713" from the relationship api where customer type is individual
     And user get the response for family group for "mdmId" is "601" from the relationship api where customer type is individual
 
-  @regression @r
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of relationship api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a relationship api to test is "/api/genie/customer/relationship/"
     When a genie user passes the "996264849" as a mdmid to get the response from relationship api where customer type is individual
@@ -29,7 +29,7 @@ Feature: Validate nba APIs
       | remarks          | System        |
       | incomeBand       | null          |
 
-  @regression @r
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of relationship api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a relationship api to test is "/api/genie/customer/relationship/"
     When a genie user passes the "996264849" as a mdmid to get the response from relationship api where customer type is individual
@@ -47,7 +47,7 @@ Feature: Validate nba APIs
       | remarks          | System       |
       | incomeBand       | Red          |
 
-  @smoke @regression @r
+  @smoke @regression
   Scenario: User validates the response code of relationship api and mdmId as response where customer type is corporate
     Given a genie user has a relationship api to test is "/api/genie/customer/relationship/"
     When a genie user passes the "1002" as a mdmid to get the response from relationship api where customer type is corporate
@@ -56,7 +56,7 @@ Feature: Validate nba APIs
     And user get the response for Corporate group for "mdmId" is "112345" from the relationship api where customer type is corporate
     And user get the response for family group for "mdmId" is "996264849" from the relationship api where customer type is corporate
 
-  @regression @r
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of relationship api where customer type is corporate for all the mentioned keys in examples
     Given a genie user has a relationship api to test is "/api/genie/customer/relationship/"
     When a genie user passes the "1002" as a mdmid to get the response from relationship api where customer type is corporate
@@ -75,7 +75,7 @@ Feature: Validate nba APIs
       | incomeBand       | Green           |
       | relationAttribute | M              |
 
-  @regression @r
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of relationship api where customer type is corporate for all the mentioned keys in examples
     Given a genie user has a relationship api to test is "/api/genie/customer/relationship/"
     When a genie user passes the "1002" as a mdmid to get the response from relationship api where customer type is corporate
@@ -95,7 +95,7 @@ Feature: Validate nba APIs
       | relationAttribute | M           |
 
 
-  @regression @r
+  @regression
   Scenario: User search with valid mdmId and validate response of relationship api where customer type is corporate for all the mentioned keys in examples
     Given a genie user has a relationship api to test is "/api/genie/customer/relationship/"
     When a genie user passes the "24" as a mdmid to get the response from relationship api where customer type is individual
