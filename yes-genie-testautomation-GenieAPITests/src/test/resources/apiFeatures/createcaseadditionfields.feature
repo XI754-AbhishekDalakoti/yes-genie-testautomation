@@ -28,7 +28,7 @@ Feature: Validate createcase additionalfields APIs
     Examples:
       | key                 |value                |
       | fieldName           |ccs_hasattachments   |
-      | displayName         |Has Attachments?     |
+      | displayName         |ccs_hasattachments   |
       | type                |Boolean              |
 
 
@@ -57,7 +57,7 @@ Feature: Validate createcase additionalfields APIs
     Examples:
       | key                 |value             |
       | fieldName           |ccs_debitcardno   |
-      | displayName         |Debit Card No     |
+      | displayName         |ccs_debitcardno   |
       | type                |string            |
 
 

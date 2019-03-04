@@ -44,7 +44,8 @@ public class CreateLeadAPI extends ResponseValidation {
 
     @Given("^a genie user has a create lead product name api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_create_lead_product_name_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a product name to get the response from create lead product name api$")
@@ -68,7 +69,8 @@ public class CreateLeadAPI extends ResponseValidation {
 
     @Given("^a genie user has a create lead branchcodes api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_create_lead_branchcodes_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @Then("^a user get the status code 200 as a response from the create lead branchcodes api$")
@@ -87,7 +89,8 @@ public class CreateLeadAPI extends ResponseValidation {
 
     @Given("^a genie user has a nba create lead without recommendation api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_nba_create_lead_without_recommendation_api_to_test_is(String value) throws Throwable {
-        uri = value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user edits the \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\" and \"([^\"]*)\" field by \"([^\"]*)\"$")

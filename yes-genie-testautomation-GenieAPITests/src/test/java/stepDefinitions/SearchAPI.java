@@ -73,12 +73,16 @@ public class SearchAPI extends ResponseValidation {
 
     @Then("^user get the response from the api for the initial record for \"([^\"]*)\" is \"([^\"]*)\"$")
     public void respose_for_key_and_value_is(String key, String value) throws Throwable {
-        String param = "customer[0].";
+        String param ="";
+        if (System.getProperty("env").equals("UAT")) { param = "customer[1].";}
+        else{ param = "customer[0]."; }
         responseValidation.responseCompareForStringValue(param, response, key, value);
     }
     @Then("^user get the response from the api for initial record of numeric type for \"([^\"]*)\" is (\\d+)$")
     public void result_for_numeric_is(String key, int value) throws Throwable {
-        String param = "customer[0].";
+        String param ="";
+        if (System.getProperty("env").equals("UAT")) { param = "customer[1].";}
+        else{ param = "customer[0]."; }
         System.out.println("response.getBody().asString()" + response.getBody().asString());
         responseValidation.responseIntValueCompare(param, response, key, value);
     }

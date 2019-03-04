@@ -226,9 +226,10 @@ public class NbaAPI {
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from dismissal api where customer type is individual$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_dismissal_api_where_customer_type_is_individual(String mdmId, String refrenceID) throws Throwable {
-        uri = uri.concat(mdmId).concat("/").concat(refrenceID);
+        uri = uri.concat("/").concat(mdmId).concat("/").concat(refrenceID);
+       /* accessToken  = TokenGenerator.getToken();
         responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
-                get(uri);
+                get(uri);*/
     }
 
     @When("^a genie user edits the \"([^\"]*)\" field by the \"([^\"]*)\" and \"([^\"]*)\" field by the \"([^\"]*)\" to see \"([^\"]*)\" from dismissal api where customer type is individual$")
@@ -260,9 +261,10 @@ public class NbaAPI {
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from defer api where customer type is individual$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_defer_api_where_customer_type_is_individual(String mdmId, String refrenceID) throws Throwable {
-        uri = uri.concat(mdmId).concat("/").concat(refrenceID);
+        uri = uri.concat("/").concat(mdmId).concat("/").concat(refrenceID);
+        /*accessToken  = TokenGenerator.getToken();
         responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken)
-                .get(uri);
+                .get(uri);*/
     }
 
     @When("^a genie user edits the \"([^\"]*)\" field by the \"([^\"]*)\" and \"([^\"]*)\" field by the \"([^\"]*)\" and \"([^\"]*)\" field by the \"([^\"]*)\" to see \"([^\"]*)\" as body from defer api where customer type is individual$")

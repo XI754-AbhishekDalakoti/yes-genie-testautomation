@@ -17,7 +17,7 @@ Feature: Validate portfoliodetails APIs
     And get the response from portfoliodetails api
     And user get the response for productCategory loans "<key>" is "<value>" from the portfoliodetails api where customer type is individual
     Examples:
-      | key                     | value    sso.uat-genie.yesbank.com                                     |
+      | key                     | value                                         |
       | CustId                  | 996264849                                     |
       | AOD                     | 16-Sep-2018                                   |
       | accountNo               | 101400079900037                               |

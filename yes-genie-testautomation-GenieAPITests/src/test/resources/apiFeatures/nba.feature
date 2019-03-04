@@ -50,7 +50,7 @@ Feature: Validate nba APIs
   @regression @nba
   Scenario: User validates the response of nba api by passing invalid mdmId where customer type is individual
     Given a genie user has a nba api to test is "/api/genie/recommendation/view/"
-    When a genie user passes the "121" as a mdmid to get the response from nba api where customer type is individual
+    When a genie user passes the "121e" as a mdmid to get the response from nba api where customer type is individual
     Then a user get empty List as response
 
   @smoke @regression @nba
@@ -190,7 +190,7 @@ Feature: Validate nba APIs
   @regression @nba
   Scenario: User validates the response code of nba create lead api and pass the invalid mdmId
     Given a genie user has a nba api to test is "/api/genie/lead/"
-    When a genie user passes the "1" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is individual
+    When a genie user passes the "1e" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is individual
     Then a user get the status code 204 as a response from the nba lead api where customer type is individual
 
   @smoke @regression @nba
@@ -206,44 +206,44 @@ Feature: Validate nba APIs
     When a genie user passes the "FD0003" as action codes to get the response from blacklist api
     Then a user get the status code 200 as a response from the blacklist api and "[]" as a message in body
 
-  @regression @nba
+  @regression @nba @dismiss
   Scenario: User validates the response code of dismissal put api where user enters reason and action
     Given a genie user has a dismissal api to test is "/api/genie/recommendation/dismissal/"
     When a genie user passes the "996264849" as a mdmid and "129" as a refrence id to get the response from dismissal api where customer type is individual
     And a genie user edits the "reason" field by the "testing for reason field" and "actionChannel" field by the "GENIE" to see "Success" from dismissal api where customer type is individual
     Then user validates response code to validate fields modify successfully for dismissal
 
-  @regression @nba
+  @regression @nba @dismiss
   Scenario: User validates the response code of dismissal put api with invalid reference id
     Given a genie user has a dismissal api to test is "/api/genie/recommendation/dismissal/"
     When a genie user passes the "996264849" as a mdmid and "1290" as a refrence id to get the response from dismissal api where customer type is individual
     And a genie user edits the "reason" field by the "testing for reason field" and "actionChannel" field by the "GENIE" to see "Recommendation Data not found for mdmId:996264849, referenceNo:1290 " from dismissal api where customer type is individual
     Then user validates the response code to validate fields modify unsuccessfully
 
-  @regression @nba
-  Scenario: User validates the response code of dismissal put api where user enters deferDate, action and recomendationDueDate
-    Given a genie user has a defer api to test is "/api/genie/recommendation/"
+  @regression @nba @defer
+  Scenario: User validates the response code of defer put api where user enters deferDate, action and recomendationDueDate
+    Given a genie user has a defer api to test is "/api/genie/recommendation/defer"
     When a genie user passes the "996264849" as a mdmid and "129" as a refrence id to get the response from defer api where customer type is individual
-    And a genie user edits the "deferDate" field by the "2019-01-16" and "actionChannel" field by the "GENIE" and "recomendationDueDate" field by the "2019-12-31" to see "Success" as body from defer api where customer type is individual
+    And a genie user edits the "deferDate" field by the "2019-04-16" and "actionChannel" field by the "GENIE" and "recomendationDueDate" field by the "2019-12-31" to see "Success" as body from defer api where customer type is individual
     Then user validates response code to validate fields modify successfully for defer
 
-  @regression @nba
-  Scenario: User validates the response code of dismissal put api where user enters less than or equal to current date
-    Given a genie user has a defer api to test is "/api/genie/recommendation/"
+  @regression @nba @defer
+  Scenario: User validates the response code of defer put api where user enters less than or equal to current date
+    Given a genie user has a defer api to test is "/api/genie/recommendation/defer"
     When a genie user passes the "996264849" as a mdmid and "129" as a refrence id to get the response from defer api where customer type is individual
     And a genie user edits the "deferDate" field by the "2019-01-09" and "actionChannel" field by the "GENIE" and "recomendationDueDate" field by the "2019-12-31" to see "Defer date is Invalid." as body from defer api where customer type is individual
     Then user validates the response code to validate fields modify unsuccessfully for defer
 
-  @regression @nba
-  Scenario: User validates the response code of dismissal put api where user enters greater than recomendationDueDate date
-    Given a genie user has a defer api to test is "/api/genie/recommendation/"
+  @regression @nba @defer
+  Scenario: User validates the response code of defer put api where user enters greater than recomendationDueDate date
+    Given a genie user has a defer api to test is "/api/genie/recommendation/defer"
     When a genie user passes the "996264849" as a mdmid and "129" as a refrence id to get the response from defer api where customer type is individual
-    And a genie user edits the "deferDate" field by the "2023-01-09" and "actionChannel" field by the "GENIE" and "recomendationDueDate" field by the "2019-12-31" to see "Defer date is Invalid." as body from defer api where customer type is individual
+    And a genie user edits the "deferDate" field by the "2023-04-09" and "actionChannel" field by the "GENIE" and "recomendationDueDate" field by the "2019-12-31" to see "Defer date is Invalid." as body from defer api where customer type is individual
     Then user validates the response code to validate fields modify unsuccessfully for defer
 
-  @regression @nba
-  Scenario: User validates the response code of dismissal put api where user enters invalid reference id
-    Given a genie user has a defer api to test is "/api/genie/recommendation/"
-    When a genie user passes the "996264849" as a mdmid and "1290" as a refrence id to get the response from defer api where customer type is individual
-    And a genie user edits the "deferDate" field by the "2019-01-16" and "actionChannel" field by the "GENIE" and "recomendationDueDate" field by the "2019-12-31" to see "Recommendation Data not found for mdmId:996264849, referenceNo:1290 " as body from defer api where customer type is individual
+  @regression @nba @defer
+  Scenario: User validates the response code of defer put api where user enters invalid reference id
+    Given a genie user has a defer api to test is "/api/genie/recommendation/defer"
+    When a genie user passes the "996264849" as a mdmid and "1290e" as a refrence id to get the response from defer api where customer type is individual
+    And a genie user edits the "deferDate" field by the "2019-04-16" and "actionChannel" field by the "GENIE" and "recomendationDueDate" field by the "2019-12-31" to see "Recommendation Data not found for mdmId:996264849, referenceNo:1290 " as body from defer api where customer type is individual
     Then user validates the response code to validate fields modify unsuccessfully for defer

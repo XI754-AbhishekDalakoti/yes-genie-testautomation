@@ -13,7 +13,7 @@ Feature: Validate demographics APIs
 
   @regression @dm
   Scenario: User validates message of demographic api where customer type is individual and mdmId is not available in DB
-    When a genie user passes the "24" as a parameter to get the response from demographic api where customer type is individual
+    When a genie user passes the "24E" as a parameter to get the response from demographic api where customer type is individual
     Then a genie user get the 204 from the api as a response
 
   @regression @dm
@@ -29,7 +29,7 @@ Feature: Validate demographics APIs
       | custType               | FEMALE RESIDENT INDIVIDUAL |
       | emailStatus            | VERIFIED                   |
       | currentCityState       | SAHARANPUR,UTTAR PRADESH   |
-      | currentCityStateStatus | VERIFIED                   |
+      | currentCityStateStatus | INDETERMINISTIC                   |
       | mobileNumber           | 917123456789               |
       | mobileNumberStatus     | VERIFIED                   |
       | profitablilityBand     | #FF0000                      |
@@ -47,7 +47,7 @@ Feature: Validate demographics APIs
       | PS                     | RS                         |
       | BS                     | BRB                        |
       | PAN                    | VERIFIED                   |
-      | DOB                    | 27-Aug-1975                |
+      | DOB                    | 1975-08-27 00:00:00        |
 
 
   @smoke @regression @dm
@@ -139,18 +139,18 @@ Feature: Validate demographics APIs
       | key              | value                           |
       | name             | SURINDRA RADIOS PRIVATE LIMITED |
       | custId           | 998003452                       |
-      | DOI              | 27-May-2015                     |
+      | DOI              | 2015-05-27 00:00:00             |
       | constitution     | null                            |
-      | custOpenDate     | 27-May-2015                     |
+      | custOpenDate     | 2015-05-27 00:00:00             |
       | annualTurnover   | 1 TO 5 CRORE                    |
       | mobileNumber     | 6080112225                      |
-      | alternateNumber  | null                    |
+      | alternateNumber  | 919158706602                    |
       | homeBranch       | SAHARANPUR,UTTAR PRADESH        |
       | cluster          | null                            |
       | region           | null                            |
       | IEC              | null                            |
       | assetRM          | null                            |
-      | liabilityRM      | null                         |
+      | liabilityRM      | 4188029                         |
       | serviceRM        | 2985009                         |
       | groupCode        | 1466889                         |
       | PSM              | null                            |
