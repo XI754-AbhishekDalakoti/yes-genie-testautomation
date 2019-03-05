@@ -40,6 +40,17 @@ public class ProductDetailsLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//li[@class='recharts-tooltip-item'][2]//span")
     public static List<WebElement> graph_datapoint2;
 
+    @FindBy(how = How.XPATH, using = "//tr[@class='_1nL_BTSxz4hYsaTP7n60yV'][2]")
+    public static WebElement table_first_row;
+
+    @FindBy(how = How.XPATH, using = "//tr[@class='_1nL_BTSxz4hYsaTP7n60yV'][3]")
+    public static WebElement table_second_row;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='xP7FnLdBTDfM1ML_e-Okp']/span[1]")
+    public static WebElement info_message;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Reset')]")
+    public static WebElement reset_button;
 
 
 }

@@ -250,9 +250,29 @@ public class UserStepDefinitions implements BaseTest {
         productdetail.verifyAlertinAlertView(table2);
     }
 
-    @Then("^I verify the data displayed in the graph view$")
+    @And("^I verify the data displayed in the graph view$")
     public void verifyGraphView(DataTable table3) throws Throwable {
         productdetail.verifyDataInGraphView(table3);
+    }
+
+    @Then("^I click on one account information row$")
+    public void clickOnFirstAccount() throws Throwable {
+        productdetail.clickOnFirstAccountRow();
+    }
+
+    @And("^I also click on the second account information row$")
+    public void clickOnSecondAccount() throws Throwable {
+        productdetail.clickOnSecondAccountRow();
+    }
+
+    @And("I verify \"([^\"]*)\" displayed near the reset button$")
+    public void verifyMessage(String message) throws Throwable {
+        productdetail.verifyMessageBesideResetButton(message);
+    }
+
+    @Then("^I click on the reset button$")
+    public void clickOnReset() throws Throwable {
+        productdetail.clickOnResetButton();
     }
 
     @After

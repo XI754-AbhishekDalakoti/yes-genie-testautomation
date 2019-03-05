@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ProductDetailsPage extends ProductDetailsLocators {
 
@@ -75,4 +76,16 @@ public class ProductDetailsPage extends ProductDetailsLocators {
         Assert.assertEquals(expected_data_secondpoint,actual_data_secondpoint);
 
     }
+
+    public void clickOnFirstAccountRow(){ table_first_row.click(); }
+
+    public void clickOnSecondAccountRow(){ table_second_row.click(); }
+
+    public void verifyMessageBesideResetButton(String expected_message){
+        String actual_message = info_message.getText();
+        Assert.assertEquals(expected_message,actual_message);
+    }
+
+    public void clickOnResetButton(){ reset_button.click();}
+
 }
