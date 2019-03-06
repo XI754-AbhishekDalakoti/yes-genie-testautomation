@@ -18,15 +18,15 @@
 		</dependency>
 	</dependencies>
 
-	<properties>
-		<login_csv>/home/prabhatarya/Desktop/login.csv</login_csv>
+	<!--<properties>
+		<login_csv> </login_csv>
 		<threadCount>2</threadCount>
 		<rampupTime>1</rampupTime>
 		<url>cust360.yesgenie.com</url>
 		<port>31390</port>
 		<token_url>sso.yesgenie.com</token_url>
 		<mdmid_csv>/home/prabhatarya/Desktop/mdmid.csv</mdmid_csv>
-	</properties>
+	</properties>-->
 
 	<build>
 		<plugins>
