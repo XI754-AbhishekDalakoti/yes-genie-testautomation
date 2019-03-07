@@ -16,7 +16,7 @@
         <stringProp name="delimiter">,</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="filename">${__P(login_csv,/var/lib/jenkins/workspace/Genie_API_Performance/yes-genie-testautomation-Performance/login.csv)}</stringProp>
-        <boolProp name="ignoreFirstLine">true</boolProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
         <stringProp name="shareMode">shareMode.all</stringProp>
