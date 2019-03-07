@@ -52,8 +52,7 @@
 					</propertiesUser>
 					<generateReports>true</generateReports>
 					<testFilesIncluded>
-						<jMeterTestFile>ms_services.jmx</jMeterTestFile>
-						<jMeterTestFile>QA_Default_URL.jmx</jMeterTestFile>
+						<jMeterTestFile>${jmx}</jMeterTestFile>
 					</testFilesIncluded>
 				</configuration>
 
