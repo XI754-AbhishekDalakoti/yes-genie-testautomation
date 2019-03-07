@@ -47,7 +47,8 @@
 						<login_csv>${login_csv}</login_csv>
 						<threads>${threadCount}</threads>
 						<rampup>${rampupTime}</rampup>
-						<mdmid_csv>${mdmid_csv}</mdmid_csv>>
+						<mdmid_csv>${mdmid_csv}</mdmid_csv>
+						<loop>${mdmid_loop}</loop>
 					</propertiesUser>
 					<generateReports>true</generateReports>
 					<testFilesIncluded>
@@ -64,12 +65,12 @@
 							<goal>jmeter</goal>
 						</goals>
 					</execution>
-						<execution>
-							<id>jmeter-tests2</id>
-							<goals>
-								<goal>results</goal>
-							</goals>
-						</execution>
+					<execution>
+						<id>jmeter-tests2</id>
+						<goals>
+							<goal>results</goal>
+						</goals>
+					</execution>
 
 				</executions>
 			</plugin>

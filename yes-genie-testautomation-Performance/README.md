@@ -4,7 +4,7 @@ Build Steps
 ---------------------
 Go to yes-genie-testautomation-Performance
 run
-mvn clean verify -Dlogin_csv=/home/prabhatarya/Desktop/login.csv -DthreadCount=2 -DrampupTime=1  -Dmdmid_csv=/home/prabhatarya/Desktop/mdmid.csv
+mvn clean verify -Dlogin_csv=/home/prabhatarya/Desktop/login.csv -DthreadCount=2 -DrampupTime=1  -Dmdmid_csv=/home/prabhatarya/Desktop/mdmid.csv -Dloop=2
 
 
 
