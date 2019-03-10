@@ -12,9 +12,7 @@ import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
-/**
- * Created by vibhu on 12/19/2018.
- */
+
 public class NbaAPI {
 
     public static Response responseIndividual, responseCorporate, responseLeadIndividual, responseLeadCorporate,responseBlacklist;

@@ -12,9 +12,6 @@ import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
-/**
- * Created by vibhu on 1/11/2019.
- */
 public class CreateLeadAPI extends ResponseValidation {
 
     public static Response response;

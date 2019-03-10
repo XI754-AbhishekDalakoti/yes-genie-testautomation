@@ -13,9 +13,6 @@ import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
-/**
- * Created by vibhu on 11/27/2018.
- */
 public class ResponseValidation {
 
     public static String accessToken;

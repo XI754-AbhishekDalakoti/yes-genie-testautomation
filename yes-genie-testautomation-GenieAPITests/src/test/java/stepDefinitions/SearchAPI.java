@@ -13,9 +13,7 @@ import helper.ResponseValidation;
 import static net.serenitybdd.rest.SerenityRest.given;
 import static utils.Utilities.matchesJsonSchema;
 
-/**
- * Created by vibhu on 11/13/2018.
- */
+
 public class SearchAPI extends ResponseValidation {
 
     public static Response response;
