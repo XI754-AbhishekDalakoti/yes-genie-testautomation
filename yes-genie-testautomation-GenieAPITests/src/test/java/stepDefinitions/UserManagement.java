@@ -5,9 +5,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.containsString;
 
 import static net.serenitybdd.rest.SerenityRest.given;
-/**
- * Created by vibhu on 11/20/2018.
- */
+
 public class UserManagement {
     public static String access_token = "";
     public static Response response;

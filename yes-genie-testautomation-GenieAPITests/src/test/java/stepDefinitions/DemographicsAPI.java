@@ -12,9 +12,7 @@ import helper.TokenGenerator;
 import static net.serenitybdd.rest.SerenityRest.given;
 import static utils.Utilities.matchesJsonSchema;
 
-/**
- * Created by vibhu on 12/5/2018.
- */
+
 public class DemographicsAPI extends ResponseValidation {
 
     public static Response responseIndividual, responseCorporate;
