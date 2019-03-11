@@ -84,7 +84,7 @@
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">sso.genie.yesbank.com</stringProp>
-          <stringProp name="HTTPSampler.port">31390</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -155,7 +155,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">api/customer/search?query=abhishek&amp;threshold=50&amp;isHierarchyDataRequired=true</stringProp>
+          <stringProp name="HTTPSampler.path">api/customer/search?query=charu&amp;threshold=50&amp;isHierarchyDataRequired=true</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -224,7 +224,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/demographic/996264849</stringProp>
+            <stringProp name="HTTPSampler.path">api/demographic/181920</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -269,7 +269,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/demographic/aus/996264849</stringProp>
+            <stringProp name="HTTPSampler.path">api/demographic/aus/181920</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -317,7 +317,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/recommendation/view/996264849</stringProp>
+            <stringProp name="HTTPSampler.path">api/recommendation/view/181920</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -407,7 +407,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/api/lead/996264849/133</stringProp>
+            <stringProp name="HTTPSampler.path">/api/lead/181920/133</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -448,7 +448,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;custId&quot;:&quot;996264849&quot;,&quot;lineOfBusiness&quot;:&quot;Branch Banking&quot;,&quot;productName&quot;:&quot;POS&quot;,&quot;sourceReferenceId&quot;:&quot;POSBranch Banking&quot;,&quot;remark&quot;:&quot;test&quot;,&quot;branchCode&quot;:&quot;1&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&quot;custId&quot;:&quot;181920&quot;,&quot;lineOfBusiness&quot;:&quot;Branch Banking&quot;,&quot;productName&quot;:&quot;POS&quot;,&quot;sourceReferenceId&quot;:&quot;POSBranch Banking&quot;,&quot;remark&quot;:&quot;test&quot;,&quot;branchCode&quot;:&quot;1&quot;}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -639,7 +639,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/case/996264849/128/208</stringProp>
+            <stringProp name="HTTPSampler.path">api/case/181920/128/208</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -684,7 +684,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/case/additionalfields/996264849/128/208</stringProp>
+            <stringProp name="HTTPSampler.path">api/case/additionalfields/181920/128/208</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -912,7 +912,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/portfolio/996264849</stringProp>
+            <stringProp name="HTTPSampler.path">api/portfolio/181920</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -957,7 +957,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/portfolio/channelsnaps/996264849</stringProp>
+            <stringProp name="HTTPSampler.path">api/portfolio/channelsnaps/181920</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1002,7 +1002,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/portfolio/kpi/996264849</stringProp>
+            <stringProp name="HTTPSampler.path">api/portfolio/kpi/181920</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1047,7 +1047,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/portfolio/996264849/SA</stringProp>
+            <stringProp name="HTTPSampler.path">api/portfolio/181920/SA</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1092,7 +1092,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">api/portfolio/trend/996264849/SA</stringProp>
+            <stringProp name="HTTPSampler.path">api/portfolio/trend/181920/SA</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
