@@ -14,13 +14,13 @@ Feature: Search or Landing Page
     Then Under search bar, it contains static search parameters
 
   @Regression @Regression
-  Scenario Outline: Search with record which is not present in system and "No Results Found" message is displayed
+  Scenario Outline: Search with record which is not present in system and "No Customer Found." message is displayed
     And I wait for 2 sec
     And I enter "<Parameter>" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then 'No Results Found, Please refine' message is displayed
+    Then 'No Customer Found.' message is displayed
     And I wait for 2 sec
     Examples:
       | Parameter   |
@@ -57,7 +57,7 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then 'No Results Found, Please refine' message is displayed
+    Then 'No Customer Found.' message is displayed
     And I wait for 2 sec
 
   @Regression @Smoke
@@ -67,7 +67,7 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then 'Search returned too many results, Please refine' message is displayed due to threshold exceeded
+    Then 'Too many matching customers found. Please refine your search criterion.' message is displayed due to threshold exceeded
     And I wait for 2 sec
     Examples:
       | Parameter |

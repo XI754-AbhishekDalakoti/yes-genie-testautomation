@@ -58,14 +58,12 @@ public class SearchPage extends SearchLocators {
         catch (Exception e)
         {
             String getUrl = driver.getCurrentUrl();
-            System.out.println(getUrl);
             Assert.assertEquals(Constant.snapPageUrl, getUrl);
         }
     }
 
     public void noSearchResultDisplay() {
-        String noSearchResultMessage = heading_noSearchResult.getText();
-        Assert.assertEquals("No Results Found. Please refine", noSearchResultMessage);
+        Assert.assertEquals("No Customer Found.", heading_noSearchResult.getText().trim());
     }
 
     public String getpageTitle() {
@@ -75,8 +73,7 @@ public class SearchPage extends SearchLocators {
     }
 
     public void refineMessage() {
-        String msg = refinement_message.getText();
-        Assert.assertEquals("Search returned too many results. Please refine", msg);
+        Assert.assertEquals("Too many matching customers found. Please refine your search criterion.", refinement_message.getText().trim());
     }
 
     public void bubbleSearch(String Result) {

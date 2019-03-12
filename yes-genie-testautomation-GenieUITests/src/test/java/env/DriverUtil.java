@@ -299,7 +299,7 @@ public class DriverUtil {
         String preferredDriver = System.getProperty("browser", "Firefox");
 
 
-        boolean headless = System.getProperty("headless").equals("true");
+        boolean headless = System.getProperty("headless").equals("false");
 
         boolean ios = System.getProperty("ios_flag").equals("true");
 

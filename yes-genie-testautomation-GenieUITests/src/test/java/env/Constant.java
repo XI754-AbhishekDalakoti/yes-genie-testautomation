@@ -19,5 +19,5 @@ public class Constant {
     public static final String PartnerSegment = "Partner Segment";
     public static final String CustOpenDate = "Cust Open Date";
     public static final int threshold =50;
-    public static final String snapPageUrl = "https://cust360.yesgenie.com:31390/snap";
+    public static final String snapPageUrl = "https://cust360.uat-genie.yesbank.com/snap";
 }

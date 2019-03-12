@@ -1,11 +1,11 @@
 package pageObjects;
 
+import env.Constant;
 import helper.Helper;
 import locators.PortfolioLocators;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,7 +20,7 @@ public class PortfolioPage extends PortfolioLocators {
 
     public void verifyDepositOptions(){
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals("https://cust360.yesgenie.com:31390/snap", currentUrl);
+        Assert.assertEquals(Constant.snapPageUrl, currentUrl);
 
         double expectedTotal = help.getTotalAmountAfterReplacingInList(deposit_amounts);
 
