@@ -4,6 +4,7 @@ import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import env.DriverUtil;
@@ -30,6 +31,15 @@ public class UserStepDefinitions implements BaseTest {
     public static DemographicsSnapPage demogs = new DemographicsSnapPage();
     public static CaseNLeadPage caseNlead = new CaseNLeadPage();
     protected WebDriver driver = DriverUtil.getDefaultDriver();
+
+
+    @Given("^I navigate to url \"([^\"]*)\"$")
+    public void navigate_to(String link) {
+        if (System.getProperty("env").equals("UAT")) {
+            link="https://cust360.uat-genie.yesbank.com/";
+        }
+        navigationObj.navigateTo(link);
+    }
 
     @Then("^I should get logged-in with welcome message$")
     public void should_logged_in_with_welcome_message() throws Throwable {

@@ -5,16 +5,14 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.containsString;
 
 import static net.serenitybdd.rest.SerenityRest.given;
-/**
- * Created by vibhu on 11/20/2018.
- */
+
 public class UserManagement {
     public static String access_token = "";
     public static Response response;
 
     public void getAccessTocken(){
         access_token =
-                given().
+                given().relaxedHTTPSValidation().
                         header("Authorization", "Basic Z3Vlc3RfaG91c2VfcHdkOmdoX3NlY3JldA==").
                         param("username", "123").
                         param("password", "123").
@@ -32,7 +30,7 @@ public class UserManagement {
         String value="hh";
         System.out.println("access_token : " + access_token);
 
-        response = given().header("Authorization", access_token).
+        response = given().relaxedHTTPSValidation().header("Authorization", access_token).
                 get("");
 
         response.

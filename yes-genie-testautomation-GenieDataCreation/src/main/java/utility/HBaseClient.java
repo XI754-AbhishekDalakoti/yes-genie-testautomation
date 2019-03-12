@@ -25,9 +25,8 @@ public class HBaseClient {
 	Configuration config;
 	static PropertyReader propertyReader= new PropertyReader("src/main/resources/config.properties");
 
-
 	public HBaseClient() throws Exception {
-		if (propertyReader.getProperty("env").equals("UAT")){
+		if (System.getProperty("env").equals("UAT")){
 			config = getConfiguration();
 		}
 		else {
@@ -48,14 +47,6 @@ public class HBaseClient {
 		}
 	}
 
-
-	private Configuration getBasicConfiguration() throws IOException {
-		Configuration config = HBaseConfiguration.create();
-		String path = "src/test/resources/hbase-site.xml";
-		config.addResource(new Path(path));
-		return config;
-	}
-
 	public void createTable(String tablename) throws IOException {
 		HTableDescriptor hTableDescriptor = new HTableDescriptor(TableName.valueOf(tablename));
 		hTableDescriptor.addFamily(new HColumnDescriptor("D"));
@@ -63,6 +54,22 @@ public class HBaseClient {
 		hBaseAdmin.createTable(hTableDescriptor);
 	}
 
+
+    public void listTable() throws IOException {
+        Admin hBaseAdmin = connection.getAdmin();
+        HTableDescriptor[] tableDescriptor = hBaseAdmin.listTables();
+        for (int i=0; i<tableDescriptor.length;i++ ){
+            System.out.println(tableDescriptor[i].getNameAsString());
+        }
+    }
+
+
+	private Configuration getBasicConfiguration() throws IOException {
+		Configuration config = HBaseConfiguration.create();
+		String path = "src/test/resources/hbase-site.xml";
+		config.addResource(new Path(path));
+		return config;
+	}
 
 
 	public Configuration getConfiguration() throws Exception {
@@ -140,7 +147,10 @@ public class HBaseClient {
 	}
 
 
-	public List<Map<String, String>> getAllRows(Table table, Scan scan) throws IOException {
+	public List<Map<String, String>> getAllRows(String tableName) throws IOException {
+		TableName tabName = TableName.valueOf(tableName);
+		Table table =connection.getTable(tabName);
+		Scan scan=new Scan();
 		ResultScanner resultScanner = table.getScanner(scan);
 		List<Map<String, String>> resultList = new ArrayList<Map<String, String>>();
 		for (Result result = resultScanner.next(); (result != null); result = resultScanner.next()) {
@@ -148,6 +158,15 @@ public class HBaseClient {
 		}
 		resultScanner.close();
 		return resultList;
+	}
+
+
+	public Result getAllRowsForRowKey(String tableName, String rowKey) throws IOException {
+		TableName tabName = TableName.valueOf(tableName);
+		Table table =connection.getTable(tabName);
+		Get g = new Get(Bytes.toBytes(rowKey));
+		Result result = table.get(g);
+		return result;
 	}
 
 

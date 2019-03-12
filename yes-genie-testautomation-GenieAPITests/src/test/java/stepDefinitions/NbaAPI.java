@@ -3,31 +3,35 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import pages.ResponseValidation;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
+
 import static net.serenitybdd.rest.SerenityRest.given;
 
-/**
- * Created by vibhu on 12/19/2018.
- */
+
 public class NbaAPI {
 
     public static Response responseIndividual, responseCorporate, responseLeadIndividual, responseLeadCorporate,responseBlacklist;
-    public static String uri;
+    public static String uri,accessToken;
     public int codeEditRemark;
     ResponseValidation responseValidation = new ResponseValidation();
 
+
     @Given("^a genie user has a nba api to test is \"([^\"]*)\"$")
     public void apiValue(String value) {
-        uri = value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid to get the response from nba api where customer type is individual$")
     public void get_the_response_of_the_Api_by_passing_parameters_directly(String mdmid) {
         uri = uri.concat(mdmid);
-        responseIndividual = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -44,7 +48,7 @@ public class NbaAPI {
 
     @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" as additional info from the nba api where customer type is individual$")
     public void respose_as_additional_info_for_key_and_value_is(String key, String value) throws Throwable {
-        String param = "additionalInfo[0].";
+        String param = "[0].additionalInfo.";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 
@@ -66,7 +70,8 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid to get the response from nba api where customer type is corporate$")
     public void get_the_response_of_the_Api_by_passing_mdmId_directly(String mdmid) {
         uri = uri.concat(mdmid);
-        responseCorporate = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        responseCorporate = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -78,7 +83,7 @@ public class NbaAPI {
 
     @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" as additional info from the nba api where customer type is corporate$")
     public void respose_nba_as_additional_info_for_key_and_value_is(String key, String value) throws Throwable {
-        String param = "additionalInfo[0].";
+        String param = "[0].additionalInfo.";
         responseValidation.responseStringValueCompare(param, responseCorporate, key, value);
     }
 
@@ -89,14 +94,16 @@ public class NbaAPI {
 
     @When("^a genie user passes the \"([^\"]*)\" as action codes to get the response from nba api where customer type is individual$")
     public void get_the_response_of_the_Api_by_passing_parameters_directly_for_action_code_individual(String actionCode) {
-        responseIndividual = given().accept(ContentType.JSON).
+        accessToken  = TokenGenerator.getToken();
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 param("query", actionCode).
                 get(uri);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as action codes to get the response from nba api where customer type is corporate")
     public void get_the_response_of_the_Api_by_passing_parameters_directly_for_action_code_corporate(String actionCode) {
-        responseCorporate = given().accept(ContentType.JSON).
+        accessToken  = TokenGenerator.getToken();
+        responseCorporate = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 param("query", actionCode).
                 get(uri);
     }
@@ -104,7 +111,8 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from nba api where customer type is individual$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_nba_api_where_customer_type_is_individual(String mdmId, String refrenceID) throws Throwable {
         uri = uri.concat(mdmId).concat("/").concat(refrenceID);
-        responseLeadIndividual = given().accept(ContentType.JSON).
+        accessToken  = TokenGenerator.getToken();
+        responseLeadIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -122,7 +130,8 @@ public class NbaAPI {
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from nba api where customer type is corporate$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_nba_api_where_customer_type_is_corporate(String mdmId, String refrenceID) throws Throwable {
         uri = uri.concat(mdmId).concat("/").concat(refrenceID);
-        responseLeadCorporate = given().accept(ContentType.JSON).
+        accessToken = TokenGenerator.getToken();
+        responseLeadCorporate = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -139,8 +148,17 @@ public class NbaAPI {
 
     @When("^a genie user edits the \"([^\"]*)\" field by the \"([^\"]*)\"$")
     public void a_genie_user_enters_the_as(String key, String value) throws Throwable {
+
         codeEditRemark = responseValidation.putOperation(uri, key, value);
     }
+
+
+    @When("^a genie user edits the \"([^\"]*)\" field by the \"([^\"]*)\" where \"([^\"]*)\"is \"([^\"]*)\" and \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void a_genie_user_edits_the_field_by_the_where_is_and_is(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
+        codeEditRemark = responseValidation.putOperationForThreeKeys(uri, arg1, arg2,arg3,arg4,arg5,arg6);
+    }
+
+
 
     @Then("^user validates remarks modify successfully$")
     public void user_validates_remarks_modify_successfully() throws Throwable {
@@ -164,13 +182,15 @@ public class NbaAPI {
 
     @Given("^a genie user has a blacklist api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_blacklist_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as action codes to get the response from blacklist api$")
     public void a_genie_user_passes_the_as_action_codes_to_get_the_response_from_blacklist_api(String actionCodeValue) throws Throwable {
         uri=uri.concat("/").concat(actionCodeValue);
-        responseBlacklist = given().accept(ContentType.JSON).
+        accessToken  = TokenGenerator.getToken();
+        responseBlacklist = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
                 get(uri);
     }
 
@@ -198,14 +218,16 @@ public class NbaAPI {
 
     @Given("^a genie user has a dismissal api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_dismissal_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from dismissal api where customer type is individual$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_dismissal_api_where_customer_type_is_individual(String mdmId, String refrenceID) throws Throwable {
-        uri = uri.concat(mdmId).concat("/").concat(refrenceID);
-        responseIndividual = given().accept(ContentType.JSON).
-                get(uri);
+        uri = uri.concat("/").concat(mdmId).concat("/").concat(refrenceID);
+       /* accessToken  = TokenGenerator.getToken();
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).
+                get(uri);*/
     }
 
     @When("^a genie user edits the \"([^\"]*)\" field by the \"([^\"]*)\" and \"([^\"]*)\" field by the \"([^\"]*)\" to see \"([^\"]*)\" from dismissal api where customer type is individual$")
@@ -231,18 +253,20 @@ public class NbaAPI {
 
     @Given("^a genie user has a defer api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_defer_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid and \"([^\"]*)\" as a refrence id to get the response from defer api where customer type is individual$")
     public void a_genie_user_passes_the_as_a_mdmid_and_as_a_refrence_id_to_get_the_response_from_defer_api_where_customer_type_is_individual(String mdmId, String refrenceID) throws Throwable {
-        uri = uri.concat(mdmId).concat("/").concat(refrenceID);
-        responseIndividual = given().accept(ContentType.JSON).
-                get(uri);
+        uri = uri.concat("/").concat(mdmId).concat("/").concat(refrenceID);
+        /*accessToken  = TokenGenerator.getToken();
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken)
+                .get(uri);*/
     }
 
     @When("^a genie user edits the \"([^\"]*)\" field by the \"([^\"]*)\" and \"([^\"]*)\" field by the \"([^\"]*)\" and \"([^\"]*)\" field by the \"([^\"]*)\" to see \"([^\"]*)\" as body from defer api where customer type is individual$")
-            public void a_genie_user_edits_the_field_by_the_and_field_by_the_and_field_by_the_to_see_from_defer_api_where_customer_type_is_individual(String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree, String valueThree, String body) throws Throwable {
+    public void a_genie_user_edits_the_field_by_the_and_field_by_the_and_field_by_the_to_see_from_defer_api_where_customer_type_is_individual(String keyOne, String valueOne, String keyTwo, String valueTwo, String keyThree, String valueThree, String body) throws Throwable {
         codeEditRemark = responseValidation.putOperationForThreeKeys(uri, keyOne, valueOne,keyTwo,valueTwo,keyThree,valueThree,body);
     }
 

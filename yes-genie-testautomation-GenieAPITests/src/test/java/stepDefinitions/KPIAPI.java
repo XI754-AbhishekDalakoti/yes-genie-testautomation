@@ -1,12 +1,13 @@
 package stepDefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import helper.UriHelper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pages.ResponseValidation;
+import helper.ResponseValidation;
+import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
@@ -14,12 +15,13 @@ public class KPIAPI
 {
 
     public static Response responseIndividual, responseCorporate;
-    public static String uri;
+    public static String uri,accessToken;
     ResponseValidation responseValidation = new ResponseValidation();
 
     @Given("^a genie user has a kpi api to test is \"([^\"]*)\"$")
     public void a_genie_user_has_a_kpi_api_to_test_is(String value) throws Throwable {
-        uri=value;
+        uri = UriHelper.uricheck();
+        uri =uri.concat(value);
     }
 
     @When("^a genie user passes the \"([^\"]*)\" as a mdmid to get the response from kpi api where customer type is individual$")
@@ -29,7 +31,8 @@ public class KPIAPI
 
     @When("^get the response from kpi api$")
     public void get_the_response_from_kpi_api() throws Throwable {
-        responseIndividual = given().accept(ContentType.JSON).get(uri);
+        accessToken = TokenGenerator.getToken();
+        responseIndividual = given().relaxedHTTPSValidation().accept(ContentType.JSON).header("Authorization", accessToken).get(uri);
         System.out.print(responseIndividual.body().asString());
     }
 

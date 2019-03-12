@@ -2,7 +2,7 @@ Feature: Login
   As a user I should able to login into my Genie
 
   Background: User is on Genie Page
-    Given I navigate to "https://cust360.uat-genie.yesbank.com"
+    Given I navigate to url "https://cust360.uat-genie.yesbank.com"
 
   @Regression
   Scenario Outline: Login button should be disabled if both credentials are not entered

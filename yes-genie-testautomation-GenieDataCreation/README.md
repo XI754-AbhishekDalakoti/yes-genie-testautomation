@@ -1,6 +1,6 @@
-Add following properties in /etc/hosts
-10.10.24.25 hbase-service
-10.10.24.25 quickstart.cloudera
+Add following properties in /etc/hosts (for local)
+10.10.24.45 hbase-service
+10.10.24.45 quickstart.cloudera
 
 Install Gradle and IntelliJ/Eclipse on your machine but Since most of the people are using IntelliJ so to get less conflicts in project files , its better to use IntelliJ
 
