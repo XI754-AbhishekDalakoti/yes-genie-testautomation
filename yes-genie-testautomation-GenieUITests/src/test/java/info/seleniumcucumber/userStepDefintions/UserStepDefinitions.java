@@ -30,6 +30,7 @@ public class UserStepDefinitions implements BaseTest {
     public static PortfolioPage portfolio = new PortfolioPage();
     public static DemographicsSnapPage demogs = new DemographicsSnapPage();
     public static CaseNLeadPage caseNlead = new CaseNLeadPage();
+    public static ProductDetailsPage productdetail =new ProductDetailsPage();
     protected WebDriver driver = DriverUtil.getDefaultDriver();
 
 
@@ -376,18 +377,6 @@ public class UserStepDefinitions implements BaseTest {
         portfolio.verifyKPIAmountsForCorporate();
     }
 
-    @After
-    public void afterScenario() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        dropdown.click();
-        logout_button.click();
-    }
-
-/*    @Then("^I select Cust ID \"([^\"]*)\", LOB \"([^\"]*)\", Branch Name \"([^\"]*)\", Product Name \"([^\"]*)\" and provide remarks \"([^\"]*)\"$")
-    public void iSelectCustIDLOBBranchNameProductNameAndProvideRemarks(String custid, String lob, String branchName, String productName, String rmrks) throws Throwable {
-        caseNlead.selectFieldsInCreateLeadForm(custid, lob, branchName, productName, rmrks);
-    }*/
-
     @Then("^Create Lead form gets open with title \"([^\"]*)\"$")
     public void createLeadFormGetsOpenWithTitleWithHeadingsCustIDLOBBranchNameProductNameAndRemarks(String title) throws Throwable {
         caseNlead.verifyCreateLeadForm(title);
@@ -411,5 +400,52 @@ public class UserStepDefinitions implements BaseTest {
     @Then("^I click on any recommendation's lable in ALL category section to Create Service Request$")
     public void iClickOnAnyRecommendationSLableInALLCategorySectionToCreateServiceRequest() throws Throwable {
         caseNlead.clickOnLableToCreateServiceRequest();
+    }
+
+    @Then("^I click on Saving Account$")
+    public void clickOnSavings() throws Throwable {
+        productdetail.clickOnSavingsAccount();
+    }
+
+    @Then("^I verify the columns and data displayed in the tabular view$")
+    public void verifyProductDetailsInTable(DataTable table1) throws Throwable {
+        productdetail.verifyProductDetailsInTabularView(table1);
+    }
+
+    @Then("^I verify the alerts displayed in the alert view$")
+    public void verifyAlertBox(DataTable table2) throws Throwable {
+        productdetail.verifyAlertinAlertView(table2);
+    }
+
+    @And("^I verify the data displayed in the graph view$")
+    public void verifyGraphView(DataTable table3) throws Throwable {
+        productdetail.verifyDataInGraphView(table3);
+    }
+
+    @Then("^I click on one account information row$")
+    public void clickOnFirstAccount() throws Throwable {
+        productdetail.clickOnFirstAccountRow();
+    }
+
+    @And("^I also click on the second account information row$")
+    public void clickOnSecondAccount() throws Throwable {
+        productdetail.clickOnSecondAccountRow();
+    }
+
+    @And("I verify \"([^\"]*)\" displayed near the reset button$")
+    public void verifyMessage(String message) throws Throwable {
+        productdetail.verifyMessageBesideResetButton(message);
+    }
+
+    @Then("^I click on the reset button$")
+    public void clickOnReset() throws Throwable {
+        productdetail.clickOnResetButton();
+    }
+
+    @After
+    public void afterScenario() {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        dropdown.click();
+        logout_button.click();
     }
 }
