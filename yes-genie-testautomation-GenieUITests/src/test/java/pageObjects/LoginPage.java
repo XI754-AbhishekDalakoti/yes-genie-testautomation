@@ -4,8 +4,6 @@ import env.Constant;
 import locators.LoginLocators;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;

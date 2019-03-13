@@ -11,9 +11,7 @@ import helper.TokenGenerator;
 
 import static net.serenitybdd.rest.SerenityRest.given;
 
-/**
- * Created by vibhu on 12/20/2018.
- */
+
 public class RelationshipAPI {
 
     public static Response responseIndividual, responseCorporate;
