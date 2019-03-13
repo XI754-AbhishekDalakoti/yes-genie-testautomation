@@ -62,6 +62,10 @@
 						<rampup>${rampupTime}</rampup>
 						<mdmid_csv>${mdmid_csv}</mdmid_csv>
 						<loop>${mdmid_loop}</loop>
+						<allow_loop>${allow_loop}</allow_loop>
+						<loop_count>${loop_count}</loop_count>
+						<scheduler>${scheduler}</scheduler>
+						<scheduler_count>${scheduler_count}</scheduler_count>>
 					</propertiesUser>
 					<generateReports>true</generateReports>
 					<testFilesIncluded>
