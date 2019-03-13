@@ -26,6 +26,14 @@
 				<artifactId>jmeter-maven-plugin</artifactId>
 				<version>2.6.0</version>
 				<configuration>
+					<jMeterProcessJVMSettings>
+						<xms>1024</xms>
+						<xmx>1024</xmx>
+						<arguments>
+							<argument>-Xprof</argument>
+							<argument>-Xfuture</argument>
+						</arguments>
+					</jMeterProcessJVMSettings>
 					<testResultsTimestamp>false</testResultsTimestamp>
 					<propertiesSystem>
 						<javax.net.ssl.keyStoreType>PKCS12</javax.net.ssl.keyStoreType>
@@ -60,7 +68,7 @@
 						<jMeterTestFile>${jmx}</jMeterTestFile>
 					</testFilesIncluded>
 					<!--<jmeterExtensions>-->
-						<!--<artifact>kg.apc:jmeter-plugins-casutg:2.0</artifact>-->
+					<!--<artifact>kg.apc:jmeter-plugins-casutg:2.0</artifact>-->
 					<!--</jmeterExtensions>-->
 				</configuration>
 
@@ -82,9 +90,9 @@
 				</executions>
 				<!--<dependencies>-->
 				<!--<dependency>-->
-					<!--<groupId>kg.apc</groupId>-->
-					<!--<artifactId>jmeter-plugins-casutg</artifactId>-->
-					<!--<version>2.0</version>-->
+				<!--<groupId>kg.apc</groupId>-->
+				<!--<artifactId>jmeter-plugins-casutg</artifactId>-->
+				<!--<version>2.0</version>-->
 				<!--</dependency>-->
 				<!--</dependencies>-->
 			</plugin>
