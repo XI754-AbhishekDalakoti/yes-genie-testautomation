@@ -2,10 +2,10 @@ Feature: Product Details Page
   As a user I should be able to see my product details
 
   Background: User has logged in to Genie
-    Given I navigate to "https://cust360.yesgenie.com:31390"
+    Given I navigate to "https://cust360.uat-genie.yesbank.com"
     Then I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
+    And I enter "MCC0008398" into input field having id "username"
+    And I enter "yesbank@321" into input field having id "password"
     Then I click on Login
     And I wait for 2 sec
     Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
