@@ -30,7 +30,7 @@
         <stringProp name="ThreadGroup.num_threads">${__P(threads,1)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${__P(rampup,1)}</stringProp>
         <boolProp name="ThreadGroup.scheduler">${__P(scheduler,false)}</boolProp>
-        <stringProp name="ThreadGroup.duration">${__P(scheduler_count,false)}</stringProp>
+        <stringProp name="ThreadGroup.duration">${__P(scheduler_count,120)}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <longProp name="ThreadGroup.start_time">1551852589000</longProp>
         <longProp name="ThreadGroup.end_time">1551852589000</longProp>
@@ -76,7 +76,7 @@
               </elementProp>
               <elementProp name="client_secret" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">e08d8ca0-3db8-4cb6-be8c-449202e5e36d</stringProp>
+                <stringProp name="Argument.value">6d0d53d2-d213-4f72-9df3-1cbf78c49894</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">client_secret</stringProp>
@@ -155,7 +155,7 @@ vars.put(&quot;token&quot;,access_token);</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">api/customer/search?query=charu&amp;threshold=50&amp;isHierarchyDataRequired=true</stringProp>
+          <stringProp name="HTTPSampler.path">api/customer/search?query=181920&amp;threshold=50&amp;isHierarchyDataRequired=true</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
