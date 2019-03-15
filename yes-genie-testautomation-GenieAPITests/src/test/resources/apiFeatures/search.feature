@@ -118,7 +118,7 @@ Feature: Validate Search API
       | groupId          | 274937                |
       | businessSegment  | BRB                   |
       | partnerSegment   | RB                    |
-      | customerOpenDate | 18-Apr-2016           |
+      | customerOpenDate | 30-Nov-2016           |
       | DOB              | 30-May-1952           |
       | custType         | I                     |
 
@@ -136,6 +136,6 @@ Feature: Validate Search API
       | groupId          | 274937                |
       | businessSegment  | BRB                   |
       | partnerSegment   | RB                    |
-      | customerOpenDate | 18-Apr-2016           |
+      | customerOpenDate | 30-Nov-2016           |
       | DOB              | 30-May-1952           |
       | custType         | I                     |

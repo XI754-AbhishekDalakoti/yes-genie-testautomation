@@ -145,7 +145,7 @@ public class DemographicsAPI extends ResponseValidation {
 
     @Then("^user get the response for \"([^\"]*)\" is \"([^\"]*)\" from the demographic api for initial c flag record where customer type is corporate$")
     public void resposecorporate_for_key_and_value_for_initial_cust_record_is(String key, String value) throws Throwable {
-        String param = "custData[0].";
+        String param = "custData[1].";
         responseValidation.responseStringValueCompare(param, responseCorporate, key, value);
     }
 }

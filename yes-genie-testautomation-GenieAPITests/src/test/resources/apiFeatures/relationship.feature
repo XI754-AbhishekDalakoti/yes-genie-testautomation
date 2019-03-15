@@ -27,7 +27,6 @@ Feature: Validate nba APIs
       | relationshipType | Friend        |
       | imageUrl         | null          |
       | remarks          | System        |
-      | incomeBand       | null          |
 
   @regression
   Scenario Outline: User search with valid mdmId and validate response of relationship api where customer type is individual for all the mentioned keys in examples
@@ -83,7 +82,6 @@ Feature: Validate nba APIs
     Then user get the response for family group for "<key>" is "<value>" from the relationship api where customer type is corporate
     Examples:
       | key              | value        |
-      | name             |  Charu Sadana |
       | mdmId            | 996264849    |
       | relation         | Spouse       |
       | bankName         | Axis Bank    |

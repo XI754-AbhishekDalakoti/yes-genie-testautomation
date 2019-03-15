@@ -11,19 +11,19 @@ public class CreateDataTest {
 
     @Test
     public void dataCreationSearch() throws Exception {
-        ApiContracts.deleteGnyCustSearchIndex();
-        ApiContracts.createIndexGnyCustSearch();
-        ApiContracts.createMappingGnyCustDoc();
-        ApiContracts.bulkIndexingCustSearch();
-        ApiContracts.bulkIndexingInYesBankAccount();
+//        ApiContracts.deleteGnyCustSearchIndex();
+//        ApiContracts.createIndexGnyCustSearch();
+//        ApiContracts.createMappingGnyCustDoc();
+//        ApiContracts.bulkIndexingCustSearch();
+//        ApiContracts.bulkIndexingInYesBankAccount();
     }
 
     @Test
     public void dataCreationRelationship() throws Exception {
-        /*ApiContracts.deleteGnyCustRelationshipIndex();
+//        ApiContracts.deleteGnyCustRelationshipIndex();
         ApiContracts.createIndexGnyCustRelationship();
         ApiContracts.createMappingGnyCustRelationship();
-        ApiContracts.bulkIndexingCustRelationship();*/
+        ApiContracts.bulkIndexingCustRelationship();
     }
 
 

@@ -79,12 +79,9 @@ Feature: Validate demographics APIs
       | business               | null                            |
       | industry               | Agri Commodities                |
       | annualTurnover         | 1 TO 5 CRORE                    |
-      | landlineNumberStatus   | null                            |
       | PS                     | RS                              |
       | BS                     | BRB                             |
-      | PAN                    | NOTVERIFIED                     |
       | DOI                    | 2015-05-27 00:00:00             |
-      | landlineNumber         | 919158706602                    |
       | webSite                | null                            |
 
   @smoke @regression @dm
@@ -145,7 +142,6 @@ Feature: Validate demographics APIs
       | annualTurnover   | 1 TO 5 CRORE                    |
       | mobileNumber     | 6080112225                      |
       | alternateNumber  | 919158706602                    |
-      | homeBranch       | SAHARANPUR,UTTAR PRADESH        |
       | cluster          | null                            |
       | region           | null                            |
       | IEC              | null                            |
