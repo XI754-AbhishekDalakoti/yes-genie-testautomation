@@ -11,11 +11,11 @@ public class CreateDataTest {
 
     @Test
     public void dataCreationSearch() throws Exception {
-        /*ApiContracts.deleteGnyCustSearchIndex();
+        ApiContracts.deleteGnyCustSearchIndex();
         ApiContracts.createIndexGnyCustSearch();
         ApiContracts.createMappingGnyCustDoc();
-        ApiContracts.bulkIndexingCustSearch();`
-        ApiContracts.bulkIndexingInYesBankAccount();*/
+        ApiContracts.bulkIndexingCustSearch();
+        ApiContracts.bulkIndexingInYesBankAccount();
     }
 
     @Test
