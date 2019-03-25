@@ -11,14 +11,14 @@ public class CreateDataTest {
 
     @Test
     public void dataCreationSearch() throws Exception {
-//        ApiContracts.deleteGnyCustSearchIndex();
-//        ApiContracts.createIndexGnyCustSearch();
-//        ApiContracts.createMappingGnyCustDoc();
-//        ApiContracts.bulkIndexingCustSearch();
-//        ApiContracts.bulkIndexingInYesBankAccount();
+        ApiContracts.deleteGnyCustSearchIndex();
+        ApiContracts.createIndexGnyCustSearch();
+        ApiContracts.createMappingGnyCustDoc();
+        ApiContracts.bulkIndexingCustSearch();
+        ApiContracts.bulkIndexingInYesBankAccount();
     }
 
-    @Test
+ /*   @Test
     public void dataCreationRelationship() throws Exception {
 //        ApiContracts.deleteGnyCustRelationshipIndex();
         ApiContracts.createIndexGnyCustRelationship();
@@ -111,7 +111,7 @@ public class CreateDataTest {
         tableName= TablePicker.channel_picker();
         ImportHbaseData.createHbaseTable(tableName);
         ImportHbaseData.setupHbase(tableName,"data_file/channel.csv");
-    }
+    } */
 
 
 
