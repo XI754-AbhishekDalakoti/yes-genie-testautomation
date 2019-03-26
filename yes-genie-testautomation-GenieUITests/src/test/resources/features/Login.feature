@@ -15,38 +15,38 @@ Feature: Login
       | manisha  |          |
       |          | manisha  |
 
-  @Regression
-  Scenario: User should not be able to login with invalid credentails
-    Then I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "mani" into input field having id "password"
-    When I click on Login
-    Then I should get error message
-
-  @Regression
-  Scenario: User should be able to login when User ID is case insensitive
-    Then I wait for 2 sec
-    And I enter "MANISHA" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
-    When I click on Login
-    Then I should get logged-in with welcome message
-
-  @Regression @Smoke
-  Scenario: I login with valid credential with welcome message
-    Then I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
-    And I click on Login
-    Then I should get logged-in with welcome message
-
-  @Smoke @Regression
-  Scenario: Validate Last Login date time format and basic information is displayed
-    Then I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
-    And I click on Login
-    Then I wait for 2 sec
-    Then I validate Last Login date and time format displayed on bottom right of the page
-    And I wait for 2 sec
-    And I click on dropdown on top right of page
-    Then I validate basic information is displayed on top right
+#  @Regression
+#  Scenario: User should not be able to login with invalid credentails
+#    Then I wait for 2 sec
+#    And I enter "manisha" into input field having id "username"
+#    And I enter "mani" into input field having id "password"
+#    When I click on Login
+#    Then I should get error message
+#
+#  @Regression
+#  Scenario: User should be able to login when User ID is case insensitive
+#    Then I wait for 2 sec
+#    And I enter "MANISHA" into input field having id "username"
+#    And I enter "manisha" into input field having id "password"
+#    When I click on Login
+#    Then I should get logged-in with welcome message
+#
+#  @Regression @Smoke
+#  Scenario: I login with valid credential with welcome message
+#    Then I wait for 2 sec
+#    And I enter "manisha" into input field having id "username"
+#    And I enter "manisha" into input field having id "password"
+#    And I click on Login
+#    Then I should get logged-in with welcome message
+#
+#  @Smoke @Regression
+#  Scenario: Validate Last Login date time format and basic information is displayed
+#    Then I wait for 2 sec
+#    And I enter "manisha" into input field having id "username"
+#    And I enter "manisha" into input field having id "password"
+#    And I click on Login
+#    Then I wait for 2 sec
+#    Then I validate Last Login date and time format displayed on bottom right of the page
+#    And I wait for 2 sec
+#    And I click on dropdown on top right of page
+#    Then I validate basic information is displayed on top right
