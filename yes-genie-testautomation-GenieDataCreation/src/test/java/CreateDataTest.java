@@ -18,9 +18,9 @@ public class CreateDataTest {
         ApiContracts.bulkIndexingInYesBankAccount();
     }
 
- /*   @Test
+    @Test
     public void dataCreationRelationship() throws Exception {
-//        ApiContracts.deleteGnyCustRelationshipIndex();
+        ApiContracts.deleteGnyCustRelationshipIndex();
         ApiContracts.createIndexGnyCustRelationship();
         ApiContracts.createMappingGnyCustRelationship();
         ApiContracts.bulkIndexingCustRelationship();
@@ -35,7 +35,7 @@ public class CreateDataTest {
 
     }
 
-    @Test
+/*    @Test
     public void list() throws Exception {
         ImportHbaseData.createConnection();
         ImportHbaseData.listHbaseTable();
