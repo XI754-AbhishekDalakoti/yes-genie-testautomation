@@ -9,22 +9,22 @@ public class CreateDataTest {
     public  String tableName;
 
 
-    @Test
-    public void dataCreationSearch() throws Exception {
-        ApiContracts.deleteGnyCustSearchIndex();
-        ApiContracts.createIndexGnyCustSearch();
-        ApiContracts.createMappingGnyCustDoc();
-        ApiContracts.bulkIndexingCustSearch();
-        ApiContracts.bulkIndexingInYesBankAccount();
-    }
+//     @Test
+//     public void dataCreationSearch() throws Exception {
+//         ApiContracts.deleteGnyCustSearchIndex();
+//         ApiContracts.createIndexGnyCustSearch();
+//         ApiContracts.createMappingGnyCustDoc();
+//         ApiContracts.bulkIndexingCustSearch();
+//         ApiContracts.bulkIndexingInYesBankAccount();
+//     }
 
-    @Test
-    public void dataCreationRelationship() throws Exception {
-//        ApiContracts.deleteGnyCustRelationshipIndex();
-        ApiContracts.createIndexGnyCustRelationship();
-        ApiContracts.createMappingGnyCustRelationship();
-        ApiContracts.bulkIndexingCustRelationship();
-    }
+//     @Test
+//     public void dataCreationRelationship() throws Exception {
+//         ApiContracts.deleteGnyCustRelationshipIndex();
+//         ApiContracts.createIndexGnyCustRelationship();
+//         ApiContracts.createMappingGnyCustRelationship();
+//         ApiContracts.bulkIndexingCustRelationship();
+//     }
 
 
     @Test
