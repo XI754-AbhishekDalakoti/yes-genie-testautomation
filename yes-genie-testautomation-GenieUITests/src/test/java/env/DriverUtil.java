@@ -22,6 +22,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.ErrorHandler;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -176,6 +177,7 @@ public class DriverUtil {
                 capabilities = DesiredCapabilities.chrome();
                 capabilities.setJavascriptEnabled(true);
                 capabilities.setCapability("takesScreenshot", true);
+//                capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS , true);
                 driver = chooseDriver(capabilities);
                 driver.manage().timeouts().setScriptTimeout(DEFAULT_WAIT, TimeUnit.SECONDS);
                 driver.manage().window().maximize();
@@ -298,12 +300,15 @@ public class DriverUtil {
     private static WebDriver chooseDriver(DesiredCapabilities capabilities) {
         String preferredDriver = System.getProperty("browser", "Firefox");
 
-
-        boolean headless = System.getProperty("headless").equals("false");
-
+        boolean headless = System.getProperty("headless").equals("true");
         boolean ios = System.getProperty("ios_flag").equals("true");
 
         boolean android = System.getProperty("android_flag").equals("true");
+        /*boolean headless = System.getProperty("headless").equals("true");
+
+        boolean ios = System.getProperty("ios_flag").equals("true");
+
+        boolean android = System.getProperty("android_flag").equals("true");*/
         switch (preferredDriver.toLowerCase()) {
             case "safari":
                 try {
@@ -323,16 +328,22 @@ public class DriverUtil {
                 return driver;
             default:
                 ChromeOptions chromeOptions = new ChromeOptions();
+
                 if (headless) {
                     chromeOptions.addArguments("--headless");
                 }
-                if (System.getProperty("os.name").equals("Linux")) {
-                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+                if (System.getProperty("os.name").equalsIgnoreCase("Linux")) {
+                    capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS , true);
+                    capabilities.setAcceptInsecureCerts(true);
+                    System.out.println("capability for cert is set ");
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver_linux");
                 }
                 else if (System.getProperty("os.name").equals("Mac OS X")) {
+                    capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS , true);
                     System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver_mac");
                 }
                 else {
+                    capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
                     System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
                 }
 
@@ -349,9 +360,12 @@ public class DriverUtil {
                 capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 
                 try {
+
                     chromeOptions.addArguments("--start-maximized");
                     capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                     driver = new ChromeDriver(capabilities);
+                    String cap = String.valueOf(((ChromeDriver) driver).getCapabilities());
+                    System.out.println("capabilities are here " +cap + "and server is " +System.getProperty("os.name"));
                     ErrorHandler handler = new ErrorHandler();
                     handler.setIncludeServerErrors(false);
                     //driver.setErrorHandler(handler);
@@ -382,3 +396,4 @@ public class DriverUtil {
         }
     }
 }
+
