@@ -9,22 +9,22 @@ public class CreateDataTest {
     public  String tableName;
 
 
-    @Test
-    public void dataCreationSearch() throws Exception {
-        ApiContracts.deleteGnyCustSearchIndex();
-        ApiContracts.createIndexGnyCustSearch();
-        ApiContracts.createMappingGnyCustDoc();
-        ApiContracts.bulkIndexingCustSearch();
-        ApiContracts.bulkIndexingInYesBankAccount();
-    }
+//     @Test
+//     public void dataCreationSearch() throws Exception {
+//         ApiContracts.deleteGnyCustSearchIndex();
+//         ApiContracts.createIndexGnyCustSearch();
+//         ApiContracts.createMappingGnyCustDoc();
+//         ApiContracts.bulkIndexingCustSearch();
+//         ApiContracts.bulkIndexingInYesBankAccount();
+//     }
 
-    @Test
-    public void dataCreationRelationship() throws Exception {
-        ApiContracts.deleteGnyCustRelationshipIndex();
-        ApiContracts.createIndexGnyCustRelationship();
-        ApiContracts.createMappingGnyCustRelationship();
-        ApiContracts.bulkIndexingCustRelationship();
-    }
+//     @Test
+//     public void dataCreationRelationship() throws Exception {
+//         ApiContracts.deleteGnyCustRelationshipIndex();
+//         ApiContracts.createIndexGnyCustRelationship();
+//         ApiContracts.createMappingGnyCustRelationship();
+//         ApiContracts.bulkIndexingCustRelationship();
+//     }
 
 
     @Test
@@ -35,7 +35,7 @@ public class CreateDataTest {
 
     }
 
-/*    @Test
+    @Test
     public void list() throws Exception {
         ImportHbaseData.createConnection();
         ImportHbaseData.listHbaseTable();
@@ -111,7 +111,7 @@ public class CreateDataTest {
         tableName= TablePicker.channel_picker();
         ImportHbaseData.createHbaseTable(tableName);
         ImportHbaseData.setupHbase(tableName,"data_file/channel.csv");
-    } */
+    }
 
 
 
