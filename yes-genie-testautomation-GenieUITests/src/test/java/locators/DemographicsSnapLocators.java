@@ -140,6 +140,9 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[@class='_39L-52oY77XXN3mR2CMCrR']")
     public static WebElement relationship_icon;
 
+    @FindBy(how = How.XPATH, using = "(//img[contains(@src,'DropdownWhite.eed0f3f1.svg')])[3]")
+    public static WebElement relation_minimize_button;
+
     @FindBy(how = How.XPATH, using = "//div[contains(@class,'_3bPmvFCu2ReIPAONCmDte5')]/div[2]")
     public static WebElement category_investors;
 
@@ -242,7 +245,4 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//img[@class='qgW84NoZHrEw1QLQStQw1'])[2]")
     public static WebElement mobileno_status_of_authorised_signatory;
 }
-
-
-
 

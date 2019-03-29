@@ -42,8 +42,6 @@ public class PortfolioPage extends PortfolioLocators {
         Assert.assertEquals(true,demat_account_icon.isDisplayed());
         Assert.assertEquals(true,demat_account_heading.isDisplayed());
         Assert.assertEquals(expectedTotal,actualTotal,0.0f);
-
-
     }
 
     public void verifyInvestmentOptions(){
@@ -152,7 +150,7 @@ public class PortfolioPage extends PortfolioLocators {
 
     public void verifyKPIAmountsForCorporate(){
 
-        ArrayList<String> expected_data = new ArrayList<>(Arrays.asList("₹ 10,000","₹ 1,00,000","1.6"));
+        ArrayList<String> expected_data = new ArrayList<>(Arrays.asList("₹ 10,000","₹ 1,00,00,00,000","1.6"));
         ArrayList<String> actual_data = new ArrayList<>();
         for(WebElement dataElement : kpi_data){
             actual_data.add(dataElement.getText());

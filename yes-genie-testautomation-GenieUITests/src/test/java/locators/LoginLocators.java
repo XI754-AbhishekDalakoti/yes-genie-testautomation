@@ -16,9 +16,6 @@ public class LoginLocators extends UserStepDefinitions {
     @FindBy(how = How.CLASS_NAME, using = "buttonRipple")
     public static WebElement login_button;
 
-/*    @FindBy(how = How.ID, using = "kc-login")
-    public static WebElement login_button;*/
-
     @FindBy(how = How.ID, using = "username")
     public static WebElement textbox_username;
 
@@ -37,13 +34,13 @@ public class LoginLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'NA')]")
     public static WebElement display_designation;
 
-    @FindBy(how = How.XPATH, using = "//div[@class=\"_1HWu9-VMmg-bQcnoV5fSo-\"]")
+    @FindBy(how = How.XPATH, using = "//div[@class='_1HWu9-VMmg-bQcnoV5fSo-']")
     public static WebElement search_static_parameters;
 
     @FindBy(how = How.XPATH, using = "//img[@class='_3fWXu3xqpHxPGTycDx3vir']")
     public static WebElement dropdown;
 
-    @FindBy(how = How.XPATH, using = "//span[@class=\"_2O0Ri2JF46aMO3IhgbLFWj\"]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Logout')]")
     public static WebElement logout_button;
 
 }

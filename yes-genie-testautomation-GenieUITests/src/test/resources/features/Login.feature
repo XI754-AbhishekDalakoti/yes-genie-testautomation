@@ -19,19 +19,19 @@ Feature: Login
   Scenario: User should not be able to login with invalid credentails
     Then I wait for 2 sec
     And I enter "MCC0008398" into input field having id "username"
-    And I enter "yesbank@321" into input field having id "password"
+    And I enter "yesbank@123" into input field having id "password"
     When I click on Login
     Then I should get error message
 
-  @Regression
+  @Regression @logout
   Scenario: User should be able to login when User ID is case insensitive
     Then I wait for 2 sec
-    And I enter "MCC0008398" into input field having id "username"
+    And I enter "mcc0008398" into input field having id "username"
     And I enter "yesbank@321" into input field having id "password"
     When I click on Login
     Then I should get logged-in with welcome message
 
-  @Regression @Smoke
+  @Regression @Smoke @logout
   Scenario: I login with valid credential with welcome message
     Then I wait for 2 sec
     And I enter "MCC0008398" into input field having id "username"
@@ -39,7 +39,7 @@ Feature: Login
     And I click on Login
     Then I should get logged-in with welcome message
 
-  @Smoke @Regression
+  @Smoke @Regression @logout
   Scenario: Validate Last Login date time format and basic information is displayed
     Then I wait for 2 sec
     And I enter "MCC0008398" into input field having id "username"

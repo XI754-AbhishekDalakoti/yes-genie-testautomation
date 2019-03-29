@@ -2,18 +2,20 @@ Feature: Demographics
   As a user I should able to login into my app
 
   Background: User has logged in to Genie
-    Given I navigate to "https://cust360.uat-genie.yesbank.com"
+    Given I navigate to url "https://cust360.uat-genie.yesbank.com"
     And I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
+    And I enter "MCC0008398" into input field having id "username"
+    And I enter "yesbank@321" into input field having id "password"
     And I click on Login
 
-  @Regression
+  @Regression @logout
   Scenario: Verify demographics attributes in SNAP page of customer type Corporate
     Then I wait for 2 sec
     Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
-    When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
+    When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -23,7 +25,7 @@ Feature: Demographics
       | Authorised Signatory Tooltip text                               | Authorised Signatory            |                 |
       | Connections Tooltip text                                        | No relationships available      |                 |
       | Website Tooltip text                                            | Website: Not Available          |                 |
-      | MDM ID                                                          | 998003452                       |                 |
+      | MDM ID                                                          | 998003452 (2)                   |                 |
       | Business                                                        | NA                              |                 |
       | Industry                                                        | Agri Commodities                |                 |
       | Vintage                                                         | 4.1 Years                       |                 |
@@ -36,12 +38,14 @@ Feature: Demographics
       | Email                                                           | amarjeets555@gmail.com          | Verified        |
       | W/O RAHUL SADANA 25-B KULTAR SINGH NAGAR NEAR DAV PUBLIC SCHOOL | PATNA,BIHAR                     | Indeterministic |
 
-  @Regression
+  @Regression @logout
   Scenario: Verify demographics detailed attributes and there value in demographics of corporate customer for indexType 'M'
     Then I wait for 2 sec
     Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
-    When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
+    When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -71,12 +75,14 @@ Feature: Demographics
       | Website            | Not Available                   |
       | E-Comm Site        | Not Available                   |
 
-  @Regression
+  @Regression @logout
   Scenario: Verify detailed demographics attributes and there value of corporate customer for indexType 'C'
     Then I wait for 2 sec
     Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
-    When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
+    When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -91,12 +97,12 @@ Feature: Demographics
       | Email Address      | amarjeets555@gmail.com          |
       | Mobile No          | 6080112225                      |
       | Alternate No       | 919158706602                    |
-      | Home Branch        | SAHARANPUR,UTTAR PRADESH        |
+      | Home Branch        | SAHARANPUR,UP                   |
       | Cluster            | Not Available                   |
       | Region             | Not Available                   |
       | IEC                | Not Available                   |
       | Asset RM           | Not Available                   |
-      | Liability RM       | 4188029                         |
+      | Liability RM       | Not Available                   |
       | Service RM         | 2985009                         |
       | Group Code         | 1466889                         |
       | PSM                | Not Available                   |
@@ -106,12 +112,14 @@ Feature: Demographics
       | Website            | Not Available                   |
       | E-Comm Site        | Not Available                   |
 
-  @Regression
+  @Regression @logout
   Scenario: Verify demographics attributes in SNAP page of customer type Individual
     And I wait for 2 sec
     Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -131,12 +139,14 @@ Feature: Demographics
       | W/O RAHUL SADANA 25-B KULTAR SINGH NAGAR NEAR DAV PUBLIC SCHOOL | Indeterministic |             |
       | 917123456789 csadana@yahoo.co.in SAHARANPUR,UTTAR PR...         |                 |             |
 
-  @Regression
+  @Regression @logout
   Scenario: Verify detailed attributes and there values in demographics of individual customer for indexType 'M'
     Then I wait for 2 sec
     Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -167,12 +177,14 @@ Feature: Demographics
       | KYC Status        | Not Available            |
       | Risk Category     | HIGH RISK                |
 
-  @Regression
+  @Regression @logout
   Scenario: Verify demographics detailed attributes and there values in demographics of individual customer for indexType 'C'
     Then I wait for 2 sec
     Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -203,12 +215,14 @@ Feature: Demographics
       | KYC Status        | Not Available            |
       | Risk Category     | HIGH RISK                |
 
-  @Smoke @Regression
+  @Smoke @Regression @logout
   Scenario: User is able to view customer relation graph with all details
     Then I wait for 2 sec
     Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on record
     And I wait for 5 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -217,18 +231,20 @@ Feature: Demographics
     Then Customer relation graph gets open where i can see 'Customer Relations' under categories
       | category      | customerName | mdmId       |      | linkedCustomerName              | linkedMDMId       | relation  |
       | Investors (2) | CHARU SADANA | MDM ID: 101 | Self | SURINDRA RADIOS PRIVATE LIMITED | MDM ID: 998003452 | Investors |
-      | Friend (40)   | CHARU SADANA | MDM ID: 101 | Self | Pankaj Gupta                    | MDM ID: 601       | Friend    |
+      | Friend (40)   | CHARU SADANA | MDM ID: 101 | Self | Abhishek Jain                    | MDM ID: 12713       | Friend    |
       | Corporate (2) | CHARU SADANA | MDM ID: 101 | Self | Turkey Crackers                 | MDM ID: 112345    | Payee     |
       | Family (8)    | CHARU SADANA | MDM ID: 101 | Self | Pankaj Gupta                    | MDM ID: 601       | Family    |
       | Client (2)    | CHARU SADANA | MDM ID: 101 | Self | Hindustan Pvt Limited           | MDM ID: null      | Client    |
     And I click on 'minimize icon' to close relation graph
 
-  @Smoke @Regression
+  @Smoke @Regression @logout
   Scenario: User is able to view authorized siganatory of corporate customer
     Then I wait for 2 sec
     Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
-    When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
+    When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec

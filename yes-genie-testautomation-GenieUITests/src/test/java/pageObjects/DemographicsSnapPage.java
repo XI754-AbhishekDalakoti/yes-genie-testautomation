@@ -339,6 +339,10 @@ public class DemographicsSnapPage extends DemographicsSnapLocators {
         relationship_icon.click();
     }
 
+    public void minimizeToCloseRelationGraph() {
+        relation_minimize_button.click();
+    }
+
     public void customerRelationGraphWithCategories(DataTable relationTable) {
         List<List<String>> data = relationTable.raw();
         category_investors.click();
