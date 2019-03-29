@@ -331,7 +331,7 @@ public class DriverUtil {
                     capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS , true);
                     capabilities.setAcceptInsecureCerts(true);
                     System.out.println("capability for cert is set ");
-                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver_linux");
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
                 }
                 else if (System.getProperty("os.name").equals("Mac OS X")) {
                     capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS , true);

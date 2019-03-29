@@ -18,13 +18,13 @@ public class CreateDataTest {
 //         ApiContracts.bulkIndexingInYesBankAccount();
 //     }
 
-//     @Test
-//     public void dataCreationRelationship() throws Exception {
-//         ApiContracts.deleteGnyCustRelationshipIndex();
-//         ApiContracts.createIndexGnyCustRelationship();
-//         ApiContracts.createMappingGnyCustRelationship();
-//         ApiContracts.bulkIndexingCustRelationship();
-//     }
+     @Test
+     public void dataCreationRelationship() throws Exception {
+         ApiContracts.deleteGnyCustRelationshipIndex();
+         ApiContracts.createIndexGnyCustRelationship();
+         ApiContracts.createMappingGnyCustRelationship();
+         ApiContracts.bulkIndexingCustRelationship();
+     }
 
 
     @Test
