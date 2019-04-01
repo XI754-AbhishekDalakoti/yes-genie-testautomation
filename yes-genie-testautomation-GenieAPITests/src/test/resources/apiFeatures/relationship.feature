@@ -44,7 +44,7 @@ Feature: Validate nba APIs
       | relationshipType | Family       |
       | imageUrl         | null         |
       | remarks          | System       |
-      | incomeBand       | Red          |
+      | incomeBand       | #FF0000      |
 
   @smoke @regression
   Scenario: User validates the response code of relationship api and mdmId as response where customer type is corporate
