@@ -45,7 +45,7 @@ public class UserStepDefinitions implements BaseTest {
         }
         navigationObj.navigateTo(link);
         System.out.println("Title of page     "+driver.getTitle());
-//         Assert.assertEquals("Yes Genie", driver.getTitle());
+//         Assert.assertEquals("Log in to YBL", driver.getTitle());
     }
 
     @Then("^I should get logged-in with welcome message$")
