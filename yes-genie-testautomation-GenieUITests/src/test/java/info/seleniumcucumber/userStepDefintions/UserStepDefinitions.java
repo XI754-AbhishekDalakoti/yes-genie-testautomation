@@ -45,7 +45,7 @@ public class UserStepDefinitions implements BaseTest {
         }
         navigationObj.navigateTo(link);
         System.out.println("Title of page     "+driver.getTitle());
-        Assert.assertEquals("Yes Genie", driver.getTitle());
+        Assert.assertEquals("Log in to YBL", driver.getTitle());
     }
 
     @Then("^I should get logged-in with welcome message$")
@@ -69,7 +69,7 @@ public class UserStepDefinitions implements BaseTest {
         String msg = driver.findElement(By.xpath("//span[@class='kc-text']")).getText().trim();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Login Failed. Unknown User ID or Bad Password.", msg);
+        Assert.assertEquals("Login Failed. Unknown Username or Bad Password.", msg);
     }
 
     @Then("^The button should be disabled$")
