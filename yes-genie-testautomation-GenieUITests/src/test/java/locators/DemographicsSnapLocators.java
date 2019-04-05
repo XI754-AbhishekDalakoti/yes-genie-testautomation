@@ -179,6 +179,12 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//div[@class='_2LqD-0cHt1a2Qr2CHEVavQ'])[4]")
     public static WebElement relationship;
 
+    @FindBy(how = How.XPATH, using = "(//div[@class='_2LqD-0cHt1a2Qr2CHEVavQ'])[3]")
+    public static WebElement client_relationship;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='_56bCja-wVOzuC9qrvg4pc']")
+    public static WebElement linked_bank_name;
+
     @FindBy(how = How.XPATH, using = "(//img[@src='/static/media/Individual.23f30a4e.svg'])")
     public static WebElement individual_icon;
 
@@ -245,4 +251,8 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//img[@class='qgW84NoZHrEw1QLQStQw1'])[2]")
     public static WebElement mobileno_status_of_authorised_signatory;
 }
+
+
+
+
 
