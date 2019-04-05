@@ -44,7 +44,6 @@ Feature: Search or Landing Page
       | charu sadana                 |
       | AQXPP8200E                   |
       | P5166954                     |
-      | 966563534203                 |
       | 057763400000124              |
       | 555LA17180020001             |
       | 50047485661343               |
@@ -117,8 +116,8 @@ Feature: Search or Landing Page
     And I verify search label display like 'Search result for "<Result1>": "<Result2>" "<Result3>": "<Result4>" Results'
     And I wait for 2 sec
     Examples:
-      | Parameter | Result1 | Result2 | Result3 | Result4 |
-      | Kanak + 1 | Kanak   | 1       | Kanak:  | 1:      |
+      | Parameter | Result1 | Result2 | Result3    | Result4      |
+      | Kanak + 1 | Kanak   | 1       | Cust Name: | Branch Code: |
 
   @Regression @logout
   Scenario: For single record after search & user is authorized to view, SNAP page is opened directly
