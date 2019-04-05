@@ -4,8 +4,8 @@ Feature: Demographics
   Background: User has logged in to Genie
     Given I navigate to url "https://cust360.yesgenie.com:31390"
     And I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
+    And I enter "MCC0008398" into input field having id "username"
+    And I enter "yesbank@321" into input field having id "password"
     And I click on Login
 
   @Regression @logout
