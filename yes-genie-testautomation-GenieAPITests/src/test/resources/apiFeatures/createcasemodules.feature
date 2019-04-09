@@ -1,9 +1,9 @@
-@case
+@case @casemodules
 Feature: Validate createcase modules APIs
 
 
 
-  @smoke @regression @cm1
+  @smoke @regression
   Scenario: User validates the response code of createcasemodules api and mdmId as response where customer type is individual
       Given a genie user has a createcasemodules api to test is "/api/genie/case/modules/"
       When user pass productname "Deposits"
@@ -12,7 +12,7 @@ Feature: Validate createcase modules APIs
 
 
 
-   @regression @cm1
+   @regression
     Scenario Outline: User validate response for caseModuleAttributes of createcasemodules api where customer type is individual for all the mentioned keys in examples
       Given a genie user has a createcasemodules api to test is "/api/genie/case/modules/"
       When user pass productname "Deposits"
@@ -25,7 +25,7 @@ Feature: Validate createcase modules APIs
 
 
 
-    @regression @cm1
+    @regression
     Scenario Outline: User validate response for caseTypeAttribute of createcasemodules api where customer type is individual for all the mentioned keys in examples
        Given a genie user has a createcasemodules api to test is "/api/genie/case/modules/"
        When user pass productname "Deposits"
@@ -39,7 +39,7 @@ Feature: Validate createcase modules APIs
             | caseCategory        |Complaint                               |
 
 
-    @regression @cm1
+    @regression
           Scenario: User validates the blank response of createcasemodules api and mdmId as response where customer type is individual
               Given a genie user has a createcasemodules api to test is "/api/genie/case/modules/"
               When user pass productname "1"

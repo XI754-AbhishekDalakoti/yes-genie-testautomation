@@ -88,7 +88,7 @@ Feature: Validate Search API
 
   @refinesearch @regression
   Scenario Outline: User perform refine search with valid customer name and city and validate response for all the mentioned keys in below Examples:
-    When a user search with value "Prabhat+Saharanpur" and setting value for threshold "100"
+    When a user search with value "Prabhat Arya+Saharanpur" and setting value for threshold "100"
     Then user get the response from the api for the initial record for "<key>" is "<value>"
     Examples:
       | key              | value                 |
@@ -122,7 +122,7 @@ Feature: Validate Search API
       | DOB              | 30-May-1952           |
       | custType         | I                     |
 
-  @refinesearch @regression @paa
+  @refinesearch @regression
   Scenario Outline: User perform refine search with valid customer name and Branch Code and validate response for all the mentioned keys in below Examples:
     When a user search with value "Ayush+2019" and setting value for threshold "50"
     Then user get the response from the api for the initial record for "<key>" is "<value>"

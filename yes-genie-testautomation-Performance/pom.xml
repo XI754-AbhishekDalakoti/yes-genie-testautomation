@@ -17,14 +17,29 @@
 			<version>2.7</version>
 		</dependency>
 	</dependencies>
+
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>com.lazerycode.jmeter</groupId>
 				<artifactId>jmeter-maven-plugin</artifactId>
-				<version>2.1.0</version>
+				<version>2.6.0</version>
 				<configuration>
+					<jMeterProcessJVMSettings>
+						<xms>1024</xms>
+						<xmx>1024</xmx>
+						<arguments>
+							<argument>-Xprof</argument>
+							<argument>-Xfuture</argument>
+						</arguments>
+					</jMeterProcessJVMSettings>
 					<testResultsTimestamp>false</testResultsTimestamp>
+					<propertiesSystem>
+						<javax.net.ssl.keyStoreType>PKCS12</javax.net.ssl.keyStoreType>
+						<javax.net.ssl.keyStore>/var/lib/jenkins/workspace/Genie_API_Performance/yes-genie-testautomation-Performance/certificate/ketStore_prod.p12</javax.net.ssl.keyStore>
+						<javax.net.ssl.keyStorePassword>123</javax.net.ssl.keyStorePassword>
+					</propertiesSystem>
 					<propertiesUser>
 						<jmeter.save.saveservice.output_format>csv</jmeter.save.saveservice.output_format>
 						<jmeter.save.saveservice.bytes>true</jmeter.save.saveservice.bytes>
@@ -36,8 +51,31 @@
 						<jmeter.save.saveservice.thread_counts>true</jmeter.save.saveservice.thread_counts>
 						<jmeter.save.saveservice.thread_name>true</jmeter.save.saveservice.thread_name>
 						<jmeter.save.saveservice.time>true</jmeter.save.saveservice.time>
+						<jmeter.reportgenerator.overall_granularity>1000</jmeter.reportgenerator.overall_granularity>
+						<jmeter.save.saveservice.response_data>true</jmeter.save.saveservice.response_data>
+						<jmeter.save.saveservice.samplerData>true</jmeter.save.saveservice.samplerData>
+						<jmeter.save.saveservice.requestHeaders>true</jmeter.save.saveservice.requestHeaders>
+						<jmeter.save.saveservice.url>true</jmeter.save.saveservice.url>
+						<jmeter.save.saveservice.responseHeaders>true</jmeter.save.saveservice.responseHeaders>
+						<login_csv>${login_csv}</login_csv>
+						<threads>${threadCount}</threads>
+						<rampup>${rampupTime}</rampup>
+						<mdmid_csv>${mdmid_csv}</mdmid_csv>
+						<loop>${mdmid_loop}</loop>
+						<allow_loop>${allow_loop}</allow_loop>
+						<loop_count>${loop_count}</loop_count>
+						<scheduler>${scheduler}</scheduler>
+						<scheduler_count>${scheduler_count}</scheduler_count>>
 					</propertiesUser>
+					<generateReports>true</generateReports>
+					<testFilesIncluded>
+						<jMeterTestFile>${jmx}</jMeterTestFile>
+					</testFilesIncluded>
+					<!--<jmeterExtensions>-->
+					<!--<artifact>kg.apc:jmeter-plugins-casutg:2.0</artifact>-->
+					<!--</jmeterExtensions>-->
 				</configuration>
+
 				<executions>
 					<execution>
 						<id>jmeter-tests</id>
@@ -46,52 +84,21 @@
 							<goal>jmeter</goal>
 						</goals>
 					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
 					<execution>
-						<phase>verify</phase>
-						<configuration>
-							<tasks>
-								<mkdir dir="${basedir}/target/jmeter/results/dashboard" />
-								<copy file="${basedir}/src/test/resources/reportgenerator.properties"
-									  tofile="${basedir}/target/jmeter/bin/reportgenerator.properties" />
-								<copy todir="${basedir}/target/jmeter/bin/report-template">
-									<fileset dir="${basedir}/src/test/resources/report-template" />
-								</copy>
-								<java jar="${basedir}/target/jmeter/bin/ApacheJMeter-3.1.jar"
-									  fork="true">
-									<arg value="-g" />
-									<arg value="${basedir}/target/jmeter/results/QA_Default_URL.jtl" />
-									<arg value="-o" />
-									<arg value="${basedir}/target/jmeter/results/dashboard/" />
-								</java>
-							</tasks>
-						</configuration>
+						<id>jmeter-tests2</id>
 						<goals>
-							<goal>run</goal>
+							<goal>results</goal>
 						</goals>
 					</execution>
-				</executions>
-			</plugin>
 
-			<plugin>
-				<groupId>de.codecentric</groupId>
-				<artifactId>jmeter-graph-maven-plugin</artifactId>
-				<version>0.1.0</version>
-				<configuration>
-					<inputFile>${project.build.directory}/jmeter/results/QA_Default_URL.jtl</inputFile>
-					<graphs>
-						<graph>
-							<pluginType>ResponseTimesOverTime</pluginType>
-							<width>800</width>
-							<height>600</height>
-							<outputFile>${project.build.directory}/jmeter/results/QA_Default_URL.png</outputFile>
-						</graph>
-					</graphs>
-				</configuration>
+				</executions>
+				<!--<dependencies>-->
+				<!--<dependency>-->
+				<!--<groupId>kg.apc</groupId>-->
+				<!--<artifactId>jmeter-plugins-casutg</artifactId>-->
+				<!--<version>2.0</version>-->
+				<!--</dependency>-->
+				<!--</dependencies>-->
 			</plugin>
 
 		</plugins>

@@ -1,9 +1,9 @@
-@case
+@case @caseproduct
 Feature: Validate createcase Product APIs
 
 
 
-  @smoke @regression @cp
+  @smoke @regression
   Scenario: User validates the response code of createcaseproduct api and mdmId as response where customer type is individual
     Given a genie user has a createcaseproduct api to test is "/api/genie/case/products"
     And get the response from createcaseproduct api
@@ -11,11 +11,11 @@ Feature: Validate createcase Product APIs
 
 
 
-  @regression @cp
+  @regression
   Scenario Outline: User validate response of createcaseproduct api where customer type is individual for all the mentioned keys in examples
     Given a genie user has a createcaseproduct api to test is "/api/genie/case/products"
     And get the response from createcaseproduct api
-    Then user get the response "<value>" from the createcaseproduct api where customer type is individual
+    Then user get the response "<key>" from the createcaseproduct api where customer type is individual
     Examples:
       | key                 |
       | Deposits            |

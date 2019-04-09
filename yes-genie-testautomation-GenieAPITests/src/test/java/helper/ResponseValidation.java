@@ -167,7 +167,7 @@ public class ResponseValidation {
     public int putOperationForTwoKeys(String uri, String keyOne, String valueOne, String keyTwo, String valueTwo, String responseBody) {
         RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
         accessToken=TokenGenerator.getToken();
-        requestSpecification.header("Content-Type", "application/json").header("Authorization", accessToken);;
+        requestSpecification.header("Content-Type", "application/json").header("Authorization", accessToken);
         JSONObject json = new JSONObject();
         json.put(keyOne, valueOne);
         json.put(keyTwo, valueTwo);

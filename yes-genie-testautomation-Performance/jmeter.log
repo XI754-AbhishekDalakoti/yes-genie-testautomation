@@ -1,78 +1,30 @@
-2019/02/28 11:44:52 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_IN 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: Loading user properties from: /home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/bin/user.properties 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: Loading system properties from: /home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/bin/system.properties 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: Version 3.1 r1770033 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: java.version=1.8.0_191 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: os.name=Linux 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: os.arch=amd64 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: os.version=4.15.0-43-generic 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: file.encoding=UTF-8 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: Max memory     =3706191872 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: Available Processors =8 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: Default Locale=English (India) 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: JMeter  Locale=English (India) 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: JMeterHome=/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: user.dir  =/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: PWD       =/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: IP: 127.0.1.1 Name: XT-T-PRABHATA FullName: XT-T-PRABHATA 
-2019/02/28 11:44:52 INFO  - jmeter.JMeter: Setting property 'jmeter.reportgenerator.outputdir' to:'/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/results/dashboard' 
-2019/02/28 11:44:52 INFO  - jmeter.report.dashboard.ReportGenerator: ReportGenerator will use for Parsing the separator:',' 
-2019/02/28 11:44:52 INFO  - jmeter.report.dashboard.ReportGenerator: Will only generate report from results file:/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/results/QA_Default_URL.jtl 
-2019/02/28 11:44:52 INFO  - jmeter.report.dashboard.ReportGenerator: Reading report generator properties from:/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/bin/reportgenerator.properties 
-2019/02/28 11:44:52 INFO  - jmeter.report.dashboard.ReportGenerator: Merging with JMeter properties 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.temp_dir" not found, using default value "temp" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.sample_filter" not found, using default value "null" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.report_title" not found, using default value "null" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.start_date" not found, using default value "null" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.end_date" not found, using default value "null" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.date_format" not found, using default value "null" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Will use date range start date: null, end date: null 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.activeThreadsOverTime.exclude_controllers" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.timeVsThreads.exclude_controllers" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimeDistribution.exclude_controllers" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.transactionsPerSecond.exclude_controllers" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimePercentiles.exclude_controllers" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimePercentilesOverTime.exclude_controllers" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimesOverTime.exclude_controllers" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.connectTimeOverTime.exclude_controllers" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.latenciesOverTime.exclude_controllers" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.exporter.html.filters_only_sample_series" not found, using default value "true" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.exporter.html.series_filter" not found, using default value "" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.exporter.html.show_controllers_only" not found, using default value "false" instead. 
-2019/02/28 11:44:52 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
-2019/02/28 11:44:52 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
-2019/02/28 11:44:52 INFO  - jmeter.save.SaveService: Using SaveService properties version 3.1 
-2019/02/28 11:44:52 INFO  - jmeter.save.SaveService: All converter versions present and correct 
-2019/02/28 11:44:52 INFO  - jmeter.report.processor.NormalizerSampleConsumer: Using format:ms to parse timeStamp field 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): beginDate produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): endDate produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ApdexSummaryConsumer#stopProducing(): apdexSummary produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.RequestsSummaryConsumer#stopProducing(): requestsSummary produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.StatisticsSummaryConsumer#stopProducing(): statisticsSummary produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.Top5ErrorsBySamplerConsumer#stopProducing(): top5ErrorsBySampler produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ErrorsSummaryConsumer#stopProducing(): errorsSummary produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.HitsPerSecondGraphConsumer#stopProducing(): hitsPerSecond produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyVSRequestGraphConsumer#stopProducing(): latencyVsRequest produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.SyntheticResponseTimeDistributionGraphConsumer#stopProducing(): syntheticResponseTimeDistribution produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.BytesThroughputGraphConsumer#stopProducing(): bytesThroughputOverTime produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.CodesPerSecondGraphConsumer#stopProducing(): codesPerSecond produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeVSRequestGraphConsumer#stopProducing(): responseTimeVsRequest produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): startIntervalControlerFilter produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ActiveThreadsGraphConsumer#stopProducing(): activeThreadsOverTime produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TimeVSThreadGraphConsumer#stopProducing(): timeVsThreads produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeDistributionGraphConsumer#stopProducing(): responseTimeDistribution produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TransactionsPerSecondGraphConsumer#stopProducing(): transactionsPerSecond produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesGraphConsumer#stopProducing(): responseTimePercentiles produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesOverTimeGraphConsumer#stopProducing(): responseTimePercentilesOverTime produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeOverTimeGraphConsumer#stopProducing(): responseTimesOverTime produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ConnectTimeOverTimeGraphConsumer#stopProducing(): connectTimeOverTime produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyOverTimeGraphConsumer#stopProducing(): latenciesOverTime produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): nameFilter produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): dateRangeFilter produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.NormalizerSampleConsumer#stopProducing(): normalizer produced 0 samples 
-2019/02/28 11:44:52 INFO  - org.apache.jmeter.report.processor.CsvFileSampleSource: produce(): 0 samples produced in 14ms on channel 0 
-2019/02/28 11:44:52 INFO  - jmeter.report.dashboard.ReportGenerator: Exporting data using exporter:'html' of className:'org.apache.jmeter.report.dashboard.HtmlTemplateExporter' 
-2019/02/28 11:44:52 INFO  - jmeter.report.dashboard.HtmlTemplateExporter: Will generate dashboard in folder:/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/results/dashboard 
-2019/02/28 11:44:52 INFO  - jmeter.report.dashboard.HtmlTemplateExporter: Report will be generated in:/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/results/dashboard, creating folder structure 
+2019/03/07 09:39:44 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_IN 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: Loading user properties from: /home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/bin/user.properties 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: Loading system properties from: /home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/bin/system.properties 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: Version 3.1 r1770033 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: java.version=1.8.0_191 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: os.name=Linux 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: os.arch=amd64 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: os.version=4.15.0-43-generic 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: file.encoding=UTF-8 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: Max memory     =3706191872 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: Available Processors =8 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: Default Locale=English (India) 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: JMeter  Locale=English (India) 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: JMeterHome=/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: user.dir  =/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: PWD       =/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: IP: 127.0.1.1 Name: XT-T-PRABHATA FullName: XT-T-PRABHATA 
+2019/03/07 09:39:44 INFO  - jmeter.JMeter: Setting property 'jmeter.reportgenerator.outputdir' to:'/home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/results/dashboard' 
+2019/03/07 09:39:44 INFO  - jmeter.report.dashboard.ReportGenerator: ReportGenerator will use for Parsing the separator:',' 
+2019/03/07 09:39:44 FATAL - jmeter.JMeter: An error occurred:  java.lang.IllegalArgumentException: Cannot read test results file : /home/prabhatarya/Documents/Final/yes-genie-testautomation/yes-genie-testautomation-Performance/target/jmeter/results
+	at org.apache.jmeter.report.dashboard.ReportGenerator.<init>(ReportGenerator.java:134)
+	at org.apache.jmeter.JMeter.start(JMeter.java:480)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.jmeter.NewDriver.main(NewDriver.java:259)
+
