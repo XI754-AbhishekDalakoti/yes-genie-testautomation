@@ -102,7 +102,11 @@ public class SearchPage extends SearchLocators {
         Assert.assertEquals(Constant.snapPageUrl, currentUrl);
     }
 
-    public void clickOnRecord() {
-        record.click();
+    public void clickOnIndividualRecord() {
+        individual_record.click();
+    }
+
+    public void clickOnNonIndividualRecord() {
+        nonindividual_record.click();
     }
 }

@@ -2,17 +2,17 @@ Feature: Case and Lead on Snap Page
   As a user I should able to login into my app
 
   Background: User has logged in to Genie
-    Given I navigate to url "https://cust360.uat-genie.yesbank.com"
+    Given I navigate to url "https://cust360.yesgenie.com:31390"
     And I wait for 2 sec
-    And I enter "MCC0008398 " into input field having id "username"
-    And I enter "yesbank@321" into input field having id "password"
+    And I enter "UIAutomationDND " into input field having id "username"
+    And I enter "UIAutomation" into input field having id "password"
     And I click on Login
     Then I wait for 2 sec
     Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
     And I wait for 2 sec
-    Then I click on record
+    Then I click on non-individual record
     And I wait for 2 sec
     Then I lands to SNAP page directly
 
@@ -54,7 +54,7 @@ Feature: Case and Lead on Snap Page
   @End2End @Smoke @Regression @logout
   Scenario: User is able to create service request with recommendation
     And I wait for 2 sec
-    Then I click on any recommendation's lable in ALL category section to Create Service Request
+    Then I click on any recommendation's lable in Regulatory category section to Create Service Request
     Then I wait for 2 sec
     Then Create Case form gets open with lable name as title
     And Data is prefilled with all values

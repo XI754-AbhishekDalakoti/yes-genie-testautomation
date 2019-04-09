@@ -20,4 +20,5 @@ public class Constant {
     public static final String CustOpenDate = "Cust Open Date";
     public static final int threshold =50;
     public static final String snapPageUrl = "https://cust360.uat-genie.yesbank.com/snap";
+    public static final String url = "https://sso.uat-genie.yesgenie.com/auth/realms/YBL/protocol/openid-connect/auth?client_id=yes-genie-frontend&redirect_uri";
 }

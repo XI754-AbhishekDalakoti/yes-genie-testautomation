@@ -24,7 +24,7 @@ public class CaseNLeadLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[contains(text(),'Create Lead')]")
     public static WebElement create_lead_form_title;
 
-    @FindBy(how = How.ID, using = "submit")
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Submit')]")
     public static WebElement submit_button;
 
     @FindBy(how = How.XPATH, using = "//div[@class='_31vqzyuKmHK9WBSIDdOtxz']")
@@ -84,7 +84,7 @@ public class CaseNLeadLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[contains(text(),'Create SR')]")
     public static WebElement create_sr_lable;
 
-    @FindBy(how = How.ID, using = "//img[@src='/static/media/nba_close.b912ea74.svg']")
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'nba_close.b912ea74.svg')]")
     public static WebElement cross_button_nba;
 
     @FindBy(how = How.XPATH, using = "//img[@src='/static/media/Defer.c4b50860.svg']")
@@ -149,7 +149,5 @@ public class CaseNLeadLocators extends UserStepDefinitions {
 
     @FindBy(how = How.ID, using = "caseCategory")
     public static WebElement case_category;
-
-
 
 }

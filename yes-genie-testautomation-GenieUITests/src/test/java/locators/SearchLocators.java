@@ -61,6 +61,9 @@ public class SearchLocators extends UserStepDefinitions {
     public static WebElement bubble_highlight;
 
     @FindBy(how = How.XPATH, using = "//td[contains(text(),'996264849')]")
-    public static WebElement record;
+    public static WebElement individual_record;
+
+    @FindBy(how = How.XPATH, using = "//td[contains(text(),'998003452')]")
+    public static WebElement nonindividual_record;
 
 }

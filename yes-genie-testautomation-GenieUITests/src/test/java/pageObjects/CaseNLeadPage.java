@@ -65,7 +65,7 @@ public class CaseNLeadPage extends CaseNLeadLocators {
     }
 
     public void createLeadWithRecommendationTitle() {
-        Assert.assertEquals("Issue",create_lead_lable.getText());
+        Assert.assertEquals("Update Email",create_lead_lable.getText());
     }
 
     public void clickOnLableToCreateLead() {
@@ -98,6 +98,7 @@ public class CaseNLeadPage extends CaseNLeadLocators {
     }
 
     public void clickOnCrossButton() {
+        category_regulatory.click();
         cross_button_nba.click();
     }
 

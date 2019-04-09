@@ -429,4 +429,3 @@ public class DemographicsSnapPage extends DemographicsSnapLocators {
         Assert.assertEquals(table.get(1).get(9), authorised_first_currentcitystate.getAttribute("title"));
     }
 }
-

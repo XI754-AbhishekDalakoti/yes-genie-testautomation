@@ -4,8 +4,8 @@ Feature: Demographics
   Background: User has logged in to Genie
     Given I navigate to url "https://cust360.yesgenie.com:31390"
     And I wait for 2 sec
-    And I enter "MCC0008398" into input field having id "username"
-    And I enter "yesbank@321" into input field having id "password"
+    And I enter "UIAutomationDND" into input field having id "username"
+    And I enter "UIAutomation" into input field having id "password"
     And I click on Login
 
   @Regression @logout
@@ -14,6 +14,8 @@ Feature: Demographics
     Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on non-individual record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -42,6 +44,8 @@ Feature: Demographics
     Then I enter "998003452" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on non-individual record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -78,6 +82,8 @@ Feature: Demographics
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
     And I wait for 2 sec
+    Then I click on non-individual record
+    And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
     Then I click on MDM ID on demographics
@@ -113,6 +119,8 @@ Feature: Demographics
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
     And I wait for 2 sec
+    Then I click on individual record
+    And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
     Then I verify all the attributes of demographics having customer type individual
@@ -137,6 +145,8 @@ Feature: Demographics
     Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
+    And I wait for 2 sec
+    Then I click on individual record
     And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
@@ -173,6 +183,8 @@ Feature: Demographics
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
     And I wait for 2 sec
+    Then I click on individual record
+    And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
     Then I click on MDM ID on demographics
@@ -208,6 +220,8 @@ Feature: Demographics
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
     And I wait for 5 sec
+    Then I click on individual record
+    And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
     Then I click on 'Customer Relation' icon
@@ -228,6 +242,8 @@ Feature: Demographics
     And I wait for 2 sec
     When I click on search button having xpath "//div[contains(text(),'Search')]"
     And I wait for 2 sec
+    Then I click on non-individual record
+    And I wait for 2 sec
     Then I lands to SNAP page directly
     And I wait for 2 sec
     Then I click on 'Authorised Signatory' icon in demographics
@@ -236,3 +252,4 @@ Feature: Demographics
     And I verify all the attributes is displayed with authorised signatory data
       | MDM ID    | Cust Name    | Gender | Email                | Email Status | Mobile Number | Mobile Status | Alternate No | Contactible | Current City/State |
       | 996264849 | Charu Sadana | F      | charusadan@gmail.com | Not Verified | 919825900111  | Not Verified  | 919825900111 | 0.4         | AHMEDABAD,GUJARAT  |
+

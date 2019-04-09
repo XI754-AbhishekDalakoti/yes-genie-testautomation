@@ -45,7 +45,8 @@ public class UserStepDefinitions implements BaseTest {
         }
         navigationObj.navigateTo(link);
         System.out.println("Title of page     "+driver.getTitle());
-        Assert.assertEquals("Log in to YBL", driver.getTitle());
+        Assert.assertTrue(driver.getCurrentUrl().contains(Constant.url));
+        Assert.assertEquals("Yes Genie", driver.getTitle());
     }
 
     @Then("^I should get logged-in with welcome message$")
@@ -69,7 +70,7 @@ public class UserStepDefinitions implements BaseTest {
         String msg = driver.findElement(By.xpath("//span[@class='kc-text']")).getText().trim();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Login Failed. Unknown Username or Bad Password.", msg);
+        Assert.assertEquals("Login Failed. Unknown User ID or Bad Password.", msg);
     }
 
     @Then("^The button should be disabled$")
@@ -353,7 +354,7 @@ public class UserStepDefinitions implements BaseTest {
         caseNlead.createLeadWithRecommendationTitle();
     }
 
-    @Then("^I click on any recommendation's lable in ALL category section to Create Service Request$")
+    @Then("^I click on any recommendation's lable in Regulatory category section to Create Service Request$")
     public void iClickOnAnyRecommendationSLableInALLCategorySectionToCreateServiceRequest() throws Throwable {
         caseNlead.clickOnLableToCreateServiceRequest();
     }
@@ -443,15 +444,20 @@ public class UserStepDefinitions implements BaseTest {
         caseNlead.verifyDataIsPrefilledInCreateCaseWithRecommendation();
     }
 
+    @Then("^I click on individual record$")
+    public void iClickOnRecord() throws Throwable {
+        sp.clickOnIndividualRecord();
+    }
+
+    @Then("^I click on non-individual record$")
+    public void iClickOnNonIndividualRecord() throws Throwable {
+        sp.clickOnNonIndividualRecord();
+    }
+
     @After("@logout")
     public void afterScenario() {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         dropdown.click();
         logout_button.click();
-    }
-
-    @Then("^I click on record$")
-    public void iClickOnRecord() throws Throwable {
-        sp.clickOnRecord();
     }
 }
