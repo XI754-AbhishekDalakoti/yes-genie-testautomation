@@ -18,15 +18,15 @@ Feature: Validate nba APIs
     Examples:
       | key                 | value                                           |
       | mdmId               | 996264849                                       |
-      | actionCode          | MF002T                                          |
-      | referenceNo         | 126                                             |
-      | toolTip             | ECS updated with incorrect account number       |
+      | actionCode          | FATCA                                           |
+      | referenceNo         | 127                                             |
+      | toolTip             | ECS instructions not initiated                  |
       | accountNo           | 39400000000000                                  |
-      | dueDate             | 31-Mar-2019                                     |
+      | dueDate             | 01-Dec-2019                                     |
       | cumulationCount     | 1                                               |
-      | priority            | 4                                               |
+      | priority            | 5                                               |
       | status              | OPEN                                            |
-      | recommendationTitle | ECS updated with incorrect account number       |
+      | recommendationTitle | ECS instructions not initiated                  |
       | category            | Regulatory                                      |
 
   @regression @nba
@@ -69,12 +69,12 @@ Feature: Validate nba APIs
     Examples:
       | key                 | value                                           |
       | mdmId               | 998003452                                       |
-      | actionCode          | SR01                                            |
+      | actionCode          | FATCA                                            |
       | recommendationTitle | ECS instructions not initiated |
       | category            | Regulatory                                      |
       | toolTip             | ECS instructions not initiated |
       | accountNo           | 39400000000000                                  |
-      | dueDate             | 31-Mar-2019                                     |
+      | dueDate             | 01-Dec-2019                                     |
       | cumulationCount     | 1                                               |
       | priority            | 5                                               |
       | status              | OPEN                                            |
@@ -164,14 +164,14 @@ Feature: Validate nba APIs
       | branchCode  | 2          |
       | remarks     | null       |
 
-  @regression @nba1
+  @regression @nba
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is individual
     Given a genie user has a nba api to test is "/api/genie/lead/"
     When a genie user passes the "996264849" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is individual
     And a genie user edits the "remarks" field by the "null" where "branchCode"is "1" and "custId" is "996264849"
     Then user validates remarks modify successfully
 
-  @regression @nba1
+  @regression @nba
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is corporate
     Given a genie user has a nba api to test is "/api/genie/lead/"
     When a genie user passes the "998003452" as a mdmid and "131" as a refrence id to get the response from nba api where customer type is corporate

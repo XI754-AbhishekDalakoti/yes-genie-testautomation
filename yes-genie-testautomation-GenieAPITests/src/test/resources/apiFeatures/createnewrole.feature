@@ -2,7 +2,7 @@
 Feature: Check POST API for Create new role
 
 
-  @smoke @regression @gt3
+  @smoke @regression
   Scenario: Check if user is able to submit POST API request for Create new role
     Given I want to execute the Create new role API
     When  I submit the POST request
