@@ -26,6 +26,7 @@ Scenario: User validates the response code of portfolio api and mdmId as respons
       | productCategory     | LOANS         |
       | productHoldingFlag  | YES           |
       | usageTrend          | Good          |
+      | displayOrder        | 1             |
 
 
   @regression
@@ -39,11 +40,12 @@ Scenario: User validates the response code of portfolio api and mdmId as respons
       | key                 | value         |
       | mdmId               | 996264849     |
       | custId              | 996264849     |
-      | productType         | CB            |
+      | productType         | CHQ           |
       | productDescription  | Cheque Book   |
       | productCategory     | OTHERS        |
       | productHoldingFlag  | 28-Feb-19     |
       | usageTrend          | null          |
+      | displayOrder        | 1             |
 
 
   @regression
