@@ -4,7 +4,7 @@ Feature: Case and Lead on Snap Page
   Background: User has logged in to Genie
     Given I navigate to url "https://cust360.yesgenie.com:31390"
     And I wait for 2 sec
-    And I enter "UIAutomationDND " into input field having id "username"
+    And I enter "UIAutomationDND" into input field having id "username"
     And I enter "UIAutomation" into input field having id "password"
     And I click on Login
     Then I wait for 2 sec
