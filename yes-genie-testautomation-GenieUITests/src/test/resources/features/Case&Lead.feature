@@ -45,7 +45,7 @@ Feature: Case and Lead on Snap Page
     Then I click on any recommendation's lable in ALL category section to Create Lead
     Then I wait for 2 sec
     Then Create Lead form gets open with lable name as title
-    And Data is prefilled with values "998003452", "Branch Banking", "GURGAON- HARYANA (2)", "25" respectively
+    And Data is prefilled with values "998003452", "Branch Banking", "GURGAON- HARYANA (2)", "19" respectively
     And I click on remarks tab and write "customer wants to create lead" remarks into remarks field
     Then I click on submit button
     Then I wait for 2 sec
@@ -77,7 +77,7 @@ Feature: Case and Lead on Snap Page
   @Smoke @Regression @logout
   Scenario: User is able to dismiss the recommendation
     And I wait for 2 sec
-    And I click on cross button in 'All' category recommendation
+    And I click on cross button in 'X-Sell' category recommendation
     And I click on 'Dimiss' option to dismiss the recommendation
     And I wait for 2 sec
     Then I select dimiss reason from dialogue box and i click on submit

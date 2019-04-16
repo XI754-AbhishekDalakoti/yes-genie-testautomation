@@ -88,4 +88,12 @@ public class SearchPage extends SearchLocators {
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals(Constant.snapPageUrl, currentUrl);
     }
+
+    public void clickOnIndividualRecord() {
+        individual_record.click();
+    }
+
+    public void clickOnNonIndividualRecord() {
+        nonindividual_record.click();
+    }
 }

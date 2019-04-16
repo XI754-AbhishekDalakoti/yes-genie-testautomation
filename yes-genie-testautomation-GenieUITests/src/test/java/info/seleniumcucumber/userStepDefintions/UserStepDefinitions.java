@@ -237,11 +237,6 @@ public class UserStepDefinitions implements BaseTest {
         demogs.ClicksOnRelationshipIcon();
     }
 
-    @And("^I click on cross button in 'All' category recommendation$")
-    public void iClickOnCrossButtonInAllCategoryRecommendation() throws Throwable {
-        caseNlead.clickCrossButtonInAllCategory();
-    }
-
     @Then("^I click on 'Transactions' icon on top right$")
     public void iClickOnTransactionsIconOnTopRight() throws Throwable {
         caseNlead.clickOnTransactionsButton();
@@ -444,6 +439,23 @@ public class UserStepDefinitions implements BaseTest {
         caseNlead.verifyDataIsPrefilledInCreateCaseWithRecommendation();
     }
 
+    @After("@logout")
+    public void afterScenario() {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        dropdown.click();
+        logout_button.click();
+    }
+
+    @And("^I click on cross button in 'X-Sell' category recommendation$")
+    public void iClickOnCrossButtonInXSellCategoryRecommendation() throws Throwable {
+        caseNlead.clickCrossButtonInXSellCategory();
+    }
+
+    @Then("^I verify Channels category for Individual$")
+    public void iVerifyChannelsCategoryForIndividual(DataTable individualChannelsTable) throws Throwable {
+        portfolio.VerifyChannelsCategoryIndividual(individualChannelsTable);
+    }
+
     @Then("^I click on individual record$")
     public void iClickOnRecord() throws Throwable {
         sp.clickOnIndividualRecord();
@@ -452,12 +464,5 @@ public class UserStepDefinitions implements BaseTest {
     @Then("^I click on non-individual record$")
     public void iClickOnNonIndividualRecord() throws Throwable {
         sp.clickOnNonIndividualRecord();
-    }
-
-    @After("@logout")
-    public void afterScenario() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        dropdown.click();
-        logout_button.click();
     }
 }
