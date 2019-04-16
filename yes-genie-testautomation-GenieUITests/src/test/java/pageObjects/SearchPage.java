@@ -16,32 +16,19 @@ public class SearchPage extends SearchLocators {
 
     public void searchParameters() {
         try {
-            String id = heading_mdmId.getText();
-            String cust = heading_custId.getText();
-            String custName = heading_customerName.getText();
-            String dateOfBirth = heading_dob.getText();
-            String city = heading_addressCity.getText();
-            String area = heading_addressArea.getText();
-            String Hbranch = heading_homeBranch.getText();
-            String arm = heading_assetRM.getText();
-            String lrm = heading_liabilityRM.getText();
-            String GrpId = heading_groupId.getText();
-            String businessSeg = heading_businessSegment.getText();
-            String partnerSeg = heading_partnerSegment.getText();
-            String openDate = heading_custOpenDate.getText();
-            Assert.assertEquals(Constant.MDMID, id);
-            Assert.assertEquals(Constant.CUSTID, cust);
-            Assert.assertEquals(Constant.CustomerName, custName);
-            Assert.assertEquals(Constant.DOB, dateOfBirth);
-            Assert.assertEquals(Constant.AdressCity, city);
-            Assert.assertEquals(Constant.AdressArea, area);
-            Assert.assertEquals(Constant.HomeBranch, Hbranch);
-            Assert.assertEquals(Constant.AssetRM, arm);
-            Assert.assertEquals(Constant.LiabilityRM, lrm);
-            Assert.assertEquals(Constant.GroupID, GrpId);
-            Assert.assertEquals(Constant.BusinessSegment, businessSeg);
-            Assert.assertEquals(Constant.PartnerSegment, partnerSeg);
-            Assert.assertEquals(Constant.CustOpenDate, openDate);
+            Assert.assertEquals(Constant.MDMID, heading_mdmId.getText());
+            Assert.assertEquals(Constant.CUSTID, heading_custId.getText());
+            Assert.assertEquals(Constant.CustomerName, heading_customerName.getText());
+            Assert.assertEquals(Constant.DOB, heading_dob.getText());
+            Assert.assertEquals(Constant.AdressCity, heading_addressCity.getText());
+            Assert.assertEquals(Constant.AdressArea, heading_addressArea.getText());
+            Assert.assertEquals(Constant.HomeBranch, heading_homeBranch.getText());
+            Assert.assertEquals(Constant.LiabilityRM, heading_liabilityRM.getText());
+            Assert.assertEquals(Constant.AssetRM, heading_assetRM.getText());
+            Assert.assertEquals(Constant.GroupID, heading_groupId.getText());
+            Assert.assertEquals(Constant.BusinessSegment, heading_businessSegment.getText());
+            Assert.assertEquals(Constant.PartnerSegment, heading_partnerSegment.getText());
+            Assert.assertEquals(Constant.CustOpenDate, heading_custOpenDate.getText());
             List<WebElement> elements = driver.findElements(By.xpath("//table[@class=\"_4sbYNaXGOD8VzGHAX2_Gp\"]/tbody/tr"));
             int countOfRows = elements.size();
             Assert.assertTrue(countOfRows <= Constant.threshold);
@@ -100,13 +87,5 @@ public class SearchPage extends SearchLocators {
     public void landsIntoSnapPage() {
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals(Constant.snapPageUrl, currentUrl);
-    }
-
-    public void clickOnIndividualRecord() {
-        individual_record.click();
-    }
-
-    public void clickOnNonIndividualRecord() {
-        nonindividual_record.click();
     }
 }

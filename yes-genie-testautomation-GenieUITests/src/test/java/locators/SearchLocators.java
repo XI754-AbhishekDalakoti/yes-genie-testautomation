@@ -34,10 +34,10 @@ public class SearchLocators extends UserStepDefinitions {
     public static WebElement heading_homeBranch;
 
     @FindBy(how = How.XPATH, using = "//table[@class='_4sbYNaXGOD8VzGHAX2_Gp']/thead/tr/th[8]")
-    public static WebElement heading_assetRM;
+    public static WebElement heading_liabilityRM;
 
     @FindBy(how = How.XPATH, using = "//table[@class='_4sbYNaXGOD8VzGHAX2_Gp']/thead/tr/th[9]")
-    public static WebElement heading_liabilityRM;
+    public static WebElement heading_assetRM;
 
     @FindBy(how = How.XPATH, using = "//table[@class='_4sbYNaXGOD8VzGHAX2_Gp']/thead/tr/th[10]")
     public static WebElement heading_groupId;
@@ -59,11 +59,5 @@ public class SearchLocators extends UserStepDefinitions {
 
     @FindBy(how = How.XPATH, using = "//div[@class='_1HWu9-VMmg-bQcnoV5fSo-']/label[not(@class='_3Q0Indavt4PQipSfQVyWpQ')]")
     public static WebElement bubble_highlight;
-
-    @FindBy(how = How.XPATH, using = "//td[contains(text(),'996264849')]")
-    public static WebElement individual_record;
-
-    @FindBy(how = How.XPATH, using = "//td[contains(text(),'998003452')]")
-    public static WebElement nonindividual_record;
 
 }
