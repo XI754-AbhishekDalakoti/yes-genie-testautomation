@@ -427,5 +427,6 @@ public class DemographicsSnapPage extends DemographicsSnapLocators {
         Assert.assertEquals(table.get(1).get(7), authorised_first_secondary_mobile.getText());
         Assert.assertEquals(table.get(1).get(8), authorised_first_contactibility.getText());
         Assert.assertEquals(table.get(1).get(9), authorised_first_currentcitystate.getAttribute("title"));
+        Assert.assertEquals(table.get(1).get(10), accountno_authorised_signatory.getAttribute("title"));
     }
 }

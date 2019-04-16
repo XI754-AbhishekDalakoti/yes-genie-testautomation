@@ -250,6 +250,6 @@ Feature: Demographics
     And I wait for 2 sec
     Then Authorised Signatory page gets open with title "Authorised Signatory"
     And I verify all the attributes is displayed with authorised signatory data
-      | MDM ID    | Cust Name    | Gender | Email                | Email Status | Mobile Number | Mobile Status | Alternate No | Contactible | Current City/State |
-      | 996264849 | Charu Sadana | F      | charusadan@gmail.com | Not Verified | 919825900111  | Not Verified  | 919825900111 | 0.4         | AHMEDABAD,GUJARAT  |
+      | MDM ID    | Cust Name    | Gender | Email                | Email Status | Mobile Number | Mobile Status | Alternate No | Contactible | Current City/State | Account No                             |
+      | 996264849 | Charu Sadana | F      | charusadan@gmail.com | Not Verified | 919825900111  | Not Verified  | 919825900111 | 0.4         | AHMEDABAD,GUJARAT  | A/C No.(021563300011111, 364636543645) |
 

@@ -224,7 +224,7 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//td)[1]")
     public static WebElement authorised_first_mdmdid;
 
-    @FindBy(how = How.XPATH, using = "(//td)[2]")
+    @FindBy(how = How.XPATH, using = "(//td)[2]/div/span")
     public static WebElement authorised_first_custname;
 
     @FindBy(how = How.XPATH, using = "(//td)[3]")
@@ -250,6 +250,9 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
 
     @FindBy(how = How.XPATH, using = "(//img[@class='qgW84NoZHrEw1QLQStQw1'])[2]")
     public static WebElement mobileno_status_of_authorised_signatory;
+
+    @FindBy(how = How.XPATH, using = "(//span[contains(@class,'_2MvpDNTs0NKzcf1CaZ2ET8')])[1]")
+    public static WebElement accountno_authorised_signatory;
 }
 
 
