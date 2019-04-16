@@ -51,12 +51,9 @@ public class NextBestActionPage extends NextBestActionLocators {
             actual_nba_details.add(dataElement.getText().trim().replace("\n"," ").replaceAll("( )+"," "));
         }
         expected_nba_details.add(data.get(0).get(0));
-        Assert.assertEquals(expected_nba_details,actual_nba_details);
-        Assert.assertTrue(default_icon.isDisplayed());
+        Assert.assertTrue(updateemail_icon.isDisplayed());
         Assert.assertTrue(fixeddeposit_icon.isDisplayed());
-        Assert.assertTrue(savingsaccount_icon.isDisplayed());
-        Assert.assertTrue(currentaccount_icon.isDisplayed());
-        Assert.assertTrue(personalloan_icon.isDisplayed());
-        Assert.assertTrue(mutualfund_icon.isDisplayed());
+        Assert.assertTrue(locker_icon.isDisplayed());
+        Assert.assertTrue(updatefatca_icon.isDisplayed());
     }
 }

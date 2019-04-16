@@ -25,4 +25,4 @@ Feature: Next Best Action Page
   Scenario: Verify NBA categories and data for Individual customer
     And I wait for 2 sec
     Then I verify recommendation is displayed with below details with icons
-      | Kindly Renew your existing FD 1 By: 31-Mar-2019 Book FD |
+      | Kindly Update email id and mobile no By: 01-Dec-2019 Update Email |

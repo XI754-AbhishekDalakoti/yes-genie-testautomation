@@ -65,7 +65,7 @@ public class CaseNLeadPage extends CaseNLeadLocators {
     }
 
     public void createLeadWithRecommendationTitle() {
-        Assert.assertEquals("Update Email",create_lead_lable.getText());
+        Assert.assertEquals("Book FD",create_lead_lable.getText());
     }
 
     public void clickOnLableToCreateLead() {
@@ -94,7 +94,7 @@ public class CaseNLeadPage extends CaseNLeadLocators {
 
     public void clickOnLableToCreateServiceRequest() {
         category_regulatory.click();
-        create_sr_lable.click();
+        update_fatca_lable.click();
     }
 
     public void clickOnCrossButton() {
@@ -111,7 +111,8 @@ public class CaseNLeadPage extends CaseNLeadLocators {
         close_button.click();
     }
 
-    public void clickCrossButtonInAllCategory() {
+    public void clickCrossButtonInXSellCategory() {
+        xsell_category.click();
         cross_button_all_category.click();
     }
 
@@ -130,7 +131,7 @@ public class CaseNLeadPage extends CaseNLeadLocators {
     }
 
     public void verifyCreateCaseFormTitle() {
-        Assert.assertTrue(create_sr_lable.isDisplayed());
+        Assert.assertTrue(update_fatca_lable.isDisplayed());
     }
 
     public void verifyDataIsPrefilledInCreateCaseWithRecommendation() {

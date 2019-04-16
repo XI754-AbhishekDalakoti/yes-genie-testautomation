@@ -37,20 +37,14 @@ public class NextBestActionLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//div[@class='B1b-Lu2n9m4TNaSSepk_p'])[1]")
     public static List<WebElement> nba_details;
 
-    @FindBy(how = How.XPATH, using = "//img[contains(@src,'default.82358909.svg')]")
-    public static WebElement default_icon;
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'email.36e7631f.svg')]")
+    public static WebElement updateemail_icon;
 
-    @FindBy(how = How.XPATH, using = "//img[contains(@src,'savings_account.e9c3bf3f.svg')]")
-    public static WebElement savingsaccount_icon;
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'locker.0550e5d8.svg')]")
+    public static WebElement locker_icon;
 
-    @FindBy(how = How.XPATH, using = "//img[contains(@src,'current_account.73a6b343.svg')]")
-    public static WebElement currentaccount_icon;
-
-    @FindBy(how = How.XPATH, using = "//img[contains(@src,'personal_loan.a21227df.svg')]")
-    public static WebElement personalloan_icon;
-
-    @FindBy(how = How.XPATH, using = "//img[contains(@src,'mutual_funds.ed5d9304.svg')]")
-    public static WebElement mutualfund_icon;
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'fatca_declaration.21eb9e84.svg')]")
+    public static WebElement updatefatca_icon;
 
     @FindBy(how = How.XPATH, using = "//img[contains(@src,'fixed_deposit.2dd337c6.svg')]")
     public static WebElement fixeddeposit_icon;
