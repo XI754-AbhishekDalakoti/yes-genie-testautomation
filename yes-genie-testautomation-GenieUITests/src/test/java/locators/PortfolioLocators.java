@@ -199,4 +199,49 @@ public class PortfolioLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//span[@class='_20Mx09ER8emApg4placFeV']/span")
     public static List<WebElement> kpi_data;
 
+    @FindBy(how = How.XPATH, using = "//div[@class='_2wa49TB9GF0nwMcvjvIyxn']")
+    public static List<WebElement> channels_data;
+
+    @FindBy(how = How.XPATH, using = "(//div[@class='_1ayJzxADQ3eVsU5XX3HP42'])[1]/img")
+    public static List<WebElement> netbanking_toottip_data;
+
+    @FindBy(how = How.XPATH, using = "(//div[@class='_1ayJzxADQ3eVsU5XX3HP42'])[2]/img")
+    public static List<WebElement> mobileapp_tooltip_data;
+
+    @FindBy(how = How.XPATH, using = "(//div[@class='_1ayJzxADQ3eVsU5XX3HP42'])[4]/div")
+    public static WebElement pos_toottip_data;
+
+    @FindBy(how = How.XPATH, using = "(//div[@class='_1ayJzxADQ3eVsU5XX3HP42'])[5]/div")
+    public static WebElement atm_toottip_data;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'Collapse_Icon.9921b729.svg')]")
+    public static WebElement collapse_icon;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'net_banking.0d609890.svg')]")
+    public static WebElement netbanking_icon;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'mobile_app.b840e053.svg')]")
+    public static WebElement mobileapp_icon;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'pos.99f33b5e.svg')]")
+    public static WebElement pos_icon;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'atm.cd0beb4b.svg')]")
+    public static WebElement atm_icon;
+
+    @FindBy(how = How.XPATH, using = "(//img[contains(@src,'Home_Branch.1bad3955.svg')])[2]")
+    public static WebElement branchbanking_icon;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'data:image/png;base64,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')]")
+    public static WebElement yesrobot_icon;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'registered.ec15f842.svg')]")
+    public static WebElement registered_icon;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'locked.e90057b1.svg')]")
+    public static WebElement lock_icon;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'android.4b6f9880.svg')]")
+    public static WebElement android_icon;
+
 }

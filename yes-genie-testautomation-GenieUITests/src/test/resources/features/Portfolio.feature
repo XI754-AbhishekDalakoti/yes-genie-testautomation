@@ -164,4 +164,16 @@ Feature: Portfolio Page
         And I wait for 2 sec
         Then I verify KPI data of portfolio section for corporate
 
+    @Regression @logout
+    Scenario: Verify Channels category for customer type Individual
+        Then I wait for 2 sec
+        Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
+        And I wait for 2 sec
+        When I click on search button having xpath "//div[contains(text(),'Search')]"
+        And I wait for 2 sec
+        Then I lands to SNAP page directly
+        And I wait for 2 sec
+        Then I verify Channels category for Individual
+            | Netbanking Usage: High Trend: Increasing Mobile App Yes Mobile Usage: High Trend: Increasing Yes Pay POS 37 63 Debit/Credit Usage: High Trend: Increasing ATM 50 50 YBL/Non YBL Usage: Low Trend: Increasing Branch Banking Usage: High Trend: Increasing Yes Robot Usage: High Trend: Increasing |
+
 
