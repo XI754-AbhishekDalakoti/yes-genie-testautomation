@@ -9,13 +9,14 @@ public class CreateDataTest {
     public  String tableName;
 
 
-/*     @Test
+     @Test
      public void dataCreationSearch() throws Exception {
+         ApiContracts.deleteGnyCustSearchIndex();
          ApiContracts.createIndexGnyCustSearch();
          ApiContracts.createMappingGnyCustDoc();
          ApiContracts.bulkIndexingCustSearch();
          ApiContracts.bulkIndexingInYesBankAccount();
-     }*/
+     }
 
 
    /*  @Test

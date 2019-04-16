@@ -45,7 +45,7 @@ Feature: Validate Search API
       | city             | SAHARANPUR               |
       | addressArea      | W/O RAHUL SADANA 25-B    |
       | homeBranch       | SAHARANPUR,UTTAR PRADESH |
-      | assetRM          | NULL                     |
+      | assetRM          | Vinay Kumar Singh        |
       | groupId          | 274937                   |
       | businessSegment  | BRB                      |
       | partnerSegment   | NULL                     |
