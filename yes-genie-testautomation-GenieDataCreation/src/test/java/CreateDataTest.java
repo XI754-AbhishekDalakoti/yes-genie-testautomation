@@ -19,13 +19,13 @@ public class CreateDataTest {
      }
 
 
-   /*  @Test
+     @Test
      public void dataCreationRelationship() throws Exception {
          ApiContracts.deleteGnyCustRelationshipIndex();
          ApiContracts.createIndexGnyCustRelationship();
          ApiContracts.createMappingGnyCustRelationship();
          ApiContracts.bulkIndexingCustRelationship();
-     }*/
+     }
 
 
     @Test
