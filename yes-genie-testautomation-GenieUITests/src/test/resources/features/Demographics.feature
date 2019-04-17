@@ -20,23 +20,23 @@ Feature: Demographics
     Then I lands to SNAP page directly
     And I wait for 2 sec
     Then I verify all the attributes of demographics having customer type corporate
-      | Non-Individual                                                  | SURINDRA RADIOS PRIVATE LIMITED |                     |
-      | Date of Incorporation                                           | 27-May-2015                     |                     |
-      | Authorised Signatory Tooltip text                               | Authorised Signatory            |                     |
-      | Connections Tooltip text                                        | No relationships available      |                     |
-      | Website Tooltip text                                            | Website: Not Available          |                     |
-      | MDM ID                                                          | 998003452 (2)                   |                     |
-      | Business                                                        | NA                              |                     |
-      | Industry                                                        | Agri Commodities                |                     |
-      | Vintage                                                         | 4.1 Years                       |                     |
-      | BS/PS                                                           | BRB/RS                          |                     |
-      | Customer Type                                                   | FEMALE RESIDENT INDI...         |                     |
-      | Annual Turnover                                                 | 1 TO 5 CRORE                    |                     |
-      | Pan                                                             | Not Available                   |                     |
-      | Mobile Number                                                   | 6080112225                      | Not Verified        |
-      | Alternate No                                                    | NA                              | Can't be determined |
-      | Email                                                           | amarjeets555@gmail.com          | Verified            |
-      | W/O RAHUL SADANA 25-B KULTAR SINGH NAGAR NEAR DAV PUBLIC SCHOOL | PATNA,BIHAR                     | Can't be determined |
+      | Non-Individual                                                  | SURINDRA RADIOS PRIVATE LIMITED |                                   |
+      | Date of Incorporation                                           | 27-May-2015                     |                                   |
+      | Authorised Signatory Tooltip text                               | Authorised Signatory            |                                   |
+      | Connections Tooltip text                                        | No relationships available      |                                   |
+      | Website Tooltip text                                            | Website: Not Available          |                                   |
+      | MDM ID                                                          | 998003452 (2)                   |                                   |
+      | Business                                                        | NA                              |                                   |
+      | Industry                                                        | Agri Commodities                |                                   |
+      | Vintage                                                         | 4.1 Years                       |                                   |
+      | BS/PS                                                           | BRB/RS                          |                                   |
+      | Customer Type                                                   | FEMALE RESIDENT INDI...         |                                   |
+      | Annual Turnover                                                 | 1 TO 5 CRORE                    |                                   |
+      | Pan                                                             | Not Available                   |                                   |
+      | Mobile Number                                                   | 6080112225                      | Not Verified, Test mobile remarks |
+      | Alternate No                                                    | NA                              | Can't be determined               |
+      | Email                                                           | amarjeets555@gmail.com          | Verified, Test email remarks      |
+      | W/O RAHUL SADANA 25-B KULTAR SINGH NAGAR NEAR DAV PUBLIC SCHOOL | PATNA,BIHAR                     | Can't be determined, Test         |
 
   @Regression @logout
   Scenario: Verify demographics detailed attributes and there value in demographics of corporate customer for indexType 'M'
@@ -55,7 +55,7 @@ Feature: Demographics
       | Name               | SURINDRA RADIOS PRIVATE LIMITED |
       | DOI                | 27-May-2015                     |
       | Constitution       | Not Available                   |
-      | Customer date Open      | 27-May-2015                     |
+      | Customer date Open | 27-May-2015                     |
       | Turnover           | 1 TO 5 CRORE                    |
       | Email Address      | amarjeets555@gmail.com          |
       | Mobile No          | 6080112225                      |
@@ -92,7 +92,7 @@ Feature: Demographics
       | Name               | SURINDRA RADIOS PRIVATE LIMITED |
       | DOI                | 27-May-2015                     |
       | Constitution       | Not Available                   |
-      | Customer date Open      | 27-May-2015                     |
+      | Customer date Open | 27-May-2015                     |
       | Turnover           | 1 TO 5 CRORE                    |
       | Email Address      | amarjeets555@gmail.com          |
       | Mobile No          | 6080112225                      |
@@ -124,20 +124,20 @@ Feature: Demographics
     Then I lands to SNAP page directly
     And I wait for 2 sec
     Then I verify all the attributes of demographics having customer type individual
-      | CHARU SADANA 27-Aug-1975 SAHARANPUR,UTTAR ...                   | Individual          |             |
-      | Gender:  female                                                 | Birthday            | Home Branch |
-      | Contactibility                                                  | 33%                 | Connections |
-      | MDM ID 996264849 CKYC No. NA                                    |                     |             |
-      | Profession BUSINESS Vintage 3.3 Years                           |                     |             |
-      | BS/PS BRB/RS Customer Segment YES FIRST PRIMA...                |                     |             |
-      | Customer Type FEMALE RESIDENT INDIVIDUAL                        |                     |             |
-      | Aadhaar                                                         | Verified            |             |
-      | Pan                                                             | Verified            |             |
-      | Passport                                                        | Verified            |             |
-      | Mobile Number                                                   | Verified            |             |
-      | Email                                                           | Verified            |             |
-      | W/O RAHUL SADANA 25-B KULTAR SINGH NAGAR NEAR DAV PUBLIC SCHOOL | Can't be determined |             |
-      | 917123456789 csadana@yahoo.co.in SAHARANPUR,UTTAR PR...         |                     |             |
+      | CHARU SADANA 27-Aug-1975 SAHARANPUR,UTTAR ...                   | Individual                      |             |
+      | Gender:  female                                                 | Birthday                        | Home Branch |
+      | Contactibility                                                  | 33%                             | Connections |
+      | MDM ID 996264849 CKYC No. NA                                    |                                 |             |
+      | Profession BUSINESS Vintage 3.3 Years                           |                                 |             |
+      | BS/PS BRB/RS Customer Segment YES FIRST PRIMA...                |                                 |             |
+      | Customer Type FEMALE RESIDENT INDIVIDUAL                        |                                 |             |
+      | Aadhaar                                                         | Verified, Test aadhar remarks   |             |
+      | Pan                                                             | Verified, Test pann remarks     |             |
+      | Passport                                                        | Verified, Test passport remarks |             |
+      | Mobile Number                                                   | Verified, Test mobile remarks   |             |
+      | Email                                                           | Verified, N/A                   |             |
+      | W/O RAHUL SADANA 25-B KULTAR SINGH NAGAR NEAR DAV PUBLIC SCHOOL | Can't be determined, Test       |             |
+      | 917123456789 csadana@yahoo.co.in SAHARANPUR,UTTAR PR...         |                                 |             |
 
   @Regression @logout
   Scenario: Verify detailed attributes and there values in demographics of individual customer for indexType 'M'
@@ -153,28 +153,28 @@ Feature: Demographics
     Then I click on MDM ID on demographics
     Then I wait for 2 sec
     And I verify all attributes and there values for detailed MDM ID with indexType 'M'
-      | Name              | CHARU SADANA             |
-      | DOB               | 27-Aug-1975              |
-      | Profession        | BUSINESS                 |
-      | Customer date Open     | 27-May-2015              |
-      | Income            | 0 TO 50 LACS             |
-      | Email Address     | csadana@yahoo.co.in      |
-      | Mobile No         | 917123456789             |
-      | Alternate No      | 919158706602             |
-      | Current Address   | SAHARANPUR,UTTAR PRADESH |
-      | Permanent Address | SAHARANPUR,UTTAR PRADESH |
-      | Home Branch       | SAHARANPUR,UTTAR PRADESH |
-      | Cluster           | Not Available            |
-      | Region            | Not Available            |
-      | Asset RM          | Not Available            |
-      | Liability RM      | 4188029                  |
-      | Service RM        | 2985009                  |
-      | Group Code        | 1466889                  |
-      | PSM               | Not Available            |
-      | Nationality       | IN                       |
-      | Fatca             | Not Available            |
-      | KYC Status        | Not Available            |
-      | Risk Category     | HIGH RISK                |
+      | Name               | CHARU SADANA             |
+      | DOB                | 27-Aug-1975              |
+      | Profession         | BUSINESS                 |
+      | Customer date Open | 27-May-2015              |
+      | Income             | 0 TO 50 LACS             |
+      | Email Address      | csadana@yahoo.co.in      |
+      | Mobile No          | 917123456789             |
+      | Alternate No       | 919158706602             |
+      | Current Address    | SAHARANPUR,UTTAR PRADESH |
+      | Permanent Address  | SAHARANPUR,UTTAR PRADESH |
+      | Home Branch        | SAHARANPUR,UTTAR PRADESH |
+      | Cluster            | Not Available            |
+      | Region             | Not Available            |
+      | Asset RM           | Not Available            |
+      | Liability RM       | 4188029                  |
+      | Service RM         | 2985009                  |
+      | Group Code         | 1466889                  |
+      | PSM                | Not Available            |
+      | Nationality        | IN                       |
+      | Fatca              | Not Available            |
+      | KYC Status         | Not Available            |
+      | Risk Category      | HIGH RISK                |
 
   @Regression @logout
   Scenario: Verify demographics detailed attributes and there values in demographics of individual customer for indexType 'C'
