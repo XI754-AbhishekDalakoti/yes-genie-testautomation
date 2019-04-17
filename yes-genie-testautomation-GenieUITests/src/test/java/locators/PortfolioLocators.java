@@ -25,7 +25,7 @@ public class PortfolioLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[contains(text(),'Fixed Deposit')]")
     public static WebElement fixed_deposit_heading;
 
-    @FindBy(how = How.XPATH, using = "//img[contains(@src,'savings_account.e9c3bf3f.svg')]")
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'savings_account_wip.be5cb6ae.svg')]")
     public static WebElement savings_account_icon;
 
     @FindBy(how = How.XPATH, using = "//div[contains(text(),'Saving Account')]")
