@@ -6,12 +6,15 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
+import java.util.ArrayList;
+import java.util.Map;
+
+import static org.hamcrest.Matchers.*;
+
 
 public class ResponseValidation {
 
@@ -275,6 +278,44 @@ public class ResponseValidation {
         requestSpecification.baseUri(uri);
         Response response = requestSpecification.put();
         return response;
+    }
+
+//    public void verifyKeys(Response response) {
+//        String objnew = (response.getBody().asString());
+//        System.out.println(objnew);
+//        JSONObject obj1= objnew.get("roles");
+//        JSONObject obj2 = (JSONObject) obj1.get("Administrator");
+//        String token = obj2.get("approveduserCount").toString();
+//        System.out.println(token);
+//      //  return token;
+//    }
+
+    public String getAttributeValue(Response apiResponse, String jasonPath) {
+        // jasonPath: api response attribute json path
+        String restApiResponse = apiResponse.asString();
+        JsonPath jpath = new JsonPath(restApiResponse);
+        String attributeValue = jpath.get(jasonPath);
+//            System.out.println("Attribute Value: "+attributeValue);
+        return attributeValue;
+    }
+
+    public int getAttributeIntValue(Response apiResponse, String jasonPath) {
+        // jasonPath: api response attribute json path
+        String restApiResponse = apiResponse.asString();
+        JsonPath jpath = new JsonPath(restApiResponse);
+        int attributeValue = jpath.get(jasonPath);
+//            System.out.println("Attribute Value: "+attributeValue);
+        return attributeValue;
+    }
+
+    //This function will be used to get any specific attribute values from end-point response.
+    public ArrayList<String> getAttributeValues(Response apiResponse, String jasonPath) {
+        // jasonPath: api response attribute json path
+        String restApiResponse = apiResponse.asString();
+        JsonPath jpath = new JsonPath(restApiResponse);
+        ArrayList<String> attributeValues = jpath.get(jasonPath);
+//        System.out.println("Attribute Value: "+attributeValue);
+        return attributeValues;
     }
 }
 
