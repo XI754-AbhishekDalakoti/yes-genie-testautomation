@@ -2,26 +2,26 @@ Feature: Search or Landing Page
   As a user I should able to login into my app
 
   Background: User has logged in to Genie
-    Given I navigate to url "https://cust360.yesgenie.com:31390/"
+    Given I navigate to "https://cust360.yesgenie.com:31390"
+    Then I wait for 2 sec
+    And I enter "manisha" into input field having id "username"
+    And I enter "manisha" into input field having id "password"
+    Then I click on Login
 
   @Smoke @Regression
   Scenario: Ensure static parameter under search bar is displayed
-    Given I'm on login page
-    Then I wait for 2 sec
-    And I enter "prabhat" into input field having id "username"
-    And I enter "1234" into input field having id "password"
-    Then I click on Login
     And I wait for 2 sec
     Then Under search bar, it contains static search parameters
 
   @Regression @Regression
-  Scenario Outline: Search with record which is not present in system and "No Results Found" message is displayed
+  Scenario Outline: Search with record which is not present in system and "No Customer Found." message is displayed
     And I wait for 2 sec
     And I enter "<Parameter>" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then 'No Results Found, Please refine' message is displayed
+    Then 'No Customer Found.' message is displayed
+    And I wait for 2 sec
     Examples:
       | Parameter   |
       | Mohit       |
@@ -36,19 +36,19 @@ Feature: Search or Landing Page
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
     Then Search result is displayed with all fields in search UI screen
+    And I wait for 2 sec
     Examples:
-      | Parameter               |
-      | 12713                 |
-      | 9184820250              |
-      | Abhishek                    |
-      | AXEPD7154N              |
-      | Y7654537                |
-      | 123456789123            |
-      | 181400001300037         |
-      | 12355612355006          |
-      | anupamgupta@yesbank     |
-      | anupamgupta@yahoo.co.in |
-      | @tomer31twitter         |
+      | Parameter            |
+      | 1001                 |
+      | 9184820250           |
+      | Abhishek             |
+      | AXEPD7154N           |
+      | Y7654537             |
+      | 123456789123         |
+      | 101400079900037      |
+      | 10355612355007       |
+      | surabhimehta@yesbank |
+      | csadana@yahoo.co.in  |
 
   @Regression
   Scenario: Search with MDM ID and if that MDM ID is not present in CUST ID column then "No Results Found" message should be displayed
@@ -57,7 +57,8 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then 'No Results Found, Please refine' message is displayed
+    Then 'No Customer Found.' message is displayed
+    And I wait for 2 sec
 
   @Regression @Smoke
   Scenario Outline: Refine search message option when threshold 50 exceeded
@@ -66,7 +67,8 @@ Feature: Search or Landing Page
     Then I wait for 2 sec
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
-    Then 'Search returned too many results, Please refine' message is displayed due to threshold exceeded
+    Then 'Too many matching customers found. Please refine your search criterion.' message is displayed due to threshold exceeded
+    And I wait for 2 sec
     Examples:
       | Parameter |
       | Ayush     |
@@ -79,25 +81,27 @@ Feature: Search or Landing Page
     And I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
     Then Search result is displayed with all fields in search UI screen
+    And I wait for 2 sec
     Examples:
       | Parameter           |
-      | Ayush + 15-May-1990 |
-      | ayush + 15-may-1990 |
-      | aYUSh + Delhi     |
-      | ayush + delhi     |
-      | Ayush + 2019         |
+      | Ayush + 11-APR-1981 |
+      | ayush + 11-apr-1981 |
+      | aYUSh + Delhi       |
+      | ayush + delhi       |
+      | Ayush + 2019        |
 
   @Regression
   Scenario Outline: When user enters parameter in search field it should intelligently highlight the label with bubble
     Then I wait for 2 sec
     And I enter "<Parameter>" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     Then Accordingly respective "<Result>" gets highlighted in static search parameter under search bar
+    And I wait for 2 sec
     Examples:
       | Parameter           | Result      |
       | AXEPD7154N          | PAN         |
       | Y7654537            | Passport    |
       | 123456789123        | Aadhar      |
-      | Ayush             | Cust Name   |
+      | Ayush               | Cust Name   |
       | @tomer31twitter     | Twitter ID  |
       | 9184821250          | Mobile No.  |
       | 181400001300037     | Account No. |
@@ -112,27 +116,19 @@ Feature: Search or Landing Page
     When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     Then I wait for 2 sec
     And I verify search label display like 'Search result for "<Result1>": "<Result2>" "<Result3>": "<Result4>" Results'
+    And I wait for 2 sec
     Examples:
-      | Parameter           | Result1 | Result2     | Result3    | Result4 |
-      | Ayush + delhi | Ayush   | delhi | Cust Name: | City:    |
-
-  @Regression
-  Scenario: For single record after search & user is not authorized to view, record is displayed in results
-    Then I wait for 2 sec
-    And I wait for 2 sec
-    Then I enter "rajiv" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
-    Then I wait for 2 sec
-    When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
-    And I wait for 2 sec
-    Then Search result is displayed with all fields in search UI screen
+      | Parameter     | Result1 | Result2 | Result3    | Result4 |
+      | Ayush + delhi | Ayush   | delhi   | Cust Name: | City:   |
 
   @Regression
   Scenario: For single record after search & user is authorized to view, SNAP page is opened directly
-    Then I wait for 2 sec
     And I wait for 2 sec
     Then I enter "996264849" into search field having class "_1GAtZAgoj0RN5y2WYQ-IKL"
     Then I wait for 2 sec
     When I click on search button having xpath "//div[contains(@class,'_1_5k62AIvTivhOaavf2P7e forWeb')]"
     And I wait for 2 sec
     Then I lands to SNAP page directly
+    And I wait for 2 sec
+
 

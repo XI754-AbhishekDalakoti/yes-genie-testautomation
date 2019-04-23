@@ -5,18 +5,18 @@ Feature: Validate demographics APIs
     Given a genie user has a demographic api to test is "/api/genie/demographic/"
 
 
-  @smoke @regression @dm
+  @smoke @regression
   Scenario: User validates the response code of demographic api and mdmId as response where customer type is individual
     When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then a user get the status code 200 as a response from the demographic api where customer type is individual
     And user get the response for "mdmId" is "996264849" from the demographic api where customer type is individual
 
-  @regression @dm
+  @regression
   Scenario: User validates message of demographic api where customer type is individual and mdmId is not available in DB
     When a genie user passes the "24E" as a parameter to get the response from demographic api where customer type is individual
     Then a genie user get the 204 from the api as a response
 
-  @regression @dm
+  @regression
   Scenario Outline: User search with valid mdmId and validate response of demographic api where customer type is individual for all the mentioned keys in examples
     When a genie user passes the "996264849" as a parameter to get the response from demographic api where customer type is individual
     Then user get the response for "emailId" is "csadana@yahoo.co.in" from the demographic api where customer type is individual
@@ -79,12 +79,9 @@ Feature: Validate demographics APIs
       | business               | null                            |
       | industry               | Agri Commodities                |
       | annualTurnover         | 1 TO 5 CRORE                    |
-      | landlineNumberStatus   | null                            |
       | PS                     | RS                              |
       | BS                     | BRB                             |
-      | PAN                    | NOTVERIFIED                     |
       | DOI                    | 2015-05-27 00:00:00             |
-      | landlineNumber         | 919158706602                    |
       | webSite                | null                            |
 
   @smoke @regression @dm
@@ -145,7 +142,6 @@ Feature: Validate demographics APIs
       | annualTurnover   | 1 TO 5 CRORE                    |
       | mobileNumber     | 6080112225                      |
       | alternateNumber  | 919158706602                    |
-      | homeBranch       | SAHARANPUR,UTTAR PRADESH        |
       | cluster          | null                            |
       | region           | null                            |
       | IEC              | null                            |

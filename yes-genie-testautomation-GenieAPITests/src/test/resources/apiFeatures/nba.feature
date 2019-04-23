@@ -18,15 +18,15 @@ Feature: Validate nba APIs
     Examples:
       | key                 | value                                           |
       | mdmId               | 996264849                                       |
-      | actionCode          | MF002T                                          |
-      | referenceNo         | 126                                             |
-      | toolTip             | ECS updated with incorrect account number       |
+      | actionCode          | FATCA                                           |
+      | referenceNo         | 127                                             |
+      | toolTip             | ECS instructions not initiated                  |
       | accountNo           | 39400000000000                                  |
-      | dueDate             | 31-Mar-2019                                     |
+      | dueDate             | 01-Dec-2019                                     |
       | cumulationCount     | 1                                               |
-      | priority            | 4                                               |
+      | priority            | 5                                               |
       | status              | OPEN                                            |
-      | recommendationTitle | ECS updated with incorrect account number       |
+      | recommendationTitle | ECS instructions not initiated                  |
       | category            | Regulatory                                      |
 
   @regression @nba
@@ -69,12 +69,12 @@ Feature: Validate nba APIs
     Examples:
       | key                 | value                                           |
       | mdmId               | 998003452                                       |
-      | actionCode          | SR01                                            |
+      | actionCode          | FATCA                                            |
       | recommendationTitle | ECS instructions not initiated |
       | category            | Regulatory                                      |
       | toolTip             | ECS instructions not initiated |
       | accountNo           | 39400000000000                                  |
-      | dueDate             | 31-Mar-2019                                     |
+      | dueDate             | 01-Dec-2019                                     |
       | cumulationCount     | 1                                               |
       | priority            | 5                                               |
       | status              | OPEN                                            |
@@ -139,7 +139,6 @@ Feature: Validate nba APIs
       | custId      | 996264849  |
       | productName | 9          |
       | bu          | Branch Banking   |
-      | sourceRefId | SABranch Banking |
       | branchCode  | 1          |
       | remarks     | null       |
 
@@ -160,13 +159,12 @@ Feature: Validate nba APIs
       | mdmId       | 998003452  |
       | referenceNo | 123        |
       | custId      | 998003452  |
-      | productName | 9      |
+      | productName | 9          |
       | bu          | Branch Banking   |
-      | sourceRefId | FDBranch Banking |
       | branchCode  | 2          |
       | remarks     | null       |
 
-  @regression @nba @nbatest
+  @regression @nba
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is individual
     Given a genie user has a nba api to test is "/api/genie/lead/"
     When a genie user passes the "996264849" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is individual
@@ -176,8 +174,8 @@ Feature: Validate nba APIs
   @regression @nba
   Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is corporate
     Given a genie user has a nba api to test is "/api/genie/lead/"
-    When a genie user passes the "998003452" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is corporate
-    And a genie user edits the "remarks" field by the "test data" where "branchCode"is "1" and "custId" is "996264849"
+    When a genie user passes the "998003452" as a mdmid and "131" as a refrence id to get the response from nba api where customer type is corporate
+    And a genie user edits the "remarks" field by the "test data" where "branchCode"is "2" and "custId" is "998003452"
     Then user validates remarks modify successfully
 
   @regression @nba
@@ -191,7 +189,7 @@ Feature: Validate nba APIs
   Scenario: User validates the response code of nba create lead api and pass the invalid mdmId
     Given a genie user has a nba api to test is "/api/genie/lead/"
     When a genie user passes the "1e" as a mdmid and "123" as a refrence id to get the response from nba api where customer type is individual
-    Then a user get the status code 204 as a response from the nba lead api where customer type is individual
+    Then a user get the status code 500 as a response from the nba lead api where customer type is individual
 
   @smoke @regression @nba
   Scenario: User validates the response code and response of blacklist api
@@ -208,16 +206,16 @@ Feature: Validate nba APIs
 
   @regression @nba @dismiss
   Scenario: User validates the response code of dismissal put api where user enters reason and action
-    Given a genie user has a dismissal api to test is "/api/genie/recommendation/dismissal/"
-    When a genie user passes the "996264849" as a mdmid and "129" as a refrence id to get the response from dismissal api where customer type is individual
-    And a genie user edits the "reason" field by the "testing for reason field" and "actionChannel" field by the "GENIE" to see "Success" from dismissal api where customer type is individual
+    Given a genie user has a dismissal api to test is "/api/genie/recommendation/dismissal"
+    When a genie user passes the "996264849" as a mdmid and "134" as a refrence id to get the response from dismissal api where customer type is individual
+    And a genie user edits the "reason" field by the "Customer does not have disposable funds to book FD" and "actionChannel" field by the "GENIE" and "remarks" field by the "" to see "Success" from dismissal api where customer type is individual
     Then user validates response code to validate fields modify successfully for dismissal
 
   @regression @nba @dismiss
   Scenario: User validates the response code of dismissal put api with invalid reference id
-    Given a genie user has a dismissal api to test is "/api/genie/recommendation/dismissal/"
-    When a genie user passes the "996264849" as a mdmid and "1290" as a refrence id to get the response from dismissal api where customer type is individual
-    And a genie user edits the "reason" field by the "testing for reason field" and "actionChannel" field by the "GENIE" to see "Recommendation Data not found for mdmId:996264849, referenceNo:1290 " from dismissal api where customer type is individual
+    Given a genie user has a dismissal api to test is "/api/genie/recommendation/dismissal"
+    When a genie user passes the "996264849" as a mdmid and "129e" as a refrence id to get the response from dismissal api where customer type is individual
+    And a genie user edits the "reason" field by the "Customer does not have disposable funds to book FD" and "actionChannel" field by the "GENIE" and "remarks" field by the "" to see "Success" from dismissal api where customer type is individual
     Then user validates the response code to validate fields modify unsuccessfully
 
   @regression @nba @defer

@@ -12,7 +12,7 @@ import java.io.*;
 		plugin = {
 				"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 		features =  "classpath:features"
-		, tags = "@arya ,@Regression",
+		, tags = "@End2End ,@Regression",
 		glue = {"info.seleniumcucumber.stepdefinitions",   // predefined step definitions package
 				"info.seleniumcucumber.userStepDefintions" // user step definitions package
 		}

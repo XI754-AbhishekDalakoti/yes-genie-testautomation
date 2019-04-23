@@ -24,10 +24,10 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | custType               | FEMALE RESIDENT INDIVIDUAL |
       | emailStatus            | VERIFIED                   |
       | currentCityState       | SAHARANPUR,UTTAR PRADESH   |
-      | currentCityStateStatus | VERIFIED                   |
+      | currentCityStateStatus | INDETERMINISTIC                   |
       | mobileNumber           | 917123456789               |
       | mobileNumberStatus     | VERIFIED                   |
-      | profitablilityBand     | GREEN                      |
+      | profitablilityBand     | #FF0000                      |
       | custCategory           | I                          |
       | indexType              | M                          |
       | sentimentBand          | null                       |
@@ -42,7 +42,7 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | PS                     | RS                         |
       | BS                     | BRB                        |
       | PAN                    | VERIFIED                   |
-      | DOB                    | 27-Aug-1975                |
+      | DOB                    | 1975-08-27 00:00:00                |
 
 
   Scenario Outline: This is the test to validate response upto demographics where customer type is corporate
@@ -62,21 +62,21 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | custType               | FEMALE RESIDENT INDIVIDUAL      |
       | emailStatus            | VERIFIED                        |
       | currentCityState       | PATNA,BIHAR                     |
-      | currentCityStateStatus | NOTVERIFIED                     |
+      | currentCityStateStatus | INDETERMINISTIC                     |
       | mobileNumber           | 6080112225                      |
       | mobileNumberStatus     | NOTVERIFIED                     |
-      | profitablilityBand     | YELLOW                          |
+      | profitablilityBand     | #FF0000                          |
       | custCategory           | C                               |
       | indexType              | M                               |
       | constitution           | null                            |
       | business               | null                            |
       | industry               | Agri Commodities                |
       | annualTurnover         | 1 TO 5 CRORE                    |
-      | landlineNumberStatus   | NOTAVAILABLE                    |
+      | landlineNumberStatus   | INDETERMINISTIC                    |
       | PS                     | RS                              |
       | BS                     | BRB                             |
-      | PAN                    | NOTVERIFIED                     |
-      | DOI                    | 27-May-2015                     |
+      | PAN                    | NOTAVAILABLE                     |
+      | DOI                    | 2015-05-27 00:00:00                    |
       | landlineNumber         | null                            |
       | webSite                | null                            |
 
@@ -97,15 +97,15 @@ Feature: Validate end to end response from elastic search , demographics and NBA
     Examples:
       | key                 | value                                           |
       | mdmId               | 996264849                                       |
-      | actionCode          | FD02                                            |
-      | referenceNo         | 126                                             |
-      | toolTip             | Non Individual Customer not registered on CNB 4 |
+      | actionCode          | FATCA                                            |
+      | referenceNo         | 127                                             |
+      | toolTip             | ECS instructions not initiated |
       | accountNo           | 39400000000000                                  |
-      | dueDate             | 31-Mar-2019                                     |
+      | dueDate             | 01-Dec-2019                                     |
       | cumulationCount     | 1                                               |
-      | priority            | 4                                               |
-      | status              | open                                            |
-      | recommendationTitle | Non Individual Customer not registered on CNB 4 |
+      | priority            | 5                                               |
+      | status              | OPEN                                            |
+      | recommendationTitle | ECS instructions not initiated |
       | category            | Regulatory                                      |
 
   Scenario Outline: This is the test to validate response upto nba view API where customer type is individual and validate the response of additional info fields and boolean fields of first Record of NBA Section
@@ -119,8 +119,8 @@ Feature: Validate end to end response from elastic search , demographics and NBA
     Then a genie user has a nba api to test is "/api/genie/recommendation/view/"
     And a genie user passes the "996264849" as a mdmid to get the response from nba api where customer type is individual
     Then user get the response for "branch_code" is "1" as additional info from the nba api where customer type is individual
-    And user get the response for "fd_amount" is "54856.73" as additional info from the nba api where customer type is individual
-    And user get the response for "LOB" is "Branch Banking" as additional info from the nba api where customer type is individual
+    And user get the response for "amount" is "54856.73" as additional info from the nba api where customer type is individual
+    And user get the response for "lob" is "Branch Banking" as additional info from the nba api where customer type is individual
     And user get the response for "BU" is "YES BANK" as additional info from the nba api where customer type is individual
     And user get the response for "<key>" is "<value>" from the nba api where customer type is individual and field is of boolean type
     Examples:
@@ -144,16 +144,16 @@ Feature: Validate end to end response from elastic search , demographics and NBA
     Examples:
       | key                 | value                                           |
       | mdmId               | 998003452                                       |
-      | actionCode          | FD02                                            |
-      | recommendationTitle | Non Individual Customer not registered on CNB 4 |
+      | actionCode          | FATCA                                            |
+      | recommendationTitle | ECS instructions not initiated |
       | category            | Regulatory                                      |
-      | toolTip             | Non Individual Customer not registered on CNB 4 |
+      | toolTip             | ECS instructions not initiated |
       | accountNo           | 39400000000000                                  |
-      | dueDate             | 31-Mar-2019                                    |
+      | dueDate             | 01-Dec-2019                                   |
       | cumulationCount     | 1                                               |
-      | priority            | 4                                               |
-      | status              | open                                            |
-      | referenceNo         | 126                                             |
+      | priority            | 5                                               |
+      | status              | OPEN                                            |
+      | referenceNo         | 127                                            |
 
 
   Scenario Outline: This is the test to validate response upto nba view API where customer type is corporate and validate the response of additional info fields and boolean fields of first Record of NBA Section
@@ -167,9 +167,8 @@ Feature: Validate end to end response from elastic search , demographics and NBA
     Then a genie user has a nba api to test is "/api/genie/recommendation/view/"
     And a genie user passes the "998003452" as a mdmid to get the response from nba api where customer type is corporate
     Then user get the response for "branch_code" is "2" as additional info from the nba api where customer type is corporate
-    And user get the response for "fd_amount" is "54856.73" as additional info from the nba api where customer type is corporate
-    And user get the response for "LOB" is "Branch Banking" as additional info from the nba api where customer type is corporate
-    And user get the response for "BU" is "YES BANK" as additional info from the nba api where customer type is corporate
+    And user get the response for "amount" is "54856.73" as additional info from the nba api where customer type is corporate
+    And user get the response for "lob" is "Branch Banking" as additional info from the nba api where customer type is corporate
     And user get the response for "<key>" is "<value>" from the nba api where customer type is corporate and field is of boolean type
     Examples:
       | key            | value |
@@ -186,17 +185,13 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | mdmId       | 996264849  |
       | referenceNo | 123        |
       | custId      | 996264849  |
-      | productName | FD628      |
-      | bu          | YES BANK   |
-      | sourceRefId | FDYES BANK |
+      | productName | 9      |
+      | bu          | Branch Banking   |
+      | sourceRefId | 9 Branch Banking |
       | branchCode  | 1        |
       | remarks     | null       |
 
-  Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is individual
-    Given a genie user has a nba api to test is "/api/genie/lead/"
-    When a genie user passes the "996264849" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is individual
-    And a genie user edits the "remarks" field by the "test data"
-    Then user validates remarks modify successfully
+
 
   Scenario Outline: User search with valid mdmId, reference id and validate response of nba create lead api where customer type is corporate for all the mentioned keys in examples
     Given a genie user has a nba api to test is "/api/genie/lead/"
@@ -208,17 +203,13 @@ Feature: Validate end to end response from elastic search , demographics and NBA
       | mdmId       | 998003452  |
       | referenceNo | 123        |
       | custId      | 998003452  |
-      | productName | FD628      |
-      | bu          | YES BANK   |
-      | sourceRefId | FDYES BANK |
+      | productName | 9      |
+      | bu          | Branch Banking   |
+      | sourceRefId | 9 Branch Banking |
       | branchCode  | 2        |
       | remarks     | null       |
 
-  Scenario: User validates the response code of nba create lead put api where user enters remarks field where customer is corporate
-    Given a genie user has a nba api to test is "/api/genie/lead/"
-    When a genie user passes the "998003452" as a mdmid and "134" as a refrence id to get the response from nba api where customer type is corporate
-    And a genie user edits the "remarks" field by the "test data"
-    Then user validates remarks modify successfully
+
 
   Scenario Outline: User search with valid custid and validate response for all the mentioned keys in example
     When a user search with value "996264849" and setting value for threshold "50"

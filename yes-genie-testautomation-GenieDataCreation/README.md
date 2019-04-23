@@ -21,15 +21,8 @@ Add the below content to the config.properties file
 
 
 
-
-Build Steps
----------------------
-
-
 Go to the root directory and run 
 gradle setup
 
-
 For Teardown Run 
 gradle teardown
-

@@ -14,7 +14,7 @@ public class TablePicker {
 
     public static String nba_picker(){
         if (System.getProperty("env").equals("UAT")) {
-            nba_table = "gny_nba";
+            nba_table = "nba:nba_data";
         }
         else{
             nba_table="gny_nba";
@@ -25,7 +25,7 @@ public class TablePicker {
 
     public static String demogs_picker(){
         if (System.getProperty("env").equals("UAT")) {
-            demogs_table = "gny_cust_demogs_v1";
+            demogs_table = "genie:gny_cust_demogs";
         }
         else{
             demogs_table="gny_cust_demogs";
@@ -47,7 +47,7 @@ public class TablePicker {
 
     public static String aus_picker(){
         if (System.getProperty("env").equals("UAT")) {
-            aus_table = "gny_cust_aus";
+            aus_table = "genie:gny_cust_aus";
         }
         else{
             aus_table="gny_cust_aus";
@@ -59,7 +59,7 @@ public class TablePicker {
 
     public static String product_details_picker(){
         if (System.getProperty("env").equals("UAT")) {
-            product_details_table = "gny_product_details";
+            product_details_table = "genie:gny_portfolio_details";
         }
         else{
             product_details_table="gny_product_details";
@@ -71,7 +71,7 @@ public class TablePicker {
 
     public static String portfolio_snap_picker(){
         if (System.getProperty("env").equals("UAT")) {
-            portfolio_snap_table = "gny_portfolio_snap_v1";
+            portfolio_snap_table = "genie:gny_portfolio_snap";
         }
         else{
             portfolio_snap_table="gny_portfolio_snap";
@@ -84,7 +84,7 @@ public class TablePicker {
 
     public static String product_kpi_trend_picker(){
         if (System.getProperty("env").equals("UAT")) {
-            product_kpi_trend_table = "gny_product_kpi_trend";
+            product_kpi_trend_table = "genie:gny_portfolio_kpi_trend";
         }
         else{
             product_kpi_trend_table="gny_kpi_trend";
@@ -96,7 +96,7 @@ public class TablePicker {
 
     public static String channel_picker(){
         if (System.getProperty("env").equals("UAT")) {
-            channel_table = "gny_channel_snap_v1";
+            channel_table = "genie:gny_channel_snap";
         }
         else{
             channel_table="gny_channel_snap";

@@ -12,161 +12,20 @@ public class SnapLocators extends UserStepDefinitions {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(how = How.XPATH, using = "//div[@class='Zpr-MNfPstkKfN9HLNF5_']/img")
-    public static WebElement icon;
-
-    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_2USxA5C9026oPXW0fmlfg-')]")
+    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_2USxA5C9026oPXW0fmlfg-')]/span")
     public static WebElement customername;
 
     @FindBy(how = How.XPATH, using = "//div[contains(@class, 'kEWBDoHMNQ5jG2zd4akm')]")
     public static WebElement dob_doi;
 
-    @FindBy(how = How.XPATH, using = "//div[contains(@class, 'kEWBDoHMNQ5jG2zd4akm')]/img")
-    public static WebElement dobdoi_tooltipText;
-
-    @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_39L-52oY77XXN3mR2CMCrR')])[1]")
-    public static WebElement authorised_signatory_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_39L-52oY77XXN3mR2CMCrR')])[2]")
-    public static WebElement connections_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_39L-52oY77XXN3mR2CMCrR')])[3]")
-    public static WebElement website_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='_19MTAE-IAsaHScleHpI0fF']/div[3]/div")
-    public static WebElement homebranchname;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='_19MTAE-IAsaHScleHpI0fF']/div[4]/div/img")
-    public static WebElement connections;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='_2Z1-0e6lDtN46kzzs-wGIf'])[1]")
-    public static WebElement attribute_mdmid;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='_1RRMjt720IgPklxsu2yc8m']")
+    @FindBy(how = How.XPATH, using = "//div[@class='_24PYoJhN3w2ihktZqZgrIx']")
     public static WebElement mdmid_value;
-
-    @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[3]")
-    public static WebElement profession_attribute;
 
     @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[2]")
     public static WebElement profession_value;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='D-Ciw49PysMvGxc0nmQAV'])[1]/div")
-    public static WebElement ckycNo_attribute;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[1]/div")
-    public static WebElement ckycNo_value;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='tGryspxNgmwWz4yKlBBB8 _3I3leJDZEzF-2rq1kzGvRQ']")
-    public static WebElement vintage_value;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='D-Ciw49PysMvGxc0nmQAV'])[3]/div")
-    public static WebElement bsps_attribute;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='D-Ciw49PysMvGxc0nmQAV'])[2]/div")
-    public static WebElement bsps_corporate_attribute;
-
-    @FindBy(how = How.XPATH, using = "(//span[@class='tGryspxNgmwWz4yKlBBB8'])")
-    public static WebElement bsps_value1;
-
-    @FindBy(how = How.XPATH, using = "(//span[@class='tGryspxNgmwWz4yKlBBB8'])[2]")
-    public static WebElement bsps_value2;
-
-    @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[6]")
-    public static WebElement customer_segment_attribute;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[4]/span")
-    public static WebElement customer_segment_value;
-
-    @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[7]")
-    public static WebElement customer_type_attribute;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[5]/span")
-    public static WebElement customer_type_value;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='OTMu80ITtJxpvgHq3X4pf _1ZlXZ-2pf7HlQHw6IvlQe9']/img[1]")
-    public static WebElement aadhar_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='OTMu80ITtJxpvgHq3X4pf _1ZlXZ-2pf7HlQHw6IvlQe9']/img[2]")
-    public static WebElement pan_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='OTMu80ITtJxpvgHq3X4pf _1ZlXZ-2pf7HlQHw6IvlQe9']/img[3]")
-    public static WebElement passport_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='OTMu80ITtJxpvgHq3X4pf'])[4]/img[1]")
-    public static WebElement aadhar_status;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='OTMu80ITtJxpvgHq3X4pf'])[4]/img[1]")
-    public static WebElement pan_status;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='OTMu80ITtJxpvgHq3X4pf'])[4]/img[1]")
-    public static WebElement passport_status;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='_2Z1-0e6lDtN46kzzs-wGIf'])[2]")
-    public static WebElement attribute_business;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='_1ZlXZ-2pf7HlQHw6IvlQe9'])[2]")
-    public static WebElement business_value;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='_2Z1-0e6lDtN46kzzs-wGIf'])[3]")
-    public static WebElement industry_attribute;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[2]")
-    public static WebElement industry_value;
-
-    @FindBy(how = How.XPATH, using = "(//div[contains(@class, '_2Z1-0e6lDtN46kzzs-wGIf')])[4]")
-    public static WebElement vintage_attribute;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='_2Z1-0e6lDtN46kzzs-wGIf'])[4]")
-    public static WebElement annual_turnover_attribute;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='tGryspxNgmwWz4yKlBBB8'])[5]")
-    public static WebElement annual_turnover_value;
-
-    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_3LIYoDr15lNjvPToNw26Nd')]/img[1]")
-    public static WebElement corporate_pan_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_3LIYoDr15lNjvPToNw26Nd')]/img[2]")
-    public static WebElement corporate_pan_status;
-
-    @FindBy(how = How.XPATH, using = "(//a[@class='_361NW01yaAs-Wcs5kATCQL'])[1]/img")
-    public static WebElement mobileNo_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "(//a[contains(@class, 'tGryspxNgmwWz4yKlBBB8')])[1]")
+    @FindBy(how = How.XPATH, using = "(//a[contains(@class, '_22_DcXKejxA-H4f9z4SbRS')])[1]")
     public static WebElement mobileNo_value;
-
-    @FindBy(how = How.XPATH, using = "(//a[@class='_361NW01yaAs-Wcs5kATCQL'])[4]/img")
-    public static WebElement mobileNo_status;
-
-    @FindBy(how = How.XPATH, using = "(//a[@class='_361NW01yaAs-Wcs5kATCQL'])[2]/img")
-    public static WebElement alternate_mobileNo_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "(//a[contains(@class, 'tGryspxNgmwWz4yKlBBB8')])[2]")
-    public static WebElement alternate_mobileNo_value;
-
-    @FindBy(how = How.XPATH, using = "(//a[@class='_361NW01yaAs-Wcs5kATCQL'])[5]/img")
-    public static WebElement alternate_mobileNo_status;
-
-    @FindBy(how = How.XPATH, using = "(//a[@class='_361NW01yaAs-Wcs5kATCQL'])[2]/img")
-    public static WebElement email_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "(//a[contains(@class, '_361NW01yaAs-Wcs5kATCQL')])[5]/span")
-    public static WebElement email_value;
-
-    @FindBy(how = How.XPATH, using = "(//a[contains(@class, 'tGryspxNgmwWz4yKlBBB8')])[3]")
-    public static WebElement corporate_email_value;
-
-    @FindBy(how = How.XPATH, using = "(//a[@class='_361NW01yaAs-Wcs5kATCQL'])[4]/img")
-    public static WebElement email_status;
-
-    @FindBy(how = How.XPATH, using = "//a[contains(@class, '_1ZlXZ-2pf7HlQHw6IvlQe9')]/img")
-    public static WebElement address_tooltiptext;
-
-    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_1ZlXZ-2pf7HlQHw6IvlQe9')]/span")
-    public static WebElement address_value;
-
-    @FindBy(how = How.XPATH, using = "(//a[@class='_361NW01yaAs-Wcs5kATCQL'])[5]/img")
-    public static WebElement address_status;
 
     @FindBy(how = How.XPATH, using = "//div[@class='VRzq6mIGh0FiXMvg-Kh1Z']/div[1]")
     public static WebElement category_all;
@@ -186,19 +45,16 @@ public class SnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[@class='VRzq6mIGh0FiXMvg-Kh1Z']/div[6]")
     public static WebElement category_information;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='_1eD15-Ctmmj-a116Qe9TIk'])[1]/div/span")
+    @FindBy(how = How.XPATH, using = "(//span[@class='_1ItRkkJp4JtCGSqCU2C5QD'])[5]")
     public static WebElement recommendation_data;
 
     @FindBy(how = How.XPATH, using = "(//div[@class='e52w_BTQ1gFCUHGWcBhio'])[1]")
     public static WebElement recommendation_end_date;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='_2gVTPG7uHIMeGvbtzdUoz0'])[1]/div")
+    @FindBy(how = How.XPATH, using = "(//div[@class='_2gVTPG7uHIMeGvbtzdUoz0'])[2]/div")
     public static WebElement action_lable;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='_2gVTPG7uHIMeGvbtzdUoz0'])[1]/div")
-    public static WebElement book_fd_lable;
-
-    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_3RRdNL0L_hPI0WIDrzn26Y') and text() = 'Cust ID']")
+    @FindBy(how = How.XPATH, using = "//div[contains(@class, '_2IsuK2p9vH43XwRgJIESFz') and text() = 'Cust ID']")
     public static WebElement cust_id_attribute;
 
     @FindBy(how = How.XPATH, using = "(//div[@class='_3RRdNL0L_hPI0WIDrzn26Y'])[2]")
@@ -216,29 +72,86 @@ public class SnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//input[@placeholder='Remarks']")
     public static WebElement remarks_attribute;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='_3hL0ZmbCNbL6IPGho4gr_g'])[1]/div")
-    public static WebElement cust_id_value;
+    @FindBy(how = How.ID, using = "nbaItemClose-0-0")
+    public static WebElement cross_button_sell_category;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='_1PeIO4jIzGcxXDjDHApNmp'])[4]")
-    public static WebElement product_name_value;
+    @FindBy(how = How.XPATH, using = "//div[@class='_2uJC9yo-UWAB5wmeI1DfQj']")
+    public static WebElement calender_submit;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='_1PeIO4jIzGcxXDjDHApNmp'])[2]")
-    public static WebElement bu_value;
+    @FindBy(how = How.XPATH, using = "(//div[@class='_3SHH88IPp0skc0h6q5UV6Q'])[2]")
+    public static WebElement dismiss_button;
 
-    @FindBy(how = How.XPATH, using = "(//input[@class='_3M_2Tbhcm6YQtu0uK0T6Ym'])")
-    public static WebElement source_ref_id_value;
-
-    @FindBy(how = How.XPATH, using = "(//div[@class='_1PeIO4jIzGcxXDjDHApNmp'])[3]")
-    public static WebElement branch_code_value;
+    @FindBy(how = How.XPATH, using = "(//input[@type='radio'])[2]")
+    public static WebElement select_dimiss_reason;
 
     @FindBy(how = How.ID, using = "submit")
-    public static WebElement submit_button_bookFdpage;
+    public static WebElement dismiss_submit_button;
 
-    @FindBy(how = How.XPATH, using = "(//div[@class='_31vqzyuKmHK9WBSIDdOtxz'])")
-    public static WebElement transaction_completed_successfully;
+    @FindBy(how = How.XPATH, using = "//div[contains(@class,'_3bPmvFCu2ReIPAONCmDte5')]/div[2]")
+    public static WebElement relation_category_investor;
 
-    @FindBy(how = How.XPATH, using = "//input[@placeholder='Remarks']")
-    public static WebElement remarks_tab;
+    @FindBy(how = How.XPATH, using = "//span[@class='_1e7iJQLfoqkQZa8rDieXHV']")
+    public static WebElement heading_name;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='AvMHovGJlIEUhAIFgNAtR']")
+    public static WebElement relation_graph_minimize_icon;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='_288kmL-P6mB4JB7iYJXHmn']")
+    public static WebElement create_lead_custid_attribute;
+
+    @FindBy(how = How.XPATH, using = "996264849")
+    public static WebElement group_nrv_atttribute;
+
+    @FindBy(how = How.XPATH, using = "996264849")
+    public static WebElement nrv_attribute;
+
+    @FindBy(how = How.XPATH, using = "996264849")
+    public static WebElement ppi_attribute;
+
+    @FindBy(how = How.XPATH, using = "996264849")
+    public static WebElement group_nrv_value;
+
+    @FindBy(how = How.XPATH, using = "996264849")
+    public static WebElement nrv_value;
+
+    @FindBy(how = How.XPATH, using = "996264849")
+    public static WebElement ppi_value;
+
+    @FindBy(how = How.XPATH, using = "(//div[@class='_53pmg1lz9yMKjYqMWgpA3']/span[1])[1]")
+    public static WebElement detailed_cust_name;
+
+    @FindBy(how = How.XPATH, using = "(//div[@class='_53pmg1lz9yMKjYqMWgpA3']/span[2])[1]")
+    public static WebElement detailed_dob;
+
+    @FindBy(how = How.XPATH, using = "(//div[@class='_53pmg1lz9yMKjYqMWgpA3']/span[3])[1]")
+    public static WebElement detailed_profession;
+
+    @FindBy(how = How.XPATH, using = "//a[@class='_1OPvaD4SzHDOYCr9ReE2dw']/span")
+    public static WebElement detailed_email;
+
+    @FindBy(how = How.XPATH, using = "(//span[@class='_3VeCHIt6FLYXYaCXATKVND'])[2]/a")
+    public static WebElement detailed_mobileNo;
+
+    @FindBy(how = How.XPATH, using = "(//div[@class='_53pmg1lz9yMKjYqMWgpA3'])[2]/span[4]")
+    public static WebElement detailed_address;
+
+    @FindBy(how = How.XPATH, using = "(//a[contains(@class,'_16uaZ5Pfb_GGhcja4IBY_O')])[2]/span")
+    public static WebElement email_value;
+
+    @FindBy(how = How.XPATH, using = "(//a[@class='_1OPvaD4SzHDOYCr9ReE2dw'])[1]/span")
+    public static WebElement detailed_mdmid_value;
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

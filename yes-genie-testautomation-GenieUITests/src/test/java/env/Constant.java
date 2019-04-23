@@ -2,9 +2,9 @@ package env;
 
 public class Constant {
 
-    public static final String name = "Panna Das";
+    public static final String name = "Manisha Chauhan";
     public static final String designation = "NA";
-    public static final String role = "IDAM";
+    public static final String role = "Superuser";
     public static final String MDMID = "MDM ID";
     public static final String CUSTID = "Cust ID";
     public static final String CustomerName = "Customer Name";
@@ -19,5 +19,5 @@ public class Constant {
     public static final String PartnerSegment = "Partner Segment";
     public static final String CustOpenDate = "Cust Open Date";
     public static final int threshold =50;
-
+    public static final String snapPageUrl = "https://cust360.yesgenie.com:31390/snap";
 }
