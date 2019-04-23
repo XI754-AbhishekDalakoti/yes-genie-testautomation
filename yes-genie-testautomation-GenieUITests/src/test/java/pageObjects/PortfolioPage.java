@@ -182,4 +182,91 @@ public class PortfolioPage extends PortfolioLocators {
         Assert.assertTrue(lock_icon.isDisplayed());
         Assert.assertTrue(android_icon.isDisplayed());
     }
+
+    public void verifyDepositsInvestmentsOptions() {
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals(Constant.snapPageUrl, currentUrl);
+
+        double expectedTotal = help.getTotalAmountAfterReplacingInList(deposit_amounts);
+
+        Actions action = new Actions(driver);
+        action.moveToElement(deposits_investments_heading).build().perform();
+
+        double actualTotal = help.getAmountAfterReplacing(total_depositsinvestments);
+
+        Assert.assertEquals(true, corporate_deposit_icon.isDisplayed());
+        Assert.assertEquals(true, deposits_investments_heading.isDisplayed());
+        Assert.assertEquals(true, fixed_deposit_icon.isDisplayed());
+        Assert.assertEquals(true, fixed_deposit_heading.isDisplayed());
+        Assert.assertEquals(true, savings_account_icon.isDisplayed());
+        Assert.assertEquals(true, savings_account_heading.isDisplayed());
+        Assert.assertEquals(true, current_account_icon.isDisplayed());
+        Assert.assertEquals(true, current_account_heading.isDisplayed());
+        Assert.assertEquals(true, recurring_deposit_icon.isDisplayed());
+        Assert.assertEquals(true, recurring_deposit_heading.isDisplayed());
+        Assert.assertEquals(true, demat_account_icon.isDisplayed());
+        Assert.assertEquals(true, demat_account_heading.isDisplayed());
+        Assert.assertEquals(expectedTotal, actualTotal, 0.0f);
+    }
+
+    public void verifyTradeOptions() {
+
+        double expectedTotal = help.getTotalAmountAfterReplacingInList(investment_amounts);
+
+        Actions action = new Actions(driver);
+        action.moveToElement(trade_heading).build().perform();
+
+        double actualTotal = help.getAmountAfterReplacing(total_trade);
+
+        Assert.assertEquals(true, trade_icon.isDisplayed());
+        Assert.assertEquals(true, trade_heading.isDisplayed());
+        Assert.assertEquals(true, life_insurance_icon.isDisplayed());
+        Assert.assertEquals(true, life_insurance_heading.isDisplayed());
+        Assert.assertEquals(true, mutual_funds_icon.isDisplayed());
+        Assert.assertEquals(true, mutual_funds_heading.isDisplayed());
+        Assert.assertEquals(true, ppf_icon.isDisplayed());
+        Assert.assertEquals(true, ppf_heading.isDisplayed());
+        Assert.assertEquals(true, stocks_icon.isDisplayed());
+        Assert.assertEquals(true, stocks_heading.isDisplayed());
+        Assert.assertEquals(true, apy_icon.isDisplayed());
+        Assert.assertEquals(true, apy_heading.isDisplayed());
+        Assert.assertEquals(true, gold_icon.isDisplayed());
+        Assert.assertEquals(true, gold_heading.isDisplayed());
+        Assert.assertEquals(expectedTotal, actualTotal, 0.0f);
+
+    }
+
+    public void verifyLoansAdvancesOptions() {
+
+        double expectedTotal = help.getTotalAmountAfterReplacingInList(loan_amounts);
+
+        Actions action = new Actions(driver);
+        action.moveToElement(loans_advances_heading).build().perform();
+
+        double actualTotal = help.getAmountAfterReplacing(total_loans_advances_amount);
+
+        Assert.assertEquals(true, loans_advances_icon.isDisplayed());
+        Assert.assertEquals(true, loans_advances_heading.isDisplayed());
+        Assert.assertEquals(true, credit_card_icon.isDisplayed());
+        Assert.assertEquals(true, credit_card_heading.isDisplayed());
+        Assert.assertEquals(true, fuel_card_icon.isDisplayed());
+        Assert.assertEquals(true, fuel_card_heading.isDisplayed());
+        Assert.assertEquals(true, prepaid_card_icon.isDisplayed());
+        Assert.assertEquals(true, prepaid_card_heading.isDisplayed());
+        Assert.assertEquals(true, smart_card_icon.isDisplayed());
+        Assert.assertEquals(true, smart_card_heading.isDisplayed());
+        Assert.assertEquals(true, international_card_icon.isDisplayed());
+        Assert.assertEquals(true, international_card_heading.isDisplayed());
+        Assert.assertEquals(true, travel_card_icon.isDisplayed());
+        Assert.assertEquals(true, travel_card_heading.isDisplayed());
+        Assert.assertEquals(expectedTotal, actualTotal, 0.0f);
+
+    }
+
+    public void verifyCollectionsPaymentsOptions() {
+
+        Assert.assertEquals(true, collections_payments_icon.isDisplayed());
+        Assert.assertEquals(true, collections_payments_heading.isDisplayed());
+    }
 }
+

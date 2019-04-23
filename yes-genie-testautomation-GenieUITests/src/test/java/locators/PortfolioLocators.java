@@ -16,8 +16,14 @@ public class PortfolioLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//img[contains(@src,'deposits_box.6a62d65c.svg')]")
     public static WebElement deposit_icon;
 
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'Deposits_corporate.93e237d0.svg')]")
+    public static WebElement corporate_deposit_icon;
+
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'Deposit')]")
     public static WebElement deposit_heading;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Deposits & Investments')]")
+    public static WebElement deposits_investments_heading;
 
     @FindBy(how = How.XPATH, using = "//img[contains(@src,'fixed_deposit.2dd337c6.svg')]")
     public static WebElement fixed_deposit_icon;
@@ -52,8 +58,14 @@ public class PortfolioLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//img[contains(@src,'investment.dee02d79.svg')]")
     public static WebElement investment_icon;
 
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'trade_forex.ff1cd9b6.svg')]")
+    public static WebElement trade_icon;
+
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'Investments')]")
     public static WebElement investment_heading;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Trade')]")
+    public static WebElement trade_heading;
 
     @FindBy(how = How.XPATH, using = "//img[contains(@src,'life_insurance.69338c61.svg')]")
     public static WebElement life_insurance_icon;
@@ -118,8 +130,20 @@ public class PortfolioLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//img[contains(@src,'Cards.427a89f0.svg')]")
     public static WebElement cards_icon;
 
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'collections_and_payments.96b6ecff.svg')]")
+    public static WebElement collections_payments_icon;
+
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'loans.2bb783ac.svg')]")
+    public static WebElement loans_advances_icon;
+
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'Cards & Wallet')]")
     public static WebElement cards_heading;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Collections & Payments')]")
+    public static WebElement collections_payments_heading;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Loans & Advances')]")
+    public static WebElement loans_advances_heading;
 
     @FindBy(how = How.XPATH, using = "//img[contains(@src,'credit_card.4540bef7.svg')]")
     public static WebElement credit_card_icon;
@@ -172,6 +196,9 @@ public class PortfolioLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][1]//span[contains(text(),'₹')]")
     public static List<WebElement> deposit_amounts;
 
+    @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw depositInvestmentsHover']")
+    public static WebElement total_depositsinvestments;
+
     @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw depositHover']")
     public static WebElement total_deposit;
 
@@ -180,6 +207,9 @@ public class PortfolioLocators extends UserStepDefinitions {
 
     @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw investmentHover']")
     public static WebElement total_investment;
+
+    @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw tradeHover']")
+    public static WebElement total_trade;
 
     @FindBy(how = How.XPATH, using = "//div[@class='_2cTCmnxj5gU1JCpbN-KO6R'][3]//span[contains(text(),'₹')]")
     public static List<WebElement> loan_amounts;
@@ -192,6 +222,9 @@ public class PortfolioLocators extends UserStepDefinitions {
 
     @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw cardHover']")
     public static WebElement total_card_amount;
+
+    @FindBy(how = How.CSS, using = "div[class='gy2-S5J2MMx_FOwip4xHw loanAdvanceHover']")
+    public static WebElement total_loans_advances_amount;
 
     @FindBy(how = How.CSS, using = "span[class='_1wQ1rFim9bh2TNPIuuDBdQ']")
     public static List<WebElement> kpi_labels;
@@ -245,3 +278,4 @@ public class PortfolioLocators extends UserStepDefinitions {
     public static WebElement android_icon;
 
 }
+

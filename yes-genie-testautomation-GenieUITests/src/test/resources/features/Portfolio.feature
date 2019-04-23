@@ -97,7 +97,7 @@ Feature: Portfolio Page
         And I wait for 2 sec
         Then I lands to SNAP page directly
         And I wait for 2 sec
-        Then I verify deposit options of portfolio section
+        Then I verify Deposit & Investments options of portfolio section
 
     @Regression @logout
     Scenario: Verify investment options of the Portfolio section of customer type Corporate
@@ -110,7 +110,7 @@ Feature: Portfolio Page
         And I wait for 2 sec
         Then I lands to SNAP page directly
         And I wait for 2 sec
-        Then I verify investment options of portfolio section
+        Then I verify Trade options of portfolio section
 
     @Regression @logout
     Scenario: Verify loan options of the Portfolio section of customer type Corporate
@@ -123,7 +123,7 @@ Feature: Portfolio Page
         And I wait for 2 sec
         Then I lands to SNAP page directly
         And I wait for 2 sec
-        Then I verify loan options of portfolio section
+        Then I verify Loan & Advances options of portfolio section
 
     @Regression @logout
     Scenario: Verify cards and wallets options of the Portfolio section of customer type Corporate
@@ -136,7 +136,7 @@ Feature: Portfolio Page
         And I wait for 2 sec
         Then I lands to SNAP page directly
         And I wait for 2 sec
-        Then I verify cards and wallets options of portfolio section
+        Then I verify Collections & Payments and wallets options of portfolio section
 
     @Regression @logout
     Scenario: Verify other options of the Portfolio section of customer type Corporate

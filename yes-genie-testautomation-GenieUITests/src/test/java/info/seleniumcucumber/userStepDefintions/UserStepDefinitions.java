@@ -465,4 +465,24 @@ public class UserStepDefinitions implements BaseTest {
     public void iClickOnNonIndividualRecord() throws Throwable {
         sp.clickOnNonIndividualRecord();
     }
+
+    @Then("^I verify Deposit & Investments options of portfolio section$")
+    public void iVerifyDepositInvestmentsOptionsOfPortfolioSection() throws Throwable {
+        portfolio.verifyDepositsInvestmentsOptions();
+    }
+
+    @Then("^I verify Trade options of portfolio section$")
+    public void iVerifyTradeOptionsOfPortfolioSection() throws Throwable {
+        portfolio.verifyTradeOptions();
+    }
+
+    @Then("^I verify Loan & Advances options of portfolio section$")
+    public void iVerifyLoanAdvancesOptionsOfPortfolioSection() throws Throwable {
+        portfolio.verifyLoansAdvancesOptions();
+    }
+
+    @Then("^I verify Collections & Payments and wallets options of portfolio section$")
+    public void iVerifyCollectionsPaymentsAndWalletsOptionsOfPortfolioSection() throws Throwable {
+        portfolio.verifyCollectionsPaymentsOptions();
+    }
 }
