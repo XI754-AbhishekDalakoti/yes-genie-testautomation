@@ -280,16 +280,6 @@ public class ResponseValidation {
         return response;
     }
 
-//    public void verifyKeys(Response response) {
-//        String objnew = (response.getBody().asString());
-//        System.out.println(objnew);
-//        JSONObject obj1= objnew.get("roles");
-//        JSONObject obj2 = (JSONObject) obj1.get("Administrator");
-//        String token = obj2.get("approveduserCount").toString();
-//        System.out.println(token);
-//      //  return token;
-//    }
-
     public String getAttributeValue(Response apiResponse, String jasonPath) {
         // jasonPath: api response attribute json path
         String restApiResponse = apiResponse.asString();
@@ -304,6 +294,15 @@ public class ResponseValidation {
         String restApiResponse = apiResponse.asString();
         JsonPath jpath = new JsonPath(restApiResponse);
         int attributeValue = jpath.get(jasonPath);
+//            System.out.println("Attribute Value: "+attributeValue);
+        return attributeValue;
+    }
+
+    public boolean getAttributeBooleanValue(Response apiResponse, String jasonPath) {
+        // jasonPath: api response attribute json path
+        String restApiResponse = apiResponse.asString();
+        JsonPath jpath = new JsonPath(restApiResponse);
+        boolean attributeValue = jpath.get(jasonPath);
 //            System.out.println("Attribute Value: "+attributeValue);
         return attributeValue;
     }
