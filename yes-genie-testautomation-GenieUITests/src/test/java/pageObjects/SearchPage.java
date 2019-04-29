@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class SearchPage extends SearchLocators {
 
@@ -90,7 +91,11 @@ public class SearchPage extends SearchLocators {
     }
 
     public void clickOnIndividualRecord() {
-        individual_record.click();
+        try {
+            individual_record.click();
+        } catch (Exception err) {
+            System.out.println(err);
+        }
     }
 
     public void clickOnNonIndividualRecord() {
