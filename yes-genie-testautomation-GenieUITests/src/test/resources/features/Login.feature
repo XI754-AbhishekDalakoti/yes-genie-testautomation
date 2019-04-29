@@ -10,10 +10,10 @@ Feature: Login
     And I click on Login
     Then The button should be disabled
     Examples:
-      | Username | Password |
-      |          |          |
-      | UIAutomationDND  |          |
-      |          | UIAutomation  |
+      | Username        | Password     |
+      |                 |              |
+      | UIAutomationDND |              |
+      |                 | UIAutomation |
 
   @Regression
   Scenario: User should not be able to login with invalid credentails

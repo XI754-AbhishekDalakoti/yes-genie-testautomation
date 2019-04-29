@@ -25,7 +25,7 @@ public class LoginLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[@class='_3BIeaRQGSZXeruo1s-1Pa6']")
     public static WebElement display_lastlogin;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Manisha Chauhan')]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'UI Automation DND')]")
     public static WebElement display_name;
 
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'Superuser')]")

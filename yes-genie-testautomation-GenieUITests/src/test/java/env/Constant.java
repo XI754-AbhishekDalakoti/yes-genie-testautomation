@@ -2,7 +2,7 @@ package env;
 
 public class Constant {
 
-    public static final String name = "Manisha Chauhan";
+    public static final String name = "UI Automation DND";
     public static final String designation = "NA";
     public static final String role = "Superuser";
     public static final String MDMID = "MDM ID";
@@ -19,6 +19,7 @@ public class Constant {
     public static final String PartnerSegment = "Partner Segment";
     public static final String CustOpenDate = "Cust Open Date";
     public static final int threshold =50;
-    public static final String snapPageUrl = "https://cust360.uat-genie.yesbank.com/snap";
-    public static final String url = "https://sso.uat-genie.yesgenie.com/auth/realms/YBL/protocol/openid-connect/auth?client_id=yes-genie-frontend&redirect_uri";
+    public static final String snapPageUrl = "https://cust360.yesgenie.com:31390/snap";
+    public static final String loginErrorMessage = "Login Failed. Unknown Username or Bad Password.";
+    public static final String welcomeMessage = "Welcome, UI Automation DN...";
 }

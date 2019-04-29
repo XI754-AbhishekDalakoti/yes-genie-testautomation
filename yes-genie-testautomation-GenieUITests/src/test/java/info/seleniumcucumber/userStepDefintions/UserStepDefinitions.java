@@ -45,20 +45,20 @@ public class UserStepDefinitions implements BaseTest {
         }
         navigationObj.navigateTo(link);
         System.out.println("Title of page     "+driver.getTitle());
-        Assert.assertTrue(driver.getCurrentUrl().contains(Constant.url));
         Assert.assertEquals("Yes Genie", driver.getTitle());
     }
 
     @Then("^I should get logged-in with welcome message$")
     public void should_logged_in_with_welcome_message() throws Throwable {
 
-        By selection = By.xpath("//span[@class='_1ItRkkJp4JtCGSqCU2C5QD']");
+        By selection = By.xpath("(//span[@class='_1ItRkkJp4JtCGSqCU2C5QD'])[2]");
         (new WebDriverWait(driver, 10)).until(
                 visibilityOfElementLocated(selection));
-        String msg = driver.findElement(By.xpath("//span[@class='_1ItRkkJp4JtCGSqCU2C5QD']")).getText();
+        String msg = driver.findElement(By.xpath("(//span[@class='_1ItRkkJp4JtCGSqCU2C5QD'])[2]")).getText();
+        System.out.println("message    "+msg);
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Manisha Chauhan", msg);
+        Assert.assertEquals(Constant.welcomeMessage, msg);
     }
 
     @Then("^I should get error message$")
@@ -70,7 +70,7 @@ public class UserStepDefinitions implements BaseTest {
         String msg = driver.findElement(By.xpath("//span[@class='kc-text']")).getText().trim();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Login Failed. Unknown User ID or Bad Password.", msg);
+        Assert.assertEquals(Constant.loginErrorMessage, msg);
     }
 
     @Then("^The button should be disabled$")
