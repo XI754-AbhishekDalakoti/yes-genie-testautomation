@@ -2,7 +2,7 @@ Feature: Search or Landing Page
   As a user I should able to login into my app
 
   Background: User has logged in to Genie
-    Given I navigate to url "https://cust360.uat-genie.yesbank.com"
+    Given I navigate to url "https://cust360.yesgenie.com:31390"
     Then I wait for 2 sec
     And I enter "UIAutomationDND" into input field having id "username"
     And I enter "UIAutomation" into input field having id "password"
