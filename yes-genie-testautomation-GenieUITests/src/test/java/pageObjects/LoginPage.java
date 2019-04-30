@@ -66,7 +66,7 @@ public class LoginPage extends LoginLocators {
 
     public void staticSearchParameters() {
         String staticSearchParameters = search_static_parameters.getText();
-        Assert.assertEquals("Cust IDMDM IDMobile No.PANPassportCust NameAccount No.CKYC No.UPI HandleTwitter IdAadharEmail",staticSearchParameters);
+        Assert.assertEquals("Cust IDMDM IDMobile No.PANPassportCust NameAccount No.CKYC No.UPI HandleTwitter IdEmail",staticSearchParameters);
     }
 
     public void logOut() {

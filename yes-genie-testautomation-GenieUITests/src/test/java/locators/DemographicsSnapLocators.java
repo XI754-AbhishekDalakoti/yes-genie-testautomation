@@ -140,6 +140,9 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[@class='_39L-52oY77XXN3mR2CMCrR']")
     public static WebElement relationship_icon;
 
+    @FindBy(how = How.XPATH, using = "(//img[contains(@src,'DropdownWhite.eed0f3f1.svg')])[3]")
+    public static WebElement relation_minimize_button;
+
     @FindBy(how = How.XPATH, using = "//div[contains(@class,'_3bPmvFCu2ReIPAONCmDte5')]/div[2]")
     public static WebElement category_investors;
 
@@ -175,6 +178,12 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
 
     @FindBy(how = How.XPATH, using = "(//div[@class='_2LqD-0cHt1a2Qr2CHEVavQ'])[4]")
     public static WebElement relationship;
+
+    @FindBy(how = How.XPATH, using = "(//div[@class='_2LqD-0cHt1a2Qr2CHEVavQ'])[3]")
+    public static WebElement client_relationship;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='_56bCja-wVOzuC9qrvg4pc']")
+    public static WebElement linked_bank_name;
 
     @FindBy(how = How.XPATH, using = "(//img[@src='/static/media/Individual.23f30a4e.svg'])")
     public static WebElement individual_icon;
@@ -215,7 +224,7 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//td)[1]")
     public static WebElement authorised_first_mdmdid;
 
-    @FindBy(how = How.XPATH, using = "(//td)[2]")
+    @FindBy(how = How.XPATH, using = "(//td)[2]/div/span")
     public static WebElement authorised_first_custname;
 
     @FindBy(how = How.XPATH, using = "(//td)[3]")
@@ -241,6 +250,9 @@ public class DemographicsSnapLocators extends UserStepDefinitions {
 
     @FindBy(how = How.XPATH, using = "(//img[@class='qgW84NoZHrEw1QLQStQw1'])[2]")
     public static WebElement mobileno_status_of_authorised_signatory;
+
+    @FindBy(how = How.XPATH, using = "(//span[contains(@class,'_2MvpDNTs0NKzcf1CaZ2ET8')])[1]")
+    public static WebElement accountno_authorised_signatory;
 }
 
 

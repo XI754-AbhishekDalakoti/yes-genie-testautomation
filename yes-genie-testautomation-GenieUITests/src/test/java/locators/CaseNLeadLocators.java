@@ -24,7 +24,7 @@ public class CaseNLeadLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "//div[contains(text(),'Create Lead')]")
     public static WebElement create_lead_form_title;
 
-    @FindBy(how = How.ID, using = "submit")
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Submit')]")
     public static WebElement submit_button;
 
     @FindBy(how = How.XPATH, using = "//div[@class='_31vqzyuKmHK9WBSIDdOtxz']")
@@ -57,7 +57,7 @@ public class CaseNLeadLocators extends UserStepDefinitions {
     @FindBy(how = How.ID, using = "remarks")
     public static WebElement remarks;
 
-    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Issue')]")
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Book FD')]")
     public static WebElement create_lead_lable;
 
     @FindBy(how = How.XPATH, using = "(//div[@class='css-xp4uvy'])[1]")
@@ -81,10 +81,10 @@ public class CaseNLeadLocators extends UserStepDefinitions {
     @FindBy(how = How.XPATH, using = "(//div[@class='_31vqzyuKmHK9WBSIDdOtxz'])")
     public static WebElement transaction_completed_successfully;
 
-    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Create SR')]")
-    public static WebElement create_sr_lable;
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Update FATCA')]")
+    public static WebElement update_fatca_lable;
 
-    @FindBy(how = How.ID, using = "//img[@src='/static/media/nba_close.b912ea74.svg']")
+    @FindBy(how = How.XPATH, using = "//img[contains(@src,'nba_close.b912ea74.svg')]")
     public static WebElement cross_button_nba;
 
     @FindBy(how = How.XPATH, using = "//img[@src='/static/media/Defer.c4b50860.svg']")
@@ -95,5 +95,64 @@ public class CaseNLeadLocators extends UserStepDefinitions {
 
     @FindBy(how = How.XPATH, using = "//div[contains(text(),'Close')]")
     public static WebElement close_button;
+
+    @FindBy(how = How.XPATH, using = "//img[@src='/static/media/nba_close.b912ea74.svg']")
+    public static WebElement cross_button_all_category;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Dismiss')]")
+    public static WebElement dismiss_button;
+
+    @FindBy(how = How.ID, using = "submit")
+    public static WebElement dismiss_submit_button;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='_288kmL-P6mB4JB7iYJXHmn']")
+    public static WebElement create_case_title;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Select Cust ID')]")
+    public static WebElement click_custid_dropdown;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'998003451')]")
+    public static WebElement select_custid_in_case;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Select Product Name')]")
+    public static WebElement click_productname_dropdown;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Yes MSME')]")
+    public static WebElement select_productname_for_case;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Select Case Type')]")
+    public static WebElement click_casetype_dropdown;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Service Request')]")
+    public static WebElement select_casetype_for_case;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Select Issue Type Name')]")
+    public static WebElement click_issuetype_dropdown;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Request for Yes MSME set up')]")
+    public static WebElement select_issuetype_for_case;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='VRzq6mIGh0FiXMvg-Kh1Z']/div[2]")
+    public static WebElement category_regulatory;
+
+    @FindBy(how = How.XPATH, using = "(//div[contains(text(),'998003452')])[2]")
+    public static WebElement custId;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Cheque CMS and ECS')]")
+    public static WebElement product_name;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'ECS')]")
+    public static WebElement case_type;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'ECS instructions not initiated')]")
+    public static WebElement issue_type_name;
+
+    @FindBy(how = How.ID, using = "caseCategory")
+    public static WebElement case_category;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'X-Sell')]")
+    public static WebElement xsell_category;
+
+
 
 }

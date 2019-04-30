@@ -339,6 +339,10 @@ public class DemographicsSnapPage extends DemographicsSnapLocators {
         relationship_icon.click();
     }
 
+    public void minimizeToCloseRelationGraph() {
+        relation_minimize_button.click();
+    }
+
     public void customerRelationGraphWithCategories(DataTable relationTable) {
         List<List<String>> data = relationTable.raw();
         category_investors.click();
@@ -390,8 +394,8 @@ public class DemographicsSnapPage extends DemographicsSnapLocators {
         Assert.assertEquals(data.get(5).get(2), mdm_id.getText());
         Assert.assertEquals(data.get(5).get(3), self.getText());
         Assert.assertEquals(data.get(5).get(4), linked_customer_name.getAttribute("title"));
-//        Assert.assertEquals(data.get(5).get(5), linked_mdm_id.getText());
-        Assert.assertEquals(data.get(5).get(6), relationship.getText());
+        Assert.assertEquals(data.get(5).get(5), linked_bank_name.getText());
+        Assert.assertEquals(data.get(5).get(6), client_relationship.getText());
     }
 
     public void iClickOnAuthorisedSignatoryIcon() {
@@ -423,5 +427,6 @@ public class DemographicsSnapPage extends DemographicsSnapLocators {
         Assert.assertEquals(table.get(1).get(7), authorised_first_secondary_mobile.getText());
         Assert.assertEquals(table.get(1).get(8), authorised_first_contactibility.getText());
         Assert.assertEquals(table.get(1).get(9), authorised_first_currentcitystate.getAttribute("title"));
+        Assert.assertEquals(table.get(1).get(10), accountno_authorised_signatory.getAttribute("title"));
     }
 }

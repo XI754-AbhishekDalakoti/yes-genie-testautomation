@@ -302,8 +302,13 @@ public class DriverUtil {
 
         boolean headless = System.getProperty("headless").equals("true");
         boolean ios = System.getProperty("ios_flag").equals("true");
-        boolean android = System.getProperty("android_flag").equals("true");
 
+        boolean android = System.getProperty("android_flag").equals("true");
+        /*boolean headless = System.getProperty("headless").equals("true");
+
+        boolean ios = System.getProperty("ios_flag").equals("true");
+
+        boolean android = System.getProperty("android_flag").equals("true");*/
         switch (preferredDriver.toLowerCase()) {
             case "safari":
                 try {

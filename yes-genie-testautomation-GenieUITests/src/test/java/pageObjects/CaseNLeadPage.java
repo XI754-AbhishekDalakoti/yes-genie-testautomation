@@ -2,6 +2,10 @@ package pageObjects;
 
 import locators.CaseNLeadLocators;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class CaseNLeadPage extends CaseNLeadLocators {
 
@@ -32,7 +36,27 @@ public class CaseNLeadPage extends CaseNLeadLocators {
         select_productname.click();
         select_productname_from_dropdown.click();
         remarks.click();
-        remarks.sendKeys("rmks");
+        remarks.sendKeys(rmks);
+        submit_button.click();
+    }
+
+    public void clickOnSubmitButton() {
+        submit_button.click();
+    }
+
+    public void fillAllFieldsOfCreateServiceRequestForm(String rmks) {
+        click_custid_dropdown.click();
+        select_custid_in_case.click();
+        click_productname_dropdown.click();
+        select_productname_for_case.click();
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        click_casetype_dropdown.click();
+        select_casetype_for_case.click();
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        click_issuetype_dropdown.click();
+        select_issuetype_for_case.click();
+        remarks.click();
+        remarks.sendKeys(rmks);
         submit_button.click();
     }
 
@@ -41,7 +65,7 @@ public class CaseNLeadPage extends CaseNLeadLocators {
     }
 
     public void createLeadWithRecommendationTitle() {
-        Assert.assertEquals("Issue",create_lead_lable.getText());
+        Assert.assertEquals("Book FD",create_lead_lable.getText());
     }
 
     public void clickOnLableToCreateLead() {
@@ -69,10 +93,12 @@ public class CaseNLeadPage extends CaseNLeadLocators {
     }
 
     public void clickOnLableToCreateServiceRequest() {
-        create_sr_lable.click();
+        category_regulatory.click();
+        update_fatca_lable.click();
     }
 
     public void clickOnCrossButton() {
+        category_regulatory.click();
         cross_button_nba.click();
     }
 
@@ -81,8 +107,38 @@ public class CaseNLeadPage extends CaseNLeadLocators {
     }
 
     public void verifyMessage(String message) {
-        String getSuccessMessage = deferred_dismiss_message.getText();
-        Assert.assertEquals(message, getSuccessMessage);
+        Assert.assertTrue(deferred_dismiss_message.getText().contains(message));
         close_button.click();
+    }
+
+    public void clickCrossButtonInXSellCategory() {
+        xsell_category.click();
+        cross_button_all_category.click();
+    }
+
+    public void clickOnDismiss() {
+        dismiss_button.click();
+    }
+
+    public void selectDismissReason() {
+        dismiss_submit_button.click();
+    }
+
+    public void clickOnCreateServiceRequest() { create_service_request.click(); }
+
+    public void verifyTitleOfCaseCaseForm(String title) {
+        Assert.assertEquals(title, create_case_title.getText());
+    }
+
+    public void verifyCreateCaseFormTitle() {
+        Assert.assertTrue(update_fatca_lable.isDisplayed());
+    }
+
+    public void verifyDataIsPrefilledInCreateCaseWithRecommendation() {
+        Assert.assertTrue(custId.isDisplayed());
+        Assert.assertTrue(product_name.isDisplayed());
+        Assert.assertTrue(case_type.isDisplayed());
+        Assert.assertTrue(issue_type_name.isDisplayed());
+        Assert.assertEquals("Complaint", case_category.getAttribute("value"));
     }
 }

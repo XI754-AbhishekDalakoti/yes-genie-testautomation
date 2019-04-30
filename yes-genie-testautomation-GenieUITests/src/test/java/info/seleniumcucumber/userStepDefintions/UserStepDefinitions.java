@@ -3,15 +3,20 @@ package info.seleniumcucumber.userStepDefintions;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import env.Constant;
 import env.DriverUtil;
 import info.seleniumcucumber.methods.BaseTest;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.*;
 
@@ -26,13 +31,12 @@ public class UserStepDefinitions implements BaseTest {
 
     public static LoginPage lp = new LoginPage();
     public static SearchPage sp = new SearchPage();
-    public static SnapPage snap = new SnapPage();
     public static PortfolioPage portfolio = new PortfolioPage();
     public static DemographicsSnapPage demogs = new DemographicsSnapPage();
     public static CaseNLeadPage caseNlead = new CaseNLeadPage();
     public static ProductDetailsPage productdetail =new ProductDetailsPage();
+    public static NextBestActionPage nba = new NextBestActionPage();
     protected WebDriver driver = DriverUtil.getDefaultDriver();
-
 
     @Given("^I navigate to url \"([^\"]*)\"$")
     public void navigate_to(String link) {
@@ -40,18 +44,21 @@ public class UserStepDefinitions implements BaseTest {
             link="https://cust360.uat-genie.yesbank.com/";
         }
         navigationObj.navigateTo(link);
+        System.out.println("Title of page     "+driver.getTitle());
+        Assert.assertEquals("Yes Genie", driver.getTitle());
     }
 
     @Then("^I should get logged-in with welcome message$")
     public void should_logged_in_with_welcome_message() throws Throwable {
 
-        By selection = By.xpath("//span[@class='_1ItRkkJp4JtCGSqCU2C5QD']");
+        By selection = By.xpath("(//span[@class='_1ItRkkJp4JtCGSqCU2C5QD'])[2]");
         (new WebDriverWait(driver, 10)).until(
                 visibilityOfElementLocated(selection));
-        String msg = driver.findElement(By.xpath("//span[@class='_1ItRkkJp4JtCGSqCU2C5QD']")).getText();
+        String msg = driver.findElement(By.xpath("(//span[@class='_1ItRkkJp4JtCGSqCU2C5QD'])[2]")).getText();
+        System.out.println("message    "+msg);
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Manisha Chauhan", msg);
+        Assert.assertEquals(Constant.welcomeMessage, msg);
     }
 
     @Then("^I should get error message$")
@@ -63,7 +70,7 @@ public class UserStepDefinitions implements BaseTest {
         String msg = driver.findElement(By.xpath("//span[@class='kc-text']")).getText().trim();
         if (!msg.isEmpty())
             msg = msg.split("\n")[0].trim();
-        Assert.assertEquals("Login Failed. Unknown User ID or Bad Password.", msg);
+        Assert.assertEquals(Constant.loginErrorMessage, msg);
     }
 
     @Then("^The button should be disabled$")
@@ -175,19 +182,9 @@ public class UserStepDefinitions implements BaseTest {
         demogs.demographicsAttributesOfCorporate(data);
     }
 
-    @Then("^I verify all the \"([^\"]*)\" with \"([^\"]*)\" and \"([^\"]*)\" , \"([^\"]*)\", \"([^\"]*)\" is available in NBA section$")
-    public void iVerifyAllTheWithDataAndIsAvailableInNBACategories(String category, String count, String recommendation, String recommendationEndDate, String actionLableIcon) throws Throwable {
-        snap.verfiyDifferentCategoriesOnSnapPage(category, count, recommendation, recommendationEndDate, actionLableIcon);
-    }
-
     @Then("^I click on any recommendation's lable in ALL category section to Create Lead$")
     public void iClickOnAnyRecommendationSLabelInALLCategorySectionToCreateLead()throws Throwable {
         caseNlead.clickOnLableToCreateLead();
-    }
-
-    @Then("^Book FD page should get open with attributes \"([^\"]*)\" \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
-    public void bookFDPageShouldGetOpenWithAttributes(String attribute1, String attribute2, String attribute3, String attribute4, String attribute5, String attribute6) throws Throwable {
-        snap.verifyBookFDPage(attribute1, attribute2, attribute3, attribute4, attribute5, attribute6);
     }
 
     @And("^Data is prefilled with values \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" respectively$")
@@ -220,11 +217,6 @@ public class UserStepDefinitions implements BaseTest {
         caseNlead.clickOnDefer();
     }
 
-    @And("^I select future date and click on submit button in calender$")
-    public void iClickOnSubmitButtonInCalender() throws Throwable {
-        snap.clickOnSubmitOfCalender();
-    }
-
     @Then("^I get message \"([^\"]*)\"$")
     public void iGetsMessage(String message) throws Throwable {
         caseNlead.verifyMessage(message);
@@ -232,37 +224,17 @@ public class UserStepDefinitions implements BaseTest {
 
     @And("^I click on 'Dimiss' option to dismiss the recommendation$")
     public void iClickOnDimissOptionToDeferTheRecommendation() throws Throwable {
-        snap.clickOnDismiss();
+        caseNlead.clickOnDismiss();
     }
 
     @Then("^I select dimiss reason from dialogue box and i click on submit$")
     public void iSelectDimissReasonFromDialogueBoxAndIClickOnSubmit() throws Throwable {
-        snap.selectDismissReason();
+        caseNlead.selectDismissReason();
     }
 
     @Then("^I click on 'Customer Relation' icon$")
     public void iClickOnCustomerRelationshipIcon() throws Throwable {
         demogs.ClicksOnRelationshipIcon();
-    }
-
-    @Then("^I click on 'X-Sell' section in NBA$")
-    public void iClickOnXSellSectionInNBA() throws Throwable {
-        snap.clickOnSellCategory();
-    }
-
-    @And("^I click on cross button in 'X-Sell' recommendation$")
-    public void iClickOnCrossButtonInXSellRecommendation() throws Throwable {
-        snap.clickCrossButtonOfSellCategory();
-    }
-
-    @And("^Customer relation graph gets open where i can see 'Customer Relations Categories' like \"([^\"]*)\"$")
-    public void customerRelationshipPageGetsOpenWhereICanSeeCustomerRelationshipCategoriesLike(String category) throws Throwable {
-        snap.verifyRelationCategory(category);
-    }
-
-    @Then("^I click on 'minimize icon' to close relation graph$")
-    public void iClickOnMinimizeButtonToCloseRelationGraph() throws Throwable {
-        snap.clickOnMinimizeIconOfRelationGraph();
     }
 
     @Then("^I click on 'Transactions' icon on top right$")
@@ -275,11 +247,6 @@ public class UserStepDefinitions implements BaseTest {
         caseNlead.clickOnCreateLead();
     }
 
-    @And("^Form gets open with attributes \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" , \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void formGetsOpenWithAttributesAnd(String attribute1, String attribute2, String attribute3, String attribute4, String attribute5, String attribute6) throws Throwable {
-        snap.verifyAttributesOfCreateLeadWithoutReccomendation(attribute1, attribute2, attribute3, attribute4, attribute5, attribute6);
-    }
-
     @Then("^I click on 'Authorised Signatory' icon in demographics$")
     public void iClickOnAuthorisedSignatoryIconInDemographics() throws Throwable {
         demogs.iClickOnAuthorisedSignatoryIcon();
@@ -290,24 +257,9 @@ public class UserStepDefinitions implements BaseTest {
         demogs.verifyAuthorisedSignatoryPage(title);
     }
 
-    @Then("^I verify 'Portfolio' section is displayed to user with KPI attributes \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void iVerifyPortfolioSectionIsDisplayedToUserWithKPIAttributesAnd(String attr1, String attr2, String attr3) throws Throwable {
-        snap.verifyKpiAttributes(attr1, attr2, attr3);
-    }
-
-    @And("^Respective values like \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\" is displayed on portfolio UI$")
-    public void respectiveValuesLikeAndIsDisplayedOnPortfolioUI(String val1, String val2, String val3) throws Throwable {
-        snap.verifyValuesOfKpiAttributes(val1, val2, val3);
-    }
-
     @Then("^I click on MDM ID on demographics$")
     public void iClickOnMDMIDOnDemographics() throws Throwable {
         demogs.clickOnMmdIdOnDemogs();
-    }
-
-    @And("^I verify all DemogsValue with DetailedValue$")
-    public void iVerifyAllDemogsValueWithDetailedValue(DataTable data) throws Throwable {
-        snap.verifyDetailedAttributes(data);
     }
 
     @And("^I verify all attributes and there values for detailed MDM ID with indexType 'M'$")
@@ -397,7 +349,7 @@ public class UserStepDefinitions implements BaseTest {
         caseNlead.createLeadWithRecommendationTitle();
     }
 
-    @Then("^I click on any recommendation's lable in ALL category section to Create Service Request$")
+    @Then("^I click on any recommendation's lable in Regulatory category section to Create Service Request$")
     public void iClickOnAnyRecommendationSLableInALLCategorySectionToCreateServiceRequest() throws Throwable {
         caseNlead.clickOnLableToCreateServiceRequest();
     }
@@ -442,10 +394,95 @@ public class UserStepDefinitions implements BaseTest {
         productdetail.clickOnResetButton();
     }
 
-    @After
+    @And("^I click on 'Create Service Request'$")
+    public void iClickOnCreateServiceRequest() throws Throwable {
+        caseNlead.clickOnCreateServiceRequest();
+    }
+
+    @Then("^Create Case form gets open with title \"([^\"]*)\"$")
+    public void createCaseFormGetsOpenWithTitle(String title) throws Throwable {
+        caseNlead.verifyTitleOfCaseCaseForm(title);
+    }
+
+    @And("^I fill all the fields of Create Case form with remarks \"([^\"]*)\" and click on submit$")
+    public void iFillAllTheFieldsOfCreateCaseFormWithRemarksAndClickOnSubmit(String rmks) throws Throwable {
+        caseNlead.fillAllFieldsOfCreateServiceRequestForm(rmks);
+    }
+
+    @Then("^I verify categories like \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\" is displayed in NBA$")
+    public void iVerifyCategoriesLikeAndIsDisplayedInNBA(String all, String regulatory, String service, String xsell, String alerts, String information) throws Throwable {
+        nba.verifyAllCategoriesIsDisplayed(all, regulatory, service, xsell, alerts, information);
+    }
+
+    @Then("^I verify recommendation is displayed with below details with icons$")
+    public void iVerifyRecommendationIsDisplayedWithBelowDetailsWithIcons(DataTable nbaTable) throws Throwable {
+        nba.verifyDetailsDisplayedInNBA(nbaTable);
+    }
+
+    @And("^I click on 'minimize icon' to close relation graph$")
+    public void iClickOnMinimizeIconToCloseRelationGraph() throws Throwable {
+        demogs.minimizeToCloseRelationGraph();
+    }
+
+    @And("^I select future date and click on submit button in calender$")
+    public void iSelectFutureDateAndClickOnSubmitButtonInCalender() throws Throwable {
+        caseNlead.clickOnSubmitButton();
+    }
+
+    @Then("^Create Case form gets open with lable name as title$")
+    public void createCaseFormGetsOpenWithLableNameAsTitle() throws Throwable {
+        caseNlead.verifyCreateCaseFormTitle();
+    }
+
+    @And("^Data is prefilled with all values$")
+    public void dataIsPrefilledWithAllValues() throws Throwable {
+        caseNlead.verifyDataIsPrefilledInCreateCaseWithRecommendation();
+    }
+
+    @After("@logout")
     public void afterScenario() {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         dropdown.click();
         logout_button.click();
+    }
+
+    @And("^I click on cross button in 'X-Sell' category recommendation$")
+    public void iClickOnCrossButtonInXSellCategoryRecommendation() throws Throwable {
+        caseNlead.clickCrossButtonInXSellCategory();
+    }
+
+    @Then("^I verify Channels category for Individual$")
+    public void iVerifyChannelsCategoryForIndividual(DataTable individualChannelsTable) throws Throwable {
+        portfolio.VerifyChannelsCategoryIndividual(individualChannelsTable);
+    }
+
+    @Then("^I click on individual record$")
+    public void iClickOnRecord() throws Throwable {
+        sp.clickOnIndividualRecord();
+    }
+
+    @Then("^I click on non-individual record$")
+    public void iClickOnNonIndividualRecord() throws Throwable {
+        sp.clickOnNonIndividualRecord();
+    }
+
+    @Then("^I verify Deposit & Investments options of portfolio section$")
+    public void iVerifyDepositInvestmentsOptionsOfPortfolioSection() throws Throwable {
+        portfolio.verifyDepositsInvestmentsOptions();
+    }
+
+    @Then("^I verify Trade options of portfolio section$")
+    public void iVerifyTradeOptionsOfPortfolioSection() throws Throwable {
+        portfolio.verifyTradeOptions();
+    }
+
+    @Then("^I verify Loan & Advances options of portfolio section$")
+    public void iVerifyLoanAdvancesOptionsOfPortfolioSection() throws Throwable {
+        portfolio.verifyLoansAdvancesOptions();
+    }
+
+    @Then("^I verify Collections & Payments and wallets options of portfolio section$")
+    public void iVerifyCollectionsPaymentsAndWalletsOptionsOfPortfolioSection() throws Throwable {
+        portfolio.verifyCollectionsPaymentsOptions();
     }
 }

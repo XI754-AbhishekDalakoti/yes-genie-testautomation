@@ -10,40 +10,40 @@ Feature: Login
     And I click on Login
     Then The button should be disabled
     Examples:
-      | Username | Password |
-      |          |          |
-      | manisha  |          |
-      |          | manisha  |
+      | Username        | Password     |
+      |                 |              |
+      | UIAutomationDND |              |
+      |                 | UIAutomation |
 
   @Regression
   Scenario: User should not be able to login with invalid credentails
     Then I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "mani" into input field having id "password"
+    And I enter "UIAutomationDND" into input field having id "username"
+    And I enter "uiautomationdnd" into input field having id "password"
     When I click on Login
     Then I should get error message
 
-  @Regression
+  @Regression @logout
   Scenario: User should be able to login when User ID is case insensitive
     Then I wait for 2 sec
-    And I enter "MANISHA" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
+    And I enter "uiautomationdnd" into input field having id "username"
+    And I enter "UIAutomation" into input field having id "password"
     When I click on Login
     Then I should get logged-in with welcome message
 
-  @Regression @Smoke
+  @Regression @Smoke @logout
   Scenario: I login with valid credential with welcome message
     Then I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
+    And I enter "UIAutomationDND" into input field having id "username"
+    And I enter "UIAutomation" into input field having id "password"
     And I click on Login
     Then I should get logged-in with welcome message
 
-  @Smoke @Regression
+  @Smoke @Regression @logout
   Scenario: Validate Last Login date time format and basic information is displayed
     Then I wait for 2 sec
-    And I enter "manisha" into input field having id "username"
-    And I enter "manisha" into input field having id "password"
+    And I enter "UIAutomationDND" into input field having id "username"
+    And I enter "UIAutomation" into input field having id "password"
     And I click on Login
     Then I wait for 2 sec
     Then I validate Last Login date and time format displayed on bottom right of the page
