@@ -126,7 +126,6 @@ public class ApiContracts {
         RestAssured.port=Integer.valueOf(propertyReader.getProperty("port"));
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.contentType("application/json");
-        String ar[] = getJson();
         Scanner scanner = new Scanner(new File("src/test/resources/customerrelations.json"));
         while (scanner.hasNextLine()) {
             String s=scanner.nextLine();

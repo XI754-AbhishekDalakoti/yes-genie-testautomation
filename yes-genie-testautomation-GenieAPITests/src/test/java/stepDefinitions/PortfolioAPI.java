@@ -54,7 +54,7 @@ public class PortfolioAPI {
 
     @Then("^user get the response for productCategory loans \"([^\"]*)\" is \"([^\"]*)\" from the portfolio api where customer type is individual$")
     public void user_get_the_response_for_productCategory_loans_is_from_the_portfolio_api_where_customer_type_is_individual(String key, String value) throws Throwable {
-        String param = "[0].portfolioProducts[1].";
+        String param = "[0].portfolioProducts[0].";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 
@@ -72,7 +72,7 @@ public class PortfolioAPI {
 
     @Then("^user get the response for productCategory others \"([^\"]*)\" is \"([^\"]*)\" from the portfolio api where customer type is individual$")
     public void user_get_the_response_for_productCategory_others_is_from_the_portfolio_api_where_customer_type_is_individual(String key, String value) throws Throwable {
-        String param = "[1].portfolioProducts[1].";
+        String param = "[1].portfolioProducts[0].";
         responseValidation.responseStringValueCompare(param, responseIndividual, key, value);
     }
 
