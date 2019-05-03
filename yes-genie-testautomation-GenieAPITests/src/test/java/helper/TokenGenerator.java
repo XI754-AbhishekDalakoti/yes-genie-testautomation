@@ -23,8 +23,8 @@ public class TokenGenerator {
             }
             else{
                 uriAccessToken="https://sso.yesgenie.com:31390/auth/realms/YBL/protocol/openid-connect/token";
-                username ="abhishek";
-                password="123";
+                username ="priti";
+                password="priti";
             }
             responseAccessToken = given().relaxedHTTPSValidation().accept(ContentType.JSON).
                     header("Content-Type", "application/x-www-form-urlencoded").
@@ -39,4 +39,29 @@ public class TokenGenerator {
             accessToken = "Bearer ".concat(accessToken);
             return accessToken;
         }
+
+    public static String getTokenForAnotherUser() {
+        if (System.getProperty("env").equals("UAT")) {
+            uriAccessToken="https://sso.uat-genie.yesbank.com/auth/realms/YBL/protocol/openid-connect/token";
+            username ="ADC0008352";
+            password="Test@1234";
+        }
+        else{
+            uriAccessToken="https://sso.yesgenie.com:31390/auth/realms/YBL/protocol/openid-connect/token";
+            username ="preeti";
+            password="preeti";
+        }
+        responseAccessToken = given().relaxedHTTPSValidation().accept(ContentType.JSON).
+                header("Content-Type", "application/x-www-form-urlencoded").
+                formParam("client_id", "yes-genie-frontend").
+                formParam("grant_type", "password").
+                formParam("username", username).
+                formParam("password", password).
+                formParam("client_secret", "f2b07a8f-ce69-41c6-9d28-f056bc9713fe").
+                post(uriAccessToken);
+        responseValidation.validateResponseOk(responseAccessToken);
+        accessToken = responseValidation.getResponse(responseAccessToken);
+        accessToken = "Bearer ".concat(accessToken);
+        return accessToken;
+    }
     }

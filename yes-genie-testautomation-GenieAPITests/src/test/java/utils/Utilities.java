@@ -12,9 +12,7 @@ import java.util.Map;
 
 import cucumber.api.DataTable;
 import io.restassured.module.jsv.JsonSchemaValidator;
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
+import org.hamcrest.Matcher;
 
 public class Utilities {
 	
@@ -39,7 +37,7 @@ public class Utilities {
 	/*
 	 * return JsonSchemaValidator 
 	 * */
-	public static JsonSchemaValidator matchesJsonSchema(String schemaFileName) throws FileNotFoundException {
+	public static Matcher<?> matchesJsonSchema(String schemaFileName) throws FileNotFoundException {
 		return JsonSchemaValidator.matchesJsonSchema(getInputStream(Constants.schemaFolderPath + Constants.separator + schemaFileName));
 	}
 	
