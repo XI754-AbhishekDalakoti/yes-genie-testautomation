@@ -68,9 +68,20 @@ public class Transactions extends ResponseValidation {
         responseValidation.validateResponseBadRequest(response);
     }
 
+    @Then("^I get status code 400 as bad request in response$")
+    public void verify_bad_request_status_code_400(){
+        responseValidation.validateBadRequest(response);
+    }
+
     @And("^I verify the key \"([^\"]*)\" as \"([^\"]*)\" in the response$")
     public void verify_key_and_value_in_the_response(String key,String value){
         String param = "[0].";
         responseValidation.responseStringValueCompare(param,response,key,value);
+    }
+
+    @And("^I verify key \"([^\"]*)\" as \"([^\"]*)\"$")
+    public void verify_key_and_value_in_response(String key,int value){
+        String param = "";
+        responseValidation.responseIntValueCompare(param,response,key,value);
     }
 }
