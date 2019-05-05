@@ -48,8 +48,6 @@ gradle clean test aggregate -Dserenity.properties=test-properties/chrome.propert
 
 Pass the webdriver.base.url property from the command line to run the test i.e.
 
-gradle clean test aggregate -Dserenity.properties=test-properties/chrome.properties -Dwebdriver.base.url=url -Dcucumber.options="--tags @Smoke"
-
 To run the test with multiple tags:
 gradle clean test aggregate -Dserenity.properties=test-properties/chrome.properties -Dwebdriver.base.url="url" -Dcucumber.options="--tags @Smoke,@RegressionTest"
 
