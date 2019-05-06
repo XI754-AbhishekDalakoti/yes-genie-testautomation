@@ -194,14 +194,14 @@ Feature: Validate nba APIs
   @smoke @regression @nba
   Scenario: User validates the response code and response of blacklist api
     Given a genie user has a blacklist api to test is "/api/genie/blacklist/reasons"
-    When a genie user passes the "FD001" as action codes to get the response from blacklist api
+    When a genie user passes the "FD01" as action codes to get the response from blacklist api
     Then a user get the status code 200 as a response from the blacklist api
     And user get the reason "Customer does not have disposable funds to book FD" from the blacklist api
 
   @regression @nba
   Scenario: User validates the empty response of blacklist api
     Given a genie user has a blacklist api to test is "/api/genie/blacklist/reasons"
-    When a genie user passes the "FD0003" as action codes to get the response from blacklist api
+    When a genie user passes the "SR01" as action codes to get the response from blacklist api
     Then a user get the status code 200 as a response from the blacklist api and "[]" as a message in body
 
   @regression @nba @dismiss
